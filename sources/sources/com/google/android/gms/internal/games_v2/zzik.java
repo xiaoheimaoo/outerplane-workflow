@@ -1,0 +1,24 @@
+package com.google.android.gms.internal.games_v2;
+
+import java.util.Comparator;
+import java.util.SortedSet;
+/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* loaded from: classes2.dex */
+final class zzik {
+    public static boolean zza(Comparator comparator, Iterable iterable) {
+        Comparator comparator2;
+        comparator.getClass();
+        iterable.getClass();
+        if (iterable instanceof SortedSet) {
+            comparator2 = ((SortedSet) iterable).comparator();
+            if (comparator2 == null) {
+                comparator2 = zzhr.zza;
+            }
+        } else if (!(iterable instanceof zzij)) {
+            return false;
+        } else {
+            comparator2 = ((zzij) iterable).comparator();
+        }
+        return comparator.equals(comparator2);
+    }
+}

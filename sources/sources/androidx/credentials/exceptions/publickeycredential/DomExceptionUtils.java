@@ -1,0 +1,161 @@
+package androidx.credentials.exceptions.publickeycredential;
+
+import androidx.core.app.NotificationCompat;
+import androidx.credentials.exceptions.domerrors.AbortError;
+import androidx.credentials.exceptions.domerrors.ConstraintError;
+import androidx.credentials.exceptions.domerrors.DataCloneError;
+import androidx.credentials.exceptions.domerrors.DataError;
+import androidx.credentials.exceptions.domerrors.DomError;
+import androidx.credentials.exceptions.domerrors.EncodingError;
+import androidx.credentials.exceptions.domerrors.HierarchyRequestError;
+import androidx.credentials.exceptions.domerrors.InUseAttributeError;
+import androidx.credentials.exceptions.domerrors.InvalidCharacterError;
+import androidx.credentials.exceptions.domerrors.InvalidModificationError;
+import androidx.credentials.exceptions.domerrors.InvalidNodeTypeError;
+import androidx.credentials.exceptions.domerrors.InvalidStateError;
+import androidx.credentials.exceptions.domerrors.NamespaceError;
+import androidx.credentials.exceptions.domerrors.NetworkError;
+import androidx.credentials.exceptions.domerrors.NoModificationAllowedError;
+import androidx.credentials.exceptions.domerrors.NotAllowedError;
+import androidx.credentials.exceptions.domerrors.NotFoundError;
+import androidx.credentials.exceptions.domerrors.NotReadableError;
+import androidx.credentials.exceptions.domerrors.NotSupportedError;
+import androidx.credentials.exceptions.domerrors.OperationError;
+import androidx.credentials.exceptions.domerrors.OptOutError;
+import androidx.credentials.exceptions.domerrors.QuotaExceededError;
+import androidx.credentials.exceptions.domerrors.ReadOnlyError;
+import androidx.credentials.exceptions.domerrors.SecurityError;
+import androidx.credentials.exceptions.domerrors.SyntaxError;
+import androidx.credentials.exceptions.domerrors.TimeoutError;
+import androidx.credentials.exceptions.domerrors.TransactionInactiveError;
+import androidx.credentials.exceptions.domerrors.UnknownError;
+import androidx.credentials.exceptions.domerrors.VersionError;
+import androidx.credentials.exceptions.domerrors.WrongDocumentError;
+import androidx.credentials.internal.FrameworkClassParsingException;
+import com.google.android.gms.ads.RequestConfiguration;
+import com.helpshift.HelpshiftEvent;
+import kotlin.Metadata;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+/* compiled from: DomExceptionUtils.kt */
+@Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0003\b\u0001\u0018\u0000 \u00032\u00020\u0001:\u0001\u0003B\u0005¢\u0006\u0002\u0010\u0002¨\u0006\u0004"}, d2 = {"Landroidx/credentials/exceptions/publickeycredential/DomExceptionUtils;", "", "()V", "Companion", "credentials_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+/* loaded from: classes.dex */
+public final class DomExceptionUtils {
+    public static final Companion Companion = new Companion(null);
+    public static final String SEPARATOR = "/";
+
+    /* compiled from: DomExceptionUtils.kt */
+    @Metadata(d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J:\u0010\u0005\u001a\u0002H\u0006\"\u0006\b\u0000\u0010\u0006\u0018\u00012\u0006\u0010\u0007\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\u00042\b\u0010\t\u001a\u0004\u0018\u00010\u00042\u0006\u0010\n\u001a\u0002H\u0006H\u0081\b¢\u0006\u0004\b\u000b\u0010\fJ-\u0010\r\u001a\u0002H\u0006\"\u0004\b\u0000\u0010\u00062\u0006\u0010\u000e\u001a\u00020\u000f2\b\u0010\t\u001a\u0004\u0018\u00010\u00042\u0006\u0010\n\u001a\u0002H\u0006H\u0002¢\u0006\u0002\u0010\u0010R\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000¨\u0006\u0011"}, d2 = {"Landroidx/credentials/exceptions/publickeycredential/DomExceptionUtils$Companion;", "", "()V", "SEPARATOR", "", "generateDomException", RequestConfiguration.MAX_AD_CONTENT_RATING_T, HelpshiftEvent.DATA_MESSAGE_TYPE, "prefix", NotificationCompat.CATEGORY_MESSAGE, "t", "generateDomException$credentials_release", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", "generateException", "domError", "Landroidx/credentials/exceptions/domerrors/DomError;", "(Landroidx/credentials/exceptions/domerrors/DomError;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", "credentials_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+    /* loaded from: classes.dex */
+    public static final class Companion {
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        private Companion() {
+        }
+
+        public final /* synthetic */ <T> T generateDomException$credentials_release(String type, String prefix, String str, T t) {
+            Intrinsics.checkNotNullParameter(type, "type");
+            Intrinsics.checkNotNullParameter(prefix, "prefix");
+            if (Intrinsics.areEqual(type, prefix + AbortError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_ABORT_ERROR)) {
+                return (T) generateException(new AbortError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + ConstraintError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_CONSTRAINT_ERROR)) {
+                return (T) generateException(new ConstraintError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + DataCloneError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_DATA_CLONE_ERROR)) {
+                return (T) generateException(new DataCloneError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + DataError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_DATA_ERROR)) {
+                return (T) generateException(new DataError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + EncodingError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_ENCODING_ERROR)) {
+                return (T) generateException(new EncodingError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + HierarchyRequestError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_HIERARCHY_REQUEST_ERROR)) {
+                return (T) generateException(new HierarchyRequestError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + InUseAttributeError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_IN_USE_ATTRIBUTE_ERROR)) {
+                return (T) generateException(new InUseAttributeError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + InvalidCharacterError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_INVALID_CHARACTER_ERROR)) {
+                return (T) generateException(new InvalidCharacterError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + InvalidModificationError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_INVALID_MODIFICATION_ERROR)) {
+                return (T) generateException(new InvalidModificationError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + InvalidNodeTypeError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_INVALID_NODE_TYPE_ERROR)) {
+                return (T) generateException(new InvalidNodeTypeError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + InvalidStateError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_INVALID_STATE_ERROR)) {
+                return (T) generateException(new InvalidStateError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + NamespaceError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_NAMESPACE_ERROR)) {
+                return (T) generateException(new NamespaceError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + NetworkError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_NETWORK_ERROR)) {
+                return (T) generateException(new NetworkError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + NoModificationAllowedError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_NO_MODIFICATION_ALLOWED_ERROR)) {
+                return (T) generateException(new NoModificationAllowedError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + NotAllowedError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_NOT_ALLOWED_ERROR)) {
+                return (T) generateException(new NotAllowedError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + NotFoundError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_NOT_FOUND_ERROR)) {
+                return (T) generateException(new NotFoundError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + NotReadableError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_NOT_READABLE_ERROR)) {
+                return (T) generateException(new NotReadableError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + NotSupportedError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_NOT_SUPPORTED_ERROR)) {
+                return (T) generateException(new NotSupportedError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + OperationError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_OPERATION_ERROR)) {
+                return (T) generateException(new OperationError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + OptOutError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_OPT_OUT_ERROR)) {
+                return (T) generateException(new OptOutError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + QuotaExceededError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_QUOTA_EXCEEDED_ERROR)) {
+                return (T) generateException(new QuotaExceededError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + ReadOnlyError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_READ_ONLY_ERROR)) {
+                return (T) generateException(new ReadOnlyError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + SecurityError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_SECURITY_ERROR)) {
+                return (T) generateException(new SecurityError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + SyntaxError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_SYNTAX_ERROR)) {
+                return (T) generateException(new SyntaxError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + TimeoutError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_TIMEOUT_ERROR)) {
+                return (T) generateException(new TimeoutError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + TransactionInactiveError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_TRANSACTION_INACTIVE_ERROR)) {
+                return (T) generateException(new TransactionInactiveError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + UnknownError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_UNKNOWN_ERROR)) {
+                return (T) generateException(new UnknownError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + VersionError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_VERSION_ERROR)) {
+                return (T) generateException(new VersionError(), str, t);
+            }
+            if (Intrinsics.areEqual(type, prefix + WrongDocumentError.TYPE_CREATE_PUBLIC_KEY_CREDENTIAL_WRONG_DOCUMENT_ERROR)) {
+                return (T) generateException(new WrongDocumentError(), str, t);
+            }
+            throw new FrameworkClassParsingException();
+        }
+
+        public final <T> T generateException(DomError domError, String str, T t) {
+            if (t instanceof CreatePublicKeyCredentialDomException) {
+                return (T) new CreatePublicKeyCredentialDomException(domError, str);
+            }
+            if (t instanceof GetPublicKeyCredentialDomException) {
+                return (T) new GetPublicKeyCredentialDomException(domError, str);
+            }
+            throw new FrameworkClassParsingException();
+        }
+    }
+}

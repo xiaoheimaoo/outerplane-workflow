@@ -1,0 +1,9 @@
+package com.google.android.gms.internal.measurement;
+/* compiled from: com.google.android.gms:play-services-measurement-base@@22.2.0 */
+/* loaded from: classes2.dex */
+final class zzlx implements zzlu {
+    @Override // com.google.android.gms.internal.measurement.zzlu
+    public final Object zza(Object obj) {
+        return ((zzkg) obj).zzci();
+    }
+}

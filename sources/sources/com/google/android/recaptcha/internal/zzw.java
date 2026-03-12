@@ -1,0 +1,15 @@
+package com.google.android.recaptcha.internal;
+/* compiled from: com.google.android.recaptcha:recaptcha@@18.6.1 */
+/* loaded from: classes2.dex */
+public final class zzw extends zzaa {
+    private final zzte zza;
+
+    public zzw(int i, zzte zzteVar) {
+        super(i, null);
+        this.zza = zzteVar;
+    }
+
+    public final zzte zza() {
+        return this.zza;
+    }
+}

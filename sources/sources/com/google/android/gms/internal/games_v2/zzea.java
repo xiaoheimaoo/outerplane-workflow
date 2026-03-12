@@ -1,0 +1,17 @@
+package com.google.android.gms.internal.games_v2;
+
+import com.google.android.gms.common.api.internal.RemoteCall;
+import com.google.android.gms.tasks.TaskCompletionSource;
+/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* loaded from: classes2.dex */
+final /* synthetic */ class zzea implements RemoteCall {
+    static final /* synthetic */ zzea zza = new zzea();
+
+    private /* synthetic */ zzea() {
+    }
+
+    @Override // com.google.android.gms.common.api.internal.RemoteCall
+    public final /* synthetic */ void accept(Object obj, Object obj2) {
+        ((TaskCompletionSource) obj2).setResult(((com.google.android.gms.games.internal.zzah) obj).zzq());
+    }
+}

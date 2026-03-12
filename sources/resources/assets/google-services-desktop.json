@@ -1,0 +1,36 @@
+{
+  "project_info": {
+    "project_number": "23005909894",
+    "project_id": "outerplane-m9",
+    "storage_bucket": "outerplane-m9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:23005909894:ios:5b7c57158c740f44469207",
+        "android_client_info": {
+          "package_name": "com.outerplane.apple.qa"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPDPOzJ08t4p6ysmbFOUDHUNVLECsIxkM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "23005909894-u8uj2ql1a70cuo27pik8vp5g2m3vvb01.apps.googleusercontent.com"
+        }
+      ]
+    }
+  ],
+  "configuration_version": "1"
+}
