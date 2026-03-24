@@ -993,7 +993,7 @@ public interface TypedValues {
                 case 1:
                     return TYPE_QUANTIZE_MOTION_PHASE;
                 case 2:
-                    return 610;
+                    return TYPE_QUANTIZE_MOTIONSTEPS;
                 case 3:
                     return 601;
                 case 4:
@@ -1007,7 +1007,7 @@ public interface TypedValues {
                 case '\b':
                     return TYPE_QUANTIZE_INTERPOLATOR_TYPE;
                 case '\t':
-                    return TYPE_QUANTIZE_INTERPOLATOR_ID;
+                    return 612;
                 case '\n':
                     return TYPE_EASING;
                 case 11:

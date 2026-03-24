@@ -2,9 +2,10 @@ package com.google.android.gms.internal.fido;
 
 import java.io.Serializable;
 import javax.annotation.CheckForNull;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: com.google.android.gms:play-services-fido@@20.1.0 */
 /* loaded from: classes2.dex */
-final class zzbw extends zzbr implements Serializable {
+public final class zzbw extends zzbr implements Serializable {
     final zzbr zza;
 
     /* JADX INFO: Access modifiers changed from: package-private */

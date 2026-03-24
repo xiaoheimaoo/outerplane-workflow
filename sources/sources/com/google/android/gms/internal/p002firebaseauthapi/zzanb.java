@@ -1,11 +1,10 @@
 package com.google.android.gms.internal.p002firebaseauthapi;
 
 import com.google.common.base.Ascii;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: com.google.firebase:firebase-auth@@23.2.0 */
 /* renamed from: com.google.android.gms.internal.firebase-auth-api.zzanb  reason: invalid package */
 /* loaded from: classes2.dex */
-public final class zzanb {
+final class zzanb {
     private static final zzanc zza;
 
     /* JADX INFO: Access modifiers changed from: package-private */
