@@ -154,7 +154,7 @@ public class MotionWidget implements TypedValues {
             case TypedValues.MotionType.TYPE_QUANTIZE_INTERPOLATOR_TYPE /* 611 */:
                 this.motion.mQuantizeInterpolatorType = i2;
                 return true;
-            case 612:
+            case TypedValues.MotionType.TYPE_QUANTIZE_INTERPOLATOR_ID /* 612 */:
                 this.motion.mQuantizeInterpolatorID = i2;
                 return true;
             default:

@@ -1007,7 +1007,7 @@ public interface TypedValues {
                 case '\b':
                     return TYPE_QUANTIZE_INTERPOLATOR_TYPE;
                 case '\t':
-                    return 612;
+                    return TYPE_QUANTIZE_INTERPOLATOR_ID;
                 case '\n':
                     return TYPE_EASING;
                 case 11:

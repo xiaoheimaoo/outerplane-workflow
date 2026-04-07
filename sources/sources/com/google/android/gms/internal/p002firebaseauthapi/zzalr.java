@@ -95,7 +95,7 @@ public final class zzalr<T> implements zzamc<T> {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Type inference failed for: r9v0 */
-    /* JADX WARN: Type inference failed for: r9v1, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r9v1, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r9v19 */
     @Override // com.google.android.gms.internal.p002firebaseauthapi.zzamc
     public final int zza(T t) {

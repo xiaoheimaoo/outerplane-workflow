@@ -30,7 +30,7 @@ public final class zzum extends zzwu {
     }
 
     private final Object zzK(Object obj) {
-        return (zzuk.zzs(this.zze) == null || !obj.equals(zzuk.zzd)) ? obj : zzuk.zzs(this.zze);
+        return (this.zze.zzf == null || !obj.equals(zzuk.zzd)) ? obj : this.zze.zzf;
     }
 
     @RequiresNonNull({"unpreparedMaskingMediaPeriod"})
@@ -56,12 +56,12 @@ public final class zzum extends zzwu {
 
     @Override // com.google.android.gms.internal.ads.zzwu
     protected final zzur zzD(zzur zzurVar) {
-        Object zzs = zzuk.zzs(this.zze);
-        Object obj = zzurVar.zza;
-        if (zzs != null && zzuk.zzs(this.zze).equals(obj)) {
-            obj = zzuk.zzd;
+        Object obj = this.zze.zzf;
+        Object obj2 = zzurVar.zza;
+        if (obj != null && this.zze.zzf.equals(obj2)) {
+            obj2 = zzuk.zzd;
         }
-        return zzurVar.zza(obj);
+        return zzurVar.zza(obj2);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:22:0x007b  */

@@ -1033,7 +1033,7 @@ public final class MessageSchema<T> implements Schema<T> {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Type inference failed for: r9v0 */
-    /* JADX WARN: Type inference failed for: r9v1, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r9v1, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r9v16 */
     @Override // com.google.protobuf.Schema
     public int getSerializedSize(T message) {
