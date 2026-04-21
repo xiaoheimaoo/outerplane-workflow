@@ -43,7 +43,7 @@
     <string name="call_notification_incoming_text">Incoming call</string>
     <string name="call_notification_ongoing_text">Ongoing call</string>
     <string name="call_notification_screening_text">Screening an incoming call</string>
-    <string name="res_0x7f0d002b_com_crashlytics_android_build_id">611c7d2b-50a6-4507-b754-a8628d9675ee</string>
+    <string name="res_0x7f0d002b_com_crashlytics_android_build_id">75a22071-f039-4143-b175-091c421fc670</string>
     <string name="res_0x7f0d002c_com_google_firebase_crashlytics_unity_version">2022.3.62f2</string>
     <string name="common_google_play_services_enable_button">Enable</string>
     <string name="common_google_play_services_enable_text">%1$s won\'t work unless you enable Google Play services.</string>
