@@ -12,12 +12,25 @@ import com.unity3d.player.UnityPlayer;
 public class GoogleSignInBridge {
     private static final String TAG = "GoogleSignInBridge";
 
-    public static void start(Activity activity, String str, String str2, String str3) {
-        Intent intent = new Intent(activity, SignInProxyActivity.class);
-        intent.putExtra("goName", str);
-        intent.putExtra("callback", str2);
-        intent.putExtra("webClientId", str3);
-        activity.startActivity(intent);
+    public static void start(final Activity activity, final String str, final String str2, final String str3) {
+        if (activity == null) {
+            send(str, str2, "ERROR:Activity is null");
+        } else {
+            activity.runOnUiThread(new Runnable() { // from class: com.vagames.auth.GoogleSignInBridge.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    try {
+                        Intent intent = new Intent(activity, SignInProxyActivity.class);
+                        intent.putExtra("goName", str);
+                        intent.putExtra("callback", str2);
+                        intent.putExtra("webClientId", str3);
+                        activity.startActivity(intent);
+                    } catch (Exception e) {
+                        GoogleSignInBridge.send(str, str2, "ERROR:" + e.getClass().getSimpleName() + " " + e.getMessage());
+                    }
+                }
+            });
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

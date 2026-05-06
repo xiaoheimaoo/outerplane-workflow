@@ -8,11 +8,6 @@ import java.util.Map;
 final class zzgs extends AbstractSet {
     final /* synthetic */ zzgu zza;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ zzgs(zzgu zzguVar, zzgr zzgrVar) {
-        this.zza = zzguVar;
-    }
-
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
     public final /* bridge */ /* synthetic */ boolean add(Object obj) {
         Map.Entry entry = (Map.Entry) obj;
