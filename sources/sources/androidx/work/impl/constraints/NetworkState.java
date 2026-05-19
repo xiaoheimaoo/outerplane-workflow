@@ -40,7 +40,7 @@ public class NetworkState {
         return false;
     }
 
-    /* JADX WARN: Type inference failed for: r0v0, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r0v0, types: [int, boolean] */
     public int hashCode() {
         ?? r0 = this.mIsConnected;
         int i = r0;
