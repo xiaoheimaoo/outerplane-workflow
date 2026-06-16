@@ -14,7 +14,7 @@ final class zah extends Drawable.ConstantState {
 
     @Override // android.graphics.drawable.Drawable.ConstantState
     public final Drawable newDrawable() {
-        return zai.zaa;
+        return zai.zaa();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -1,9 +1,8 @@
 package com.google.firebase.crashlytics.internal.model;
 
 import com.google.firebase.crashlytics.internal.model.StaticSessionData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public final class AutoValue_StaticSessionData extends StaticSessionData {
+final class AutoValue_StaticSessionData extends StaticSessionData {
     private final StaticSessionData.AppData appData;
     private final StaticSessionData.DeviceData deviceData;
     private final StaticSessionData.OsData osData;
