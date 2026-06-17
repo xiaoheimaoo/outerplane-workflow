@@ -9,12 +9,13 @@ import android.os.SystemClock;
 import android.os.Trace;
 import android.view.Surface;
 import androidx.work.WorkRequest;
+import com.smilegate.outerplane.stove.google.BuildConfig;
 import java.nio.ByteBuffer;
 import java.util.List;
 /* compiled from: com.google.android.gms:play-services-ads@@23.0.0 */
 /* loaded from: classes2.dex */
 public final class zzaah extends zzsz implements zzaan {
-    private static final int[] zzb = {1920, 1600, 1440, 1280, 960, 854, 640, 540, 480};
+    private static final int[] zzb = {1920, 1600, 1440, 1280, 960, 854, BuildConfig.VERSION_CODE, 540, 480};
     private static boolean zzc;
     private static boolean zzd;
     private boolean zzA;

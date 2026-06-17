@@ -1,10 +1,9 @@
 package com.google.android.gms.internal.games_v2;
 
 import java.util.Arrays;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
 /* loaded from: classes2.dex */
-public class zzgw extends zzgx {
+class zzgw extends zzgx {
     Object[] zza;
     int zzb;
     boolean zzc;
