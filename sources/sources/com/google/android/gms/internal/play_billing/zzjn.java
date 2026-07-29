@@ -19,37 +19,13 @@ final class zzjn extends zzjp {
         return Float.intBitsToFloat(this.zza.getInt(obj, j));
     }
 
-    /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
-        jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.google.android.gms.internal.play_billing.zzjq.zzi(java.lang.Object, long, boolean):void
-        	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
-        	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
-        Caused by: java.util.ConcurrentModificationException
-        	at java.base/java.util.ArrayList.removeIf(ArrayList.java:1685)
-        	at java.base/java.util.ArrayList.removeIf(ArrayList.java:1660)
-        	at jadx.core.dex.instructions.args.SSAVar.removeUse(SSAVar.java:130)
-        	at jadx.core.dex.instructions.args.SSAVar.use(SSAVar.java:123)
-        	at jadx.core.dex.nodes.InsnNode.rebindArgs(InsnNode.java:481)
-        	at jadx.core.dex.instructions.mods.TernaryInsn.rebindArgs(TernaryInsn.java:92)
-        	at jadx.core.dex.nodes.InsnNode.rebindArgs(InsnNode.java:484)
-        	at jadx.core.utils.BlockUtils.replaceInsn(BlockUtils.java:1079)
-        	at jadx.core.utils.BlockUtils.replaceInsn(BlockUtils.java:1088)
-        	at jadx.core.dex.visitors.InlineMethods.inlineMethod(InlineMethods.java:115)
-        	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:74)
-        	... 1 more
-        */
     @Override // com.google.android.gms.internal.play_billing.zzjp
-    public final void zzc(java.lang.Object r2, long r3, boolean r5) {
-        /*
-            r1 = this;
-            boolean r0 = com.google.android.gms.internal.play_billing.zzjq.zzb
-            if (r0 == 0) goto L8
-            com.google.android.gms.internal.play_billing.zzjq.zzi(r2, r3, r5)
-            return
-        L8:
-            com.google.android.gms.internal.play_billing.zzjq.zzj(r2, r3, r5)
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.google.android.gms.internal.play_billing.zzjn.zzc(java.lang.Object, long, boolean):void");
+    public final void zzc(Object obj, long j, boolean z) {
+        if (zzjq.zzb) {
+            zzjq.zzD(obj, j, r3 ? (byte) 1 : (byte) 0);
+        } else {
+            zzjq.zzE(obj, j, r3 ? (byte) 1 : (byte) 0);
+        }
     }
 
     @Override // com.google.android.gms.internal.play_billing.zzjp

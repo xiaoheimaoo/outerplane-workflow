@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "23005909894",
-    "project_id": "outerplane-m9",
-    "storage_bucket": "outerplane-m9.firebasestorage.app"
+    "project_number": "787715078943",
+    "project_id": "outerplane",
+    "storage_bucket": "outerplane.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:23005909894:ios:5b7c57158c740f44469207",
+        "mobilesdk_app_id": "1:787715078943:android:7c7b3c3a910246683cce2a",
         "android_client_info": {
-          "package_name": "com.outerplane.apple.qa"
+          "package_name": "com.smilegate.outerplane.stove.google"
         }
       },
       "api_key": [
         {
-          "current_key": "AIzaSyAPDPOzJ08t4p6ysmbFOUDHUNVLECsIxkM"
+          "current_key": "AIzaSyCKdfNfGSY74sIv5FNKFJfoy2QtsRnORgE"
         }
       ],
       "services": {
@@ -27,7 +27,9 @@
       },
       "oauth_client": [
         {
-          "client_id": "23005909894-u8uj2ql1a70cuo27pik8vp5g2m3vvb01.apps.googleusercontent.com"
+          "client_id": "787715078943-p42trhkv2dut7t4b37885nc3n217fi1r.apps.googleusercontent.com",
+          "client_secret": "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",
+          "client_type": 3
         }
       ]
     }
