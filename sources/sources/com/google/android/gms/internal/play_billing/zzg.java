@@ -1,24 +1,17 @@
 package com.google.android.gms.internal.play_billing;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
 public final class zzg {
-    static final zzg zza;
-    static final zzg zzb;
-    final Throwable zzc;
+    final Throwable zza;
 
     static {
-        if (zzq.zza) {
-            zzb = null;
-            zza = null;
-            return;
-        }
-        zzb = new zzg(false, null);
-        zza = new zzg(true, null);
+        new zzg(new zzf("Failure occurred while trying to finish a future."));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public zzg(boolean z, Throwable th) {
-        this.zzc = th;
+    public zzg(Throwable th) {
+        int i = zzo.zzf;
+        this.zza = th;
     }
 }

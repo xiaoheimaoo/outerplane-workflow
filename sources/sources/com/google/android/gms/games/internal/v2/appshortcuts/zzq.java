@@ -5,7 +5,7 @@ import android.content.Context;
 import com.google.android.gms.common.api.Api;
 import com.google.android.gms.common.api.GoogleApi;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class zzq extends GoogleApi {
     private static final Api.ClientKey zza;

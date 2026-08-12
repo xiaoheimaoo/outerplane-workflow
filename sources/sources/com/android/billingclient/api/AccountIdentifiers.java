@@ -1,5 +1,5 @@
 package com.android.billingclient.api;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
 public final class AccountIdentifiers {
     private final String zza;

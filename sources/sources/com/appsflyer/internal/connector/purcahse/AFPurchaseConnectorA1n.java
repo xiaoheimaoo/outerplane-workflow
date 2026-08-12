@@ -55,7 +55,6 @@ public final class AFPurchaseConnectorA1n implements ProductDetailsResponseListe
         this(str, aFPurchaseConnectorA1x, (i & 4) != 0 ? null : list, (i & 8) != 0 ? false : z);
     }
 
-    @Override // com.android.billingclient.api.ProductDetailsResponseListener
     public final void onProductDetailsResponse(BillingResult billingResult, List<ProductDetails> list) {
         Intrinsics.checkNotNullParameter(billingResult, "");
         Intrinsics.checkNotNullParameter(list, "");

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.google.android.gms.tasks.Task;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 @Deprecated
 /* loaded from: classes.dex */
 public interface GamesClient {

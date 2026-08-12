@@ -6,13 +6,13 @@ import android.os.Parcelable;
 import com.google.android.gms.common.data.Freezable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public interface Player extends Freezable<Player>, Parcelable {
     public static final long CURRENT_XP_UNKNOWN = -1;
     public static final long TIMESTAMP_UNKNOWN = -1;
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
     public @interface FriendsListVisibilityStatus {
@@ -22,7 +22,7 @@ public interface Player extends Freezable<Player>, Parcelable {
         public static final int VISIBLE = 1;
     }
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
     public @interface PlayerFriendStatus {

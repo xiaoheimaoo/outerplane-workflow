@@ -1,18 +1,35 @@
 package com.google.android.gms.internal.games_v2;
 
 import com.google.android.gms.common.api.GoogleApi;
+import com.google.android.gms.common.api.internal.RemoteCall;
 import com.google.android.gms.common.api.internal.TaskApiCall;
 import com.google.android.gms.tasks.Task;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+import com.google.android.gms.tasks.TaskCompletionSource;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 final /* synthetic */ class zzel implements zzap {
-    static final /* synthetic */ zzel zza = new zzel();
+    private final /* synthetic */ String zza;
+    private final /* synthetic */ String zzb;
+    private final /* synthetic */ String zzc;
 
-    private /* synthetic */ zzel() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ zzel(String str, String str2, String str3) {
+        this.zza = str;
+        this.zzb = str2;
+        this.zzc = str3;
     }
 
     @Override // com.google.android.gms.internal.games_v2.zzap
     public final /* synthetic */ Task zza(GoogleApi googleApi) {
-        return googleApi.doRead(TaskApiCall.builder().run(zzeb.zza).setMethodKey(6709).build());
+        TaskApiCall.Builder builder = TaskApiCall.builder();
+        final String str = this.zza;
+        final String str2 = this.zzb;
+        final String str3 = this.zzc;
+        return googleApi.doRead(builder.run(new RemoteCall() { // from class: com.google.android.gms.internal.games_v2.zzee
+            @Override // com.google.android.gms.common.api.internal.RemoteCall
+            public final /* synthetic */ void accept(Object obj, Object obj2) {
+                ((TaskCompletionSource) obj2).setResult(((com.google.android.gms.games.internal.zzan) ((com.google.android.gms.games.internal.zzah) obj).getService()).zzR(str, str2, str3));
+            }
+        }).setMethodKey(6712).build());
     }
 }

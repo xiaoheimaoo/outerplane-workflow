@@ -5,10 +5,10 @@ import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import com.google.android.gms.common.api.internal.RemoteCall;
 import com.google.android.gms.common.api.internal.TaskApiCall;
-import com.google.android.gms.internal.games_v2.zzfq;
-import com.google.android.gms.internal.games_v2.zzgz;
-import com.google.android.gms.internal.games_v2.zzhd;
-import com.google.android.gms.internal.games_v2.zzio;
+import com.google.android.gms.internal.games_v2.zzfx;
+import com.google.android.gms.internal.games_v2.zzgj;
+import com.google.android.gms.internal.games_v2.zzgm;
+import com.google.android.gms.internal.games_v2.zzhc;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -17,7 +17,7 @@ import com.google.android.gms.tasks.Tasks;
 import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class zze extends zzf {
     private final Context zza;
@@ -28,46 +28,46 @@ public final class zze extends zzf {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ zzg zzc(zzhd zzhdVar, zzhd zzhdVar2, Task task) {
+    public static /* synthetic */ zzg zzc(zzgm zzgmVar, zzgm zzgmVar2, Task task) {
         if (task.isSuccessful()) {
             return (zzg) task.getResult();
         }
-        return zze(zzhdVar, zzhdVar2);
+        return zze(zzgmVar, zzgmVar2);
     }
 
-    private static zzg zze(zzhd zzhdVar, zzhd zzhdVar2) {
-        return new zzg(zzf(zzhdVar), zzhd.zzi(), zzf(zzhdVar2), zzhd.zzi());
+    private static zzg zze(zzgm zzgmVar, zzgm zzgmVar2) {
+        return new zzg(zzf(zzgmVar), zzgm.zzg(), zzf(zzgmVar2), zzgm.zzg());
     }
 
-    private static zzhd zzf(zzhd zzhdVar) {
-        int i = zzhd.zzd;
-        zzgz zzgzVar = new zzgz();
-        int size = zzhdVar.size();
+    private static zzgm zzf(zzgm zzgmVar) {
+        int i = zzgm.zzd;
+        zzgj zzgjVar = new zzgj();
+        int size = zzgmVar.size();
         for (int i2 = 0; i2 < size; i2++) {
-            String zza = ((zzi) zzhdVar.get(i2)).zza();
+            String zza = ((zzi) zzgmVar.get(i2)).zza();
             if (zza != null) {
-                zzgzVar.zzd(zza);
+                zzgjVar.zzb(zza);
             }
         }
-        return zzgzVar.zze();
+        return zzgjVar.zzc();
     }
 
-    private static zzhd zzg(List list) {
-        int i = zzhd.zzd;
-        zzgz zzgzVar = new zzgz();
+    private static zzgm zzg(List list) {
+        int i = zzgm.zzd;
+        zzgj zzgjVar = new zzgj();
         Iterator it = list.iterator();
         while (it.hasNext()) {
             ShortcutInfo shortcutInfo = (ShortcutInfo) it.next();
             if (!shortcutInfo.isImmutable() && shortcutInfo.getId().startsWith("PLAY_GAMES_SERVICES_")) {
-                zzgzVar.zzd(new zzi(shortcutInfo.getId(), shortcutInfo.getExtras(), Boolean.valueOf(shortcutInfo.isPinned()), Boolean.valueOf(shortcutInfo.isEnabled())));
+                zzgjVar.zzb(new zzi(shortcutInfo.getId(), shortcutInfo.getExtras(), Boolean.valueOf(shortcutInfo.isPinned()), Boolean.valueOf(shortcutInfo.isEnabled())));
             }
         }
-        return zzgzVar.zze();
+        return zzgjVar.zzc();
     }
 
     @Override // com.google.android.gms.games.internal.v2.appshortcuts.zzf
     public final void zza() {
-        zzfq.zza();
+        zzfx.zza();
         new Thread(new Runnable() { // from class: com.google.android.gms.games.internal.v2.appshortcuts.zzd
             @Override // java.lang.Runnable
             public final /* synthetic */ void run() {
@@ -85,8 +85,8 @@ public final class zze extends zzf {
             return;
         }
         final zzr zza = zzt.zza(context, PlayGamesAppShortcutsActivity.class);
-        final zzhd zzg = zzg(shortcutManager.getDynamicShortcuts());
-        final zzhd zzg2 = zzg(shortcutManager.getPinnedShortcuts());
+        final zzgm zzg = zzg(shortcutManager.getDynamicShortcuts());
+        final zzgm zzg2 = zzg(shortcutManager.getPinnedShortcuts());
         if (zza == null || zza.zza() <= 0) {
             forResult = Tasks.forResult(zze(zzg, zzg2));
         } else {
@@ -96,14 +96,14 @@ public final class zze extends zzf {
                 public final /* synthetic */ void accept(Object obj, Object obj2) {
                     ((zzv) ((zzu) obj).getService()).zzd(new zzl(zzq.this, (TaskCompletionSource) obj2), zza, zzg, zzg2);
                 }
-            }).build()).continueWith(zzio.zza(), new Continuation() { // from class: com.google.android.gms.games.internal.v2.appshortcuts.zzc
+            }).build()).continueWith(zzhc.zza(), new Continuation() { // from class: com.google.android.gms.games.internal.v2.appshortcuts.zzc
                 @Override // com.google.android.gms.tasks.Continuation
                 public final /* synthetic */ Object then(Task task) {
-                    return zze.zzc(zzhd.this, zzg2, task);
+                    return zze.zzc(zzgm.this, zzg2, task);
                 }
             });
         }
-        forResult.addOnSuccessListener(zzio.zza(), new OnSuccessListener() { // from class: com.google.android.gms.games.internal.v2.appshortcuts.zzb
+        forResult.addOnSuccessListener(zzhc.zza(), new OnSuccessListener() { // from class: com.google.android.gms.games.internal.v2.appshortcuts.zzb
             @Override // com.google.android.gms.tasks.OnSuccessListener
             public final /* synthetic */ void onSuccess(Object obj) {
                 zzg zzgVar = (zzg) obj;

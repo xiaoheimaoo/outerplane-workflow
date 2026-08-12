@@ -8,11 +8,11 @@ import com.google.android.gms.games.leaderboard.LeaderboardScore;
 import com.google.android.gms.games.leaderboard.LeaderboardScoreBuffer;
 import com.google.android.gms.games.leaderboard.ScoreSubmissionData;
 import com.google.android.gms.tasks.Task;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public interface LeaderboardsClient {
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     /* loaded from: classes.dex */
     public static class LeaderboardScores implements Releasable {
         private final Leaderboard zza;

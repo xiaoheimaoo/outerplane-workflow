@@ -2,33 +2,56 @@ package com.android.billingclient.api;
 
 import android.os.Bundle;
 import android.os.RemoteException;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import com.google.android.gms.internal.play_billing.zzie;
+import com.google.android.gms.internal.play_billing.zzil;
+import org.json.JSONException;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
-final class zzbh extends com.google.android.gms.internal.play_billing.zzaj {
-    final ExternalOfferAvailabilityListener zza;
+public final class zzbh extends com.google.android.gms.internal.play_billing.zzy {
+    final ExternalOfferReportingDetailsListener zza;
     final zzch zzb;
     final int zzc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ zzbh(ExternalOfferAvailabilityListener externalOfferAvailabilityListener, zzch zzchVar, int i, zzbl zzblVar) {
-        this.zza = externalOfferAvailabilityListener;
+    public /* synthetic */ zzbh(ExternalOfferReportingDetailsListener externalOfferReportingDetailsListener, zzch zzchVar, int i, zzbp zzbpVar) {
+        this.zza = externalOfferReportingDetailsListener;
         this.zzb = zzchVar;
         this.zzc = i;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzak
+    @Override // com.google.android.gms.internal.play_billing.zzz
     public final void zza(Bundle bundle) throws RemoteException {
         if (bundle == null) {
-            this.zzb.zzb(zzcg.zzb(92, 23, zzcj.zzk), this.zzc);
-            this.zza.onExternalOfferAvailabilityResponse(zzcj.zzk);
+            zzch zzchVar = this.zzb;
+            zzie zzieVar = zzie.NULL_BUNDLE_FROM_CREATE_EXTERNAL_PAYMENT_REPORTING_DETAILS_SERVICE_CALL;
+            BillingResult billingResult = zzcj.zzh;
+            int i = zzcg.zza;
+            zzchVar.zzb(zzcg.zzb(zzieVar, 24, billingResult, null, zzil.BROADCAST_ACTION_UNSPECIFIED), this.zzc);
+            this.zza.onExternalOfferReportingDetailsResponse(billingResult, null);
             return;
         }
-        int zzb = com.google.android.gms.internal.play_billing.zze.zzb(bundle, "BillingClient");
-        BillingResult zza = zzcj.zza(zzb, com.google.android.gms.internal.play_billing.zze.zzh(bundle, "BillingClient"));
+        int zzb = com.google.android.gms.internal.play_billing.zzc.zzb(bundle, "BillingClient");
+        BillingResult zza = zzcj.zza(zzb, com.google.android.gms.internal.play_billing.zzc.zzj(bundle, "BillingClient"));
         if (zzb != 0) {
-            com.google.android.gms.internal.play_billing.zze.zzl("BillingClient", "isExternalOfferAvailableAsync() failed. Response code: " + zzb);
-            this.zzb.zzb(zzcg.zzb(23, 23, zza), this.zzc);
+            com.google.android.gms.internal.play_billing.zzc.zzn("BillingClient", "createExternalOfferReportingDetailsAsync() failed. Response code: " + zzb);
+            zzch zzchVar2 = this.zzb;
+            zzie zzieVar2 = zzie.BILLING_RESULT_RECEIVED_FROM_PHONESKY;
+            int i2 = zzcg.zza;
+            zzchVar2.zzb(zzcg.zzb(zzieVar2, 24, zza, null, zzil.BROADCAST_ACTION_UNSPECIFIED), this.zzc);
+            this.zza.onExternalOfferReportingDetailsResponse(zza, null);
+            return;
         }
-        this.zza.onExternalOfferAvailabilityResponse(zza);
+        try {
+            this.zza.onExternalOfferReportingDetailsResponse(zza, new ExternalOfferReportingDetails(bundle.getString("CREATE_EXTERNAL_PAYMENT_REPORTING_DETAILS")));
+        } catch (JSONException e) {
+            com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Error when parsing invalid external offer reporting details. \n Exception: ", e);
+            zzch zzchVar3 = this.zzb;
+            zzie zzieVar3 = zzie.ERROR_DECODING_EXTERNAL_OFFER_REPORTING_DETAILS;
+            BillingResult billingResult2 = zzcj.zzh;
+            int i3 = zzcg.zza;
+            zzchVar3.zzb(zzcg.zzb(zzieVar3, 24, billingResult2, null, zzil.BROADCAST_ACTION_UNSPECIFIED), this.zzc);
+            this.zza.onExternalOfferReportingDetailsResponse(billingResult2, null);
+        }
     }
 }

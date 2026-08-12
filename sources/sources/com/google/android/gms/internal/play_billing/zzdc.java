@@ -1,24 +1,17 @@
 package com.google.android.gms.internal.play_billing;
 
-import java.io.Serializable;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import java.util.concurrent.TimeoutException;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-final class zzdc extends zzde implements Serializable {
-    static final zzdc zza = new zzdc();
-
-    private zzdc() {
+final class zzdc extends TimeoutException {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ zzdc(String str, zzdd zzddVar) {
+        super(str);
     }
 
-    @Override // java.util.Comparator
-    public final /* bridge */ /* synthetic */ int compare(Object obj, Object obj2) {
-        Comparable comparable = (Comparable) obj;
-        Comparable comparable2 = (Comparable) obj2;
-        comparable.getClass();
-        comparable2.getClass();
-        return comparable.compareTo(comparable2);
-    }
-
-    public final String toString() {
-        return "Ordering.natural()";
+    @Override // java.lang.Throwable
+    public final synchronized Throwable fillInStackTrace() {
+        setStackTrace(new StackTraceElement[0]);
+        return this;
     }
 }

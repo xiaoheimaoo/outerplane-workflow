@@ -1,46 +1,55 @@
 package com.google.android.gms.internal.play_billing;
 
-import com.singular.sdk.internal.Constants;
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import com.google.common.base.Ascii;
+import okio.Utf8;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public final class zzhp {
-    static final Charset zza;
-    public static final byte[] zzb;
-
-    static {
-        Charset.forName("US-ASCII");
-        zza = Charset.forName(Constants.ENCODING);
-        Charset.forName("ISO-8859-1");
-        byte[] bArr = new byte[0];
-        zzb = bArr;
-        ByteBuffer.wrap(bArr);
-        int i = zzgn.zza;
-        try {
-            new zzgl(bArr, 0, 0, false, null).zza(0);
-        } catch (zzhr e) {
-            throw new IllegalArgumentException(e);
+final class zzhp {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* bridge */ /* synthetic */ void zza(byte b, byte b2, byte b3, byte b4, char[] cArr, int i) {
+        if (zze(b2) || (((b << Ascii.FS) + (b2 + 112)) >> 30) != 0 || zze(b3) || zze(b4)) {
+            throw new zzfq("Protocol message had invalid UTF-8.");
         }
-    }
-
-    public static int zza(boolean z) {
-        return z ? 1231 : 1237;
+        int i2 = ((b & 7) << 18) | ((b2 & Utf8.REPLACEMENT_BYTE) << 12) | ((b3 & Utf8.REPLACEMENT_BYTE) << 6) | (b4 & Utf8.REPLACEMENT_BYTE);
+        cArr[i] = (char) ((i2 >>> 10) + Utf8.HIGH_SURROGATE_HEADER);
+        cArr[i + 1] = (char) ((i2 & 1023) + Utf8.LOG_SURROGATE_HEADER);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int zzb(int i, byte[] bArr, int i2, int i3) {
-        for (int i4 = 0; i4 < i3; i4++) {
-            i = (i * 31) + bArr[i4];
+    public static /* bridge */ /* synthetic */ void zzc(byte b, byte b2, char[] cArr, int i) {
+        if (b < -62 || zze(b2)) {
+            throw new zzfq("Protocol message had invalid UTF-8.");
         }
-        return i;
+        cArr[i] = (char) (((b & Ascii.US) << 6) | (b2 & Utf8.REPLACEMENT_BYTE));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static Object zzc(Object obj, String str) {
-        if (obj != null) {
-            return obj;
+    public static /* bridge */ /* synthetic */ boolean zzd(byte b) {
+        return b >= 0;
+    }
+
+    private static boolean zze(byte b) {
+        return b > -65;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* bridge */ /* synthetic */ void zzb(byte b, byte b2, byte b3, char[] cArr, int i) {
+        if (!zze(b2)) {
+            if (b == -32) {
+                if (b2 >= -96) {
+                    b = -32;
+                }
+            }
+            if (b == -19) {
+                if (b2 < -96) {
+                    b = -19;
+                }
+            }
+            if (!zze(b3)) {
+                cArr[i] = (char) (((b & Ascii.SI) << 12) | ((b2 & Utf8.REPLACEMENT_BYTE) << 6) | (b3 & Utf8.REPLACEMENT_BYTE));
+                return;
+            }
         }
-        throw new NullPointerException("messageType");
+        throw new zzfq("Protocol message had invalid UTF-8.");
     }
 }

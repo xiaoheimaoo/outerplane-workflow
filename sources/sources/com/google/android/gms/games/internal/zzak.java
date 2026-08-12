@@ -2,7 +2,7 @@ package com.google.android.gms.games.internal;
 
 import android.os.Parcel;
 import android.os.RemoteException;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public abstract class zzak extends com.google.android.gms.internal.games_v2.zzb implements zzal {
     public zzak() {

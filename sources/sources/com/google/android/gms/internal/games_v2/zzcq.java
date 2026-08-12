@@ -8,7 +8,7 @@ import com.google.android.gms.games.EventsClient;
 import com.google.android.gms.games.event.EventBuffer;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskCompletionSource;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 public final class zzcq implements EventsClient {
     private final zzaq zza;
@@ -29,7 +29,7 @@ public final class zzcq implements EventsClient {
                     @Override // com.google.android.gms.common.api.internal.RemoteCall
                     public final /* synthetic */ void accept(Object obj, Object obj2) {
                         TaskCompletionSource taskCompletionSource = (TaskCompletionSource) obj2;
-                        ((com.google.android.gms.games.internal.zzah) obj).zzI(str2, i2);
+                        ((com.google.android.gms.games.internal.zzah) obj).zzN(str2, i2);
                     }
                 }).setMethodKey(6729).build());
             }
@@ -46,7 +46,7 @@ public final class zzcq implements EventsClient {
                 return googleApi.doRead(builder.run(new RemoteCall() { // from class: com.google.android.gms.internal.games_v2.zzco
                     @Override // com.google.android.gms.common.api.internal.RemoteCall
                     public final /* synthetic */ void accept(Object obj, Object obj2) {
-                        ((com.google.android.gms.games.internal.zzah) obj).zzG((TaskCompletionSource) obj2, z2);
+                        ((com.google.android.gms.games.internal.zzah) obj).zzL((TaskCompletionSource) obj2, z2);
                     }
                 }).setMethodKey(6727).build());
             }
@@ -64,7 +64,7 @@ public final class zzcq implements EventsClient {
                 return googleApi.doRead(builder.run(new RemoteCall() { // from class: com.google.android.gms.internal.games_v2.zzcn
                     @Override // com.google.android.gms.common.api.internal.RemoteCall
                     public final /* synthetic */ void accept(Object obj, Object obj2) {
-                        ((com.google.android.gms.games.internal.zzah) obj).zzH((TaskCompletionSource) obj2, z2, strArr2);
+                        ((com.google.android.gms.games.internal.zzah) obj).zzM((TaskCompletionSource) obj2, z2, strArr2);
                     }
                 }).setMethodKey(6728).build());
             }

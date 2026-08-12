@@ -11,7 +11,7 @@ import com.google.android.gms.games.Player;
 import com.google.android.gms.games.PlayerRef;
 import com.helpshift.HelpshiftEvent;
 import com.unity3d.services.core.request.metrics.AdOperationMetric;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class AchievementRef extends DataBufferRef implements Achievement {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -115,10 +115,10 @@ public final class AchievementRef extends DataBufferRef implements Achievement {
 
     @Override // com.google.android.gms.games.achievement.Achievement
     public final long getXpValue() {
-        if (!hasColumn("instance_xp_value") || hasNull("instance_xp_value")) {
-            return getLong("definition_xp_value");
+        if (hasColumn("instance_xp_value") && !hasNull("instance_xp_value")) {
+            return getLong("instance_xp_value");
         }
-        return getLong("instance_xp_value");
+        return getLong("definition_xp_value");
     }
 
     @Override // com.google.android.gms.common.data.DataBufferRef

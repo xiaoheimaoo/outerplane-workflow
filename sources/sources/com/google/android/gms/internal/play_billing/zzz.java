@@ -1,22 +1,10 @@
 package com.google.android.gms.internal.play_billing;
 
 import android.os.Bundle;
-import android.os.Parcel;
+import android.os.IInterface;
 import android.os.RemoteException;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public abstract class zzz extends zzar implements zzaa {
-    public zzz() {
-        super("com.android.vending.billing.IInAppBillingCreateExternalPaymentReportingDetailsCallback");
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzar
-    protected final boolean zzb(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-        if (i == 1) {
-            zzas.zzb(parcel);
-            zza((Bundle) zzas.zza(parcel, Bundle.CREATOR));
-            return true;
-        }
-        return false;
-    }
+public interface zzz extends IInterface {
+    void zza(Bundle bundle) throws RemoteException;
 }

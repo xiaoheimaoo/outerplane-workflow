@@ -4,7 +4,7 @@ import android.app.Application;
 import com.google.android.gms.common.internal.Preconditions;
 import java.util.concurrent.atomic.AtomicReference;
 import kotlin.UByte$$ExternalSyntheticBackport0;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 public final class zzas {
     private static final AtomicReference zza = new AtomicReference();
@@ -28,7 +28,7 @@ public final class zzas {
     }
 
     public final void zzb() {
-        zzfn.zza("AutomaticGamesAuthenticator", "startWatching()");
+        zzfu.zza("AutomaticGamesAuthenticator", "startWatching()");
         this.zzb.zza();
     }
 

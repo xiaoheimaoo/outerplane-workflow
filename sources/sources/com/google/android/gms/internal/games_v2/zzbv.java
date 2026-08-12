@@ -5,7 +5,7 @@ import androidx.core.app.NotificationCompat;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.Preconditions;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 final class zzbv {
     private final String zza;

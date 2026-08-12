@@ -6,43 +6,54 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ResultReceiver;
+import com.google.android.gms.internal.play_billing.zzie;
 import java.lang.ref.WeakReference;
-import java.util.concurrent.CancellationException;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
-final class zzbi extends com.google.android.gms.internal.play_billing.zzao {
+final class zzbi extends com.google.android.gms.internal.play_billing.zzaa {
     final WeakReference zza;
     final ResultReceiver zzb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ zzbi(WeakReference weakReference, ResultReceiver resultReceiver, zzbl zzblVar) {
+    public /* synthetic */ zzbi(WeakReference weakReference, ResultReceiver resultReceiver, zzbp zzbpVar) {
         this.zza = weakReference;
         this.zzb = resultReceiver;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzap
+    @Override // com.google.android.gms.internal.play_billing.zzab
     public final void zza(Bundle bundle) throws RemoteException {
-        ResultReceiver resultReceiver = this.zzb;
-        if (resultReceiver == null) {
-            com.google.android.gms.internal.play_billing.zze.zzl("BillingClient", "Unable to send result for in-app messaging");
-        } else if (bundle == null) {
-            resultReceiver.send(0, null);
+        if (bundle == null) {
+            this.zzb.send(6, null);
+        } else if (!bundle.containsKey("RESPONSE_CODE")) {
+            com.google.android.gms.internal.play_billing.zzc.zzn("BillingClient", "Response bundle doesn't contain a response code");
+            this.zzb.send(6, bundle);
         } else {
-            Activity activity = (Activity) this.zza.get();
-            PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable("KEY_LAUNCH_INTENT");
-            if (activity == null || pendingIntent == null) {
-                this.zzb.send(0, null);
-                com.google.android.gms.internal.play_billing.zze.zzl("BillingClient", "Unable to launch intent for in-app messaging");
+            int zzb = com.google.android.gms.internal.play_billing.zzc.zzb(bundle, "BillingClient");
+            if (zzb != 0) {
+                com.google.android.gms.internal.play_billing.zzc.zzn("BillingClient", "Unable to launch intent for alternative billing only dialog" + zzb);
+                this.zzb.send(zzb, bundle);
+                return;
+            }
+            PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable("ALTERNATIVE_BILLING_ONLY_DIALOG_INTENT");
+            if (pendingIntent == null) {
+                com.google.android.gms.internal.play_billing.zzc.zzm("BillingClient", "User has acknowledged the alternative billing only dialog before.");
+                this.zzb.send(0, bundle);
                 return;
             }
             try {
-                Intent intent = new Intent(activity, ProxyBillingActivity.class);
-                intent.putExtra("in_app_message_result_receiver", this.zzb);
-                intent.putExtra("IN_APP_MESSAGE_INTENT", pendingIntent);
+                Activity activity = (Activity) this.zza.get();
+                Intent intent = new Intent(activity, ProxyBillingActivityV2.class);
+                intent.putExtra("alternative_billing_only_dialog_result_receiver", this.zzb);
+                intent.putExtra("ALTERNATIVE_BILLING_ONLY_DIALOG_INTENT", pendingIntent);
                 activity.startActivity(intent);
-            } catch (CancellationException e) {
-                this.zzb.send(0, null);
-                com.google.android.gms.internal.play_billing.zze.zzm("BillingClient", "Exception caught while launching intent for in-app messaging.", e);
+            } catch (RuntimeException e) {
+                com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Runtime error while launching intent for alternative billing only dialog.", e);
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("RESPONSE_CODE", 6);
+                bundle2.putString("DEBUG_MESSAGE", "An internal error occurred.");
+                bundle2.putInt("INTERNAL_LOG_ERROR_REASON", zzie.RUNTIME_EXCEPTION_ON_LAUNCHING_ALTERNATIVE_BILLING_ONLY_DIALOG_INTENT.zza());
+                bundle2.putString("INTERNAL_LOG_ERROR_ADDITIONAL_DETAILS", String.format("%s: %s", e.getClass().getName(), com.google.android.gms.internal.play_billing.zzbj.zzb(e.getMessage())));
+                this.zzb.send(6, bundle2);
             }
         }
     }

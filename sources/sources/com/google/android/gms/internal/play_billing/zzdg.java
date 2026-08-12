@@ -1,19 +1,8 @@
 package com.google.android.gms.internal.play_billing;
-
-import java.io.Serializable;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public final class zzdg extends zzde implements Serializable {
-    static final zzde zza = new zzdg();
-
-    private zzdg() {
-    }
-
-    @Override // java.util.Comparator
-    public final /* bridge */ /* synthetic */ int compare(Object obj, Object obj2) {
-        zzdh zzdhVar = (zzdh) obj;
-        zzdh zzdhVar2 = (zzdh) obj2;
-        return zzca.zzf().zzb(zzdhVar.zza, zzdhVar2.zza).zzb(zzdhVar.zzb, zzdhVar2.zzb).zza();
+public final class zzdg {
+    public static Throwable zza(zzdf zzdfVar) {
+        return zzdfVar.zze();
     }
 }

@@ -2,7 +2,7 @@ package com.google.android.gms.games.gamessignin;
 
 import java.util.List;
 import java.util.Objects;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class AuthResponse {
     private final List zza;

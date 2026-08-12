@@ -1,27 +1,18 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
-/* loaded from: classes2.dex */
-final class zzcp {
-    private final Object zza;
-    private final Object zzb;
-    private final Object zzc;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public zzcp(Object obj, Object obj2, Object obj3) {
-        this.zza = obj;
-        this.zzb = obj2;
-        this.zzc = obj3;
+import java.util.concurrent.Executor;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
+/* loaded from: classes2.dex */
+enum zzcp implements Executor {
+    INSTANCE;
+
+    @Override // java.util.concurrent.Executor
+    public final void execute(Runnable runnable) {
+        runnable.run();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final IllegalArgumentException zza() {
-        Object obj = this.zzc;
-        Object obj2 = this.zzb;
-        Object obj3 = this.zza;
-        String valueOf = String.valueOf(obj3);
-        String valueOf2 = String.valueOf(obj2);
-        String valueOf3 = String.valueOf(obj3);
-        String valueOf4 = String.valueOf(obj);
-        return new IllegalArgumentException("Multiple entries with same key: " + valueOf + "=" + valueOf2 + " and " + valueOf3 + "=" + valueOf4);
+    @Override // java.lang.Enum
+    public final String toString() {
+        return "MoreExecutors.directExecutor()";
     }
 }

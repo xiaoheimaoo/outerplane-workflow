@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 import java.util.Objects;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 final class zze implements Application.ActivityLifecycleCallbacks {
     final /* synthetic */ zzf zza;

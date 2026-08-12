@@ -2,7 +2,7 @@ package com.google.android.gms.games.achievement;
 
 import com.google.android.gms.common.data.AbstractDataBuffer;
 import com.google.android.gms.common.data.DataHolder;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public class AchievementBuffer extends AbstractDataBuffer<Achievement> {
     public AchievementBuffer(DataHolder dataHolder) {

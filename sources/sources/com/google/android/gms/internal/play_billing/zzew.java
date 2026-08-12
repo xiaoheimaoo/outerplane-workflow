@@ -1,7 +1,10 @@
 package com.google.android.gms.internal.play_billing;
-
-import java.util.concurrent.ScheduledExecutorService;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public interface zzew extends ScheduledExecutorService, zzev {
+final class zzew extends zzev {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.google.android.gms.internal.play_billing.zzev
+    public final void zza(Object obj) {
+        ((zzff) obj).zzb.zzg();
+    }
 }

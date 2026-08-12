@@ -7,7 +7,7 @@ import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class VideoConfiguration extends AbstractSafeParcelable {
     public static final int CAPTURE_MODE_FILE = 0;
@@ -27,7 +27,7 @@ public final class VideoConfiguration extends AbstractSafeParcelable {
     private final boolean zzd;
     private final boolean zze;
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     /* loaded from: classes.dex */
     public static final class Builder {
         private int zza;
@@ -65,7 +65,7 @@ public final class VideoConfiguration extends AbstractSafeParcelable {
         }
     }
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
     public @interface ValidCaptureModes {

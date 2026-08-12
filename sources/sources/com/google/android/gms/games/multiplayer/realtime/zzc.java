@@ -1,7 +1,7 @@
 package com.google.android.gms.games.multiplayer.realtime;
 
 import android.os.Parcel;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 final class zzc extends zzd {
     @Override // com.google.android.gms.games.multiplayer.realtime.zzd, android.os.Parcelable.Creator

@@ -1,30 +1,52 @@
 package com.android.billingclient.api;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import androidx.core.util.Consumer;
+import com.google.android.gms.internal.play_billing.zzie;
+import java.util.Objects;
+import java.util.concurrent.TimeoutException;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
-final class zzca implements ServiceConnection {
-    final /* synthetic */ zzcc zza;
+public final class zzca implements com.google.android.gms.internal.play_billing.zzcs {
+    final /* synthetic */ Consumer zza;
+    final /* synthetic */ Runnable zzb;
+    final /* synthetic */ zzce zzc;
+    final /* synthetic */ int zzd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ zzca(zzcc zzccVar, zzcb zzcbVar) {
-        this.zza = zzccVar;
+    public zzca(zzce zzceVar, int i, Consumer consumer, Runnable runnable) {
+        this.zzd = i;
+        this.zza = consumer;
+        this.zzb = runnable;
+        Objects.requireNonNull(zzceVar);
+        this.zzc = zzceVar;
     }
 
-    @Override // android.content.ServiceConnection
-    public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        com.google.android.gms.internal.play_billing.zze.zzk("BillingClientTesting", "Billing Override Service connected.");
-        zzcc.zzay(this.zza, com.google.android.gms.internal.play_billing.zzau.zzc(iBinder));
-        zzcc.zzaz(this.zza, 2);
-        zzcc.zzaK(this.zza, 26);
+    @Override // com.google.android.gms.internal.play_billing.zzcs
+    public final void zza(Throwable th) {
+        if (th instanceof TimeoutException) {
+            this.zzc.zzaF(zzie.BILLING_OVERRIDE_SERVICE_CALL_TIMEOUT, 28, zzcj.zzF);
+            com.google.android.gms.internal.play_billing.zzc.zzo("BillingClientTesting", "Asynchronous call to Billing Override Service timed out.", th);
+        } else {
+            this.zzc.zzaF(zzie.BILLING_OVERRIDE_SERVICE_CALL_EXCEPTION, 28, zzcj.zzF);
+            com.google.android.gms.internal.play_billing.zzc.zzo("BillingClientTesting", "An error occurred while retrieving billing override.", th);
+        }
+        this.zzb.run();
     }
 
-    @Override // android.content.ServiceConnection
-    public final void onServiceDisconnected(ComponentName componentName) {
-        com.google.android.gms.internal.play_billing.zze.zzl("BillingClientTesting", "Billing Override Service disconnected.");
-        zzcc.zzay(this.zza, null);
-        zzcc.zzaz(this.zza, 0);
+    @Override // com.google.android.gms.internal.play_billing.zzcs
+    public final /* bridge */ /* synthetic */ void zzb(Object obj) {
+        boolean zzaC;
+        BillingResult zzaD;
+        Integer num = (Integer) obj;
+        int intValue = num.intValue();
+        zzce zzceVar = this.zzc;
+        zzaC = zzce.zzaC(intValue);
+        if (zzaC) {
+            zzaD = zzceVar.zzaD(this.zzd, num.intValue());
+            this.zza.accept(zzaD);
+            return;
+        }
+        this.zzb.run();
     }
 }

@@ -1,20 +1,52 @@
 package com.google.android.gms.internal.games_v2;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+
+import java.util.Set;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
-public abstract class zzgq {
-    private static final zzgq zza = new zzgo();
-    private static final zzgq zzb = new zzgp(-1);
-    private static final zzgq zzc = new zzgp(1);
+public abstract class zzgq extends zzgi implements Set {
+    private transient zzgm zza;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ zzgq(byte[] bArr) {
+    @Override // java.util.Collection, java.util.Set
+    public final boolean equals(Object obj) {
+        if (obj == this || obj == this) {
+            return true;
+        }
+        if (obj instanceof Set) {
+            Set set = (Set) obj;
+            try {
+                if (size() == set.size()) {
+                    if (containsAll(set)) {
+                        return true;
+                    }
+                }
+            } catch (ClassCastException | NullPointerException unused) {
+            }
+        }
+        return false;
     }
 
-    public static zzgq zzc() {
-        return zza;
+    @Override // java.util.Collection, java.util.Set
+    public final int hashCode() {
+        return zzgy.zza(this);
     }
 
-    public abstract zzgq zza(Comparable comparable, Comparable comparable2);
+    @Override // com.google.android.gms.internal.games_v2.zzgi, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
+    /* renamed from: zza */
+    public abstract zzgz iterator();
 
-    public abstract int zzb();
+    public final zzgm zzf() {
+        zzgm zzgmVar = this.zza;
+        if (zzgmVar == null) {
+            zzgm zzg = zzg();
+            this.zza = zzg;
+            return zzg;
+        }
+        return zzgmVar;
+    }
+
+    zzgm zzg() {
+        Object[] array = toArray();
+        int i = zzgm.zzd;
+        return zzgm.zzj(array, array.length);
+    }
 }

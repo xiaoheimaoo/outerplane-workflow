@@ -30,7 +30,7 @@ import java.util.Objects;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicReference;
 import kotlin.UByte$$ExternalSyntheticBackport0;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 public final class zzbq implements zzaw {
     private final AtomicReference zza = new AtomicReference(zzba.UNINITIALIZED);
@@ -54,7 +54,7 @@ public final class zzbq implements zzaw {
         StringBuilder sb = new StringBuilder(String.valueOf(i).length() + 45);
         sb.append("startAuthenticationIfNecessary() signInType: ");
         sb.append(i);
-        zzfn.zza("GamesApiManager", sb.toString());
+        zzfu.zza("GamesApiManager", sb.toString());
         Preconditions.checkMainThread("Must be called on the main thread.");
         AtomicReference atomicReference = this.zza;
         zzba zzbaVar = zzba.UNINITIALIZED;
@@ -69,12 +69,12 @@ public final class zzbq implements zzaw {
                     StringBuilder sb2 = new StringBuilder(String.valueOf(m).length() + 83);
                     sb2.append("Explicit sign-in during existing authentication. Marking pending explicit sign-in: ");
                     sb2.append(m);
-                    zzfn.zza("GamesApiManager", sb2.toString());
+                    zzfu.zza("GamesApiManager", sb2.toString());
                 }
             }
             String valueOf = String.valueOf(atomicReference.get());
             String.valueOf(valueOf);
-            zzfn.zza("GamesApiManager", "Authentication attempt skipped. Already authenticated or authenticating. State: ".concat(String.valueOf(valueOf)));
+            zzfu.zza("GamesApiManager", "Authentication attempt skipped. Already authenticated or authenticating. State: ".concat(String.valueOf(valueOf)));
             return;
         }
         AtomicReference atomicReference2 = this.zzd;
@@ -96,7 +96,7 @@ public final class zzbq implements zzaw {
     }
 
     private final void zzn(final TaskCompletionSource taskCompletionSource, final zzq zzqVar) {
-        zzfn.zza("GamesApiManager", "Attempting authentication: ".concat(zzqVar.toString()));
+        zzfu.zza("GamesApiManager", "Attempting authentication: ".concat(zzqVar.toString()));
         this.zzh.zza(zzqVar).addOnCompleteListener(TaskExecutors.MAIN_THREAD, new OnCompleteListener() { // from class: com.google.android.gms.internal.games_v2.zzbi
             @Override // com.google.android.gms.tasks.OnCompleteListener
             public final /* synthetic */ void onComplete(Task task) {
@@ -110,63 +110,63 @@ public final class zzbq implements zzaw {
         Preconditions.checkMainThread("Must be called on the main thread.");
         Application application = this.zzf;
         int clientVersion = ClientLibraryUtils.getClientVersion(application, "com.google.android.gms");
-        zzfn.zza("GamesApiManager", String.format(Locale.US, "GmsCore version is %d", Integer.valueOf(clientVersion)));
+        zzfu.zza("GamesApiManager", String.format(Locale.US, "GmsCore version is %d", Integer.valueOf(clientVersion)));
         if (clientVersion < 220812000) {
             PackageInfo packageInfo = ClientLibraryUtils.getPackageInfo(application, "com.android.vending");
             if (packageInfo == null) {
-                zzfn.zza("GamesApiManager", "PlayStore is not installed");
+                zzfu.zza("GamesApiManager", "PlayStore is not installed");
             } else {
                 int i2 = packageInfo.versionCode;
                 if (i2 < 82470600) {
-                    zzfn.zza("GamesApiManager", String.format(Locale.US, "PlayStore version is below resolution threshold: %s", Integer.valueOf(i2)));
+                    zzfu.zza("GamesApiManager", String.format(Locale.US, "PlayStore version is below resolution threshold: %s", Integer.valueOf(i2)));
                 } else {
-                    zzfn.zza("GamesApiManager", "Installed PlayStore version can be used for resolution.");
+                    zzfu.zza("GamesApiManager", "Installed PlayStore version can be used for resolution.");
                 }
             }
-            zzfn.zze("GamesApiManager", "PlayStore is too old or not available and the version of GmsCore would attempt PGA installation on automatic sign-in. Skipping it.");
+            zzfu.zze("GamesApiManager", "PlayStore is too old or not available and the version of GmsCore would attempt PGA installation on automatic sign-in. Skipping it.");
             taskCompletionSource.trySetResult(false);
             this.zza.set(zzba.AUTHENTICATION_FAILED);
             return;
         }
-        if (!z || pendingIntent == null || (zzd = this.zzg.zzd()) == null) {
-            boolean m = UByte$$ExternalSyntheticBackport0.m(this.zzb, zzaz.AUTOMATIC_PENDING_EXPLICIT, zzaz.EXPLICIT);
-            if (z2 || !m) {
-                taskCompletionSource.trySetResult(false);
-                this.zza.set(zzba.AUTHENTICATION_FAILED);
-                Iterator it = this.zzc.iterator();
-                while (it.hasNext()) {
-                    ((zzbc) it.next()).zzb(zzr());
-                    it.remove();
+        if (z && pendingIntent != null && (zzd = this.zzg.zzd()) != null) {
+            com.google.android.gms.games.internal.v2.resolution.zzb.zzb(zzd, pendingIntent).addOnCompleteListener(TaskExecutors.MAIN_THREAD, new OnCompleteListener() { // from class: com.google.android.gms.internal.games_v2.zzbj
+                @Override // com.google.android.gms.tasks.OnCompleteListener
+                public final /* synthetic */ void onComplete(Task task) {
+                    zzbq.this.zzl(taskCompletionSource, i, task);
                 }
-                return;
-            }
-            zzfn.zza("GamesApiManager", "Consumed pending explicit sign-in. Attempting explicit sign-in");
+            });
+            zzfu.zza("GamesApiManager", "Resolution triggered");
+            return;
+        }
+        boolean m = UByte$$ExternalSyntheticBackport0.m(this.zzb, zzaz.AUTOMATIC_PENDING_EXPLICIT, zzaz.EXPLICIT);
+        if (!z2 && m) {
+            zzfu.zza("GamesApiManager", "Consumed pending explicit sign-in. Attempting explicit sign-in");
             zzn(taskCompletionSource, zzq.zza(0));
             return;
         }
-        com.google.android.gms.games.internal.v2.resolution.zzb.zzb(zzd, pendingIntent).addOnCompleteListener(TaskExecutors.MAIN_THREAD, new OnCompleteListener() { // from class: com.google.android.gms.internal.games_v2.zzbj
-            @Override // com.google.android.gms.tasks.OnCompleteListener
-            public final /* synthetic */ void onComplete(Task task) {
-                zzbq.this.zzl(taskCompletionSource, i, task);
-            }
-        });
-        zzfn.zza("GamesApiManager", "Resolution triggered");
+        taskCompletionSource.trySetResult(false);
+        this.zza.set(zzba.AUTHENTICATION_FAILED);
+        Iterator it = this.zzc.iterator();
+        while (it.hasNext()) {
+            ((zzbc) it.next()).zzb(zzr());
+            it.remove();
+        }
     }
 
     private static boolean zzp() {
         return Looper.myLooper() == Looper.getMainLooper();
     }
 
-    private static Task zzq(final zzip zzipVar) {
+    private static Task zzq(final zzhd zzhdVar) {
         if (zzp()) {
-            return (Task) zzipVar.zza();
+            return (Task) zzhdVar.zza();
         }
         final TaskCompletionSource taskCompletionSource = new TaskCompletionSource();
         TaskExecutors.MAIN_THREAD.execute(new Runnable() { // from class: com.google.android.gms.internal.games_v2.zzbk
             @Override // java.lang.Runnable
             public final /* synthetic */ void run() {
                 final TaskCompletionSource taskCompletionSource2 = taskCompletionSource;
-                ((Task) zzip.this.zza()).addOnCompleteListener(new OnCompleteListener() { // from class: com.google.android.gms.internal.games_v2.zzbm
+                ((Task) zzhd.this.zza()).addOnCompleteListener(new OnCompleteListener() { // from class: com.google.android.gms.internal.games_v2.zzbm
                     @Override // com.google.android.gms.tasks.OnCompleteListener
                     public final /* synthetic */ void onComplete(Task task) {
                         TaskCompletionSource taskCompletionSource3 = TaskCompletionSource.this;
@@ -175,7 +175,7 @@ public final class zzbq implements zzaw {
                             return;
                         }
                         Exception exception = task.getException();
-                        zzfw.zza(exception);
+                        zzgb.zza(exception);
                         taskCompletionSource3.trySetException(exception);
                     }
                 });
@@ -204,14 +204,14 @@ public final class zzbq implements zzaw {
                         return Tasks.forResult(AuthenticationResult.zzb);
                     }
                     final TaskCompletionSource taskCompletionSource2 = new TaskCompletionSource();
-                    task.addOnCompleteListener(zzio.zza(), new OnCompleteListener() { // from class: com.google.android.gms.internal.games_v2.zzbl
+                    task.addOnCompleteListener(zzhc.zza(), new OnCompleteListener() { // from class: com.google.android.gms.internal.games_v2.zzbl
                         @Override // com.google.android.gms.tasks.OnCompleteListener
                         public final /* synthetic */ void onComplete(Task task2) {
                             TaskCompletionSource taskCompletionSource3 = TaskCompletionSource.this;
-                            if (!task2.isSuccessful() || !((Boolean) task2.getResult()).booleanValue()) {
-                                taskCompletionSource3.trySetResult(AuthenticationResult.zzb);
-                            } else {
+                            if (task2.isSuccessful() && ((Boolean) task2.getResult()).booleanValue()) {
                                 taskCompletionSource3.trySetResult(AuthenticationResult.zza);
+                            } else {
+                                taskCompletionSource3.trySetResult(AuthenticationResult.zzb);
                             }
                         }
                     });
@@ -229,7 +229,7 @@ public final class zzbq implements zzaw {
         zzba zzbaVar = (zzba) this.zza.get();
         String valueOf = String.valueOf(zzbaVar);
         String.valueOf(valueOf);
-        zzfn.zzc("GamesApiManager", "Executing API call with authentication state: ".concat(String.valueOf(valueOf)));
+        zzfu.zzc("GamesApiManager", "Executing API call with authentication state: ".concat(String.valueOf(valueOf)));
         if (zzbaVar == zzba.AUTHENTICATED) {
             return zzavVar.zza((GoogleApi) this.zze.get());
         }
@@ -277,8 +277,8 @@ public final class zzbq implements zzaw {
 
     @Override // com.google.android.gms.internal.games_v2.zzaw
     public final Task zzd() {
-        return zzq(new zzip() { // from class: com.google.android.gms.internal.games_v2.zzbg
-            @Override // com.google.android.gms.internal.games_v2.zzip
+        return zzq(new zzhd() { // from class: com.google.android.gms.internal.games_v2.zzbg
+            @Override // com.google.android.gms.internal.games_v2.zzhd
             public final /* synthetic */ Object zza() {
                 return zzbq.this.zzi();
             }
@@ -287,8 +287,8 @@ public final class zzbq implements zzaw {
 
     @Override // com.google.android.gms.internal.games_v2.zzaw
     public final Task zze() {
-        return zzq(new zzip() { // from class: com.google.android.gms.internal.games_v2.zzbh
-            @Override // com.google.android.gms.internal.games_v2.zzip
+        return zzq(new zzhd() { // from class: com.google.android.gms.internal.games_v2.zzbh
+            @Override // com.google.android.gms.internal.games_v2.zzhd
             public final /* synthetic */ Object zza() {
                 return zzbq.this.zzj();
             }
@@ -359,7 +359,7 @@ public final class zzbq implements zzaw {
     /* JADX INFO: Access modifiers changed from: package-private */
     public final /* synthetic */ Task zzh(List list, zzau zzauVar, com.google.android.gms.games.internal.v2.resolution.zzc zzcVar) {
         if (!zzcVar.zzc()) {
-            list = zzhd.zzi();
+            list = zzgm.zzg();
         }
         return zzauVar.zza((GoogleApi) this.zze.get(), list);
     }
@@ -380,8 +380,8 @@ public final class zzbq implements zzaw {
     public final /* synthetic */ void zzk(TaskCompletionSource taskCompletionSource, zzq zzqVar, Task task) {
         if (!task.isSuccessful()) {
             Exception exception = task.getException();
-            zzfw.zza(exception);
-            zzfn.zzb("GamesApiManager", "Authentication task failed", exception);
+            zzgb.zza(exception);
+            zzfu.zzb("GamesApiManager", "Authentication task failed", exception);
             zzo(taskCompletionSource, zzqVar.zzc(), null, false, !zzqVar.zzd());
             return;
         }
@@ -389,17 +389,17 @@ public final class zzbq implements zzaw {
         if (!zzbvVar.zzc()) {
             String valueOf = String.valueOf(zzbvVar);
             String.valueOf(valueOf);
-            zzfn.zza("GamesApiManager", "Failed to authenticate: ".concat(String.valueOf(valueOf)));
+            zzfu.zza("GamesApiManager", "Failed to authenticate: ".concat(String.valueOf(valueOf)));
             zzo(taskCompletionSource, zzqVar.zzc(), zzbvVar.zze(), true, !zzqVar.zzd());
             return;
         }
         String zzd = zzbvVar.zzd();
         if (zzd == null) {
-            zzfn.zze("GamesApiManager", "Unexpected state: game run token absent");
+            zzfu.zze("GamesApiManager", "Unexpected state: game run token absent");
             zzo(taskCompletionSource, zzqVar.zzc(), null, false, !zzqVar.zzd());
             return;
         }
-        zzfn.zza("GamesApiManager", "Successfully authenticated");
+        zzfu.zza("GamesApiManager", "Successfully authenticated");
         Preconditions.checkMainThread("Must be called on the main thread.");
         com.google.android.gms.games.zzh zza = com.google.android.gms.games.zzi.zza();
         zza.zza(2101523);
@@ -424,18 +424,18 @@ public final class zzbq implements zzaw {
     public final /* synthetic */ void zzl(TaskCompletionSource taskCompletionSource, int i, Task task) {
         if (!task.isSuccessful()) {
             Exception exception = task.getException();
-            zzfw.zza(exception);
-            zzfn.zzf("GamesApiManager", "Resolution failed", exception);
+            zzgb.zza(exception);
+            zzfu.zzf("GamesApiManager", "Resolution failed", exception);
             zzo(taskCompletionSource, i, null, false, true);
             return;
         }
         com.google.android.gms.games.internal.v2.resolution.zzc zzcVar = (com.google.android.gms.games.internal.v2.resolution.zzc) task.getResult();
         if (zzcVar.zzc()) {
-            zzfn.zza("GamesApiManager", "Resolution successful");
+            zzfu.zza("GamesApiManager", "Resolution successful");
             zzn(taskCompletionSource, zzq.zzb(i, zzx.zza(zzcVar.zzd())));
             return;
         }
-        zzfn.zza("GamesApiManager", "Resolution attempt was canceled");
+        zzfu.zza("GamesApiManager", "Resolution attempt was canceled");
         zzo(taskCompletionSource, i, null, false, true);
     }
 }

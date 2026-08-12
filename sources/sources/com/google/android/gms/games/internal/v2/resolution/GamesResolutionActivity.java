@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.os.ResultReceiver;
 import com.google.android.gms.common.internal.BaseGmsClient;
 import com.google.android.gms.common.internal.Preconditions;
-import com.google.android.gms.internal.games_v2.zzfn;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+import com.google.android.gms.internal.games_v2.zzfu;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class GamesResolutionActivity extends Activity {
     private ResultReceiver zza;
@@ -41,7 +41,7 @@ public final class GamesResolutionActivity extends Activity {
             StringBuilder sb = new StringBuilder(String.valueOf(i).length() + 25);
             sb.append("Unexpected request code: ");
             sb.append(i);
-            zzfn.zzg("ResultActivity", sb.toString());
+            zzfu.zzg("ResultActivity", sb.toString());
             zza(0, intent);
             finish();
             return;
@@ -61,7 +61,7 @@ public final class GamesResolutionActivity extends Activity {
         try {
             startIntentSenderForResult(((PendingIntent) Preconditions.checkNotNull((PendingIntent) getIntent().getParcelableExtra(BaseGmsClient.KEY_PENDING_INTENT))).getIntentSender(), 0, null, 0, 0, 0);
         } catch (IntentSender.SendIntentException e) {
-            zzfn.zzh("ResultActivity", "Failed to launch", e);
+            zzfu.zzh("ResultActivity", "Failed to launch", e);
             zza(0, null);
             finish();
         }

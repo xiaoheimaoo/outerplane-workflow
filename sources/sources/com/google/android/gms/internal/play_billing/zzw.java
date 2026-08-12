@@ -1,16 +1,22 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.RemoteException;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public final class zzw extends zzq {
-    private zzw() {
+public abstract class zzw extends zzaq implements zzx {
+    public zzw() {
+        super("com.android.vending.billing.IInAppBillingCreateAlternativeBillingOnlyTokenCallback");
     }
 
-    public static zzw zze() {
-        return new zzw();
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzq
-    public final boolean zzd(Object obj) {
-        return super.zzd(null);
+    @Override // com.google.android.gms.internal.play_billing.zzaq
+    protected final boolean zzb(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+        if (i == 1) {
+            zzar.zzb(parcel);
+            zza((Bundle) zzar.zza(parcel, Bundle.CREATOR));
+            return true;
+        }
+        return false;
     }
 }

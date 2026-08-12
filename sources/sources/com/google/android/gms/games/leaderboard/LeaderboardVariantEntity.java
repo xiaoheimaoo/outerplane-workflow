@@ -3,7 +3,7 @@ package com.google.android.gms.games.leaderboard;
 import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.fido.fido2.api.common.DevicePublicKeyStringDef;
 import com.google.android.gms.internal.games_v2.zzz;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class LeaderboardVariantEntity implements LeaderboardVariant {
     private final int zza;

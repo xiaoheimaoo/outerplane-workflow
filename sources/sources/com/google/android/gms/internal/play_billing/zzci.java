@@ -1,23 +1,18 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+
+import java.util.ListIterator;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public class zzci {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int zzc(int i, int i2) {
-        if (i2 >= 0) {
-            if (i2 <= i) {
-                return i;
-            }
-            int i3 = i + (i >> 1) + 1;
-            if (i3 < i2) {
-                int highestOneBit = Integer.highestOneBit(i2 - 1);
-                i3 = highestOneBit + highestOneBit;
-            }
-            if (i3 < 0) {
-                return Integer.MAX_VALUE;
-            }
-            return i3;
-        }
-        throw new IllegalArgumentException("cannot store more than MAX_VALUE elements");
+public abstract class zzci extends zzch implements ListIterator {
+    @Override // java.util.ListIterator
+    @Deprecated
+    public final void add(Object obj) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override // java.util.ListIterator
+    @Deprecated
+    public final void set(Object obj) {
+        throw new UnsupportedOperationException();
     }
 }

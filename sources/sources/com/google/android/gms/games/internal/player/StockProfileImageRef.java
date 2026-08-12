@@ -3,7 +3,7 @@ package com.google.android.gms.games.internal.player;
 import android.net.Uri;
 import android.os.Parcel;
 import com.google.android.gms.common.data.DataBufferRef;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public class StockProfileImageRef extends DataBufferRef implements StockProfileImage {
     @Override // android.os.Parcelable

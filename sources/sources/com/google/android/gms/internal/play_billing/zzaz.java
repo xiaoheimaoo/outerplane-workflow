@@ -1,12 +1,24 @@
 package com.google.android.gms.internal.play_billing;
 
-import javax.annotation.CheckForNull;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import android.os.SystemClock;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
 public final class zzaz {
-    @CheckForNull
-    Object zza;
-    @CheckForNull
-    zzaz zzb;
+    private static final zzbl zza;
+
+    static {
+        zzbl zzayVar;
+        try {
+            SystemClock.elapsedRealtimeNanos();
+            zzayVar = new zzax();
+        } catch (Throwable unused) {
+            SystemClock.elapsedRealtime();
+            zzayVar = new zzay();
+        }
+        zza = zzayVar;
+    }
+
+    public static zzbl zza() {
+        return zza;
+    }
 }

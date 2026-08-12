@@ -1,9 +1,42 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-final class zzjs extends IllegalArgumentException {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public zzjs(int i, int i2) {
-        super("Unpaired surrogate at index " + i + " of " + i2);
+public final class zzjs extends zzfi implements zzgm {
+    private static final zzjs zzb;
+    private int zzd;
+    private int zze;
+
+    static {
+        zzjs zzjsVar = new zzjs();
+        zzb = zzjsVar;
+        zzfi.zzw(zzjs.class, zzjsVar);
+    }
+
+    private zzjs() {
+    }
+
+    public static zzjs zzd() {
+        return zzb;
+    }
+
+    @Override // com.google.android.gms.internal.play_billing.zzfi
+    protected final Object zzb(int i, Object obj, Object obj2) {
+        int i2 = i - 1;
+        if (i2 != 0) {
+            if (i2 != 2) {
+                if (i2 != 3) {
+                    if (i2 != 4) {
+                        if (i2 == 5) {
+                            return zzb;
+                        }
+                        throw null;
+                    }
+                    return new zzjp(null);
+                }
+                return new zzjs();
+            }
+            return zzt(zzb, "\u0004\u0001\u0000\u0001\u0001\u0001\u0001\u0000\u0000\u0000\u0001᠌\u0000", new Object[]{"zzd", "zze", zzjq.zza});
+        }
+        return (byte) 1;
     }
 }

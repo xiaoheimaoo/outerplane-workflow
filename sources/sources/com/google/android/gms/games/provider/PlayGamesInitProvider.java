@@ -8,8 +8,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.internal.games_v2.zzbw;
-import com.google.android.gms.internal.games_v2.zzfn;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+import com.google.android.gms.internal.games_v2.zzfu;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public class PlayGamesInitProvider extends ContentProvider {
     @Override // android.content.ContentProvider
@@ -41,7 +41,7 @@ public class PlayGamesInitProvider extends ContentProvider {
     public final boolean onCreate() {
         Context context = getContext();
         if (context == null) {
-            zzfn.zze("GamesInitProvider", "No Context available. Please manually invoke PlayGamesSdk.initialize().");
+            zzfu.zze("GamesInitProvider", "No Context available. Please manually invoke PlayGamesSdk.initialize().");
             return false;
         }
         zzbw.zza(context);

@@ -1,25 +1,35 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
 public enum zzhs {
-    VOID(Void.class, Void.class, null),
-    INT(Integer.TYPE, Integer.class, 0),
-    LONG(Long.TYPE, Long.class, 0L),
-    FLOAT(Float.TYPE, Float.class, Float.valueOf(0.0f)),
-    DOUBLE(Double.TYPE, Double.class, Double.valueOf(0.0d)),
-    BOOLEAN(Boolean.TYPE, Boolean.class, false),
-    STRING(String.class, String.class, ""),
-    BYTE_STRING(zzgk.class, zzgk.class, zzgk.zzb),
-    ENUM(Integer.TYPE, Integer.class, null),
-    MESSAGE(Object.class, Object.class, null);
+    DOUBLE(zzht.DOUBLE, 1),
+    FLOAT(zzht.FLOAT, 5),
+    INT64(zzht.LONG, 0),
+    UINT64(zzht.LONG, 0),
+    INT32(zzht.INT, 0),
+    FIXED64(zzht.LONG, 1),
+    FIXED32(zzht.INT, 5),
+    BOOL(zzht.BOOLEAN, 0),
+    STRING(zzht.STRING, 2),
+    GROUP(zzht.MESSAGE, 3),
+    MESSAGE(zzht.MESSAGE, 2),
+    BYTES(zzht.BYTE_STRING, 2),
+    UINT32(zzht.INT, 0),
+    ENUM(zzht.ENUM, 0),
+    SFIXED32(zzht.INT, 5),
+    SFIXED64(zzht.LONG, 1),
+    SINT32(zzht.INT, 0),
+    SINT64(zzht.LONG, 0);
     
-    private final Class zzl;
+    private final zzht zzt;
+    private final int zzu;
 
-    zzhs(Class cls, Class cls2, Object obj) {
-        this.zzl = cls2;
+    zzhs(zzht zzhtVar, int i) {
+        this.zzt = zzhtVar;
+        this.zzu = i;
     }
 
-    public final Class zza() {
-        return this.zzl;
+    public final zzht zza() {
+        return this.zzt;
     }
 }

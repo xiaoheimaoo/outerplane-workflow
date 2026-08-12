@@ -1,61 +1,39 @@
 package com.google.android.gms.internal.play_billing;
-
-import java.util.AbstractSet;
-import java.util.Iterator;
-import java.util.Map;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-final class zzjd extends AbstractSet {
-    final /* synthetic */ zzjf zza;
+public final class zzjd extends zzfi implements zzgm {
+    private static final zzjd zzb;
+    private int zzd;
+    private int zze;
+    private String zzf = "";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ zzjd(zzjf zzjfVar, zzje zzjeVar) {
-        this.zza = zzjfVar;
+    static {
+        zzjd zzjdVar = new zzjd();
+        zzb = zzjdVar;
+        zzfi.zzw(zzjd.class, zzjdVar);
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
-    public final /* bridge */ /* synthetic */ boolean add(Object obj) {
-        Map.Entry entry = (Map.Entry) obj;
-        if (contains(entry)) {
-            return false;
+    private zzjd() {
+    }
+
+    @Override // com.google.android.gms.internal.play_billing.zzfi
+    public final Object zzb(int i, Object obj, Object obj2) {
+        int i2 = i - 1;
+        if (i2 != 0) {
+            if (i2 != 2) {
+                if (i2 != 3) {
+                    if (i2 != 4) {
+                        if (i2 == 5) {
+                            return zzb;
+                        }
+                        throw null;
+                    }
+                    return new zzjb(null);
+                }
+                return new zzjd();
+            }
+            return zzt(zzb, "\u0004\u0002\u0000\u0001\u0001\u0002\u0002\u0000\u0000\u0000\u0001᠌\u0000\u0002ဈ\u0001", new Object[]{"zzd", "zze", zzjc.zza, "zzf"});
         }
-        this.zza.put((Comparable) entry.getKey(), entry.getValue());
-        return true;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
-    public final void clear() {
-        this.zza.clear();
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
-    public final boolean contains(Object obj) {
-        Map.Entry entry = (Map.Entry) obj;
-        Object obj2 = this.zza.get(entry.getKey());
-        Object value = entry.getValue();
-        if (obj2 != value) {
-            return obj2 != null && obj2.equals(value);
-        }
-        return true;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
-    public final Iterator iterator() {
-        return new zzjc(this.zza, null);
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
-    public final boolean remove(Object obj) {
-        Map.Entry entry = (Map.Entry) obj;
-        if (contains(entry)) {
-            this.zza.remove(entry.getKey());
-            return true;
-        }
-        return false;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
-    public final int size() {
-        return this.zza.size();
+        return (byte) 1;
     }
 }

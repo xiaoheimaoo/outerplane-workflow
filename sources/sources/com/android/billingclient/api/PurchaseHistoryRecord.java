@@ -9,7 +9,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
 public class PurchaseHistoryRecord {
     private final String zza;
@@ -24,15 +24,16 @@ public class PurchaseHistoryRecord {
 
     private final ArrayList zza() {
         ArrayList arrayList = new ArrayList();
-        if (this.zzc.has("productIds")) {
-            JSONArray optJSONArray = this.zzc.optJSONArray("productIds");
+        JSONObject jSONObject = this.zzc;
+        if (jSONObject.has("productIds")) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("productIds");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     arrayList.add(optJSONArray.optString(i));
                 }
             }
-        } else if (this.zzc.has(InAppPurchaseMetaData.KEY_PRODUCT_ID)) {
-            arrayList.add(this.zzc.optString(InAppPurchaseMetaData.KEY_PRODUCT_ID));
+        } else if (jSONObject.has(InAppPurchaseMetaData.KEY_PRODUCT_ID)) {
+            arrayList.add(jSONObject.optString(InAppPurchaseMetaData.KEY_PRODUCT_ID));
         }
         return arrayList;
     }

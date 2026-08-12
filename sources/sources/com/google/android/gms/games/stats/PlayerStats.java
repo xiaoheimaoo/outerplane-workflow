@@ -3,7 +3,7 @@ package com.google.android.gms.games.stats;
 import android.os.Bundle;
 import android.os.Parcelable;
 import com.google.android.gms.common.data.Freezable;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public interface PlayerStats extends Freezable<PlayerStats>, Parcelable {
     public static final float UNSET_VALUE = -1.0f;

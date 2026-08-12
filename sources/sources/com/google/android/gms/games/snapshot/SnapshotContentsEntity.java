@@ -8,14 +8,14 @@ import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.common.util.IOUtils;
 import com.google.android.gms.drive.Contents;
 import com.google.android.gms.games.internal.zzg;
-import com.google.android.gms.internal.games_v2.zzfn;
+import com.google.android.gms.internal.games_v2.zzfu;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class SnapshotContentsEntity extends zzg implements SnapshotContents {
     private Contents zzb;
@@ -40,7 +40,7 @@ public final class SnapshotContentsEntity extends zzg implements SnapshotContent
                 }
                 bufferedOutputStream.flush();
             } catch (IOException e) {
-                zzfn.zzd("SnapshotContentsEntity", "Failed to write snapshot data", e);
+                zzfu.zzd("SnapshotContentsEntity", "Failed to write snapshot data", e);
                 return false;
             }
         }
@@ -75,7 +75,7 @@ public final class SnapshotContentsEntity extends zzg implements SnapshotContent
                 readInputStreamFully = IOUtils.readInputStreamFully(bufferedInputStream, false);
                 fileInputStream.getChannel().position(0L);
             } catch (IOException e) {
-                zzfn.zzf("SnapshotContentsEntity", "Failed to read snapshot data", e);
+                zzfu.zzf("SnapshotContentsEntity", "Failed to read snapshot data", e);
                 throw e;
             }
         }

@@ -1,17 +1,59 @@
 package com.google.android.gms.internal.games_v2;
 
-import java.util.function.Supplier;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+import com.google.firebase.analytics.FirebaseAnalytics;
+import java.util.NoSuchElementException;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
-final /* synthetic */ class zzgd implements Supplier {
-    static final /* synthetic */ zzgd zza = new zzgd();
+abstract class zzgd extends zzha {
+    private final int zza;
+    private int zzb;
 
-    private /* synthetic */ zzgd() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public zzgd(int i, int i2) {
+        zzfz.zzb(i2, i, FirebaseAnalytics.Param.INDEX);
+        this.zza = i;
+        this.zzb = i2;
     }
 
-    @Override // java.util.function.Supplier
-    public final /* synthetic */ Object get() {
-        int i = zzhd.zzd;
-        return new zzgz(4);
+    @Override // java.util.Iterator, java.util.ListIterator
+    public final boolean hasNext() {
+        return this.zzb < this.zza;
     }
+
+    @Override // java.util.ListIterator
+    public final boolean hasPrevious() {
+        return this.zzb > 0;
+    }
+
+    @Override // java.util.Iterator, java.util.ListIterator
+    public final Object next() {
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        }
+        int i = this.zzb;
+        this.zzb = i + 1;
+        return zza(i);
+    }
+
+    @Override // java.util.ListIterator
+    public final int nextIndex() {
+        return this.zzb;
+    }
+
+    @Override // java.util.ListIterator
+    public final Object previous() {
+        if (!hasPrevious()) {
+            throw new NoSuchElementException();
+        }
+        int i = this.zzb - 1;
+        this.zzb = i;
+        return zza(i);
+    }
+
+    @Override // java.util.ListIterator
+    public final int previousIndex() {
+        return this.zzb - 1;
+    }
+
+    abstract Object zza(int i);
 }

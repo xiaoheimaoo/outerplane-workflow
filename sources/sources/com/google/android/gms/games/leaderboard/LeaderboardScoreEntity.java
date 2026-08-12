@@ -7,7 +7,7 @@ import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.util.DataUtils;
 import com.google.android.gms.games.Player;
 import com.google.android.gms.games.PlayerEntity;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class LeaderboardScoreEntity implements LeaderboardScore {
     private final long zza;

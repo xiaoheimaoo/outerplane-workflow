@@ -1,9 +1,41 @@
 package com.google.android.gms.internal.games_v2;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+
+import java.util.Iterator;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
-final class zzgv {
+final class zzgv extends zzgq {
+    private final transient zzgp zza;
+    private final transient zzgm zzb;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int zza(int i) {
-        return (int) (Integer.rotateLeft((int) (i * (-862048943)), 15) * 461845907);
+    public zzgv(zzgp zzgpVar, zzgm zzgmVar) {
+        this.zza = zzgpVar;
+        this.zzb = zzgmVar;
+    }
+
+    @Override // com.google.android.gms.internal.games_v2.zzgi, java.util.AbstractCollection, java.util.Collection
+    public final boolean contains(Object obj) {
+        return this.zza.get(obj) != null;
+    }
+
+    @Override // com.google.android.gms.internal.games_v2.zzgq, com.google.android.gms.internal.games_v2.zzgi, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
+    public final /* synthetic */ Iterator iterator() {
+        return this.zzb.listIterator(0);
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
+    public final int size() {
+        return this.zza.size();
+    }
+
+    @Override // com.google.android.gms.internal.games_v2.zzgq, com.google.android.gms.internal.games_v2.zzgi
+    public final zzgz zza() {
+        return this.zzb.listIterator(0);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.google.android.gms.internal.games_v2.zzgi
+    public final int zze(Object[] objArr, int i) {
+        return this.zzb.zze(objArr, 0);
     }
 }

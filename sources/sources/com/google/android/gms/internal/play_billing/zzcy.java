@@ -1,52 +1,32 @@
 package com.google.android.gms.internal.play_billing;
 
-import java.util.Iterator;
-import javax.annotation.CheckForNull;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import java.util.logging.Logger;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public final class zzcy implements zzdf {
-    private final Iterator zza;
-    private boolean zzb;
-    @CheckForNull
-    private Object zzc;
+final class zzcy {
+    private final zzbm zza = new zzbm();
+    private final String zzb;
+    private volatile Logger zzc;
 
-    @Override // java.util.Iterator
-    public final boolean hasNext() {
-        return this.zzb || this.zza.hasNext();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public zzcy(Class cls) {
+        this.zzb = cls.getName();
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzdf, java.util.Iterator
-    public final Object next() {
-        if (this.zzb) {
-            Object obj = this.zzc;
-            this.zzb = false;
-            this.zzc = null;
-            return obj;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final Logger zza() {
+        Logger logger = this.zzc;
+        if (logger != null) {
+            return logger;
         }
-        return this.zza.next();
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzdf
-    public final Object zza() {
-        if (!this.zzb) {
-            this.zzc = this.zza.next();
-            this.zzb = true;
+        synchronized (this.zza) {
+            Logger logger2 = this.zzc;
+            if (logger2 != null) {
+                return logger2;
+            }
+            Logger logger3 = Logger.getLogger(this.zzb);
+            this.zzc = logger3;
+            return logger3;
         }
-        return this.zzc;
-    }
-
-    public zzcy(Iterator it) {
-        it.getClass();
-        this.zza = it;
-    }
-
-    @Override // java.util.Iterator
-    public final void remove() {
-        if (!this.zzb) {
-            this.zza.remove();
-            return;
-        }
-        throw new IllegalStateException("Can't remove after you've peeked at next");
     }
 }

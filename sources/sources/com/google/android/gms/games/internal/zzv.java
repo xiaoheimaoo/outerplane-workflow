@@ -7,7 +7,7 @@ import com.google.android.gms.games.gamessignin.AuthScope;
 import com.google.android.gms.tasks.TaskCompletionSource;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class zzv extends zza {
     private final TaskCompletionSource zza;
@@ -25,6 +25,6 @@ public final class zzv extends zza {
             taskCompletionSource.setException(ApiExceptionUtil.fromStatus(status));
             return;
         }
-        this.zza.setResult(new AuthResponse(str, AuthScope.zzb(list)));
+        this.zza.setResult(new AuthResponse(str, AuthScope.zza(list)));
     }
 }

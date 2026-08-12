@@ -2,13 +2,13 @@ package com.android.billingclient.api;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
 public final class InAppMessageResult {
     private final int zza;
     private final String zzb;
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
     public @interface InAppMessageResponseCode {

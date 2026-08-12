@@ -1,25 +1,89 @@
 package com.google.android.gms.internal.play_billing;
-
-import java.io.IOException;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public abstract class zzfw implements Cloneable, zzim {
-    public final /* synthetic */ Object clone() throws CloneNotSupportedException {
-        throw null;
+public class zzfw {
+    protected volatile zzgl zza;
+    private volatile zzei zzb;
+    private volatile boolean zzc;
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj instanceof zzfw) {
+            zzfw zzfwVar = (zzfw) obj;
+            zzgl zzglVar = this.zza;
+            zzgl zzglVar2 = zzfwVar.zza;
+            if (zzglVar == null && zzglVar2 == null) {
+                return zzb().equals(zzfwVar.zzb());
+            }
+            if (zzglVar == null || zzglVar2 == null) {
+                if (zzglVar != null) {
+                    zzfwVar.zzd(zzglVar.zzh());
+                    return zzglVar.equals(zzfwVar.zza);
+                }
+                zzd(zzglVar2.zzh());
+                return this.zza.equals(zzglVar2);
+            }
+            return zzglVar.equals(zzglVar2);
+        }
+        return false;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzim
-    public final zzil zzI() {
-        throw null;
+    public int hashCode() {
+        return 1;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzim
-    public final void zzJ(zzgr zzgrVar) throws IOException {
-        throw null;
+    public final int zza() {
+        if (this.zzb != null) {
+            return ((zzeg) this.zzb).zza.length;
+        }
+        if (this.zza != null) {
+            return this.zza.zzj();
+        }
+        return 0;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzim
-    public final zzgk zzf() {
-        throw null;
+    public final zzei zzb() {
+        if (this.zzb != null) {
+            return this.zzb;
+        }
+        synchronized (this) {
+            if (this.zzb != null) {
+                return this.zzb;
+            }
+            if (this.zza == null) {
+                this.zzb = zzei.zzb;
+            } else {
+                this.zzb = this.zza.zzf();
+            }
+            return this.zzb;
+        }
+    }
+
+    public final zzgl zzc(zzgl zzglVar) {
+        zzgl zzglVar2 = this.zza;
+        this.zzb = null;
+        this.zza = zzglVar;
+        return zzglVar2;
+    }
+
+    protected final void zzd(zzgl zzglVar) {
+        if (this.zza != null) {
+            return;
+        }
+        synchronized (this) {
+            if (this.zza != null) {
+                return;
+            }
+            try {
+                this.zza = zzglVar;
+                this.zzb = zzei.zzb;
+            } catch (zzfq unused) {
+                this.zzc = true;
+                this.zza = zzglVar;
+                this.zzb = zzei.zzb;
+            }
+        }
     }
 }

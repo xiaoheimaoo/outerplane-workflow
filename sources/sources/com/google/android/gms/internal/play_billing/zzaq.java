@@ -1,68 +1,36 @@
 package com.google.android.gms.internal.play_billing;
 
+import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public class zzaq implements IInterface {
-    private final IBinder zza;
-    private final String zzb;
-
+public class zzaq extends Binder implements IInterface {
     /* JADX INFO: Access modifiers changed from: protected */
-    public zzaq(IBinder iBinder, String str) {
-        this.zza = iBinder;
-        this.zzb = str;
+    public zzaq(String str) {
+        attachInterface(this, str);
     }
 
     @Override // android.os.IInterface
     public final IBinder asBinder() {
-        return this.zza;
+        return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final Parcel zzu() {
-        Parcel obtain = Parcel.obtain();
-        obtain.writeInterfaceToken(this.zzb);
-        return obtain;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final Parcel zzv(int i, Parcel parcel) throws RemoteException {
-        Parcel obtain = Parcel.obtain();
-        try {
-            try {
-                this.zza.transact(i, parcel, obtain, 0);
-                obtain.readException();
-                return obtain;
-            } catch (RuntimeException e) {
-                obtain.recycle();
-                throw e;
+    @Override // android.os.Binder
+    public final boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+        if (i > 16777215) {
+            if (super.onTransact(i, parcel, parcel2, i2)) {
+                return true;
             }
-        } finally {
-            parcel.recycle();
+        } else {
+            parcel.enforceInterface(getInterfaceDescriptor());
         }
+        return zzb(i, parcel, parcel2, i2);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void zzw(int i, Parcel parcel) throws RemoteException {
-        Parcel obtain = Parcel.obtain();
-        try {
-            this.zza.transact(i, parcel, obtain, 0);
-            obtain.readException();
-        } finally {
-            parcel.recycle();
-            obtain.recycle();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void zzx(int i, Parcel parcel) throws RemoteException {
-        try {
-            this.zza.transact(i, parcel, null, 1);
-        } finally {
-            parcel.recycle();
-        }
+    protected boolean zzb(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+        throw null;
     }
 }

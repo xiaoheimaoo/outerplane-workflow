@@ -1,29 +1,14 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+
+import java.io.IOException;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-final class zzgl extends zzgn {
-    private int zzb;
-    private int zzc;
-    private int zzd;
+public interface zzgl extends zzgm {
+    zzgk zzK();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ zzgl(byte[] bArr, int i, int i2, boolean z, zzgm zzgmVar) {
-        super(null);
-        this.zzd = Integer.MAX_VALUE;
-        this.zzb = 0;
-    }
+    void zzL(zzep zzepVar) throws IOException;
 
-    public final int zza(int i) throws zzhr {
-        int i2 = this.zzd;
-        this.zzd = 0;
-        int i3 = this.zzb + this.zzc;
-        this.zzb = i3;
-        if (i3 > 0) {
-            this.zzc = i3;
-            this.zzb = i3 - i3;
-        } else {
-            this.zzc = 0;
-        }
-        return i2;
-    }
+    zzei zzf();
+
+    int zzj();
 }

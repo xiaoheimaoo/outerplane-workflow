@@ -12,7 +12,7 @@ import com.google.android.gms.games.snapshot.SnapshotMetadataChange;
 import com.google.android.gms.tasks.Task;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public interface SnapshotsClient {
     public static final int DISPLAY_LIMIT_NONE = -1;
@@ -24,7 +24,7 @@ public interface SnapshotsClient {
     public static final int RESOLUTION_POLICY_MANUAL = -1;
     public static final int RESOLUTION_POLICY_MOST_RECENTLY_MODIFIED = 3;
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     /* loaded from: classes.dex */
     public static final class DataOrConflict<T> {
         private final Object zza;
@@ -54,13 +54,13 @@ public interface SnapshotsClient {
         }
     }
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
     public @interface ResolutionPolicy {
     }
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     /* loaded from: classes.dex */
     public static final class SnapshotConflict {
         private final Snapshot zza;
@@ -92,7 +92,7 @@ public interface SnapshotsClient {
         }
     }
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     /* loaded from: classes.dex */
     public static final class SnapshotContentUnavailableApiException extends ApiException {
         protected final SnapshotMetadata metadata;

@@ -1,32 +1,14 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-final class zzid implements zzik {
-    private final zzik[] zza;
+final class zzid implements zzfl {
+    static final zzfl zza = new zzid();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public zzid(zzik... zzikVarArr) {
-        this.zza = zzikVarArr;
+    private zzid() {
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzik
-    public final zzij zzb(Class cls) {
-        for (int i = 0; i < 2; i++) {
-            zzik zzikVar = this.zza[i];
-            if (zzikVar.zzc(cls)) {
-                return zzikVar.zzb(cls);
-            }
-        }
-        throw new UnsupportedOperationException("No factory is available for message type: ".concat(String.valueOf(cls.getName())));
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzik
-    public final boolean zzc(Class cls) {
-        for (int i = 0; i < 2; i++) {
-            if (this.zza[i].zzc(cls)) {
-                return true;
-            }
-        }
-        return false;
+    @Override // com.google.android.gms.internal.play_billing.zzfl
+    public final boolean zza(int i) {
+        return zzie.zzb(i) != null;
     }
 }

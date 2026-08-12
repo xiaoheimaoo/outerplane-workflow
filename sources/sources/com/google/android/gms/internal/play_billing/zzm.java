@@ -1,13 +1,17 @@
 package com.google.android.gms.internal.play_billing;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public final class zzm implements Runnable {
-    final zzq zza;
-    final zzeu zzb;
+public final class zzm {
+    static final zzm zza = new zzm(false);
+    volatile Thread zzb;
+    volatile zzm zzc;
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        throw null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public zzm() {
+        zzo.zzb.zzb(this, Thread.currentThread());
+    }
+
+    zzm(boolean z) {
     }
 }

@@ -43,7 +43,7 @@
     <string name="call_notification_incoming_text">Incoming call</string>
     <string name="call_notification_ongoing_text">Ongoing call</string>
     <string name="call_notification_screening_text">Screening an incoming call</string>
-    <string name="res_0x7f0d002b_com_crashlytics_android_build_id">5ab9d230-a404-4521-b229-9c64a5306f5e</string>
+    <string name="res_0x7f0d002b_com_crashlytics_android_build_id">c3503941-dfd8-4b6d-bd2b-f994ccd858c7</string>
     <string name="res_0x7f0d002c_com_google_firebase_crashlytics_unity_version">2022.3.62f2</string>
     <string name="common_google_play_services_enable_button">Enable</string>
     <string name="common_google_play_services_enable_text">%1$s won\'t work unless you enable Google Play services.</string>
@@ -89,7 +89,7 @@
     <string name="offline_opt_in_decline">No thanks</string>
     <string name="offline_opt_in_message">We\'ll send you a notification with a link to the advertiser site.</string>
     <string name="offline_opt_in_title">Open ad when you\'re back online.</string>
-    <string name="play_games_sdk_version">21.0.0</string>
+    <string name="play_games_sdk_version">22.0.0</string>
     <string name="project_id">outerplane</string>
     <string name="s1">Save image</string>
     <string name="s2">Allow Ad to store image in Picture gallery?</string>

@@ -2,14 +2,14 @@ package com.android.billingclient.api;
 
 import java.util.ArrayList;
 import java.util.List;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 @Deprecated
 /* loaded from: classes.dex */
 public class SkuDetailsParams {
     private String zza;
     private List zzb;
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     /* loaded from: classes.dex */
     public static class Builder {
         private String zza;
@@ -19,7 +19,7 @@ public class SkuDetailsParams {
             throw null;
         }
 
-        /* synthetic */ Builder(zzdd zzddVar) {
+        /* synthetic */ Builder(zzdb zzdbVar) {
         }
 
         public SkuDetailsParams build() {

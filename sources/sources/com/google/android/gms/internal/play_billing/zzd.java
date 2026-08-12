@@ -1,44 +1,24 @@
 package com.google.android.gms.internal.play_billing;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public enum zzd {
-    RESPONSE_CODE_UNSPECIFIED(-999),
-    SERVICE_TIMEOUT(-3),
-    FEATURE_NOT_SUPPORTED(-2),
-    SERVICE_DISCONNECTED(-1),
-    OK(0),
-    USER_CANCELED(1),
-    SERVICE_UNAVAILABLE(2),
-    BILLING_UNAVAILABLE(3),
-    ITEM_UNAVAILABLE(4),
-    DEVELOPER_ERROR(5),
-    ERROR(6),
-    ITEM_ALREADY_OWNED(7),
-    ITEM_NOT_OWNED(8),
-    EXPIRED_OFFER_TOKEN(11),
-    NETWORK_ERROR(12);
-    
-    private static final zzcr zzp;
-    private final int zzr;
-
-    static {
-        zzd[] values;
-        zzcq zzcqVar = new zzcq();
-        for (zzd zzdVar : values()) {
-            zzcqVar.zza(Integer.valueOf(zzdVar.zzr), zzdVar);
-        }
-        zzp = zzcqVar.zzb();
-    }
-
-    zzd(int i) {
-        this.zzr = i;
+public abstract class zzd {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ zzd(zzn zznVar) {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static zzd zza(int i) {
-        zzcr zzcrVar = zzp;
-        Integer valueOf = Integer.valueOf(i);
-        return !zzcrVar.containsKey(valueOf) ? RESPONSE_CODE_UNSPECIFIED : (zzd) zzcrVar.get(valueOf);
-    }
+    public abstract void zza(zzm zzmVar, zzm zzmVar2);
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public abstract void zzb(zzm zzmVar, Thread thread);
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public abstract boolean zzc(zzo zzoVar, zzh zzhVar, zzh zzhVar2);
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public abstract boolean zzd(zzo zzoVar, Object obj, Object obj2);
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public abstract boolean zze(zzo zzoVar, zzm zzmVar, zzm zzmVar2);
 }

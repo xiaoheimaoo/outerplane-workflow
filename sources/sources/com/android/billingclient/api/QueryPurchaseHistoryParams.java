@@ -1,10 +1,9 @@
 package com.android.billingclient.api;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
 public final class QueryPurchaseHistoryParams {
-    private final String zza;
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     /* loaded from: classes.dex */
     public static class Builder {
         private String zza;
@@ -13,7 +12,7 @@ public final class QueryPurchaseHistoryParams {
             throw null;
         }
 
-        /* synthetic */ Builder(zzda zzdaVar) {
+        /* synthetic */ Builder(zzcz zzczVar) {
         }
 
         public QueryPurchaseHistoryParams build() {
@@ -29,15 +28,10 @@ public final class QueryPurchaseHistoryParams {
         }
     }
 
-    /* synthetic */ QueryPurchaseHistoryParams(Builder builder, zzda zzdaVar) {
-        this.zza = builder.zza;
+    /* synthetic */ QueryPurchaseHistoryParams(Builder builder, zzcz zzczVar) {
     }
 
     public static Builder newBuilder() {
         return new Builder(null);
-    }
-
-    public final String zza() {
-        return this.zza;
     }
 }

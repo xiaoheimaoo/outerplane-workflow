@@ -1,29 +1,26 @@
 package com.android.billingclient.api;
 
 import android.text.TextUtils;
-import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.ProductDetails;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
 public class BillingFlowParams {
-    public static final String EXTRA_PARAM_KEY_ACCOUNT_ID = "accountId";
     private boolean zza;
     private String zzb;
     private String zzc;
     private SubscriptionUpdateParams zzd;
-    private com.google.android.gms.internal.play_billing.zzco zze;
+    private com.google.android.gms.internal.play_billing.zzbt zze;
     private ArrayList zzf;
     private boolean zzg;
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     /* loaded from: classes.dex */
     public static class Builder {
         private String zza;
@@ -40,7 +37,7 @@ public class BillingFlowParams {
         }
 
         public BillingFlowParams build() {
-            com.google.android.gms.internal.play_billing.zzco zzl;
+            com.google.android.gms.internal.play_billing.zzbt zzk;
             ArrayList arrayList = this.zzd;
             boolean z = true;
             boolean z2 = (arrayList == null || arrayList.isEmpty()) ? false : true;
@@ -48,18 +45,10 @@ public class BillingFlowParams {
             boolean z3 = (list == null || list.isEmpty()) ? false : true;
             if (z2 || z3) {
                 if (!z2 || !z3) {
-                    if (!z2) {
-                        this.zzc.forEach(new Consumer() { // from class: com.android.billingclient.api.zzce
-                            @Override // java.util.function.Consumer
-                            public final void accept(Object obj) {
-                                if (((BillingFlowParams.ProductDetailsParams) obj) == null) {
-                                    throw new IllegalArgumentException("ProductDetailsParams cannot be null.");
-                                }
-                            }
-                        });
-                    } else if (this.zzd.contains(null)) {
-                        throw new IllegalArgumentException("SKU cannot be null.");
-                    } else {
+                    if (z2) {
+                        if (this.zzd.contains(null)) {
+                            throw new IllegalArgumentException("SKU cannot be null.");
+                        }
                         if (this.zzd.size() > 1) {
                             SkuDetails skuDetails = (SkuDetails) this.zzd.get(0);
                             String type = skuDetails.getType();
@@ -81,6 +70,15 @@ public class BillingFlowParams {
                                 }
                             }
                         }
+                    } else {
+                        List<ProductDetailsParams> list2 = this.zzc;
+                        if (list2 != null) {
+                            for (ProductDetailsParams productDetailsParams : list2) {
+                                if (productDetailsParams == null) {
+                                    throw new IllegalArgumentException("ProductDetailsParams cannot be null.");
+                                }
+                            }
+                        }
                     }
                     BillingFlowParams billingFlowParams = new BillingFlowParams(null);
                     if ((!z2 || ((SkuDetails) this.zzd.get(0)).zzd().isEmpty()) && (!z3 || ((ProductDetailsParams) this.zzc.get(0)).zza().zza().isEmpty())) {
@@ -93,13 +91,13 @@ public class BillingFlowParams {
                     ArrayList arrayList4 = this.zzd;
                     billingFlowParams.zzf = arrayList4 != null ? new ArrayList(arrayList4) : new ArrayList();
                     billingFlowParams.zzg = this.zze;
-                    List list2 = this.zzc;
-                    if (list2 != null) {
-                        zzl = com.google.android.gms.internal.play_billing.zzco.zzk(list2);
+                    List list3 = this.zzc;
+                    if (list3 != null) {
+                        zzk = com.google.android.gms.internal.play_billing.zzbt.zzj(list3);
                     } else {
-                        zzl = com.google.android.gms.internal.play_billing.zzco.zzl();
+                        zzk = com.google.android.gms.internal.play_billing.zzbt.zzk();
                     }
-                    billingFlowParams.zze = zzl;
+                    billingFlowParams.zze = zzk;
                     return billingFlowParams;
                 }
                 throw new IllegalArgumentException("Set SkuDetails or ProductDetailsParams, not both.");
@@ -147,13 +145,13 @@ public class BillingFlowParams {
         }
     }
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     /* loaded from: classes.dex */
     public static final class ProductDetailsParams {
         private final ProductDetails zza;
         private final String zzb;
 
-        /* compiled from: com.android.billingclient:billing@@7.1.1 */
+        /* compiled from: com.android.billingclient:billing@@8.0.0 */
         /* loaded from: classes.dex */
         public static class Builder {
             private ProductDetails zza;
@@ -167,10 +165,7 @@ public class BillingFlowParams {
             }
 
             public ProductDetailsParams build() {
-                com.google.android.gms.internal.play_billing.zzbe.zzc(this.zza, "ProductDetails is required for constructing ProductDetailsParams.");
-                if (this.zza.getSubscriptionOfferDetails() != null) {
-                    com.google.android.gms.internal.play_billing.zzbe.zzc(this.zzb, "offerToken is required for constructing ProductDetailsParams for subscriptions.");
-                }
+                com.google.android.gms.internal.play_billing.zzbg.zzc(this.zza, "ProductDetails is required for constructing ProductDetailsParams.");
                 return new ProductDetailsParams(this, null);
             }
 
@@ -187,8 +182,8 @@ public class BillingFlowParams {
                 if (productDetails.getOneTimePurchaseOfferDetails() != null) {
                     productDetails.getOneTimePurchaseOfferDetails().getClass();
                     ProductDetails.OneTimePurchaseOfferDetails oneTimePurchaseOfferDetails = productDetails.getOneTimePurchaseOfferDetails();
-                    if (oneTimePurchaseOfferDetails.zzb() != null) {
-                        this.zzb = oneTimePurchaseOfferDetails.zzb();
+                    if (oneTimePurchaseOfferDetails.getOfferToken() != null) {
+                        this.zzb = oneTimePurchaseOfferDetails.getOfferToken();
                     }
                 }
                 return this;
@@ -213,14 +208,14 @@ public class BillingFlowParams {
         }
     }
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     /* loaded from: classes.dex */
     public static class SubscriptionUpdateParams {
         private String zza;
         private String zzb;
         private int zzc = 0;
 
-        /* compiled from: com.android.billingclient:billing@@7.1.1 */
+        /* compiled from: com.android.billingclient:billing@@8.0.0 */
         /* loaded from: classes.dex */
         public static class Builder {
             private String zza;
@@ -277,7 +272,7 @@ public class BillingFlowParams {
             }
         }
 
-        /* compiled from: com.android.billingclient:billing@@7.1.1 */
+        /* compiled from: com.android.billingclient:billing@@8.0.0 */
         @Retention(RetentionPolicy.SOURCE)
         /* loaded from: classes.dex */
         public @interface ReplacementMode {
@@ -331,14 +326,23 @@ public class BillingFlowParams {
         return new Builder(null);
     }
 
-    public final int zza() {
+    public int zza() {
+        return 0;
+    }
+
+    public final int zzb() {
         return this.zzd.zza();
     }
 
+    public long zzc() {
+        return 0L;
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final BillingResult zzb() {
+    public final BillingResult zzd() {
+        ProductDetails.OneTimePurchaseOfferDetails oneTimePurchaseOfferDetails;
         if (this.zze.isEmpty()) {
-            return zzcj.zzl;
+            return zzcj.zzi;
         }
         ProductDetailsParams productDetailsParams = (ProductDetailsParams) this.zze.get(0);
         for (int i = 1; i < this.zze.size(); i++) {
@@ -348,74 +352,100 @@ public class BillingFlowParams {
             }
         }
         String zza = productDetailsParams.zza().zza();
+        HashMap hashMap = new HashMap();
         HashSet hashSet = new HashSet();
-        HashSet hashSet2 = new HashSet();
-        com.google.android.gms.internal.play_billing.zzco zzcoVar = this.zze;
-        int size = zzcoVar.size();
+        com.google.android.gms.internal.play_billing.zzbt zzbtVar = this.zze;
+        int size = zzbtVar.size();
         for (int i2 = 0; i2 < size; i2++) {
-            ProductDetailsParams productDetailsParams3 = (ProductDetailsParams) zzcoVar.get(i2);
-            productDetailsParams3.zza().getProductType().equals("subs");
-            if (!hashSet.contains(productDetailsParams3.zza().getProductId())) {
-                hashSet.add(productDetailsParams3.zza().getProductId());
-                if (!productDetailsParams.zza().getProductType().equals("play_pass_subs") && !productDetailsParams3.zza().getProductType().equals("play_pass_subs") && !zza.equals(productDetailsParams3.zza().zza())) {
-                    return zzcj.zza(5, "All products must have the same package name.");
+            ProductDetailsParams productDetailsParams3 = (ProductDetailsParams) zzbtVar.get(i2);
+            if (productDetailsParams3.zza().getSubscriptionOfferDetails() == null || productDetailsParams3.zzb() != null) {
+                if (!hashMap.containsKey(productDetailsParams3.zza().getProductId())) {
+                    hashMap.put(productDetailsParams3.zza().getProductId(), productDetailsParams3);
+                    if (!productDetailsParams.zza().getProductType().equals("play_pass_subs") && !productDetailsParams3.zza().getProductType().equals("play_pass_subs") && !zza.equals(productDetailsParams3.zza().zza())) {
+                        return zzcj.zza(5, "All products must have the same package name.");
+                    }
+                } else {
+                    return zzcj.zza(5, String.format("ProductId can not be duplicated. Invalid product id: %s.", productDetailsParams3.zza().getProductId()));
                 }
             } else {
-                return zzcj.zza(5, String.format("ProductId can not be duplicated. Invalid product id: %s.", productDetailsParams3.zza().getProductId()));
+                return zzcj.zza(5, String.format("offerToken is required for constructing ProductDetailsParams for subscriptions. Missing value for product id: %s", productDetailsParams3.zza().getProductId()));
             }
         }
-        Iterator it = hashSet2.iterator();
+        Iterator it = hashSet.iterator();
         while (it.hasNext()) {
             String str = (String) it.next();
-            if (hashSet.contains(str)) {
+            if (hashMap.containsKey(str)) {
+                ProductDetailsParams productDetailsParams4 = (ProductDetailsParams) hashMap.get(str);
                 return zzcj.zza(5, String.format("OldProductId must not be one of the products to be purchased. Invalid old product id: %s.", str));
             }
         }
-        ProductDetails.OneTimePurchaseOfferDetails oneTimePurchaseOfferDetails = productDetailsParams.zza().getOneTimePurchaseOfferDetails();
-        if (oneTimePurchaseOfferDetails == null || oneTimePurchaseOfferDetails.zza() == null) {
-            return zzcj.zzl;
+        List<ProductDetails.OneTimePurchaseOfferDetails> oneTimePurchaseOfferDetailsList = productDetailsParams.zza().getOneTimePurchaseOfferDetailsList();
+        String zzb = productDetailsParams.zzb();
+        if (zzb != null && oneTimePurchaseOfferDetailsList != null) {
+            Iterator<ProductDetails.OneTimePurchaseOfferDetails> it2 = oneTimePurchaseOfferDetailsList.iterator();
+            while (true) {
+                if (!it2.hasNext()) {
+                    oneTimePurchaseOfferDetails = null;
+                    break;
+                }
+                oneTimePurchaseOfferDetails = it2.next();
+                if (zzb.equals(oneTimePurchaseOfferDetails.getOfferToken())) {
+                    break;
+                }
+            }
+            if (oneTimePurchaseOfferDetails != null && oneTimePurchaseOfferDetails.zza() != null) {
+                return zzcj.zza(5, "Both autoPayDetails and autoPayBalanceThreshold is required for constructing ProductDetailsParams for autopay.");
+            }
         }
-        return zzcj.zza(5, "Both autoPayDetails and autoPayBalanceThreshold is required for constructing ProductDetailsParams for autopay.");
-    }
-
-    public final String zzc() {
-        return this.zzb;
-    }
-
-    public final String zzd() {
-        return this.zzc;
+        return zzcj.zzi;
     }
 
     public final String zze() {
-        return this.zzd.zzc();
+        return this.zzb;
     }
 
     public final String zzf() {
+        return this.zzc;
+    }
+
+    public String zzg() {
+        return null;
+    }
+
+    public final String zzh() {
+        return this.zzd.zzc();
+    }
+
+    public final String zzi() {
         return this.zzd.zzd();
     }
 
-    public final ArrayList zzg() {
+    public final ArrayList zzj() {
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(this.zzf);
         return arrayList;
     }
 
-    public final List zzh() {
+    public final List zzk() {
         return this.zze;
     }
 
-    public final boolean zzp() {
+    public final boolean zzs() {
         return this.zzg;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final boolean zzq() {
-        return (this.zzb == null && this.zzc == null && this.zzd.zzd() == null && this.zzd.zza() == 0 && !this.zze.stream().anyMatch(new Predicate() { // from class: com.android.billingclient.api.zzcd
-            @Override // java.util.function.Predicate
-            public final boolean test(Object obj) {
-                BillingFlowParams.ProductDetailsParams productDetailsParams = (BillingFlowParams.ProductDetailsParams) obj;
-                return false;
+    public final boolean zzt() {
+        if (this.zzb == null && this.zzc == null && this.zzd.zzd() == null && this.zzd.zza() == 0 && !this.zza && !this.zzg) {
+            com.google.android.gms.internal.play_billing.zzbt zzbtVar = this.zze;
+            if (zzbtVar != null) {
+                int size = zzbtVar.size();
+                for (int i = 0; i < size; i++) {
+                    ProductDetailsParams productDetailsParams = (ProductDetailsParams) zzbtVar.get(i);
+                }
             }
-        }) && !this.zza && !this.zzg) ? false : true;
+            return false;
+        }
+        return true;
     }
 }

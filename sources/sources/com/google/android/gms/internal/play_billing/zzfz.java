@@ -1,22 +1,16 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
 final class zzfz {
-    public int zza;
-    public long zzb;
-    public Object zzc;
-    public final zzgw zzd;
-    public int zze;
+    private static final zzfy zza;
 
-    zzfz() {
-        int i = zzgw.zzb;
-        int i2 = zziu.zza;
-        this.zzd = zzgw.zza;
+    static {
+        int i = zzgs.zza;
+        zza = new zzfy();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public zzfz(zzgw zzgwVar) {
-        zzgwVar.getClass();
-        this.zzd = zzgwVar;
+    public static zzfy zza() {
+        return zza;
     }
 }

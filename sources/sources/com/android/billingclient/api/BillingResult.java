@@ -1,15 +1,17 @@
 package com.android.billingclient.api;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
 public final class BillingResult {
     private int zza;
-    private String zzb;
+    private int zzb;
+    private String zzc;
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     /* loaded from: classes.dex */
     public static class Builder {
         private int zza;
-        private String zzb = "";
+        private int zzb = 0;
+        private String zzc = "";
 
         private Builder() {
         }
@@ -21,11 +23,17 @@ public final class BillingResult {
             BillingResult billingResult = new BillingResult();
             billingResult.zza = this.zza;
             billingResult.zzb = this.zzb;
+            billingResult.zzc = this.zzc;
             return billingResult;
         }
 
         public Builder setDebugMessage(String str) {
-            this.zzb = str;
+            this.zzc = str;
+            return this;
+        }
+
+        public Builder setOnPurchasesUpdatedSubResponseCode(int i) {
+            this.zzb = i;
             return this;
         }
 
@@ -40,6 +48,10 @@ public final class BillingResult {
     }
 
     public String getDebugMessage() {
+        return this.zzc;
+    }
+
+    public int getOnPurchasesUpdatedSubResponseCode() {
         return this.zzb;
     }
 
@@ -48,8 +60,8 @@ public final class BillingResult {
     }
 
     public String toString() {
-        String zzi = com.google.android.gms.internal.play_billing.zze.zzi(this.zza);
-        String str = this.zzb;
-        return "Response Code: " + zzi + ", Debug Message: " + str;
+        String zzk = com.google.android.gms.internal.play_billing.zzc.zzk(this.zza);
+        String str = this.zzc;
+        return "Response Code: " + zzk + ", Debug Message: " + str;
     }
 }

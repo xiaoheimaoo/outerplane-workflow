@@ -8,7 +8,7 @@ import com.google.android.gms.common.data.BitmapTeleporter;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.games.internal.zzg;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class SnapshotMetadataChangeEntity extends zzg implements SnapshotMetadataChange {
     public static final Parcelable.Creator<SnapshotMetadataChangeEntity> CREATOR = new zzc();

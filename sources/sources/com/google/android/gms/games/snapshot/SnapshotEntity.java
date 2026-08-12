@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.games.internal.zzg;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class SnapshotEntity extends zzg implements Snapshot {
     public static final Parcelable.Creator<SnapshotEntity> CREATOR = new zzb();

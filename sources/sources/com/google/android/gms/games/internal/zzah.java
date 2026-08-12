@@ -28,35 +28,36 @@ import com.google.android.gms.games.Player;
 import com.google.android.gms.games.PlayerBuffer;
 import com.google.android.gms.games.PlayerEntity;
 import com.google.android.gms.games.leaderboard.LeaderboardScoreBuffer;
+import com.google.android.gms.games.playergameevent.PlayerGameEvent;
 import com.google.android.gms.games.snapshot.Snapshot;
 import com.google.android.gms.games.snapshot.SnapshotContents;
 import com.google.android.gms.games.snapshot.SnapshotMetadataChange;
 import com.google.android.gms.games.snapshot.SnapshotMetadataChangeEntity;
-import com.google.android.gms.internal.games_v2.zzfn;
+import com.google.android.gms.internal.games_v2.zzfu;
 import com.google.android.gms.signin.internal.SignInClientImpl;
 import com.google.android.gms.tasks.TaskCompletionSource;
 import java.util.List;
 import java.util.Set;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class zzah extends GmsClient {
     public static final /* synthetic */ int zze = 0;
     private final com.google.android.gms.internal.games_v2.zzac zzf;
     private final String zzg;
     private PlayerEntity zzh;
-    private final zzan zzi;
+    private final zzao zzi;
     private boolean zzj;
     private final long zzk;
-    private final zzao zzl;
+    private final zzap zzl;
     private final com.google.android.gms.games.zzi zzm;
 
-    public zzah(Context context, Looper looper, ClientSettings clientSettings, com.google.android.gms.games.zzi zziVar, ConnectionCallbacks connectionCallbacks, OnConnectionFailedListener onConnectionFailedListener, zzao zzaoVar) {
+    public zzah(Context context, Looper looper, ClientSettings clientSettings, com.google.android.gms.games.zzi zziVar, ConnectionCallbacks connectionCallbacks, OnConnectionFailedListener onConnectionFailedListener, zzap zzapVar) {
         super(context, looper, 1, clientSettings, connectionCallbacks, onConnectionFailedListener);
         this.zzf = new zzj(this);
         this.zzj = false;
         this.zzg = clientSettings.getRealClientPackageName();
-        this.zzl = (zzao) Preconditions.checkNotNull(zzaoVar);
-        zzan zzb = zzan.zzb(this, clientSettings.getGravityForPopups());
+        this.zzl = (zzap) Preconditions.checkNotNull(zzapVar);
+        zzao zzb = zzao.zzb(this, clientSettings.getGravityForPopups());
         this.zzi = zzb;
         this.zzk = hashCode();
         this.zzm = zziVar;
@@ -66,8 +67,13 @@ public final class zzah extends GmsClient {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void zzV(RemoteException remoteException) {
-        zzfn.zzf("GamesGmsClientImpl", "service died", remoteException);
+    public static void zzae(RemoteException remoteException) {
+        zzfu.zzf("GamesGmsClientImpl", "service died", remoteException);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void zzaf(SecurityException securityException) {
+        zzfu.zzh("GamesGmsClientImpl", "Is player signed out?", securityException);
     }
 
     @Override // com.google.android.gms.common.internal.BaseGmsClient, com.google.android.gms.common.api.Api.Client
@@ -83,7 +89,7 @@ public final class zzah extends GmsClient {
             return null;
         }
         IInterface queryLocalInterface = iBinder.queryLocalInterface("com.google.android.gms.games.internal.IGamesService");
-        return queryLocalInterface instanceof zzam ? (zzam) queryLocalInterface : new zzam(iBinder);
+        return queryLocalInterface instanceof zzan ? (zzan) queryLocalInterface : new zzam(iBinder);
     }
 
     @Override // com.google.android.gms.common.internal.BaseGmsClient, com.google.android.gms.common.api.Api.Client
@@ -92,9 +98,9 @@ public final class zzah extends GmsClient {
         if (isConnected()) {
             try {
                 this.zzf.zzb();
-                ((zzam) getService()).zzd(this.zzk);
+                ((zzan) getService()).zzd(this.zzk);
             } catch (RemoteException unused) {
-                zzfn.zze("GamesGmsClientImpl", "Failed to notify client disconnect.");
+                zzfu.zze("GamesGmsClientImpl", "Failed to notify client disconnect.");
             }
         }
         super.disconnect();
@@ -102,7 +108,7 @@ public final class zzah extends GmsClient {
 
     @Override // com.google.android.gms.common.internal.BaseGmsClient
     public final Feature[] getApiFeatures() {
-        return com.google.android.gms.games.zzd.zzj;
+        return com.google.android.gms.games.zzd.zzm;
     }
 
     @Override // com.google.android.gms.common.internal.BaseGmsClient
@@ -165,16 +171,16 @@ public final class zzah extends GmsClient {
 
     @Override // com.google.android.gms.common.internal.BaseGmsClient
     public final /* bridge */ /* synthetic */ void onConnectedLocked(IInterface iInterface) {
-        zzam zzamVar = (zzam) iInterface;
-        super.onConnectedLocked(zzamVar);
+        zzan zzanVar = (zzan) iInterface;
+        super.onConnectedLocked(zzanVar);
         if (this.zzj) {
             this.zzi.zzg();
             this.zzj = false;
         }
         try {
-            zzamVar.zzM(new zzk(new com.google.android.gms.internal.games_v2.zzaf(this.zzi.zze())), this.zzk);
+            zzanVar.zzM(new zzk(new com.google.android.gms.internal.games_v2.zzaf(this.zzi.zze())), this.zzk);
         } catch (RemoteException e) {
-            zzV(e);
+            zzae(e);
         }
     }
 
@@ -205,7 +211,7 @@ public final class zzah extends GmsClient {
             zzl zzlVar = new zzl(signOutCallbacks);
             this.zzf.zzb();
             try {
-                ((zzam) getService()).zze(new zzm(zzlVar));
+                ((zzan) getService()).zze(new zzm(zzlVar));
             } catch (SecurityException unused) {
                 zzlVar.setFailedResult(GamesClientStatusCodes.zza(4));
             }
@@ -229,69 +235,109 @@ public final class zzah extends GmsClient {
         return true;
     }
 
-    public final void zzA(TaskCompletionSource taskCompletionSource, String str, long j, String str2) throws RemoteException {
+    public final void zzA(TaskCompletionSource taskCompletionSource, String str, boolean z) throws RemoteException {
         try {
-            ((zzam) getService()).zzs(new zzaf(taskCompletionSource), str, j, str2);
+            ((zzan) getService()).zzr(new zzw(taskCompletionSource), str, z);
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
-    public final void zzB(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
+    public final void zzB(TaskCompletionSource taskCompletionSource, String str, int i, int i2) throws RemoteException {
         try {
-            ((zzam) getService()).zzp(new zzp(taskCompletionSource), z);
+            ((zzan) getService()).zzu(new zzx(this, taskCompletionSource), null, str, i, i2);
+        } catch (SecurityException e) {
+            GamesStatusUtils.zza(taskCompletionSource, e);
+        }
+    }
+
+    public final void zzC(TaskCompletionSource taskCompletionSource, String str, int i, int i2, int i3, boolean z) throws RemoteException {
+        try {
+            ((zzan) getService()).zzj(new zzy(this, taskCompletionSource), str, i, i2, i3, z);
+        } catch (SecurityException e) {
+            GamesStatusUtils.zza(taskCompletionSource, e);
+        }
+    }
+
+    public final void zzD(TaskCompletionSource taskCompletionSource, String str, int i, int i2, int i3, boolean z) throws RemoteException {
+        try {
+            ((zzan) getService()).zzk(new zzy(this, taskCompletionSource), str, i, i2, i3, z);
+        } catch (SecurityException e) {
+            GamesStatusUtils.zza(taskCompletionSource, e);
+        }
+    }
+
+    public final void zzE(TaskCompletionSource taskCompletionSource, LeaderboardScoreBuffer leaderboardScoreBuffer, int i, int i2) throws RemoteException {
+        try {
+            ((zzan) getService()).zzl(new zzy(this, taskCompletionSource), leaderboardScoreBuffer.zza().zza(), i, i2);
+        } catch (SecurityException e) {
+            GamesStatusUtils.zza(taskCompletionSource, e);
+        }
+    }
+
+    public final void zzF(TaskCompletionSource taskCompletionSource, String str, long j, String str2) throws RemoteException {
+        try {
+            ((zzan) getService()).zzs(new zzaf(taskCompletionSource), str, j, str2);
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
     public final void zzG(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
-        this.zzf.zzb();
         try {
-            ((zzam) getService()).zzH(new zzs(taskCompletionSource), z);
+            ((zzan) getService()).zzp(new zzp(taskCompletionSource), z);
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
-    public final void zzH(TaskCompletionSource taskCompletionSource, boolean z, String... strArr) throws RemoteException {
+    public final void zzL(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
         this.zzf.zzb();
         try {
-            ((zzam) getService()).zzI(new zzs(taskCompletionSource), z, strArr);
+            ((zzan) getService()).zzH(new zzs(taskCompletionSource), z);
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
-    public final void zzI(String str, int i) {
+    public final void zzM(TaskCompletionSource taskCompletionSource, boolean z, String... strArr) throws RemoteException {
+        this.zzf.zzb();
+        try {
+            ((zzan) getService()).zzI(new zzs(taskCompletionSource), z, strArr);
+        } catch (SecurityException e) {
+            GamesStatusUtils.zza(taskCompletionSource, e);
+        }
+    }
+
+    public final void zzN(String str, int i) {
         this.zzf.zzc(str, i);
     }
 
-    public final void zzJ(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
+    public final void zzO(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
         try {
-            ((zzam) getService()).zzO(new zzab(taskCompletionSource), z);
+            ((zzan) getService()).zzO(new zzab(taskCompletionSource), z);
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
-    public final void zzK(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
+    public final void zzP(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
         try {
-            ((zzam) getService()).zzA(new zzaa(taskCompletionSource), z);
+            ((zzan) getService()).zzA(new zzaa(taskCompletionSource), z);
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
-    public final void zzL(TaskCompletionSource taskCompletionSource, String str, boolean z, int i) throws RemoteException {
+    public final void zzQ(TaskCompletionSource taskCompletionSource, String str, boolean z, int i) throws RemoteException {
         try {
-            ((zzam) getService()).zzL(new zzag(taskCompletionSource), str, z, i);
+            ((zzan) getService()).zzL(new zzag(taskCompletionSource), str, z, i);
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
-    public final void zzM(TaskCompletionSource taskCompletionSource, Snapshot snapshot, SnapshotMetadataChange snapshotMetadataChange) throws RemoteException {
+    public final void zzR(TaskCompletionSource taskCompletionSource, Snapshot snapshot, SnapshotMetadataChange snapshotMetadataChange) throws RemoteException {
         SnapshotContents snapshotContents = snapshot.getSnapshotContents();
         Preconditions.checkState(!snapshotContents.isClosed(), "Snapshot already closed");
         BitmapTeleporter zza = snapshotMetadataChange.zza();
@@ -301,21 +347,21 @@ public final class zzah extends GmsClient {
         Contents zza2 = snapshotContents.zza();
         snapshotContents.zzb();
         try {
-            ((zzam) getService()).zzB(new zzq(taskCompletionSource), snapshot.getMetadata().getSnapshotId(), (SnapshotMetadataChangeEntity) snapshotMetadataChange, zza2);
+            ((zzan) getService()).zzB(new zzq(taskCompletionSource), snapshot.getMetadata().getSnapshotId(), (SnapshotMetadataChangeEntity) snapshotMetadataChange, zza2);
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
-    public final void zzN(TaskCompletionSource taskCompletionSource, String str) throws RemoteException {
+    public final void zzS(TaskCompletionSource taskCompletionSource, String str) throws RemoteException {
         try {
-            ((zzam) getService()).zzD(new zzr(taskCompletionSource), str);
+            ((zzan) getService()).zzD(new zzr(taskCompletionSource), str);
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
-    public final void zzO(TaskCompletionSource taskCompletionSource, String str, String str2, SnapshotMetadataChange snapshotMetadataChange, SnapshotContents snapshotContents) throws RemoteException {
+    public final void zzT(TaskCompletionSource taskCompletionSource, String str, String str2, SnapshotMetadataChange snapshotMetadataChange, SnapshotContents snapshotContents) throws RemoteException {
         Preconditions.checkState(!snapshotContents.isClosed(), "SnapshotContents already closed");
         BitmapTeleporter zza = snapshotMetadataChange.zza();
         if (zza != null) {
@@ -324,64 +370,88 @@ public final class zzah extends GmsClient {
         Contents zza2 = snapshotContents.zza();
         snapshotContents.zzb();
         try {
-            ((zzam) getService()).zzE(new zzag(taskCompletionSource), str, str2, (SnapshotMetadataChangeEntity) snapshotMetadataChange, zza2);
+            ((zzan) getService()).zzE(new zzag(taskCompletionSource), str, str2, (SnapshotMetadataChangeEntity) snapshotMetadataChange, zza2);
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void zzP(IBinder iBinder, Bundle bundle) {
+    public final void zzU(IBinder iBinder, Bundle bundle) {
         if (isConnected()) {
             if (this.zzm.zzn.zzb() && this.zzl.zzb()) {
                 return;
             }
             try {
-                ((zzam) getService()).zzf(iBinder, bundle);
+                ((zzan) getService()).zzf(iBinder, bundle);
                 this.zzl.zzc();
             } catch (RemoteException e) {
-                zzV(e);
+                zzae(e);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void zzQ() {
+    public final void zzV() {
         if (isConnected()) {
             try {
-                ((zzam) getService()).zzg();
+                ((zzan) getService()).zzg();
             } catch (RemoteException e) {
-                zzV(e);
+                zzae(e);
             }
         }
     }
 
-    public final void zzR(TaskCompletionSource taskCompletionSource, String str, boolean z) throws RemoteException {
-        ((zzam) getService()).zzS(new zzu(taskCompletionSource), str, z);
+    public final void zzW(TaskCompletionSource taskCompletionSource, String str, boolean z) throws RemoteException {
+        ((zzan) getService()).zzS(new zzu(taskCompletionSource), str, z);
     }
 
-    public final void zzS(TaskCompletionSource taskCompletionSource, String str, boolean z, List list) throws RemoteException {
-        ((zzam) getService()).zzT(new zzv(taskCompletionSource), str, z, list);
+    public final void zzX(TaskCompletionSource taskCompletionSource, String str, boolean z, List list) throws RemoteException {
+        ((zzan) getService()).zzT(new zzv(taskCompletionSource), str, z, list);
+    }
+
+    public final void zzY(PlayerGameEvent playerGameEvent) throws RemoteException {
+        try {
+            ((zzan) getService()).zzU(playerGameEvent);
+        } catch (SecurityException e) {
+            zzaf(e);
+        }
+    }
+
+    public final void zzZ(List list) throws RemoteException {
+        try {
+            ((zzan) getService()).zzV(list);
+        } catch (SecurityException e) {
+            zzaf(e);
+        }
+    }
+
+    public final void zzaa() throws RemoteException {
+        try {
+            ((zzan) getService()).zzW();
+        } catch (SecurityException e) {
+            zzaf(e);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final /* synthetic */ void zzT(TaskCompletionSource taskCompletionSource) {
+    public final /* synthetic */ void zzab(TaskCompletionSource taskCompletionSource) {
         try {
-            taskCompletionSource.setException(FriendsResolutionRequiredException.zza(GamesClientStatusCodes.zzb(GamesClientStatusCodes.CONSENT_REQUIRED, ((zzam) getService()).zzQ())));
+            taskCompletionSource.setException(FriendsResolutionRequiredException.zza(GamesClientStatusCodes.zzb(GamesClientStatusCodes.CONSENT_REQUIRED, ((zzan) getService()).zzQ())));
         } catch (RemoteException e) {
             taskCompletionSource.setException(e);
         }
     }
 
-    public final void zzp(zzf zzfVar) {
+    public final void zzu(zzf zzfVar) {
         zzfVar.zzc(this.zzi);
     }
 
-    public final Player zzq() throws RemoteException {
+    public final Player zzv() throws RemoteException {
         checkConnected();
         synchronized (this) {
             if (this.zzh == null) {
-                PlayerBuffer playerBuffer = new PlayerBuffer(((zzam) getService()).zzi());
+                PlayerBuffer playerBuffer = new PlayerBuffer(((zzan) getService()).zzi());
                 if (playerBuffer.getCount() > 0) {
                     PlayerEntity playerEntity = new PlayerEntity(playerBuffer.get(0));
                     PlayerEntity playerEntity2 = playerEntity;
@@ -393,120 +463,78 @@ public final class zzah extends GmsClient {
         return this.zzh;
     }
 
-    public final void zzr(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
+    public final void zzw(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
         try {
-            ((zzam) getService()).zzK(new zzad(taskCompletionSource), null, z);
+            ((zzan) getService()).zzK(new zzad(taskCompletionSource), null, z);
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
-    public final void zzs(TaskCompletionSource taskCompletionSource, String str, boolean z) throws RemoteException {
+    public final void zzx(TaskCompletionSource taskCompletionSource, String str, boolean z) throws RemoteException {
         try {
-            ((zzam) getService()).zzK(new zzad(taskCompletionSource), str, z);
+            ((zzan) getService()).zzK(new zzad(taskCompletionSource), str, z);
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
-    public final void zzt(TaskCompletionSource taskCompletionSource, String str, int i, boolean z, boolean z2) throws RemoteException {
-        if (str.equals("played_with") || str.equals("friends_all")) {
-            try {
-                ((zzam) getService()).zzy(new zzac(this, taskCompletionSource), str, i, z, z2);
-                return;
-            } catch (SecurityException e) {
-                GamesStatusUtils.zza(taskCompletionSource, e);
-                return;
-            }
+    public final void zzy(TaskCompletionSource taskCompletionSource, String str, int i, boolean z, boolean z2) throws RemoteException {
+        if (!str.equals("played_with") && !str.equals("friends_all")) {
+            throw new IllegalArgumentException("Invalid player collection: ".concat(str));
         }
-        throw new IllegalArgumentException("Invalid player collection: ".concat(str));
-    }
-
-    public final void zzu(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
         try {
-            ((zzam) getService()).zzq(new zzz(taskCompletionSource), z);
+            ((zzan) getService()).zzy(new zzac(this, taskCompletionSource), str, i, z, z2);
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
-    public final void zzv(TaskCompletionSource taskCompletionSource, String str, boolean z) throws RemoteException {
+    public final void zzz(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
         try {
-            ((zzam) getService()).zzr(new zzw(taskCompletionSource), str, z);
+            ((zzan) getService()).zzq(new zzz(taskCompletionSource), z);
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
-    public final void zzw(TaskCompletionSource taskCompletionSource, String str, int i, int i2) throws RemoteException {
-        try {
-            ((zzam) getService()).zzu(new zzx(this, taskCompletionSource), null, str, i, i2);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzx(TaskCompletionSource taskCompletionSource, String str, int i, int i2, int i3, boolean z) throws RemoteException {
-        try {
-            ((zzam) getService()).zzj(new zzy(this, taskCompletionSource), str, i, i2, i3, z);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzy(TaskCompletionSource taskCompletionSource, String str, int i, int i2, int i3, boolean z) throws RemoteException {
-        try {
-            ((zzam) getService()).zzk(new zzy(this, taskCompletionSource), str, i, i2, i3, z);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzz(TaskCompletionSource taskCompletionSource, LeaderboardScoreBuffer leaderboardScoreBuffer, int i, int i2) throws RemoteException {
-        try {
-            ((zzam) getService()).zzl(new zzy(this, taskCompletionSource), leaderboardScoreBuffer.zza().zza(), i, i2);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzC(TaskCompletionSource taskCompletionSource, String str) throws RemoteException {
+    public final void zzH(TaskCompletionSource taskCompletionSource, String str) throws RemoteException {
         zzo zzoVar = taskCompletionSource == null ? null : new zzo(taskCompletionSource);
         try {
-            zzan zzanVar = this.zzi;
-            ((zzam) getService()).zzm(zzoVar, str, zzanVar.zzd(), zzanVar.zzc());
+            zzao zzaoVar = this.zzi;
+            ((zzan) getService()).zzm(zzoVar, str, zzaoVar.zzd(), zzaoVar.zzc());
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
-    public final void zzD(TaskCompletionSource taskCompletionSource, String str) throws RemoteException {
+    public final void zzI(TaskCompletionSource taskCompletionSource, String str) throws RemoteException {
         zzo zzoVar = taskCompletionSource == null ? null : new zzo(taskCompletionSource);
         try {
-            zzan zzanVar = this.zzi;
-            ((zzam) getService()).zzn(zzoVar, str, zzanVar.zzd(), zzanVar.zzc());
+            zzao zzaoVar = this.zzi;
+            ((zzan) getService()).zzn(zzoVar, str, zzaoVar.zzd(), zzaoVar.zzc());
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
-    public final void zzE(TaskCompletionSource taskCompletionSource, String str, int i) throws RemoteException {
+    public final void zzJ(TaskCompletionSource taskCompletionSource, String str, int i) throws RemoteException {
         zzn zznVar = taskCompletionSource == null ? null : new zzn(taskCompletionSource);
         try {
-            zzam zzamVar = (zzam) getService();
-            zzan zzanVar = this.zzi;
-            zzamVar.zzo(zznVar, str, i, zzanVar.zzd(), zzanVar.zzc());
+            zzan zzanVar = (zzan) getService();
+            zzao zzaoVar = this.zzi;
+            zzanVar.zzo(zznVar, str, i, zzaoVar.zzd(), zzaoVar.zzc());
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }
     }
 
-    public final void zzF(TaskCompletionSource taskCompletionSource, String str, int i) throws RemoteException {
+    public final void zzK(TaskCompletionSource taskCompletionSource, String str, int i) throws RemoteException {
         zzn zznVar = taskCompletionSource == null ? null : new zzn(taskCompletionSource);
         try {
-            zzam zzamVar = (zzam) getService();
-            zzan zzanVar = this.zzi;
-            zzamVar.zzt(zznVar, str, i, zzanVar.zzd(), zzanVar.zzc());
+            zzan zzanVar = (zzan) getService();
+            zzao zzaoVar = this.zzi;
+            zzanVar.zzt(zznVar, str, i, zzaoVar.zzd(), zzaoVar.zzc());
         } catch (SecurityException e) {
             GamesStatusUtils.zza(taskCompletionSource, e);
         }

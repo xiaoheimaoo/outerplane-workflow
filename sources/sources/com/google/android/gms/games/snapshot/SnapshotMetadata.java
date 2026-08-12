@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.google.android.gms.common.data.Freezable;
 import com.google.android.gms.games.Game;
 import com.google.android.gms.games.Player;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public interface SnapshotMetadata extends Freezable<SnapshotMetadata>, Parcelable {
     public static final long PLAYED_TIME_UNKNOWN = -1;

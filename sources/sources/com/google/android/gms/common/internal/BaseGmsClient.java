@@ -30,7 +30,7 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicInteger;
-/* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
+/* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
 /* loaded from: classes.dex */
 public abstract class BaseGmsClient<T extends IInterface> {
     public static final int CONNECT_STATE_CONNECTED = 4;
@@ -42,8 +42,8 @@ public abstract class BaseGmsClient<T extends IInterface> {
     private volatile AttributionSourceWrapper zzB;
     private ConnectionResult zzC;
     private boolean zzD;
-    private volatile zzk zzE;
-    zzv zza;
+    private volatile zzj zzE;
+    zzs zza;
     final Handler zzb;
     protected ConnectionProgressReportCallbacks zzc;
     protected AtomicInteger zzd;
@@ -71,7 +71,7 @@ public abstract class BaseGmsClient<T extends IInterface> {
     private static final Feature[] zze = new Feature[0];
     public static final String[] GOOGLE_PLUS_REQUIRED_FEATURES = {"service_esmobile", "service_googleme"};
 
-    /* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
+    /* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
     /* loaded from: classes.dex */
     public interface BaseConnectionCallbacks {
         public static final int CAUSE_DEAD_OBJECT_EXCEPTION = 3;
@@ -82,36 +82,43 @@ public abstract class BaseGmsClient<T extends IInterface> {
         void onConnectionSuspended(int i);
     }
 
-    /* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
+    /* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
     /* loaded from: classes.dex */
     public interface BaseOnConnectionFailedListener {
         void onConnectionFailed(ConnectionResult connectionResult);
     }
 
-    /* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
+    /* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
     /* loaded from: classes.dex */
     public interface ConnectionProgressReportCallbacks {
         void onReportServiceBinding(ConnectionResult connectionResult);
     }
 
-    /* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
+    /* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
     /* loaded from: classes.dex */
     protected class LegacyClientCallbackAdapter implements ConnectionProgressReportCallbacks {
-        public LegacyClientCallbackAdapter() {
+        final /* synthetic */ BaseGmsClient zza;
+
+        public LegacyClientCallbackAdapter(BaseGmsClient baseGmsClient) {
+            java.util.Objects.requireNonNull(baseGmsClient);
+            this.zza = baseGmsClient;
         }
 
         @Override // com.google.android.gms.common.internal.BaseGmsClient.ConnectionProgressReportCallbacks
         public final void onReportServiceBinding(ConnectionResult connectionResult) {
             if (connectionResult.isSuccess()) {
-                BaseGmsClient baseGmsClient = BaseGmsClient.this;
+                BaseGmsClient baseGmsClient = this.zza;
                 baseGmsClient.getRemoteService(null, baseGmsClient.getScopes());
-            } else if (BaseGmsClient.this.zzx != null) {
-                BaseGmsClient.this.zzx.onConnectionFailed(connectionResult);
+                return;
+            }
+            BaseGmsClient baseGmsClient2 = this.zza;
+            if (baseGmsClient2.zzl() != null) {
+                baseGmsClient2.zzl().onConnectionFailed(connectionResult);
             }
         }
     }
 
-    /* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
+    /* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
     /* loaded from: classes.dex */
     public interface SignOutCallbacks {
         void onSignOutComplete();
@@ -143,88 +150,10 @@ public abstract class BaseGmsClient<T extends IInterface> {
         this.zzz = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* bridge */ /* synthetic */ void zzj(BaseGmsClient baseGmsClient, zzk zzkVar) {
-        baseGmsClient.zzE = zzkVar;
-        if (baseGmsClient.usesClientTelemetry()) {
-            ConnectionTelemetryConfiguration connectionTelemetryConfiguration = zzkVar.zzd;
-            RootTelemetryConfigManager.getInstance().zza(connectionTelemetryConfiguration == null ? null : connectionTelemetryConfiguration.zza());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* bridge */ /* synthetic */ void zzk(BaseGmsClient baseGmsClient, int i) {
-        int i2;
-        int i3;
-        synchronized (baseGmsClient.zzp) {
-            i2 = baseGmsClient.zzv;
-        }
-        if (i2 == 3) {
-            baseGmsClient.zzD = true;
-            i3 = 5;
-        } else {
-            i3 = 4;
-        }
-        Handler handler = baseGmsClient.zzb;
-        handler.sendMessage(handler.obtainMessage(i3, baseGmsClient.zzd.get(), 16));
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* bridge */ /* synthetic */ boolean zzn(BaseGmsClient baseGmsClient, int i, int i2, IInterface iInterface) {
-        synchronized (baseGmsClient.zzp) {
-            if (baseGmsClient.zzv != i) {
-                return false;
-            }
-            baseGmsClient.zzp(i2, iInterface);
-            return true;
-        }
-    }
-
-    /*  JADX ERROR: NullPointerException in pass: RegionMakerVisitor
-        java.lang.NullPointerException: Cannot read field "wordsInUse" because "set" is null
-        	at java.base/java.util.BitSet.or(BitSet.java:943)
-        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:732)
-        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:811)
-        	at jadx.core.dex.visitors.regions.IfMakerHelper.restructureIf(IfMakerHelper.java:88)
-        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:706)
-        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
-        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
-        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:730)
-        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
-        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
-        	at jadx.core.dex.visitors.regions.RegionMakerVisitor.visit(RegionMakerVisitor.java:52)
-        */
-    static /* bridge */ /* synthetic */ boolean zzo(com.google.android.gms.common.internal.BaseGmsClient r2) {
-        /*
-            boolean r0 = r2.zzD
-            r1 = 0
-            if (r0 == 0) goto L6
-            goto L24
-        L6:
-            java.lang.String r0 = r2.getServiceDescriptor()
-            boolean r0 = android.text.TextUtils.isEmpty(r0)
-            if (r0 == 0) goto L11
-            goto L24
-        L11:
-            java.lang.String r0 = r2.getLocalStartServiceAction()
-            boolean r0 = android.text.TextUtils.isEmpty(r0)
-            if (r0 == 0) goto L1c
-            goto L24
-        L1c:
-            java.lang.String r2 = r2.getServiceDescriptor()     // Catch: java.lang.ClassNotFoundException -> L24
-            java.lang.Class.forName(r2)     // Catch: java.lang.ClassNotFoundException -> L24
-            r1 = 1
-        L24:
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.google.android.gms.common.internal.BaseGmsClient.zzo(com.google.android.gms.common.internal.BaseGmsClient):boolean");
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    public final void zzp(int i, IInterface iInterface) {
-        zzv zzvVar;
-        zzv zzvVar2;
+    private final void zzp(int i, IInterface iInterface) {
+        zzs zzsVar;
+        zzs zzsVar2;
         Preconditions.checkArgument((i == 4) == (iInterface != 0));
         synchronized (this.zzp) {
             this.zzv = i;
@@ -234,51 +163,63 @@ public abstract class BaseGmsClient<T extends IInterface> {
                 zze zzeVar = this.zzu;
                 if (zzeVar != null) {
                     GmsClientSupervisor gmsClientSupervisor = this.zzn;
-                    String zzb = this.zza.zzb();
-                    Preconditions.checkNotNull(zzb);
-                    String str = zzb;
-                    gmsClientSupervisor.zzc(zzb, this.zza.zza(), 4225, zzeVar, zze(), this.zza.zzc());
+                    String zza = this.zza.zza();
+                    Preconditions.checkNotNull(zza);
+                    String str = zza;
+                    gmsClientSupervisor.zzb(zza, this.zza.zzb(), 4225, zzeVar, zza(), this.zza.zzc());
                     this.zzu = null;
                 }
             } else if (i == 2 || i == 3) {
                 zze zzeVar2 = this.zzu;
-                if (zzeVar2 != null && (zzvVar2 = this.zza) != null) {
-                    String zzb2 = zzvVar2.zzb();
-                    String zza = zzvVar2.zza();
-                    Log.e("GmsClient", "Calling connect() while still connected, missing disconnect() for " + zzb2 + " on " + zza);
+                if (zzeVar2 != null && (zzsVar2 = this.zza) != null) {
+                    String zza2 = zzsVar2.zza();
+                    String zzb = zzsVar2.zzb();
+                    StringBuilder sb = new StringBuilder(String.valueOf(zza2).length() + 70 + String.valueOf(zzb).length());
+                    sb.append("Calling connect() while still connected, missing disconnect() for ");
+                    sb.append(zza2);
+                    sb.append(" on ");
+                    sb.append(zzb);
+                    Log.e("GmsClient", sb.toString());
                     GmsClientSupervisor gmsClientSupervisor2 = this.zzn;
-                    String zzb3 = this.zza.zzb();
-                    Preconditions.checkNotNull(zzb3);
-                    String str2 = zzb3;
-                    gmsClientSupervisor2.zzc(zzb3, this.zza.zza(), 4225, zzeVar2, zze(), this.zza.zzc());
+                    String zza3 = this.zza.zza();
+                    Preconditions.checkNotNull(zza3);
+                    String str2 = zza3;
+                    gmsClientSupervisor2.zzb(zza3, this.zza.zzb(), 4225, zzeVar2, zza(), this.zza.zzc());
                     this.zzd.incrementAndGet();
                 }
                 zze zzeVar3 = new zze(this, this.zzd.get());
                 this.zzu = zzeVar3;
                 if (this.zzv == 3 && getLocalStartServiceAction() != null) {
-                    zzvVar = new zzv(getContext().getPackageName(), getLocalStartServiceAction(), true, 4225, false);
+                    zzsVar = new zzs(getContext().getPackageName(), getLocalStartServiceAction(), true, 4225, false);
                 } else {
-                    zzvVar = new zzv(getStartServicePackage(), getStartServiceAction(), false, 4225, getUseDynamicLookup());
+                    zzsVar = new zzs(getStartServicePackage(), getStartServiceAction(), false, 4225, getUseDynamicLookup());
                 }
-                this.zza = zzvVar;
-                if (zzvVar.zzc() && getMinApkVersion() < 17895000) {
-                    throw new IllegalStateException("Internal Error, the minimum apk version of this BaseGmsClient is too low to support dynamic lookup. Start service action: ".concat(String.valueOf(this.zza.zzb())));
+                this.zza = zzsVar;
+                if (zzsVar.zzc() && getMinApkVersion() < 17895000) {
+                    String zza4 = this.zza.zza();
+                    String.valueOf(zza4);
+                    throw new IllegalStateException("Internal Error, the minimum apk version of this BaseGmsClient is too low to support dynamic lookup. Start service action: ".concat(String.valueOf(zza4)));
                 }
                 GmsClientSupervisor gmsClientSupervisor3 = this.zzn;
-                String zzb4 = this.zza.zzb();
-                Preconditions.checkNotNull(zzb4);
-                String str3 = zzb4;
-                ConnectionResult zza2 = gmsClientSupervisor3.zza(new zzo(zzb4, this.zza.zza(), 4225, this.zza.zzc()), zzeVar3, zze(), getBindServiceExecutor());
-                if (!zza2.isSuccess()) {
-                    String zzb5 = this.zza.zzb();
-                    String zza3 = this.zza.zza();
-                    Log.w("GmsClient", "unable to connect to service: " + zzb5 + " on " + zza3);
-                    int errorCode = zza2.getErrorCode() == -1 ? 16 : zza2.getErrorCode();
-                    if (zza2.getResolution() != null) {
+                String zza5 = this.zza.zza();
+                Preconditions.checkNotNull(zza5);
+                String str3 = zza5;
+                ConnectionResult zza6 = gmsClientSupervisor3.zza(new zzn(zza5, this.zza.zzb(), 4225, this.zza.zzc()), zzeVar3, zza(), getBindServiceExecutor());
+                if (!zza6.isSuccess()) {
+                    String zza7 = this.zza.zza();
+                    String zzb2 = this.zza.zzb();
+                    StringBuilder sb2 = new StringBuilder(String.valueOf(zza7).length() + 34 + String.valueOf(zzb2).length());
+                    sb2.append("unable to connect to service: ");
+                    sb2.append(zza7);
+                    sb2.append(" on ");
+                    sb2.append(zzb2);
+                    Log.w("GmsClient", sb2.toString());
+                    int errorCode = zza6.getErrorCode() == -1 ? 16 : zza6.getErrorCode();
+                    if (zza6.getResolution() != null) {
                         bundle = new Bundle();
-                        bundle.putParcelable(KEY_PENDING_INTENT, zza2.getResolution());
+                        bundle.putParcelable(KEY_PENDING_INTENT, zza6.getResolution());
                     }
-                    zzl(errorCode, bundle, this.zzd.get());
+                    zzb(errorCode, bundle, this.zzd.get());
                 }
             } else if (i == 4) {
                 Preconditions.checkNotNull(iInterface);
@@ -292,10 +233,10 @@ public abstract class BaseGmsClient<T extends IInterface> {
         int isGooglePlayServicesAvailable = this.zzo.isGooglePlayServicesAvailable(this.zzl, getMinApkVersion());
         if (isGooglePlayServicesAvailable != 0) {
             zzp(1, null);
-            triggerNotAvailable(new LegacyClientCallbackAdapter(), isGooglePlayServicesAvailable, null);
+            triggerNotAvailable(new LegacyClientCallbackAdapter(this), isGooglePlayServicesAvailable, null);
             return;
         }
-        connect(new LegacyClientCallbackAdapter());
+        connect(new LegacyClientCallbackAdapter(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -316,12 +257,13 @@ public abstract class BaseGmsClient<T extends IInterface> {
 
     public void disconnect() {
         this.zzd.incrementAndGet();
-        synchronized (this.zzt) {
-            int size = this.zzt.size();
+        ArrayList arrayList = this.zzt;
+        synchronized (arrayList) {
+            int size = arrayList.size();
             for (int i = 0; i < size; i++) {
-                ((zzc) this.zzt.get(i)).zzf();
+                ((zzc) arrayList.get(i)).zzf();
             }
-            this.zzt.clear();
+            arrayList.clear();
         }
         synchronized (this.zzq) {
             this.zzr = null;
@@ -371,7 +313,11 @@ public abstract class BaseGmsClient<T extends IInterface> {
             PrintWriter append = printWriter.append((CharSequence) str).append("lastConnectedTime=");
             long j = this.zzh;
             String format = simpleDateFormat.format(new Date(j));
-            append.println(j + " " + format);
+            StringBuilder sb = new StringBuilder(String.valueOf(j).length() + 1 + String.valueOf(format).length());
+            sb.append(j);
+            sb.append(" ");
+            sb.append(format);
+            append.println(sb.toString());
         }
         if (this.zzg > 0) {
             printWriter.append((CharSequence) str).append("lastSuspendedCause=");
@@ -388,14 +334,22 @@ public abstract class BaseGmsClient<T extends IInterface> {
             PrintWriter append2 = printWriter.append(" lastSuspendedTime=");
             long j2 = this.zzg;
             String format2 = simpleDateFormat.format(new Date(j2));
-            append2.println(j2 + " " + format2);
+            StringBuilder sb2 = new StringBuilder(String.valueOf(j2).length() + 1 + String.valueOf(format2).length());
+            sb2.append(j2);
+            sb2.append(" ");
+            sb2.append(format2);
+            append2.println(sb2.toString());
         }
         if (this.zzj > 0) {
             printWriter.append((CharSequence) str).append("lastFailedStatus=").append((CharSequence) CommonStatusCodes.getStatusCodeString(this.zzi));
             PrintWriter append3 = printWriter.append(" lastFailedTime=");
             long j3 = this.zzj;
             String format3 = simpleDateFormat.format(new Date(j3));
-            append3.println(j3 + " " + format3);
+            StringBuilder sb3 = new StringBuilder(String.valueOf(j3).length() + 1 + String.valueOf(format3).length());
+            sb3.append(j3);
+            sb3.append(" ");
+            sb3.append(format3);
+            append3.println(sb3.toString());
         }
     }
 
@@ -417,11 +371,11 @@ public abstract class BaseGmsClient<T extends IInterface> {
     }
 
     public final Feature[] getAvailableFeatures() {
-        zzk zzkVar = this.zzE;
-        if (zzkVar == null) {
+        zzj zzjVar = this.zzE;
+        if (zzjVar == null) {
             return null;
         }
-        return zzkVar.zzb;
+        return zzjVar.zzb;
     }
 
     protected Executor getBindServiceExecutor() {
@@ -437,11 +391,11 @@ public abstract class BaseGmsClient<T extends IInterface> {
     }
 
     public String getEndpointPackageName() {
-        zzv zzvVar;
-        if (!isConnected() || (zzvVar = this.zza) == null) {
+        zzs zzsVar;
+        if (!isConnected() || (zzsVar = this.zza) == null) {
             throw new RuntimeException("Failed to connect when checking package");
         }
-        return zzvVar.zza();
+        return zzsVar.zzb();
     }
 
     public int getGCoreServiceId() {
@@ -569,11 +523,11 @@ public abstract class BaseGmsClient<T extends IInterface> {
     }
 
     public ConnectionTelemetryConfiguration getTelemetryConfiguration() {
-        zzk zzkVar = this.zzE;
-        if (zzkVar == null) {
+        zzj zzjVar = this.zzE;
+        if (zzjVar == null) {
             return null;
         }
-        return zzkVar.zzd;
+        return zzjVar.zzd;
     }
 
     protected boolean getUseDynamicLookup() {
@@ -623,7 +577,9 @@ public abstract class BaseGmsClient<T extends IInterface> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onPostInitHandler(int i, IBinder iBinder, Bundle bundle, int i2) {
-        this.zzb.sendMessage(this.zzb.obtainMessage(1, i2, -1, new zzf(this, i, iBinder, bundle)));
+        zzf zzfVar = new zzf(this, i, iBinder, bundle);
+        Handler handler = this.zzb;
+        handler.sendMessage(handler.obtainMessage(1, i2, -1, zzfVar));
     }
 
     public void onUserSignOut(SignOutCallbacks signOutCallbacks) {
@@ -655,27 +611,156 @@ public abstract class BaseGmsClient<T extends IInterface> {
     }
 
     public void triggerConnectionSuspended(int i) {
-        this.zzb.sendMessage(this.zzb.obtainMessage(6, this.zzd.get(), i));
+        int i2 = this.zzd.get();
+        Handler handler = this.zzb;
+        handler.sendMessage(handler.obtainMessage(6, i2, i));
     }
 
     protected void triggerNotAvailable(ConnectionProgressReportCallbacks connectionProgressReportCallbacks, int i, PendingIntent pendingIntent) {
         Preconditions.checkNotNull(connectionProgressReportCallbacks, "Connection progress callbacks cannot be null.");
         this.zzc = connectionProgressReportCallbacks;
-        this.zzb.sendMessage(this.zzb.obtainMessage(3, this.zzd.get(), i, pendingIntent));
+        int i2 = this.zzd.get();
+        Handler handler = this.zzb;
+        handler.sendMessage(handler.obtainMessage(3, i2, i, pendingIntent));
     }
 
     public boolean usesClientTelemetry() {
         return false;
     }
 
-    protected final String zze() {
+    protected final String zza() {
         String str = this.zzz;
         return str == null ? this.zzl.getClass().getName() : str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void zzl(int i, Bundle bundle, int i2) {
-        this.zzb.sendMessage(this.zzb.obtainMessage(7, i2, -1, new zzg(this, i, bundle)));
+    public final void zzb(int i, Bundle bundle, int i2) {
+        zzg zzgVar = new zzg(this, i, bundle);
+        Handler handler = this.zzb;
+        handler.sendMessage(handler.obtainMessage(7, i2, -1, zzgVar));
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final /* synthetic */ void zzc(zzj zzjVar) {
+        this.zzE = zzjVar;
+        if (usesClientTelemetry()) {
+            ConnectionTelemetryConfiguration connectionTelemetryConfiguration = zzjVar.zzd;
+            RootTelemetryConfigManager.getInstance().zza(connectionTelemetryConfiguration == null ? null : connectionTelemetryConfiguration.zza());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final /* synthetic */ void zzd(int i, IInterface iInterface) {
+        zzp(i, null);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final /* synthetic */ boolean zze(int i, int i2, IInterface iInterface) {
+        synchronized (this.zzp) {
+            if (this.zzv != i) {
+                return false;
+            }
+            zzp(i2, iInterface);
+            return true;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final /* synthetic */ void zzf(int i) {
+        int i2;
+        int i3;
+        synchronized (this.zzp) {
+            i2 = this.zzv;
+        }
+        if (i2 == 3) {
+            this.zzD = true;
+            i3 = 5;
+        } else {
+            i3 = 4;
+        }
+        Handler handler = this.zzb;
+        handler.sendMessage(handler.obtainMessage(i3, this.zzd.get(), 16));
+    }
+
+    /*  JADX ERROR: NullPointerException in pass: RegionMakerVisitor
+        java.lang.NullPointerException: Cannot read field "wordsInUse" because "set" is null
+        	at java.base/java.util.BitSet.or(BitSet.java:943)
+        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:732)
+        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:811)
+        	at jadx.core.dex.visitors.regions.IfMakerHelper.restructureIf(IfMakerHelper.java:88)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:706)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:730)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMakerVisitor.visit(RegionMakerVisitor.java:52)
+        */
+    final /* synthetic */ boolean zzg() {
+        /*
+            r2 = this;
+            boolean r0 = r2.zzD
+            r1 = 0
+            if (r0 == 0) goto L6
+            goto L24
+        L6:
+            java.lang.String r0 = r2.getServiceDescriptor()
+            boolean r0 = android.text.TextUtils.isEmpty(r0)
+            if (r0 == 0) goto L11
+            goto L24
+        L11:
+            java.lang.String r0 = r2.getLocalStartServiceAction()
+            boolean r0 = android.text.TextUtils.isEmpty(r0)
+            if (r0 == 0) goto L1c
+            goto L24
+        L1c:
+            java.lang.String r0 = r2.getServiceDescriptor()     // Catch: java.lang.ClassNotFoundException -> L24
+            java.lang.Class.forName(r0)     // Catch: java.lang.ClassNotFoundException -> L24
+            r1 = 1
+        L24:
+            return r1
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.google.android.gms.common.internal.BaseGmsClient.zzg():boolean");
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final /* synthetic */ Object zzh() {
+        return this.zzq;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final /* synthetic */ void zzi(IGmsServiceBroker iGmsServiceBroker) {
+        this.zzr = iGmsServiceBroker;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final /* synthetic */ ArrayList zzj() {
+        return this.zzt;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final /* synthetic */ BaseConnectionCallbacks zzk() {
+        return this.zzw;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final /* synthetic */ BaseOnConnectionFailedListener zzl() {
+        return this.zzx;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final /* synthetic */ ConnectionResult zzm() {
+        return this.zzC;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final /* synthetic */ void zzn(ConnectionResult connectionResult) {
+        this.zzC = connectionResult;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final /* synthetic */ boolean zzo() {
+        return this.zzD;
     }
 
     public IBinder getServiceBrokerBinder() {

@@ -4,7 +4,7 @@ import android.app.Application;
 import com.google.android.gms.common.internal.Preconditions;
 import java.util.concurrent.atomic.AtomicReference;
 import kotlin.UByte$$ExternalSyntheticBackport0;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 public final class zzay {
     private static final AtomicReference zza = new AtomicReference();

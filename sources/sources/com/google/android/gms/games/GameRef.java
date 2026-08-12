@@ -4,7 +4,7 @@ import android.database.CharArrayBuffer;
 import android.net.Uri;
 import android.os.Parcel;
 import com.google.android.gms.common.data.DataHolder;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class GameRef extends zzg implements Game {
     public GameRef(DataHolder dataHolder, int i) {

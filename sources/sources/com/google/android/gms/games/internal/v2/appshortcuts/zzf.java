@@ -2,7 +2,7 @@ package com.google.android.gms.games.internal.v2.appshortcuts;
 
 import android.content.Context;
 import android.os.Build;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public class zzf {
     /* JADX INFO: Access modifiers changed from: package-private */

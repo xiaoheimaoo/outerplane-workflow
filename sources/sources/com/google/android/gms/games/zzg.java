@@ -2,7 +2,7 @@ package com.google.android.gms.games;
 
 import com.google.android.gms.common.data.DataBufferRef;
 import com.google.android.gms.common.data.DataHolder;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public class zzg extends DataBufferRef {
     public zzg(DataHolder dataHolder, int i) {
@@ -18,7 +18,7 @@ public class zzg extends DataBufferRef {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int zzu(String str, int i) {
+    public final int zzr(String str, int i) {
         return (!hasColumn(str) || hasNull(str)) ? i : getInteger(str);
     }
 }

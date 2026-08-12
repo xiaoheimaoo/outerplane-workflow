@@ -1,52 +1,126 @@
 package com.google.android.gms.internal.common;
-
-import com.google.firebase.analytics.FirebaseAnalytics;
-import org.jspecify.annotations.NullMarked;
-/* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
-@NullMarked
+/* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
 /* loaded from: classes2.dex */
-public final class zzv {
-    public static int zza(int i, int i2, String str) {
-        String zza;
-        if (i < 0 || i >= i2) {
-            if (i < 0) {
-                zza = zzab.zza("%s (%s) must not be negative", FirebaseAnalytics.Param.INDEX, Integer.valueOf(i));
-            } else if (i2 < 0) {
-                throw new IllegalArgumentException("negative size: " + i2);
-            } else {
-                zza = zzab.zza("%s (%s) must be less than size (%s)", FirebaseAnalytics.Param.INDEX, Integer.valueOf(i), Integer.valueOf(i2));
-            }
-            throw new IndexOutOfBoundsException(zza);
-        }
-        return i;
+abstract class zzv extends zzk {
+    final CharSequence zzb;
+    final zzp zzc;
+    final boolean zzd;
+    int zze = 0;
+    int zzf = Integer.MAX_VALUE;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public zzv(zzw zzwVar, CharSequence charSequence) {
+        this.zzc = zzwVar.zzf();
+        this.zzd = zzwVar.zzg();
+        this.zzb = charSequence;
     }
 
-    public static int zzb(int i, int i2, String str) {
-        if (i < 0 || i > i2) {
-            throw new IndexOutOfBoundsException(zzd(i, i2, FirebaseAnalytics.Param.INDEX));
-        }
-        return i;
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0047, code lost:
+        r3 = r5.zzf;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x004a, code lost:
+        if (r3 != 1) goto L29;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x004c, code lost:
+        r1 = r5.zzb;
+        r3 = r1.length();
+        r5.zze = -1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0054, code lost:
+        if (r3 <= r0) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0056, code lost:
+        r1.charAt(r3 - 1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x005b, code lost:
+        r1 = r3;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x005d, code lost:
+        r5.zzf = r3 - 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:41:?, code lost:
+        return r5.zzb.subSequence(r0, r1).toString();
+     */
+    @Override // com.google.android.gms.internal.common.zzk
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+        To view partially-correct add '--show-bad-code' argument
+    */
+    protected final /* bridge */ /* synthetic */ java.lang.Object zza() {
+        /*
+            r5 = this;
+            int r0 = r5.zze
+        L2:
+            int r1 = r5.zze
+            r2 = -1
+            if (r1 == r2) goto L6b
+            int r1 = r5.zzc(r1)
+            if (r1 != r2) goto L17
+            java.lang.CharSequence r1 = r5.zzb
+            int r1 = r1.length()
+            r5.zze = r2
+            r3 = r2
+            goto L1d
+        L17:
+            int r3 = r5.zzd(r1)
+            r5.zze = r3
+        L1d:
+            if (r3 != r0) goto L2e
+            int r3 = r3 + 1
+            r5.zze = r3
+            java.lang.CharSequence r1 = r5.zzb
+            int r1 = r1.length()
+            if (r3 <= r1) goto L2
+            r5.zze = r2
+            goto L2
+        L2e:
+            if (r0 >= r1) goto L35
+            java.lang.CharSequence r3 = r5.zzb
+            r3.charAt(r0)
+        L35:
+            if (r0 >= r1) goto L3e
+            java.lang.CharSequence r3 = r5.zzb
+            int r4 = r1 + (-1)
+            r3.charAt(r4)
+        L3e:
+            boolean r3 = r5.zzd
+            if (r3 == 0) goto L47
+            if (r0 != r1) goto L47
+            int r0 = r5.zze
+            goto L2
+        L47:
+            int r3 = r5.zzf
+            r4 = 1
+            if (r3 != r4) goto L5d
+            java.lang.CharSequence r1 = r5.zzb
+            int r3 = r1.length()
+            r5.zze = r2
+            if (r3 <= r0) goto L5b
+            int r2 = r3 + (-1)
+            r1.charAt(r2)
+        L5b:
+            r1 = r3
+            goto L60
+        L5d:
+            int r3 = r3 + r2
+            r5.zzf = r3
+        L60:
+            java.lang.CharSequence r2 = r5.zzb
+            java.lang.CharSequence r0 = r2.subSequence(r0, r1)
+            java.lang.String r0 = r0.toString()
+            goto L72
+        L6b:
+            r5.zzb()
+            r0 = 0
+            r1 = r0
+            java.lang.String r1 = (java.lang.String) r1
+        L72:
+            return r0
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.google.android.gms.internal.common.zzv.zza():java.lang.Object");
     }
 
-    public static void zzc(int i, int i2, int i3) {
-        String zzd;
-        if (i < 0 || i2 < i || i2 > i3) {
-            if (i < 0 || i > i3) {
-                zzd = zzd(i, i3, "start index");
-            } else {
-                zzd = (i2 < 0 || i2 > i3) ? zzd(i2, i3, "end index") : zzab.zza("end index (%s) must not be less than start index (%s)", Integer.valueOf(i2), Integer.valueOf(i));
-            }
-            throw new IndexOutOfBoundsException(zzd);
-        }
-    }
+    abstract int zzc(int i);
 
-    private static String zzd(int i, int i2, String str) {
-        if (i < 0) {
-            return zzab.zza("%s (%s) must not be negative", str, Integer.valueOf(i));
-        }
-        if (i2 >= 0) {
-            return zzab.zza("%s (%s) must not be greater than size (%s)", str, Integer.valueOf(i), Integer.valueOf(i2));
-        }
-        throw new IllegalArgumentException("negative size: " + i2);
-    }
+    abstract int zzd(int i);
 }

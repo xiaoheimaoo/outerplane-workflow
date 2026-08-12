@@ -1,101 +1,73 @@
 package com.google.android.gms.internal.play_billing;
-
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.Map;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-final class zziq implements zzix {
-    private final zzim zza;
-    private final zzjj zzb;
-    private final boolean zzc;
-    private final zzgx zzd;
-
-    private zziq(zzjj zzjjVar, zzgx zzgxVar, zzim zzimVar) {
-        this.zzb = zzjjVar;
-        this.zzc = zzimVar instanceof zzhh;
-        this.zzd = zzgxVar;
-        this.zza = zzimVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static zziq zzc(zzjj zzjjVar, zzgx zzgxVar, zzim zzimVar) {
-        return new zziq(zzjjVar, zzgxVar, zzimVar);
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzix
-    public final int zza(Object obj) {
-        int zzb = ((zzhk) obj).zzc.zzb();
-        return this.zzc ? zzb + ((zzhh) obj).zzb.zzc() : zzb;
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzix
-    public final int zzb(Object obj) {
-        int hashCode = ((zzhk) obj).zzc.hashCode();
-        return this.zzc ? (hashCode * 53) + ((zzhh) obj).zzb.zza.hashCode() : hashCode;
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzix
-    public final Object zze() {
-        zzim zzimVar = this.zza;
-        return zzimVar instanceof zzhk ? ((zzhk) zzimVar).zzp() : zzimVar.zzI().zzh();
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzix
-    public final void zzf(Object obj) {
-        this.zzb.zza(obj);
-        this.zzd.zza(obj);
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzix
-    public final void zzg(Object obj, Object obj2) {
-        zziz.zzp(this.zzb, obj, obj2);
-        if (this.zzc) {
-            zziz.zzo(this.zzd, obj, obj2);
-        }
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzix
-    public final void zzh(Object obj, byte[] bArr, int i, int i2, zzfz zzfzVar) throws IOException {
-        zzhk zzhkVar = (zzhk) obj;
-        if (zzhkVar.zzc == zzjk.zzc()) {
-            zzhkVar.zzc = zzjk.zzf();
-        }
-        zzhh zzhhVar = (zzhh) obj;
+public final class zziq extends zzfe implements zzgm {
+    private zziq() {
         throw null;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzix
-    public final void zzi(Object obj, zzjw zzjwVar) throws IOException {
-        Iterator zze = ((zzhh) obj).zzb.zze();
-        while (zze.hasNext()) {
-            Map.Entry entry = (Map.Entry) zze.next();
-            zzha zzhaVar = (zzha) entry.getKey();
-            if (zzhaVar.zzc() != zzjv.MESSAGE || zzhaVar.zze() || zzhaVar.zzd()) {
-                throw new IllegalStateException("Found invalid MessageSet item.");
-            }
-            if (entry instanceof zzht) {
-                zzjwVar.zzw(zzhaVar.zza(), ((zzht) entry).zza().zzb());
-            } else {
-                zzjwVar.zzw(zzhaVar.zza(), entry.getValue());
-            }
-        }
-        ((zzhk) obj).zzc.zzk(zzjwVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ zziq(zzir zzirVar) {
+        super(zzis.zzd());
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzix
-    public final boolean zzj(Object obj, Object obj2) {
-        if (((zzhk) obj).zzc.equals(((zzhk) obj2).zzc)) {
-            if (this.zzc) {
-                return ((zzhh) obj).zzb.equals(((zzhh) obj2).zzb);
-            }
-            return true;
-        }
-        return false;
+    public final zziq zza(int i) {
+        zzi();
+        zzis.zzA((zzis) this.zza, i);
+        return this;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzix
-    public final boolean zzk(Object obj) {
-        return ((zzhh) obj).zzb.zzh();
+    public final zziq zzl(int i) {
+        zzi();
+        zzis.zzB((zzis) this.zza, i);
+        return this;
+    }
+
+    public final zziq zzm(int i) {
+        zzi();
+        zzis.zzC((zzis) this.zza, i);
+        return this;
+    }
+
+    public final zziq zzn(long j) {
+        zzi();
+        zzis.zzD((zzis) this.zza, j);
+        return this;
+    }
+
+    public final zziq zzo(long j) {
+        zzi();
+        zzis.zzE((zzis) this.zza, j);
+        return this;
+    }
+
+    public final zziq zzp(long j) {
+        zzi();
+        zzis.zzF((zzis) this.zza, 772604006L);
+        return this;
+    }
+
+    public final zziq zzq(String str) {
+        zzi();
+        zzis.zzG((zzis) this.zza, str);
+        return this;
+    }
+
+    public final zziq zzr(boolean z) {
+        zzi();
+        zzis.zzH((zzis) this.zza, z);
+        return this;
+    }
+
+    public final zziq zzs(String str) {
+        zzi();
+        zzis.zzI((zzis) this.zza, str);
+        return this;
+    }
+
+    public final zziq zzt(String str) {
+        zzi();
+        zzis.zzJ((zzis) this.zza, str);
+        return this;
     }
 }

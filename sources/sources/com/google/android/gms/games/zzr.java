@@ -2,7 +2,7 @@ package com.google.android.gms.games;
 
 import com.google.android.gms.common.api.Result;
 import com.google.android.gms.games.internal.player.StockProfileImage;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public interface zzr extends Result {
     boolean zza();
@@ -34,4 +34,8 @@ public interface zzr extends Result {
     com.google.android.gms.games.internal.player.zzh zzn();
 
     Boolean zzo();
+
+    Boolean zzp();
+
+    boolean zzq();
 }

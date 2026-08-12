@@ -4,7 +4,7 @@ import com.google.android.gms.games.gamessignin.AuthResponse;
 import com.google.android.gms.games.gamessignin.AuthScope;
 import com.google.android.gms.tasks.Task;
 import java.util.List;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public interface GamesSignInClient {
     Task<AuthenticationResult> isAuthenticated();

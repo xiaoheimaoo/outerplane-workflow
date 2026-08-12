@@ -6,7 +6,7 @@ import com.google.android.gms.common.api.Api;
 import com.google.android.gms.common.api.internal.ConnectionCallbacks;
 import com.google.android.gms.common.api.internal.OnConnectionFailedListener;
 import com.google.android.gms.common.internal.ClientSettings;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 final class zzl extends Api.AbstractClientBuilder {
     @Override // com.google.android.gms.common.api.Api.AbstractClientBuilder

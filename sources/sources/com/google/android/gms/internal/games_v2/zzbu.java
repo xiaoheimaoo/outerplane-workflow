@@ -9,7 +9,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskCompletionSource;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 public final class zzbu implements zzbr {
     private final Application zza;
@@ -40,12 +40,12 @@ public final class zzbu implements zzbr {
         }
         Task zza = zzc().zza(zzqVar, z);
         final TaskCompletionSource taskCompletionSource = new TaskCompletionSource();
-        zza.continueWithTask(zzio.zza(), new Continuation() { // from class: com.google.android.gms.internal.games_v2.zzbt
+        zza.continueWithTask(zzhc.zza(), new Continuation() { // from class: com.google.android.gms.internal.games_v2.zzbt
             @Override // com.google.android.gms.tasks.Continuation
             public final /* synthetic */ Object then(Task task) {
                 return zzbu.this.zzb(zzqVar, z, task);
             }
-        }).addOnCompleteListener(zzio.zza(), new OnCompleteListener() { // from class: com.google.android.gms.internal.games_v2.zzbs
+        }).addOnCompleteListener(zzhc.zza(), new OnCompleteListener() { // from class: com.google.android.gms.internal.games_v2.zzbs
             @Override // com.google.android.gms.tasks.OnCompleteListener
             public final /* synthetic */ void onComplete(Task task) {
                 TaskCompletionSource taskCompletionSource2 = TaskCompletionSource.this;
@@ -55,7 +55,7 @@ public final class zzbu implements zzbr {
                 }
                 Exception exception = task.getException();
                 if (!(exception instanceof ApiException)) {
-                    zzfw.zza(exception);
+                    zzgb.zza(exception);
                     taskCompletionSource2.trySetException(exception);
                     return;
                 }
@@ -70,7 +70,7 @@ public final class zzbu implements zzbr {
         if (!task.isSuccessful()) {
             Exception exception = task.getException();
             if ((exception instanceof ApiException) && ((ApiException) exception).getStatusCode() == 20) {
-                zzfn.zza("GamesAuthenticator", "Service connection suspended during the first sign-in attempt. Trying again.");
+                zzfu.zza("GamesAuthenticator", "Service connection suspended during the first sign-in attempt. Trying again.");
                 return zzc().zza(zzqVar, z);
             }
         }

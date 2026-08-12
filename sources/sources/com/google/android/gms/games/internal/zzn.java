@@ -2,7 +2,7 @@ package com.google.android.gms.games.internal;
 
 import com.google.android.gms.games.GamesStatusUtils;
 import com.google.android.gms.tasks.TaskCompletionSource;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 final class zzn extends zza {
     private final TaskCompletionSource zza;

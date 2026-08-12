@@ -3,7 +3,7 @@ package com.google.android.gms.internal.games_v2;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.google.android.gms.common.api.Status;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 public abstract class zzah extends zzb implements zzai {
     public zzah() {

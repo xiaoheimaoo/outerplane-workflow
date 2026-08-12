@@ -8,7 +8,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import com.google.android.gms.common.wrappers.Wrappers;
 import java.util.Objects;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 final class zzat {
     static final zzat zza = new zzat();

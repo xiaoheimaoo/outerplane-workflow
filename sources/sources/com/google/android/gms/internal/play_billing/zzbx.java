@@ -1,32 +1,53 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+
+import java.util.Set;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-final class zzbx extends zzca {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public zzbx() {
-        super(null);
-    }
+public abstract class zzbx extends zzbq implements Set {
+    private transient zzbt zza;
 
-    @Override // com.google.android.gms.internal.play_billing.zzca
-    public final int zza() {
-        return 0;
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzca
-    public final zzca zzb(Comparable comparable, Comparable comparable2) {
-        zzca zzcaVar;
-        zzca zzcaVar2;
-        zzca zzcaVar3;
-        int compareTo = comparable.compareTo(comparable2);
-        if (compareTo < 0) {
-            zzcaVar3 = zzca.zzb;
-            return zzcaVar3;
-        } else if (compareTo > 0) {
-            zzcaVar2 = zzca.zzc;
-            return zzcaVar2;
-        } else {
-            zzcaVar = zzca.zza;
-            return zzcaVar;
+    @Override // java.util.Collection, java.util.Set
+    public final boolean equals(Object obj) {
+        if (obj == this || obj == this) {
+            return true;
         }
+        if (obj instanceof Set) {
+            Set set = (Set) obj;
+            try {
+                if (size() == set.size()) {
+                    if (containsAll(set)) {
+                        return true;
+                    }
+                }
+            } catch (ClassCastException | NullPointerException unused) {
+            }
+        }
+        return false;
+    }
+
+    @Override // java.util.Collection, java.util.Set
+    public final int hashCode() {
+        return zzcg.zza(this);
+    }
+
+    @Override // com.google.android.gms.internal.play_billing.zzbq
+    public zzbt zzd() {
+        zzbt zzbtVar = this.zza;
+        if (zzbtVar == null) {
+            zzbt zzh = zzh();
+            this.zza = zzh;
+            return zzh;
+        }
+        return zzbtVar;
+    }
+
+    @Override // com.google.android.gms.internal.play_billing.zzbq, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
+    /* renamed from: zze */
+    public abstract zzch iterator();
+
+    zzbt zzh() {
+        Object[] array = toArray();
+        int i = zzbt.zzd;
+        return zzbt.zzi(array, array.length);
     }
 }

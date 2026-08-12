@@ -1,11 +1,17 @@
 package com.google.android.gms.internal.games_v2;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
-public final class zzfx extends RuntimeException {
-    public zzfx() {
+public final class zzfx {
+    private static final zzfv zza;
+    private static volatile zzfv zzb;
+
+    static {
+        zzfw zzfwVar = new zzfw(null);
+        zza = zzfwVar;
+        zzb = zzfwVar;
     }
 
-    public zzfx(String str) {
-        super(str);
+    public static zzfv zza() {
+        return zzb;
     }
 }

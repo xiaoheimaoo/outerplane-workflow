@@ -1,43 +1,74 @@
 package com.android.billingclient.api;
 
-import android.os.Bundle;
-import android.os.RemoteException;
-import org.json.JSONException;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import java.util.Objects;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
-final class zzbc extends com.google.android.gms.internal.play_billing.zzz {
-    final ExternalOfferReportingDetailsListener zza;
-    final zzch zzb;
-    final int zzc;
+public final class zzbc implements BillingClientStateListener {
+    final /* synthetic */ com.google.android.gms.internal.play_billing.zzp zza;
+    final /* synthetic */ BillingClientImpl zzb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ zzbc(ExternalOfferReportingDetailsListener externalOfferReportingDetailsListener, zzch zzchVar, int i, zzbl zzblVar) {
-        this.zza = externalOfferReportingDetailsListener;
-        this.zzb = zzchVar;
-        this.zzc = i;
+    public zzbc(BillingClientImpl billingClientImpl, com.google.android.gms.internal.play_billing.zzp zzpVar) {
+        this.zza = zzpVar;
+        Objects.requireNonNull(billingClientImpl);
+        this.zzb = billingClientImpl;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzaa
-    public final void zza(Bundle bundle) throws RemoteException {
-        if (bundle == null) {
-            this.zzb.zzb(zzcg.zzb(95, 24, zzcj.zzk), this.zzc);
-            this.zza.onExternalOfferReportingDetailsResponse(zzcj.zzk, null);
-            return;
-        }
-        int zzb = com.google.android.gms.internal.play_billing.zze.zzb(bundle, "BillingClient");
-        BillingResult zza = zzcj.zza(zzb, com.google.android.gms.internal.play_billing.zze.zzh(bundle, "BillingClient"));
-        if (zzb != 0) {
-            com.google.android.gms.internal.play_billing.zze.zzl("BillingClient", "createExternalOfferReportingDetailsAsync() failed. Response code: " + zzb);
-            this.zzb.zzb(zzcg.zzb(23, 24, zza), this.zzc);
-            this.zza.onExternalOfferReportingDetailsResponse(zza, null);
-            return;
-        }
+    @Override // com.android.billingclient.api.BillingClientStateListener
+    public final void onBillingServiceDisconnected() {
+        BillingClientStateListener billingClientStateListener;
+        com.google.android.gms.internal.play_billing.zzc.zzm("BillingClient", "Reconnection attempt failed.");
         try {
-            this.zza.onExternalOfferReportingDetailsResponse(zza, new ExternalOfferReportingDetails(bundle.getString("CREATE_EXTERNAL_PAYMENT_REPORTING_DETAILS")));
-        } catch (JSONException e) {
-            com.google.android.gms.internal.play_billing.zze.zzm("BillingClient", "Error when parsing invalid external offer reporting details. \n Exception: ", e);
-            this.zzb.zzb(zzcg.zzb(104, 24, zzcj.zzk), this.zzc);
-            this.zza.onExternalOfferReportingDetailsResponse(zzcj.zzk, null);
+            this.zza.zzb(zzcj.zzj);
+        } catch (Throwable th) {
+            com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Exception setting completer.", th);
+        }
+        BillingClientImpl billingClientImpl = this.zzb;
+        billingClientStateListener = billingClientImpl.zzG;
+        if (billingClientStateListener != null) {
+            billingClientImpl.zzag(new Runnable() { // from class: com.android.billingclient.api.zzba
+                @Override // java.lang.Runnable
+                public final void run() {
+                    BillingClientStateListener billingClientStateListener2;
+                    try {
+                        billingClientStateListener2 = zzbc.this.zzb.zzG;
+                        billingClientStateListener2.onBillingServiceDisconnected();
+                    } catch (Throwable th2) {
+                        com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Exception calling onBillingServiceDisconnected.", th2);
+                    }
+                }
+            });
+        }
+    }
+
+    @Override // com.android.billingclient.api.BillingClientStateListener
+    public final void onBillingSetupFinished(final BillingResult billingResult) {
+        BillingClientStateListener billingClientStateListener;
+        int responseCode = billingResult.getResponseCode();
+        com.google.android.gms.internal.play_billing.zzc.zzm("BillingClient", "Reconnection finished with result: " + responseCode);
+        try {
+            this.zza.zzb(billingResult);
+        } catch (Throwable th) {
+            com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Exception setting completer.", th);
+        }
+        BillingClientImpl billingClientImpl = this.zzb;
+        billingClientStateListener = billingClientImpl.zzG;
+        if (billingClientStateListener != null) {
+            billingClientImpl.zzag(new Runnable() { // from class: com.android.billingclient.api.zzbb
+                @Override // java.lang.Runnable
+                public final void run() {
+                    BillingClientStateListener billingClientStateListener2;
+                    zzbc zzbcVar = zzbc.this;
+                    BillingResult billingResult2 = billingResult;
+                    try {
+                        billingClientStateListener2 = zzbcVar.zzb.zzG;
+                        billingClientStateListener2.onBillingSetupFinished(billingResult2);
+                    } catch (Throwable th2) {
+                        com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Exception calling onBillingSetupFinished.", th2);
+                    }
+                }
+            });
         }
     }
 }

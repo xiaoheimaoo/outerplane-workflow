@@ -1,37 +1,53 @@
 package com.android.billingclient.api;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.ResultReceiver;
-import com.android.billingclient.api.BillingResult;
-import com.google.android.gms.internal.play_billing.zzkg;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import android.text.TextUtils;
+import androidx.work.WorkRequest;
+import com.google.android.gms.internal.play_billing.zzie;
+import java.util.Objects;
+import java.util.concurrent.Callable;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
-final class zzaw extends ResultReceiver {
-    final /* synthetic */ AlternativeBillingOnlyInformationDialogListener zza;
-    final /* synthetic */ BillingClientImpl zzb;
+final class zzaw implements Callable {
+    final /* synthetic */ PurchasesResponseListener zza;
+    final /* synthetic */ String zzb;
+    final /* synthetic */ BillingClientImpl zzc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zzaw(BillingClientImpl billingClientImpl, Handler handler, AlternativeBillingOnlyInformationDialogListener alternativeBillingOnlyInformationDialogListener) {
-        super(handler);
-        this.zza = alternativeBillingOnlyInformationDialogListener;
-        this.zzb = billingClientImpl;
+    public zzaw(BillingClientImpl billingClientImpl, PurchasesResponseListener purchasesResponseListener, String str, boolean z) {
+        this.zza = purchasesResponseListener;
+        this.zzb = str;
+        Objects.requireNonNull(billingClientImpl);
+        this.zzc = billingClientImpl;
     }
 
-    @Override // android.os.ResultReceiver
-    public final void onReceiveResult(int i, Bundle bundle) {
-        BillingResult.Builder newBuilder = BillingResult.newBuilder();
-        newBuilder.setResponseCode(i);
-        if (i != 0) {
-            if (bundle == null) {
-                this.zzb.zzbc(this.zza, zzcj.zzk, 73, null);
-                return;
-            }
-            newBuilder.setDebugMessage(com.google.android.gms.internal.play_billing.zze.zzh(bundle, "BillingClient"));
-            int i2 = bundle.getInt("INTERNAL_LOG_ERROR_REASON");
-            this.zzb.zzaF(zzcg.zzc(i2 != 0 ? zzkg.zza(i2) : 23, 16, newBuilder.build(), bundle.getString("INTERNAL_LOG_ERROR_ADDITIONAL_DETAILS")));
+    @Override // java.util.concurrent.Callable
+    public final /* bridge */ /* synthetic */ Object call() throws Exception {
+        boolean zzaX;
+        zzcw zzbb;
+        BillingClientImpl billingClientImpl = this.zzc;
+        zzaX = billingClientImpl.zzaX(WorkRequest.DEFAULT_BACKOFF_DELAY_MILLIS);
+        if (!zzaX) {
+            zzie zzieVar = zzie.SERVICE_CONNECTION_NOT_READY;
+            BillingResult billingResult = zzcj.zzj;
+            billingClientImpl.zzbd(zzieVar, 9, billingResult);
+            this.zza.onQueryPurchasesResponse(billingResult, com.google.android.gms.internal.play_billing.zzbt.zzk());
+            return null;
         }
-        this.zza.onAlternativeBillingOnlyInformationDialogResponse(newBuilder.build());
+        String str = this.zzb;
+        if (TextUtils.isEmpty(str)) {
+            com.google.android.gms.internal.play_billing.zzc.zzn("BillingClient", "Please provide a valid product type.");
+            zzie zzieVar2 = zzie.EMPTY_PRODUCT_TYPE;
+            BillingResult billingResult2 = zzcj.zze;
+            billingClientImpl.zzbd(zzieVar2, 9, billingResult2);
+            this.zza.onQueryPurchasesResponse(billingResult2, com.google.android.gms.internal.play_billing.zzbt.zzk());
+            return null;
+        }
+        zzbb = billingClientImpl.zzbb(str, false, 9);
+        if (zzbb.zzb() != null) {
+            this.zza.onQueryPurchasesResponse(zzbb.zza(), zzbb.zzb());
+            return null;
+        }
+        this.zza.onQueryPurchasesResponse(zzbb.zza(), com.google.android.gms.internal.play_billing.zzbt.zzk());
+        return null;
     }
 }

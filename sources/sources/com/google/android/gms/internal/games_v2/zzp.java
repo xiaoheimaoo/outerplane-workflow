@@ -10,7 +10,7 @@ import com.google.android.gms.common.api.internal.OnConnectionFailedListener;
 import com.google.android.gms.common.internal.ClientSettings;
 import com.google.android.gms.common.internal.GmsClient;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 public final class zzp extends GmsClient {
     private final zzi zze;

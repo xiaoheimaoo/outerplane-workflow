@@ -3,35 +3,22 @@ package com.android.billingclient.api;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
-import com.android.billingclient.api.BillingResult;
-import com.google.android.gms.internal.play_billing.zzkg;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import java.util.Objects;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
 final class zzax extends ResultReceiver {
-    final /* synthetic */ ExternalOfferInformationDialogListener zza;
-    final /* synthetic */ BillingClientImpl zzb;
+    final /* synthetic */ InAppMessageResponseListener zza;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zzax(BillingClientImpl billingClientImpl, Handler handler, ExternalOfferInformationDialogListener externalOfferInformationDialogListener) {
+    public zzax(BillingClientImpl billingClientImpl, Handler handler, InAppMessageResponseListener inAppMessageResponseListener) {
         super(handler);
-        this.zza = externalOfferInformationDialogListener;
-        this.zzb = billingClientImpl;
+        this.zza = inAppMessageResponseListener;
+        Objects.requireNonNull(billingClientImpl);
     }
 
     @Override // android.os.ResultReceiver
     public final void onReceiveResult(int i, Bundle bundle) {
-        BillingResult.Builder newBuilder = BillingResult.newBuilder();
-        newBuilder.setResponseCode(i);
-        if (i != 0) {
-            if (bundle == null) {
-                this.zzb.zzba(this.zza, zzcj.zzk, 97, null);
-                return;
-            }
-            newBuilder.setDebugMessage(com.google.android.gms.internal.play_billing.zze.zzh(bundle, "BillingClient"));
-            int i2 = bundle.getInt("INTERNAL_LOG_ERROR_REASON");
-            this.zzb.zzaF(zzcg.zzc(i2 != 0 ? zzkg.zza(i2) : 23, 25, newBuilder.build(), bundle.getString("INTERNAL_LOG_ERROR_ADDITIONAL_DETAILS")));
-        }
-        this.zza.onExternalOfferInformationDialogResponse(newBuilder.build());
+        this.zza.onInAppMessageResponse(com.google.android.gms.internal.play_billing.zzc.zzi(bundle, "BillingClient"));
     }
 }

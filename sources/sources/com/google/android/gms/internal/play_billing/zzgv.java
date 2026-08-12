@@ -1,25 +1,24 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+
+import java.io.IOException;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-final class zzgv {
-    private final Object zza;
-    private final int zzb;
+interface zzgv<T> {
+    int zza(Object obj);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public zzgv(Object obj, int i) {
-        this.zza = obj;
-        this.zzb = i;
-    }
+    int zzb(Object obj);
 
-    public final boolean equals(Object obj) {
-        if (obj instanceof zzgv) {
-            zzgv zzgvVar = (zzgv) obj;
-            return this.zza == zzgvVar.zza && this.zzb == zzgvVar.zzb;
-        }
-        return false;
-    }
+    Object zze();
 
-    public final int hashCode() {
-        return (System.identityHashCode(this.zza) * 65535) + this.zzb;
-    }
+    void zzf(Object obj);
+
+    void zzg(Object obj, Object obj2);
+
+    void zzh(Object obj, byte[] bArr, int i, int i2, zzdw zzdwVar) throws IOException;
+
+    void zzi(Object obj, zzhu zzhuVar) throws IOException;
+
+    boolean zzj(Object obj, Object obj2);
+
+    boolean zzk(Object obj);
 }

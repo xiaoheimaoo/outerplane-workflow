@@ -2,7 +2,7 @@ package com.google.android.gms.games;
 
 import android.os.Parcel;
 import com.google.android.gms.common.data.DataHolder;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class zzq extends zzg implements PlayerRelationshipInfo {
     private final com.google.android.gms.games.internal.player.zzd zza;
@@ -29,7 +29,7 @@ public final class zzq extends zzg implements PlayerRelationshipInfo {
 
     @Override // com.google.android.gms.games.PlayerRelationshipInfo
     public final int getFriendStatus() {
-        return zzu(this.zza.zzH, -1);
+        return zzr(this.zza.zzH, -1);
     }
 
     @Override // com.google.android.gms.common.data.DataBufferRef

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="650" android:versionName="1.4.13" android:installLocation="preferExternal" android:compileSdkVersion="35" android:compileSdkVersionCodename="15" android:requiredSplitTypes="base__abi" android:splitTypes="" package="com.smilegate.outerplane.stove.google" platformBuildVersionCode="35" platformBuildVersionName="15">
-    <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="35"/>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="666" android:versionName="1.4.14" android:installLocation="preferExternal" android:compileSdkVersion="36" android:compileSdkVersionCodename="16" android:requiredSplitTypes="base__abi" android:splitTypes="" package="com.smilegate.outerplane.stove.google" platformBuildVersionCode="36" platformBuildVersionName="16">
+    <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="36"/>
     <supports-screens android:anyDensity="true" android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -162,7 +162,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
-        <meta-data android:name="com.google.android.play.billingclient.version" android:value="7.1.1"/>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="8.0.0"/>
         <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.android.billingclient.api.ProxyBillingActivity" android:exported="false" android:configChanges="screenSize|screenLayout|orientation|keyboardHidden|keyboard"/>
         <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.android.billingclient.api.ProxyBillingActivityV2" android:exported="false" android:configChanges="screenSize|screenLayout|orientation|keyboardHidden|keyboard"/>
         <receiver android:name="com.google.android.gms.measurement.AppMeasurementReceiver" android:enabled="true" android:exported="false"/>
@@ -262,6 +262,6 @@
         <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
         <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
         <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
-        <meta-data android:name="com.android.vending.derived.apk.id" android:value="2"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="3"/>
     </application>
 </manifest>

@@ -1,31 +1,30 @@
 package com.google.android.gms.internal.play_billing;
-
-import java.util.NoSuchElementException;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-final class zzgd extends zzge {
-    final /* synthetic */ zzgk zza;
-    private int zzb = 0;
-    private final int zzc;
+final class zzgd implements zzgw {
+    private static final zzgj zza = new zzgb();
+    private final zzgj zzb;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public zzgd(zzgk zzgkVar) {
-        this.zza = zzgkVar;
-        this.zzc = zzgkVar.zzd();
+    public zzgd() {
+        zzgj zzgjVar = zza;
+        int i = zzgs.zza;
+        zzgc zzgcVar = new zzgc(zzfd.zza(), zzgjVar);
+        byte[] bArr = zzfo.zzb;
+        this.zzb = zzgcVar;
     }
 
-    @Override // java.util.Iterator
-    public final boolean hasNext() {
-        return this.zzb < this.zzc;
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzgg
-    public final byte zza() {
-        int i = this.zzb;
-        if (i >= this.zzc) {
-            throw new NoSuchElementException();
+    @Override // com.google.android.gms.internal.play_billing.zzgw
+    public final zzgv zza(Class cls) {
+        int i = zzgx.zza;
+        if (!zzfi.class.isAssignableFrom(cls)) {
+            int i2 = zzgs.zza;
         }
-        this.zzb = i + 1;
-        return this.zza.zzb(i);
+        zzgi zzb = this.zzb.zzb(cls);
+        if (!zzb.zzb()) {
+            int i3 = zzgs.zza;
+            return zzgo.zzl(cls, zzb, zzgr.zza(), zzfz.zza(), zzgx.zzm(), zzb.zzc() + (-1) != 1 ? zzex.zza() : null, zzgh.zza());
+        }
+        int i4 = zzgs.zza;
+        return zzgp.zzc(zzgx.zzm(), zzex.zza(), zzb.zza());
     }
 }

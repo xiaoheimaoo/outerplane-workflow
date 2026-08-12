@@ -7,7 +7,7 @@ import com.google.android.gms.games.PlayerBuffer;
 import com.google.android.gms.games.PlayerEntity;
 import com.google.android.gms.tasks.TaskCompletionSource;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class zzad extends zza {
     private final TaskCompletionSource zza;

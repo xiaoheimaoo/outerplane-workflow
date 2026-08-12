@@ -1,12 +1,14 @@
 package com.google.android.gms.games.gamessignin;
 
 import com.google.android.gms.common.Scopes;
-import com.google.android.gms.internal.games_v2.zzhd;
-import com.google.android.gms.internal.games_v2.zzhf;
-import com.google.android.gms.internal.games_v2.zzhg;
+import com.google.android.gms.internal.games_v2.zzgj;
+import com.google.android.gms.internal.games_v2.zzgm;
+import com.google.android.gms.internal.games_v2.zzgo;
+import com.google.android.gms.internal.games_v2.zzgp;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public enum AuthScope {
     EMAIL("email"),
@@ -15,41 +17,39 @@ public enum AuthScope {
     GAMES_LITE(Scopes.GAMES_LITE),
     DRIVE_APP_FOLDER(Scopes.DRIVE_APPFOLDER);
     
-    private static final zzhg zzd;
+    private static final zzgp zzd;
     private final String zzc;
 
     static {
         AuthScope[] values;
-        zzhf zzhfVar = new zzhf();
+        zzgo zzgoVar = new zzgo();
         for (AuthScope authScope : values()) {
-            zzhfVar.zza(authScope.zzc, authScope);
+            zzgoVar.zza(authScope.zzc, authScope);
         }
-        zzd = zzhfVar.zzb();
+        zzd = zzgoVar.zzb();
     }
 
     AuthScope(String str) {
         this.zzc = str;
     }
 
-    public static zzhd zza(List list) {
-        Objects.requireNonNull(list, "Input scopes list cannot be null");
-        return (zzhd) list.stream().map(zzb.zza).distinct().collect(zzhd.zzh());
-    }
-
-    public static zzhd zzb(List list) {
+    public static zzgm zza(List list) {
         Objects.requireNonNull(list, "Input values list cannot be null");
-        return (zzhd) list.stream().map(zza.zza).collect(zzhd.zzh());
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ AuthScope zzc(String str) {
-        Objects.requireNonNull(str, "Input list of scope strings must not be null");
-        AuthScope authScope = (AuthScope) zzd.get(str);
-        if (authScope != null) {
-            return authScope;
+        int i = zzgm.zzd;
+        zzgj zzgjVar = new zzgj();
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            String str = (String) it.next();
+            Objects.requireNonNull(str, "Input list of scope strings must not be null");
+            AuthScope authScope = (AuthScope) zzd.get(str);
+            if (authScope != null) {
+                zzgjVar.zzb(authScope);
+            } else {
+                String.valueOf(str);
+                throw new IllegalArgumentException("Invalid scope: ".concat(String.valueOf(str)));
+            }
         }
-        String.valueOf(str);
-        throw new IllegalArgumentException("Invalid scope: ".concat(String.valueOf(str)));
+        return zzgjVar.zzc();
     }
 
     public String getValue() {

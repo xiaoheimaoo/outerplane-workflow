@@ -1,245 +1,255 @@
 package com.google.android.gms.internal.play_billing;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.RandomAccess;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import java.util.AbstractMap;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.TreeMap;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-final class zzhd extends zzfx implements RandomAccess, zzho, zzit {
-    private static final float[] zza;
-    private float[] zzb;
-    private int zzc;
+public class zzhd extends AbstractMap {
+    private Object[] zza;
+    private int zzb;
+    private boolean zzd;
+    private volatile zzhb zze;
+    private Map zzc = Collections.emptyMap();
+    private Map zzf = Collections.emptyMap();
 
-    static {
-        float[] fArr = new float[0];
-        zza = fArr;
-        new zzhd(fArr, 0, false);
+    private zzhd() {
     }
 
-    zzhd() {
-        this(zza, 0, true);
-    }
-
-    private static int zzh(int i) {
-        return Math.max(((i * 3) / 2) + 1, 10);
-    }
-
-    private final String zzi(int i) {
-        int i2 = this.zzc;
-        return "Index:" + i + ", Size:" + i2;
-    }
-
-    private final void zzj(int i) {
-        if (i < 0 || i >= this.zzc) {
-            throw new IndexOutOfBoundsException(zzi(i));
-        }
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzfx, java.util.AbstractList, java.util.List
-    public final /* synthetic */ void add(int i, Object obj) {
-        int i2;
-        float floatValue = ((Float) obj).floatValue();
-        zza();
-        if (i < 0 || i > (i2 = this.zzc)) {
-            throw new IndexOutOfBoundsException(zzi(i));
-        }
-        int i3 = i + 1;
-        float[] fArr = this.zzb;
-        int length = fArr.length;
-        if (i2 < length) {
-            System.arraycopy(fArr, i, fArr, i3, i2 - i);
-        } else {
-            float[] fArr2 = new float[zzh(length)];
-            System.arraycopy(this.zzb, 0, fArr2, 0, i);
-            System.arraycopy(this.zzb, i, fArr2, i3, this.zzc - i);
-            this.zzb = fArr2;
-        }
-        this.zzb[i] = floatValue;
-        this.zzc++;
-        this.modCount++;
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzfx, java.util.AbstractCollection, java.util.Collection, java.util.List
-    public final boolean addAll(Collection collection) {
-        zza();
-        byte[] bArr = zzhp.zzb;
-        collection.getClass();
-        if (!(collection instanceof zzhd)) {
-            return super.addAll(collection);
-        }
-        zzhd zzhdVar = (zzhd) collection;
-        int i = zzhdVar.zzc;
-        if (i == 0) {
-            return false;
-        }
-        int i2 = this.zzc;
-        if (Integer.MAX_VALUE - i2 >= i) {
-            int i3 = i2 + i;
-            float[] fArr = this.zzb;
-            if (i3 > fArr.length) {
-                this.zzb = Arrays.copyOf(fArr, i3);
+    private final int zzl(Comparable comparable) {
+        int i = this.zzb - 1;
+        int i2 = 0;
+        if (i >= 0) {
+            int compareTo = comparable.compareTo(((zzgz) this.zza[i]).zza());
+            if (compareTo > 0) {
+                return -(i + 2);
             }
-            System.arraycopy(zzhdVar.zzb, 0, this.zzb, this.zzc, zzhdVar.zzc);
-            this.zzc = i3;
-            this.modCount++;
-            return true;
+            if (compareTo == 0) {
+                return i;
+            }
         }
-        throw new OutOfMemoryError();
+        while (i2 <= i) {
+            int i3 = (i2 + i) / 2;
+            int compareTo2 = comparable.compareTo(((zzgz) this.zza[i3]).zza());
+            if (compareTo2 < 0) {
+                i = i3 - 1;
+            } else if (compareTo2 <= 0) {
+                return i3;
+            } else {
+                i2 = i3 + 1;
+            }
+        }
+        return -(i2 + 1);
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
-    public final boolean contains(Object obj) {
-        return indexOf(obj) != -1;
+    /* JADX INFO: Access modifiers changed from: private */
+    public final Object zzm(int i) {
+        zzo();
+        Object value = ((zzgz) this.zza[i]).getValue();
+        Object[] objArr = this.zza;
+        System.arraycopy(objArr, i + 1, objArr, i, (this.zzb - i) - 1);
+        this.zzb--;
+        if (!this.zzc.isEmpty()) {
+            Iterator it = zzn().entrySet().iterator();
+            Object[] objArr2 = this.zza;
+            int i2 = this.zzb;
+            Map.Entry entry = (Map.Entry) it.next();
+            objArr2[i2] = new zzgz(this, (Comparable) entry.getKey(), entry.getValue());
+            this.zzb++;
+            it.remove();
+        }
+        return value;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzfx, java.util.AbstractList, java.util.Collection, java.util.List
+    private final SortedMap zzn() {
+        zzo();
+        if (this.zzc.isEmpty() && !(this.zzc instanceof TreeMap)) {
+            TreeMap treeMap = new TreeMap();
+            this.zzc = treeMap;
+            this.zzf = treeMap.descendingMap();
+        }
+        return (SortedMap) this.zzc;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void zzo() {
+        if (this.zzd) {
+            throw new UnsupportedOperationException();
+        }
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final void clear() {
+        zzo();
+        if (this.zzb != 0) {
+            this.zza = null;
+            this.zzb = 0;
+        }
+        if (this.zzc.isEmpty()) {
+            return;
+        }
+        this.zzc.clear();
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final boolean containsKey(Object obj) {
+        Comparable comparable = (Comparable) obj;
+        return zzl(comparable) >= 0 || this.zzc.containsKey(comparable);
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final Set entrySet() {
+        if (this.zze == null) {
+            this.zze = new zzhb(this, null);
+        }
+        return this.zze;
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
     public final boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
         if (obj instanceof zzhd) {
             zzhd zzhdVar = (zzhd) obj;
-            if (this.zzc != zzhdVar.zzc) {
-                return false;
-            }
-            float[] fArr = zzhdVar.zzb;
-            for (int i = 0; i < this.zzc; i++) {
-                if (Float.floatToIntBits(this.zzb[i]) != Float.floatToIntBits(fArr[i])) {
-                    return false;
+            int size = size();
+            if (size == zzhdVar.size()) {
+                int i = this.zzb;
+                if (i == zzhdVar.zzb) {
+                    for (int i2 = 0; i2 < i; i2++) {
+                        if (!zzg(i2).equals(zzhdVar.zzg(i2))) {
+                            return false;
+                        }
+                    }
+                    if (i != size) {
+                        return this.zzc.equals(zzhdVar.zzc);
+                    }
+                    return true;
                 }
+                return entrySet().equals(zzhdVar.entrySet());
             }
-            return true;
+            return false;
         }
         return super.equals(obj);
     }
 
-    @Override // java.util.AbstractList, java.util.List
-    public final /* synthetic */ Object get(int i) {
-        zzj(i);
-        return Float.valueOf(this.zzb[i]);
+    @Override // java.util.AbstractMap, java.util.Map
+    public final Object get(Object obj) {
+        Comparable comparable = (Comparable) obj;
+        int zzl = zzl(comparable);
+        if (zzl >= 0) {
+            return ((zzgz) this.zza[zzl]).getValue();
+        }
+        return this.zzc.get(comparable);
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzfx, java.util.AbstractList, java.util.Collection, java.util.List
+    @Override // java.util.AbstractMap, java.util.Map
     public final int hashCode() {
-        int i = 1;
-        for (int i2 = 0; i2 < this.zzc; i2++) {
-            i = (i * 31) + Float.floatToIntBits(this.zzb[i2]);
+        int i = this.zzb;
+        int i2 = 0;
+        for (int i3 = 0; i3 < i; i3++) {
+            i2 += this.zza[i3].hashCode();
         }
-        return i;
+        return this.zzc.size() > 0 ? i2 + this.zzc.hashCode() : i2;
     }
 
-    @Override // java.util.AbstractList, java.util.List
-    public final int indexOf(Object obj) {
-        if (obj instanceof Float) {
-            float floatValue = ((Float) obj).floatValue();
-            int i = this.zzc;
-            for (int i2 = 0; i2 < i; i2++) {
-                if (this.zzb[i2] == floatValue) {
-                    return i2;
-                }
-            }
-            return -1;
+    @Override // java.util.AbstractMap, java.util.Map
+    public final Object remove(Object obj) {
+        zzo();
+        Comparable comparable = (Comparable) obj;
+        int zzl = zzl(comparable);
+        if (zzl >= 0) {
+            return zzm(zzl);
         }
-        return -1;
+        if (this.zzc.isEmpty()) {
+            return null;
+        }
+        return this.zzc.remove(comparable);
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzfx, java.util.AbstractList, java.util.List
-    public final /* bridge */ /* synthetic */ Object remove(int i) {
-        int i2;
-        zza();
-        zzj(i);
-        float[] fArr = this.zzb;
-        float f = fArr[i];
-        if (i < this.zzc - 1) {
-            System.arraycopy(fArr, i + 1, fArr, i, (i2 - i) - 1);
-        }
-        this.zzc--;
-        this.modCount++;
-        return Float.valueOf(f);
+    @Override // java.util.AbstractMap, java.util.Map
+    public final int size() {
+        return this.zzb + this.zzc.size();
     }
 
-    @Override // java.util.AbstractList
-    protected final void removeRange(int i, int i2) {
-        zza();
-        if (i2 >= i) {
-            float[] fArr = this.zzb;
-            System.arraycopy(fArr, i2, fArr, i, this.zzc - i2);
-            this.zzc -= i2 - i;
-            this.modCount++;
+    public void zza() {
+        Map unmodifiableMap;
+        Map unmodifiableMap2;
+        if (this.zzd) {
             return;
         }
-        throw new IndexOutOfBoundsException("toIndex < fromIndex");
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzfx, java.util.AbstractList, java.util.List
-    public final /* bridge */ /* synthetic */ Object set(int i, Object obj) {
-        float floatValue = ((Float) obj).floatValue();
-        zza();
-        zzj(i);
-        float[] fArr = this.zzb;
-        float f = fArr[i];
-        fArr[i] = floatValue;
-        return Float.valueOf(f);
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
-    public final int size() {
-        return this.zzc;
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzho
-    public final /* bridge */ /* synthetic */ zzho zzd(int i) {
-        if (i < this.zzc) {
-            throw new IllegalArgumentException();
+        if (this.zzc.isEmpty()) {
+            unmodifiableMap = Collections.emptyMap();
+        } else {
+            unmodifiableMap = Collections.unmodifiableMap(this.zzc);
         }
-        return new zzhd(i == 0 ? zza : Arrays.copyOf(this.zzb, i), this.zzc, true);
-    }
-
-    public final float zze(int i) {
-        zzj(i);
-        return this.zzb[i];
-    }
-
-    public final void zzf(float f) {
-        zza();
-        int i = this.zzc;
-        int length = this.zzb.length;
-        if (i == length) {
-            float[] fArr = new float[zzh(length)];
-            System.arraycopy(this.zzb, 0, fArr, 0, this.zzc);
-            this.zzb = fArr;
+        this.zzc = unmodifiableMap;
+        if (this.zzf.isEmpty()) {
+            unmodifiableMap2 = Collections.emptyMap();
+        } else {
+            unmodifiableMap2 = Collections.unmodifiableMap(this.zzf);
         }
-        float[] fArr2 = this.zzb;
-        int i2 = this.zzc;
-        this.zzc = i2 + 1;
-        fArr2[i2] = f;
+        this.zzf = unmodifiableMap2;
+        this.zzd = true;
+    }
+
+    public final int zzc() {
+        return this.zzb;
+    }
+
+    public final Iterable zzd() {
+        if (this.zzc.isEmpty()) {
+            return Collections.emptySet();
+        }
+        return this.zzc.entrySet();
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    /* renamed from: zzf */
+    public final Object put(Comparable comparable, Object obj) {
+        zzo();
+        int zzl = zzl(comparable);
+        if (zzl >= 0) {
+            return ((zzgz) this.zza[zzl]).setValue(obj);
+        }
+        zzo();
+        if (this.zza == null) {
+            this.zza = new Object[16];
+        }
+        int i = -(zzl + 1);
+        if (i >= 16) {
+            return zzn().put(comparable, obj);
+        }
+        if (this.zzb == 16) {
+            zzgz zzgzVar = (zzgz) this.zza[15];
+            this.zzb = 15;
+            zzn().put(zzgzVar.zza(), zzgzVar.getValue());
+        }
+        Object[] objArr = this.zza;
+        int length = objArr.length;
+        System.arraycopy(objArr, i, objArr, i + 1, (16 - i) - 1);
+        this.zza[i] = new zzgz(this, comparable, obj);
+        this.zzb++;
+        return null;
+    }
+
+    public final Map.Entry zzg(int i) {
+        if (i >= this.zzb) {
+            throw new ArrayIndexOutOfBoundsException(i);
+        }
+        return (zzgz) this.zza[i];
+    }
+
+    public final boolean zzj() {
+        return this.zzd;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void zzg(int i) {
-        int length = this.zzb.length;
-        if (i <= length) {
-            return;
-        }
-        if (length != 0) {
-            while (length < i) {
-                length = zzh(length);
-            }
-            this.zzb = Arrays.copyOf(this.zzb, length);
-            return;
-        }
-        this.zzb = new float[Math.max(i, 10)];
-    }
-
-    private zzhd(float[] fArr, int i, boolean z) {
-        super(z);
-        this.zzb = fArr;
-        this.zzc = i;
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzfx, java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List
-    public final /* bridge */ /* synthetic */ boolean add(Object obj) {
-        zzf(((Float) obj).floatValue());
-        return true;
+    public /* synthetic */ zzhd(zzhc zzhcVar) {
     }
 }

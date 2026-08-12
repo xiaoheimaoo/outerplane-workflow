@@ -10,7 +10,7 @@ import androidx.core.app.PendingIntentCompat;
 import com.google.android.gms.common.util.DeviceProperties;
 import com.google.android.gms.common.wrappers.Wrappers;
 import com.unity.androidnotifications.UnityNotificationManager;
-/* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
+/* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
 /* loaded from: classes.dex */
 public class GoogleApiAvailabilityLight {
     public static final String GOOGLE_PLAY_SERVICES_PACKAGE = "com.google.android.gms";
@@ -78,7 +78,6 @@ public class GoogleApiAvailabilityLight {
             if (i != 3) {
                 return null;
             }
-            int i2 = com.google.android.gms.common.internal.zzu.zza;
             Uri fromParts = Uri.fromParts("package", "com.google.android.gms", null);
             Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
             intent.setData(fromParts);
@@ -102,7 +101,6 @@ public class GoogleApiAvailabilityLight {
                 }
             }
             String sb2 = sb.toString();
-            int i3 = com.google.android.gms.common.internal.zzu.zza;
             Intent intent2 = new Intent("android.intent.action.VIEW");
             Uri.Builder appendQueryParameter = Uri.parse("market://details").buildUpon().appendQueryParameter(UnityNotificationManager.KEY_ID, "com.google.android.gms");
             if (!TextUtils.isEmpty(sb2)) {
@@ -113,7 +111,6 @@ public class GoogleApiAvailabilityLight {
             intent2.addFlags(524288);
             return intent2;
         } else {
-            int i4 = com.google.android.gms.common.internal.zzu.zza;
             Intent intent3 = new Intent("com.google.android.clockwork.home.UPDATE_ANDROID_WEAR_ACTION");
             intent3.setPackage("com.google.android.wearable.app");
             return intent3;

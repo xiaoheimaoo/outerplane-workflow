@@ -1,42 +1,34 @@
 package com.google.android.gms.internal.play_billing;
-
-import java.util.concurrent.Callable;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public final class zzfg extends zzes {
-    final /* synthetic */ zzfh zza;
-    private final Callable zzb;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public zzfg(zzfh zzfhVar, Callable callable) {
-        this.zza = zzfhVar;
-        callable.getClass();
-        this.zzb = callable;
+final class zzfg implements zzey {
+    @Override // java.lang.Comparable
+    public final /* bridge */ /* synthetic */ int compareTo(Object obj) {
+        throw null;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzes
-    final Object zza() throws Exception {
-        return this.zzb.call();
+    @Override // com.google.android.gms.internal.play_billing.zzey
+    public final int zza() {
+        throw null;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzes
-    final String zzb() {
-        return this.zzb.toString();
+    @Override // com.google.android.gms.internal.play_billing.zzey
+    public final zzhs zzb() {
+        throw null;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzes
-    final void zzc(Throwable th) {
-        this.zza.zzo(th);
+    @Override // com.google.android.gms.internal.play_billing.zzey
+    public final zzht zzc() {
+        throw null;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzes
-    final void zzd(Object obj) {
-        this.zza.zzn(obj);
+    @Override // com.google.android.gms.internal.play_billing.zzey
+    public final boolean zzd() {
+        throw null;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzes
-    final boolean zzf() {
-        return this.zza.isDone();
+    @Override // com.google.android.gms.internal.play_billing.zzey
+    public final boolean zze() {
+        throw null;
     }
 }

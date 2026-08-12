@@ -3,7 +3,7 @@ package com.google.android.gms.common.logging;
 import android.util.Log;
 import com.google.android.gms.common.internal.GmsLogger;
 import java.util.Locale;
-/* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
+/* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
 /* loaded from: classes.dex */
 public class Logger {
     private final String zza;

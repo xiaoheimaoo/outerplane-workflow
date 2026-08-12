@@ -7,7 +7,7 @@ import com.google.android.gms.common.data.Freezable;
 import com.google.android.gms.games.Player;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public interface Achievement extends Freezable<Achievement>, Parcelable {
     public static final int STATE_HIDDEN = 2;
@@ -16,13 +16,13 @@ public interface Achievement extends Freezable<Achievement>, Parcelable {
     public static final int TYPE_INCREMENTAL = 1;
     public static final int TYPE_STANDARD = 0;
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
     public @interface AchievementState {
     }
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
     public @interface AchievementType {

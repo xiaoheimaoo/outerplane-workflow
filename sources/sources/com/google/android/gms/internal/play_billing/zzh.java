@@ -1,14 +1,17 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
-/* loaded from: classes2.dex */
-final class zzh extends Throwable {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public zzh(String str) {
-        super("Failure occurred while trying to finish a future.");
-    }
 
-    @Override // java.lang.Throwable
-    public final synchronized Throwable fillInStackTrace() {
-        return this;
+import java.util.concurrent.Executor;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
+/* loaded from: classes2.dex */
+final class zzh {
+    static final zzh zza = new zzh(null, null);
+    final Runnable zzb;
+    final Executor zzc;
+    zzh zzd;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public zzh(Runnable runnable, Executor executor) {
+        this.zzb = runnable;
+        this.zzc = executor;
     }
 }

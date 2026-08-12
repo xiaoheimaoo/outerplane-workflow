@@ -3,7 +3,7 @@ package com.google.android.gms.internal.games_v2;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 public final class zzaj extends zza implements zzal {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,10 +11,12 @@ public final class zzaj extends zza implements zzal {
         super(iBinder, "com.google.android.gms.games.internal.recall.IRecallService");
     }
 
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // com.google.android.gms.internal.games_v2.zzal
     public final void zzd(zzai zzaiVar, String str) throws RemoteException {
         Parcel zza = zza();
-        zzc.zzd(zza, zzaiVar);
+        int i = zzc.zza;
+        zza.writeStrongBinder(zzaiVar);
         zza.writeString("unusedServerClientId");
         zzc(2, zza);
     }

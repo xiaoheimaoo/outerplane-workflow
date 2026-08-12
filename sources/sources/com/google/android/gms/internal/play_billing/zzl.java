@@ -1,52 +1,57 @@
 package com.google.android.gms.internal.play_billing;
-
-import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-final class zzl extends zzf {
-    final AtomicReferenceFieldUpdater zza;
-    final AtomicReferenceFieldUpdater zzb;
-    final AtomicReferenceFieldUpdater zzc;
-    final AtomicReferenceFieldUpdater zzd;
-    final AtomicReferenceFieldUpdater zze;
-
+final class zzl extends zzd {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public zzl(AtomicReferenceFieldUpdater atomicReferenceFieldUpdater, AtomicReferenceFieldUpdater atomicReferenceFieldUpdater2, AtomicReferenceFieldUpdater atomicReferenceFieldUpdater3, AtomicReferenceFieldUpdater atomicReferenceFieldUpdater4, AtomicReferenceFieldUpdater atomicReferenceFieldUpdater5) {
+    public zzl() {
         super(null);
-        this.zza = atomicReferenceFieldUpdater;
-        this.zzb = atomicReferenceFieldUpdater2;
-        this.zzc = atomicReferenceFieldUpdater3;
-        this.zzd = atomicReferenceFieldUpdater4;
-        this.zze = atomicReferenceFieldUpdater5;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.google.android.gms.internal.play_billing.zzf
-    public final void zza(zzo zzoVar, zzo zzoVar2) {
-        this.zzb.lazySet(zzoVar, zzoVar2);
+    @Override // com.google.android.gms.internal.play_billing.zzd
+    public final void zza(zzm zzmVar, zzm zzmVar2) {
+        zzmVar.zzc = zzmVar2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.google.android.gms.internal.play_billing.zzf
-    public final void zzb(zzo zzoVar, Thread thread) {
-        this.zza.lazySet(zzoVar, thread);
+    @Override // com.google.android.gms.internal.play_billing.zzd
+    public final void zzb(zzm zzmVar, Thread thread) {
+        zzmVar.zzb = thread;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.google.android.gms.internal.play_billing.zzf
-    public final boolean zzc(zzq zzqVar, zzj zzjVar, zzj zzjVar2) {
-        return zzk.zza(this.zzd, zzqVar, zzjVar, zzjVar2);
+    @Override // com.google.android.gms.internal.play_billing.zzd
+    public final boolean zzc(zzo zzoVar, zzh zzhVar, zzh zzhVar2) {
+        synchronized (zzoVar) {
+            if (zzoVar.zzd == zzhVar) {
+                zzoVar.zzd = zzhVar2;
+                return true;
+            }
+            return false;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.google.android.gms.internal.play_billing.zzf
-    public final boolean zzd(zzq zzqVar, Object obj, Object obj2) {
-        return zzk.zza(this.zze, zzqVar, obj, obj2);
+    @Override // com.google.android.gms.internal.play_billing.zzd
+    public final boolean zzd(zzo zzoVar, Object obj, Object obj2) {
+        synchronized (zzoVar) {
+            if (zzoVar.zzc == obj) {
+                zzoVar.zzc = obj2;
+                return true;
+            }
+            return false;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.google.android.gms.internal.play_billing.zzf
-    public final boolean zze(zzq zzqVar, zzo zzoVar, zzo zzoVar2) {
-        return zzk.zza(this.zzc, zzqVar, zzoVar, zzoVar2);
+    @Override // com.google.android.gms.internal.play_billing.zzd
+    public final boolean zze(zzo zzoVar, zzm zzmVar, zzm zzmVar2) {
+        synchronized (zzoVar) {
+            if (zzoVar.zze == zzmVar) {
+                zzoVar.zze = zzmVar2;
+                return true;
+            }
+            return false;
+        }
     }
 }

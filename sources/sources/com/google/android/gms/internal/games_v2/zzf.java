@@ -4,7 +4,7 @@ import android.content.Context;
 import com.google.android.gms.common.api.Api;
 import com.google.android.gms.common.api.GoogleApi;
 import com.google.android.gms.common.internal.ClientSettings;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 public final class zzf extends GoogleApi {
     private static final Api.AbstractClientBuilder zza;

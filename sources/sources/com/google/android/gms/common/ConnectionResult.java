@@ -10,7 +10,7 @@ import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.helpshift.HelpshiftEvent;
-/* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
+/* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
 /* loaded from: classes.dex */
 public final class ConnectionResult extends AbstractSafeParcelable {
     public static final int API_DISABLED = 23;
@@ -43,19 +43,21 @@ public final class ConnectionResult extends AbstractSafeParcelable {
     private final int zzb;
     private final PendingIntent zzc;
     private final String zzd;
+    private final Integer zze;
     public static final ConnectionResult RESULT_SUCCESS = new ConnectionResult(0);
-    public static final Parcelable.Creator<ConnectionResult> CREATOR = new zzb();
+    public static final Parcelable.Creator<ConnectionResult> CREATOR = new zza();
 
     public ConnectionResult(int i) {
         this(i, null, null);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ConnectionResult(int i, int i2, PendingIntent pendingIntent, String str) {
+    public ConnectionResult(int i, int i2, PendingIntent pendingIntent, String str, Integer num) {
         this.zza = i;
         this.zzb = i2;
         this.zzc = pendingIntent;
         this.zzd = str;
+        this.zze = num;
     }
 
     public ConnectionResult(int i, PendingIntent pendingIntent) {
@@ -122,7 +124,11 @@ public final class ConnectionResult extends AbstractSafeParcelable {
                             case 25:
                                 return "API_INSTALL_REQUIRED";
                             default:
-                                return "UNKNOWN_ERROR_CODE(" + i + ")";
+                                StringBuilder sb = new StringBuilder(String.valueOf(i).length() + 20);
+                                sb.append("UNKNOWN_ERROR_CODE(");
+                                sb.append(i);
+                                sb.append(")");
+                                return sb.toString();
                         }
                 }
             }
@@ -137,9 +143,13 @@ public final class ConnectionResult extends AbstractSafeParcelable {
         }
         if (obj instanceof ConnectionResult) {
             ConnectionResult connectionResult = (ConnectionResult) obj;
-            return this.zzb == connectionResult.zzb && Objects.equal(this.zzc, connectionResult.zzc) && Objects.equal(this.zzd, connectionResult.zzd);
+            return this.zzb == connectionResult.zzb && Objects.equal(this.zzc, connectionResult.zzc) && Objects.equal(this.zzd, connectionResult.zzd) && Objects.equal(this.zze, connectionResult.zze);
         }
         return false;
+    }
+
+    public Integer getClientMethodKey() {
+        return this.zze;
     }
 
     public int getErrorCode() {
@@ -159,7 +169,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
     }
 
     public int hashCode() {
-        return Objects.hashCode(Integer.valueOf(this.zzb), this.zzc, this.zzd);
+        return Objects.hashCode(Integer.valueOf(this.zzb), this.zzc, this.zzd, this.zze);
     }
 
     public boolean isSuccess() {
@@ -179,6 +189,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
         stringHelper.add("statusCode", zza(this.zzb));
         stringHelper.add("resolution", this.zzc);
         stringHelper.add(HelpshiftEvent.DATA_MESSAGE, this.zzd);
+        stringHelper.add("clientMethodKey", this.zze);
         return stringHelper.toString();
     }
 
@@ -190,10 +201,15 @@ public final class ConnectionResult extends AbstractSafeParcelable {
         SafeParcelWriter.writeInt(parcel, 2, getErrorCode());
         SafeParcelWriter.writeParcelable(parcel, 3, getResolution(), i, false);
         SafeParcelWriter.writeString(parcel, 4, getErrorMessage(), false);
+        SafeParcelWriter.writeIntegerObject(parcel, 5, getClientMethodKey(), false);
         SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
     }
 
     public ConnectionResult(int i, PendingIntent pendingIntent, String str) {
-        this(1, i, pendingIntent, str);
+        this(1, i, pendingIntent, str, null);
+    }
+
+    public ConnectionResult(int i, PendingIntent pendingIntent, String str, Integer num) {
+        this(1, i, pendingIntent, str, num);
     }
 }

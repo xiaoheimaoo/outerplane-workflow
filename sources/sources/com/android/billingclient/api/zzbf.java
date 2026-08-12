@@ -1,62 +1,440 @@
 package com.android.billingclient.api;
 
-import android.app.Activity;
-import android.app.PendingIntent;
-import android.content.Intent;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.DeadObjectException;
+import android.os.Handler;
+import android.os.IBinder;
 import android.os.RemoteException;
-import android.os.ResultReceiver;
-import java.lang.ref.WeakReference;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import android.text.TextUtils;
+import androidx.work.WorkRequest;
+import com.google.android.gms.internal.play_billing.zzhv;
+import com.google.android.gms.internal.play_billing.zzhx;
+import com.google.android.gms.internal.play_billing.zzhz;
+import com.google.android.gms.internal.play_billing.zzib;
+import com.google.android.gms.internal.play_billing.zzic;
+import com.google.android.gms.internal.play_billing.zzie;
+import com.google.android.gms.internal.play_billing.zzig;
+import com.google.android.gms.internal.play_billing.zzij;
+import com.google.android.gms.internal.play_billing.zzjm;
+import com.google.android.gms.internal.play_billing.zzjo;
+import com.google.android.gms.internal.play_billing.zzjs;
+import com.google.android.gms.internal.play_billing.zzjt;
+import com.google.android.gms.internal.play_billing.zzjv;
+import java.util.Objects;
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
-final class zzbf extends com.google.android.gms.internal.play_billing.zzaf {
-    final WeakReference zza;
-    final ResultReceiver zzb;
+public final class zzbf implements ServiceConnection {
+    final /* synthetic */ BillingClientImpl zza;
+    private final BillingClientStateListener zzb;
+    private final com.google.android.gms.internal.play_billing.zzbi zzc;
+    private final com.google.android.gms.internal.play_billing.zzbi zzd;
+    private final int zze;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ zzbf(WeakReference weakReference, ResultReceiver resultReceiver, zzbl zzblVar) {
-        this.zza = weakReference;
-        this.zzb = resultReceiver;
+    public /* synthetic */ zzbf(BillingClientImpl billingClientImpl, BillingClientStateListener billingClientStateListener, int i, zzbp zzbpVar) {
+        com.google.android.gms.internal.play_billing.zzbl zzblVar;
+        com.google.android.gms.internal.play_billing.zzbl zzblVar2;
+        Objects.requireNonNull(billingClientImpl);
+        this.zza = billingClientImpl;
+        zzblVar = billingClientImpl.zzJ;
+        this.zzc = com.google.android.gms.internal.play_billing.zzbi.zzc(zzblVar);
+        zzblVar2 = billingClientImpl.zzJ;
+        this.zzd = com.google.android.gms.internal.play_billing.zzbi.zzc(zzblVar2);
+        this.zzb = billingClientStateListener;
+        this.zze = i;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzag
-    public final void zza(Bundle bundle) throws RemoteException {
-        if (bundle == null) {
-            this.zzb.send(6, null);
-        } else if (!bundle.containsKey("RESPONSE_CODE")) {
-            com.google.android.gms.internal.play_billing.zze.zzl("BillingClient", "Response bundle doesn't contain a response code");
-            this.zzb.send(6, bundle);
-        } else {
-            int zzb = com.google.android.gms.internal.play_billing.zze.zzb(bundle, "BillingClient");
-            if (zzb != 0) {
-                com.google.android.gms.internal.play_billing.zze.zzl("BillingClient", "Unable to launch intent for external offer dialog" + zzb);
-                this.zzb.send(zzb, bundle);
+    public static /* synthetic */ Object zza(zzbf zzbfVar) {
+        Object obj;
+        int i;
+        int i2;
+        Bundle bundle;
+        Object obj2;
+        com.google.android.gms.internal.play_billing.zzam zzamVar;
+        Context context;
+        zzie zzieVar;
+        int i3;
+        int i4;
+        zzch zzchVar;
+        int zzc;
+        int i5;
+        String str;
+        String str2;
+        Long l;
+        BillingClientImpl billingClientImpl = zzbfVar.zza;
+        obj = billingClientImpl.zza;
+        synchronized (obj) {
+            i = billingClientImpl.zzb;
+            if (i != 3) {
+                i2 = billingClientImpl.zzb;
+                boolean z = i2 == 1;
+                if (TextUtils.isEmpty(null)) {
+                    bundle = null;
+                } else {
+                    bundle = new Bundle();
+                    bundle.putString("accountName", null);
+                    str = billingClientImpl.zzc;
+                    str2 = billingClientImpl.zzd;
+                    l = billingClientImpl.zzI;
+                    com.google.android.gms.internal.play_billing.zzc.zzc(bundle, str, str2, l.longValue());
+                }
+                zzie zzieVar2 = zzie.REASON_UNSPECIFIED;
+                obj2 = billingClientImpl.zza;
+                synchronized (obj2) {
+                    zzamVar = billingClientImpl.zzi;
+                }
+                if (zzamVar == null) {
+                    BillingClientImpl billingClientImpl2 = zzbfVar.zza;
+                    billingClientImpl2.zzaS(0);
+                    int i6 = zzbfVar.zze;
+                    zzie zzieVar3 = zzie.SERVICE_RESET_TO_NULL;
+                    BillingResult billingResult = zzcj.zzj;
+                    billingClientImpl2.zzaR(zzieVar3, billingResult, i6);
+                    zzbfVar.zzg(billingResult);
+                } else {
+                    BillingClientImpl billingClientImpl3 = zzbfVar.zza;
+                    context = billingClientImpl3.zzg;
+                    String packageName = context.getPackageName();
+                    int i7 = 25;
+                    int i8 = 3;
+                    int i9 = 25;
+                    while (true) {
+                        if (i9 < 3) {
+                            i9 = 0;
+                            break;
+                        }
+                        if (bundle == null) {
+                            try {
+                                i8 = zzamVar.zzw(i9, packageName, "subs");
+                            } catch (Exception e) {
+                                com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Exception while checking if billing is supported; try to reconnect", e);
+                                if (e instanceof DeadObjectException) {
+                                    zzieVar = zzie.IS_BILLING_SUPPORTED_DEAD_OBJECT_EXCEPTION;
+                                } else if (e instanceof RemoteException) {
+                                    zzieVar = zzie.IS_BILLING_SUPPORTED_REMOTE_EXCEPTION;
+                                } else {
+                                    zzieVar = e instanceof SecurityException ? zzie.IS_BILLING_SUPPORTED_SECURITY_EXCEPTION : zzie.IS_BILLING_SUPPORTED_SERVICE_CALL_EXCEPTION;
+                                }
+                                String zza = zzieVar.equals(zzie.IS_BILLING_SUPPORTED_SERVICE_CALL_EXCEPTION) ? zzcg.zza(e) : null;
+                                zzbfVar.zza.zzaS(0);
+                                zzbfVar.zzf(BillingClientImpl.zzl(e), zzieVar, zza, z);
+                                zzbfVar.zzg(BillingClientImpl.zzl(e));
+                            }
+                        } else {
+                            i8 = zzamVar.zzc(i9, packageName, "subs", bundle);
+                        }
+                        if (i8 == 0) {
+                            com.google.android.gms.internal.play_billing.zzc.zzm("BillingClient", "highestLevelSupportedForSubs: " + i9);
+                            break;
+                        }
+                        i9--;
+                    }
+                    billingClientImpl3.zzl = i9 >= 5;
+                    billingClientImpl3.zzk = i9 >= 3;
+                    if (i9 < 3) {
+                        zzieVar2 = zzie.SUBSCRIPTIONS_NOT_SUPPORTED;
+                        com.google.android.gms.internal.play_billing.zzc.zzm("BillingClient", "In-app billing API does not support subscription on this device.");
+                    }
+                    while (true) {
+                        if (i7 < 3) {
+                            break;
+                        }
+                        if (bundle == null) {
+                            zzc = zzamVar.zzw(i7, packageName, "inapp");
+                        } else {
+                            zzc = zzamVar.zzc(i7, packageName, "inapp", bundle);
+                        }
+                        i8 = zzc;
+                        if (i8 == 0) {
+                            billingClientImpl3.zzm = i7;
+                            i5 = billingClientImpl3.zzm;
+                            com.google.android.gms.internal.play_billing.zzc.zzm("BillingClient", "mHighestLevelSupportedForInApp: " + i5);
+                            break;
+                        }
+                        i7--;
+                    }
+                    i3 = billingClientImpl3.zzm;
+                    BillingClientImpl.zzac(billingClientImpl3, i3);
+                    i4 = billingClientImpl3.zzm;
+                    if (i4 < 3) {
+                        zzieVar2 = zzie.ONE_TIME_PRODUCT_NOT_SUPPORTED;
+                        com.google.android.gms.internal.play_billing.zzc.zzn("BillingClient", "In-app billing API version 3 is not supported on this device.");
+                    }
+                    BillingClientImpl.zzae(billingClientImpl3, i8);
+                    if (i8 == 0) {
+                        try {
+                            Long zze = zzbfVar.zze(z);
+                            if (z) {
+                                zzhz zzc2 = zzib.zzc();
+                                zzc2.zzo(6);
+                                zzjt zzc3 = zzjv.zzc();
+                                int i10 = zzbfVar.zze;
+                                zzc3.zza(i10 > 0);
+                                zzc3.zzl(i10);
+                                if (zze != null) {
+                                    zzc3.zzm(zze.longValue());
+                                }
+                                BillingClientImpl billingClientImpl4 = zzbfVar.zza;
+                                zzc2.zzn(zzc3);
+                                billingClientImpl4.zzaQ((zzib) zzc2.zze());
+                            } else {
+                                zzjm zzc4 = zzjo.zzc();
+                                zzic zzc5 = zzig.zzc();
+                                zzc5.zzo(0);
+                                zzc4.zza(zzc5);
+                                if (zze != null) {
+                                    zzc4.zzl(zze.longValue());
+                                }
+                                zzchVar = zzbfVar.zza.zzh;
+                                zzchVar.zzj((zzjo) zzc4.zze());
+                            }
+                        } catch (Throwable th) {
+                            com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Unable to log.", th);
+                        }
+                        zzbfVar.zzg(zzcj.zzi);
+                    } else {
+                        BillingResult billingResult2 = zzcj.zzb;
+                        zzbfVar.zzf(billingResult2, zzieVar2, null, z);
+                        zzbfVar.zzg(billingResult2);
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    public static /* synthetic */ void zzb(zzbf zzbfVar) {
+        BillingClientImpl billingClientImpl = zzbfVar.zza;
+        billingClientImpl.zzaS(0);
+        zzie zzieVar = zzie.EXECUTE_ASYNC_TIMEOUT;
+        BillingResult billingResult = zzcj.zzk;
+        billingClientImpl.zzaR(zzieVar, billingResult, zzbfVar.zze);
+        zzbfVar.zzg(billingResult);
+    }
+
+    private final Long zze(boolean z) {
+        if (z) {
+            com.google.android.gms.internal.play_billing.zzbi zzbiVar = this.zzc;
+            if (zzbiVar.zzg()) {
+                zzbiVar.zzf();
+                return Long.valueOf(zzbiVar.zza(TimeUnit.MILLISECONDS));
+            }
+            return null;
+        }
+        com.google.android.gms.internal.play_billing.zzbi zzbiVar2 = this.zzd;
+        if (zzbiVar2.zzg()) {
+            zzbiVar2.zzf();
+            return Long.valueOf(zzbiVar2.zza(TimeUnit.MILLISECONDS));
+        }
+        return null;
+    }
+
+    private final void zzf(BillingResult billingResult, zzie zzieVar, String str, boolean z) {
+        zzch zzchVar;
+        try {
+            zzic zzc = zzig.zzc();
+            zzc.zzo(billingResult.getResponseCode());
+            zzc.zzl(billingResult.getDebugMessage());
+            zzc.zzn(zzieVar);
+            if (str != null) {
+                zzc.zza(str);
+            }
+            Long zze = zze(z);
+            if (z) {
+                zzjt zzc2 = zzjv.zzc();
+                int i = this.zze;
+                zzc2.zza(i > 0);
+                zzc2.zzl(i);
+                if (zze != null) {
+                    zzc2.zzm(zze.longValue());
+                }
+                BillingClientImpl billingClientImpl = this.zza;
+                zzhv zzc3 = zzhx.zzc();
+                zzc3.zzl(zzc);
+                zzc3.zzp(6);
+                zzc3.zzo(zzc2);
+                billingClientImpl.zzaO((zzhx) zzc3.zze());
                 return;
             }
-            PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable("EXTERNAL_PAYMENT_DIALOG_INTENT");
-            if (pendingIntent == null) {
-                com.google.android.gms.internal.play_billing.zze.zzl("BillingClient", "The PendingIntent for the external offer dialog is null");
-                Bundle bundle2 = new Bundle();
-                bundle2.putInt("RESPONSE_CODE", 6);
-                bundle2.putString("DEBUG_MESSAGE", "An internal error occurred.");
-                this.zzb.send(6, bundle2);
+            zzjm zzc4 = zzjo.zzc();
+            zzc4.zza(zzc);
+            if (zze != null) {
+                zzc4.zzl(zze.longValue());
+            }
+            zzchVar = this.zza.zzh;
+            zzchVar.zzj((zzjo) zzc4.zze());
+        } catch (Throwable th) {
+            com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Unable to log.", th);
+        }
+    }
+
+    private final void zzg(BillingResult billingResult) {
+        Object obj;
+        int i;
+        BillingClientImpl billingClientImpl = this.zza;
+        obj = billingClientImpl.zza;
+        synchronized (obj) {
+            i = billingClientImpl.zzb;
+            if (i == 3) {
                 return;
             }
             try {
-                Activity activity = (Activity) this.zza.get();
-                Intent intent = new Intent(activity, ProxyBillingActivityV2.class);
-                intent.putExtra("external_payment_dialog_result_receiver", this.zzb);
-                intent.putExtra("external_payment_dialog_pending_intent", pendingIntent);
-                activity.startActivity(intent);
-            } catch (RuntimeException e) {
-                com.google.android.gms.internal.play_billing.zze.zzm("BillingClient", "Runtime error while launching intent for the external offer dialog.", e);
-                Bundle bundle3 = new Bundle();
-                bundle3.putInt("RESPONSE_CODE", 6);
-                bundle3.putString("DEBUG_MESSAGE", "An internal error occurred.");
-                bundle3.putInt("INTERNAL_LOG_ERROR_REASON", 98);
-                bundle3.putString("INTERNAL_LOG_ERROR_ADDITIONAL_DETAILS", String.format("%s: %s", e.getClass().getName(), com.google.android.gms.internal.play_billing.zzbf.zzb(e.getMessage())));
-                this.zzb.send(6, bundle3);
+                this.zzb.onBillingSetupFinished(billingResult);
+            } catch (Throwable th) {
+                com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Exception while calling onBillingSetupFinished.", th);
             }
         }
+    }
+
+    @Override // android.content.ServiceConnection
+    public final void onBindingDied(ComponentName componentName) {
+        Object obj;
+        int i;
+        int i2;
+        zzch zzchVar;
+        zzch zzchVar2;
+        com.google.android.gms.internal.play_billing.zzc.zzn("BillingClient", "Billing service died.");
+        try {
+            BillingClientImpl billingClientImpl = this.zza;
+            if (BillingClientImpl.zzai(billingClientImpl)) {
+                zzchVar2 = billingClientImpl.zzh;
+                zzhv zzc = zzhx.zzc();
+                zzc.zzp(6);
+                zzic zzc2 = zzig.zzc();
+                zzc2.zzn(zzie.BINDING_DIED);
+                zzc.zzl(zzc2);
+                zzjt zzc3 = zzjv.zzc();
+                int i3 = this.zze;
+                zzc3.zza(i3 > 0);
+                zzc3.zzl(i3);
+                zzc.zzo(zzc3);
+                zzchVar2.zza((zzhx) zzc.zze());
+            } else {
+                zzchVar = billingClientImpl.zzh;
+                zzchVar.zzi(zzij.zzd());
+            }
+        } catch (Throwable th) {
+            com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Unable to log.", th);
+        }
+        BillingClientImpl billingClientImpl2 = this.zza;
+        obj = billingClientImpl2.zza;
+        synchronized (obj) {
+            i = billingClientImpl2.zzb;
+            if (i != 3) {
+                i2 = billingClientImpl2.zzb;
+                if (i2 != 0) {
+                    billingClientImpl2.zzaS(0);
+                    billingClientImpl2.zzaV();
+                    try {
+                        this.zzb.onBillingServiceDisconnected();
+                    } catch (Throwable th2) {
+                        com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Exception while calling onBillingServiceDisconnected.", th2);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // android.content.ServiceConnection
+    public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        Object obj;
+        int i;
+        Handler zzan;
+        BillingResult zzaq;
+        com.google.android.gms.internal.play_billing.zzc.zzm("BillingClient", "Billing service connected.");
+        BillingClientImpl billingClientImpl = this.zza;
+        obj = billingClientImpl.zza;
+        synchronized (obj) {
+            i = billingClientImpl.zzb;
+            if (i == 3) {
+                return;
+            }
+            billingClientImpl.zzi = com.google.android.gms.internal.play_billing.zzal.zzs(iBinder);
+            Callable callable = new Callable() { // from class: com.android.billingclient.api.zzbd
+                @Override // java.util.concurrent.Callable
+                public final Object call() {
+                    zzbf.zza(zzbf.this);
+                    return null;
+                }
+            };
+            Runnable runnable = new Runnable() { // from class: com.android.billingclient.api.zzbe
+                @Override // java.lang.Runnable
+                public final void run() {
+                    zzbf.zzb(zzbf.this);
+                }
+            };
+            zzan = billingClientImpl.zzan();
+            if (BillingClientImpl.zzG(callable, WorkRequest.DEFAULT_BACKOFF_DELAY_MILLIS, runnable, zzan, billingClientImpl.zzF()) == null) {
+                int i2 = this.zze;
+                zzaq = billingClientImpl.zzaq();
+                billingClientImpl.zzaR(zzie.MISSING_RESULT_FROM_EXECUTE_ASYNC, zzaq, i2);
+                zzg(zzaq);
+            }
+        }
+    }
+
+    @Override // android.content.ServiceConnection
+    public final void onServiceDisconnected(ComponentName componentName) {
+        Object obj;
+        int i;
+        zzch zzchVar;
+        zzch zzchVar2;
+        com.google.android.gms.internal.play_billing.zzc.zzn("BillingClient", "Billing service disconnected.");
+        try {
+            BillingClientImpl billingClientImpl = this.zza;
+            if (BillingClientImpl.zzai(billingClientImpl)) {
+                zzchVar2 = billingClientImpl.zzh;
+                zzhv zzc = zzhx.zzc();
+                zzc.zzp(6);
+                zzic zzc2 = zzig.zzc();
+                zzc2.zzn(zzie.SERVICE_DISCONNECTED);
+                zzc.zzl(zzc2);
+                zzjt zzc3 = zzjv.zzc();
+                int i2 = this.zze;
+                zzc3.zza(i2 > 0);
+                zzc3.zzl(i2);
+                zzc.zzo(zzc3);
+                zzchVar2.zza((zzhx) zzc.zze());
+            } else {
+                zzchVar = billingClientImpl.zzh;
+                zzchVar.zzk(zzjs.zzd());
+            }
+        } catch (Throwable th) {
+            com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Unable to log.", th);
+        }
+        com.google.android.gms.internal.play_billing.zzbi zzbiVar = this.zzd;
+        zzbiVar.zzd();
+        zzbiVar.zze();
+        BillingClientImpl billingClientImpl2 = this.zza;
+        obj = billingClientImpl2.zza;
+        synchronized (obj) {
+            i = billingClientImpl2.zzb;
+            if (i == 3) {
+                return;
+            }
+            billingClientImpl2.zzaS(0);
+            try {
+                this.zzb.onBillingServiceDisconnected();
+            } catch (Throwable th2) {
+                com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Exception while calling onBillingServiceDisconnected.", th2);
+            }
+        }
+    }
+
+    public final void zzc() {
+        com.google.android.gms.internal.play_billing.zzbi zzbiVar = this.zzc;
+        zzbiVar.zzd();
+        zzbiVar.zze();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final boolean zzd() {
+        return this.zze > 0;
     }
 }

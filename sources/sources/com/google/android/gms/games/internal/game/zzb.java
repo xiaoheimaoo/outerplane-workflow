@@ -2,7 +2,7 @@ package com.google.android.gms.games.internal.game;
 
 import android.net.Uri;
 import android.os.Parcel;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 final class zzb extends zzc {
     @Override // com.google.android.gms.games.internal.game.zzc, android.os.Parcelable.Creator

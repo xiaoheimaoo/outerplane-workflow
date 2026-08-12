@@ -1,87 +1,94 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public class zzhx {
-    protected volatile zzim zza;
-    private volatile zzgk zzb;
+public final class zzhx extends zzfi implements zzgm {
+    private static final zzhx zzb;
+    private int zzd;
+    private int zze = 0;
+    private Object zzf;
+    private int zzg;
+    private zzig zzh;
+    private int zzi;
 
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj instanceof zzhx) {
-            zzhx zzhxVar = (zzhx) obj;
-            zzim zzimVar = this.zza;
-            zzim zzimVar2 = zzhxVar.zza;
-            if (zzimVar == null && zzimVar2 == null) {
-                return zzb().equals(zzhxVar.zzb());
-            }
-            if (zzimVar == null || zzimVar2 == null) {
-                if (zzimVar != null) {
-                    zzhxVar.zzd(zzimVar.zzi());
-                    return zzimVar.equals(zzhxVar.zza);
+    static {
+        zzhx zzhxVar = new zzhx();
+        zzb = zzhxVar;
+        zzfi.zzw(zzhx.class, zzhxVar);
+    }
+
+    private zzhx() {
+    }
+
+    public static zzhx zzA(byte[] bArr, zzeu zzeuVar) throws zzfq {
+        return (zzhx) zzfi.zzp(zzb, bArr, zzeuVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void zzC(zzhx zzhxVar, zzil zzilVar) {
+        zzhxVar.zzi = zzilVar.zza();
+        zzhxVar.zzd |= 4;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void zzD(zzhx zzhxVar, zzig zzigVar) {
+        zzigVar.getClass();
+        zzhxVar.zzh = zzigVar;
+        zzhxVar.zzd |= 2;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void zzE(zzhx zzhxVar, zziz zzizVar) {
+        zzizVar.getClass();
+        zzhxVar.zzf = zzizVar;
+        zzhxVar.zze = 4;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void zzF(zzhx zzhxVar, zzjf zzjfVar) {
+        zzjfVar.getClass();
+        zzhxVar.zzf = zzjfVar;
+        zzhxVar.zze = 7;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void zzG(zzhx zzhxVar, zzjv zzjvVar) {
+        zzjvVar.getClass();
+        zzhxVar.zzf = zzjvVar;
+        zzhxVar.zze = 6;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void zzH(zzhx zzhxVar, int i) {
+        zzhxVar.zzg = i - 1;
+        zzhxVar.zzd |= 1;
+    }
+
+    public static zzhv zzc() {
+        return (zzhv) zzb.zzl();
+    }
+
+    public final zzjf zzB() {
+        return this.zze == 7 ? (zzjf) this.zzf : zzjf.zzd();
+    }
+
+    @Override // com.google.android.gms.internal.play_billing.zzfi
+    protected final Object zzb(int i, Object obj, Object obj2) {
+        int i2 = i - 1;
+        if (i2 != 0) {
+            if (i2 != 2) {
+                if (i2 != 3) {
+                    if (i2 != 4) {
+                        if (i2 == 5) {
+                            return zzb;
+                        }
+                        throw null;
+                    }
+                    return new zzhv(null);
                 }
-                zzd(zzimVar2.zzi());
-                return this.zza.equals(zzimVar2);
+                return new zzhx();
             }
-            return zzimVar.equals(zzimVar2);
+            return zzt(zzb, "\u0004\u0006\u0001\u0001\u0001\u0007\u0006\u0000\u0000\u0000\u0001᠌\u0000\u0002ဉ\u0001\u0004<\u0000\u0005᠌\u0002\u0006<\u0000\u0007<\u0000", new Object[]{"zzf", "zze", "zzd", "zzg", zzhy.zza, "zzh", zziz.class, "zzi", zzik.zza, zzjv.class, zzjf.class});
         }
-        return false;
-    }
-
-    public int hashCode() {
-        return 1;
-    }
-
-    public final int zza() {
-        if (this.zzb != null) {
-            return ((zzgi) this.zzb).zza.length;
-        }
-        if (this.zza != null) {
-            return this.zza.zzk();
-        }
-        return 0;
-    }
-
-    public final zzgk zzb() {
-        if (this.zzb != null) {
-            return this.zzb;
-        }
-        synchronized (this) {
-            if (this.zzb != null) {
-                return this.zzb;
-            }
-            if (this.zza == null) {
-                this.zzb = zzgk.zzb;
-            } else {
-                this.zzb = this.zza.zzf();
-            }
-            return this.zzb;
-        }
-    }
-
-    public final zzim zzc(zzim zzimVar) {
-        zzim zzimVar2 = this.zza;
-        this.zzb = null;
-        this.zza = zzimVar;
-        return zzimVar2;
-    }
-
-    protected final void zzd(zzim zzimVar) {
-        if (this.zza != null) {
-            return;
-        }
-        synchronized (this) {
-            if (this.zza != null) {
-                return;
-            }
-            try {
-                this.zza = zzimVar;
-                this.zzb = zzgk.zzb;
-            } catch (zzhr unused) {
-                this.zza = zzimVar;
-                this.zzb = zzgk.zzb;
-            }
-        }
+        return (byte) 1;
     }
 }

@@ -5,7 +5,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskCompletionSource;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 public final class zzbc {
     private final zzav zza;
@@ -17,7 +17,7 @@ public final class zzbc {
     }
 
     public final void zza(GoogleApi googleApi) {
-        this.zza.zza(googleApi).addOnCompleteListener(zzio.zza(), new OnCompleteListener() { // from class: com.google.android.gms.internal.games_v2.zzbb
+        this.zza.zza(googleApi).addOnCompleteListener(zzhc.zza(), new OnCompleteListener() { // from class: com.google.android.gms.internal.games_v2.zzbb
             @Override // com.google.android.gms.tasks.OnCompleteListener
             public final /* synthetic */ void onComplete(Task task) {
                 zzbc.this.zzc(task);
@@ -37,7 +37,7 @@ public final class zzbc {
         }
         TaskCompletionSource taskCompletionSource = this.zzb;
         Exception exception = task.getException();
-        zzfw.zza(exception);
+        zzgb.zza(exception);
         taskCompletionSource.setException(exception);
     }
 }

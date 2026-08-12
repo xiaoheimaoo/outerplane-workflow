@@ -5,9 +5,10 @@ import com.google.android.gms.games.AnnotatedData;
 import com.google.android.gms.games.GamesStatusUtils;
 import com.google.android.gms.games.leaderboard.LeaderboardBuffer;
 import com.google.android.gms.tasks.TaskCompletionSource;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* JADX INFO: Access modifiers changed from: package-private */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
-final class zzz extends zza {
+public final class zzz extends zza {
     private final TaskCompletionSource zza;
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -3,7 +3,7 @@ package com.android.billingclient.api;
 import com.unity3d.ads.metadata.InAppPurchaseMetaData;
 import java.util.Objects;
 import org.json.JSONObject;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
 public final class zzc {
     private final String zza;

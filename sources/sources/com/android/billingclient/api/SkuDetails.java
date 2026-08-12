@@ -5,7 +5,7 @@ import com.helpshift.HelpshiftEvent;
 import com.unity3d.ads.metadata.InAppPurchaseMetaData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 @Deprecated
 /* loaded from: classes.dex */
 public class SkuDetails {
@@ -67,15 +67,17 @@ public class SkuDetails {
     }
 
     public String getOriginalPrice() {
-        if (this.zzb.has("original_price")) {
-            return this.zzb.optString("original_price");
+        JSONObject jSONObject = this.zzb;
+        if (jSONObject.has("original_price")) {
+            return jSONObject.optString("original_price");
         }
         return getPrice();
     }
 
     public long getOriginalPriceAmountMicros() {
-        if (this.zzb.has("original_price_micros")) {
-            return this.zzb.optLong("original_price_micros");
+        JSONObject jSONObject = this.zzb;
+        if (jSONObject.has("original_price_micros")) {
+            return jSONObject.optLong("original_price_micros");
         }
         return getPriceAmountMicros();
     }
@@ -125,8 +127,9 @@ public class SkuDetails {
     }
 
     public String zzc() {
-        String optString = this.zzb.optString("offerIdToken");
-        return optString.isEmpty() ? this.zzb.optString("offer_id_token") : optString;
+        JSONObject jSONObject = this.zzb;
+        String optString = jSONObject.optString("offerIdToken");
+        return optString.isEmpty() ? jSONObject.optString("offer_id_token") : optString;
     }
 
     public final String zzd() {

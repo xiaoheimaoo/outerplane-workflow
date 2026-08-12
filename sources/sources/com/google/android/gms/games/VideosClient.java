@@ -6,7 +6,7 @@ import com.google.android.gms.games.video.VideoCapabilities;
 import com.google.android.gms.tasks.Task;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 @Deprecated
 /* loaded from: classes.dex */
 public interface VideosClient {
@@ -15,13 +15,13 @@ public interface VideosClient {
     public static final int CAPTURE_OVERLAY_STATE_DISMISSED = 4;
     public static final int CAPTURE_OVERLAY_STATE_SHOWN = 1;
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
     public @interface CaptureOverlayState {
     }
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     @Deprecated
     /* loaded from: classes.dex */
     public interface OnCaptureOverlayStateListener {

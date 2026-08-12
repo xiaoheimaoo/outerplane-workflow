@@ -1,8 +1,6 @@
 package com.android.billingclient.api;
-
-import java.util.List;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
 public interface ProductDetailsResponseListener {
-    void onProductDetailsResponse(BillingResult billingResult, List<ProductDetails> list);
+    void onProductDetailsResponse(BillingResult billingResult, QueryProductDetailsResult queryProductDetailsResult);
 }

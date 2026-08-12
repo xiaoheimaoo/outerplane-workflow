@@ -3,12 +3,12 @@ package com.google.android.gms.games.snapshot;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import com.google.android.gms.common.data.BitmapTeleporter;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public interface SnapshotMetadataChange {
     public static final SnapshotMetadataChange EMPTY_CHANGE = new SnapshotMetadataChangeEntity();
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     /* loaded from: classes.dex */
     public static final class Builder {
         private String zza;

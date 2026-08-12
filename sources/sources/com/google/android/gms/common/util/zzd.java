@@ -1,10 +1,14 @@
 package com.google.android.gms.common.util;
 
-import android.os.Looper;
-/* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
+import android.os.StrictMode;
+/* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
 /* loaded from: classes.dex */
 public final class zzd {
-    public static boolean zza() {
-        return Looper.getMainLooper() == Looper.myLooper();
+    public static StrictMode.VmPolicy zza() {
+        StrictMode.VmPolicy vmPolicy = StrictMode.getVmPolicy();
+        if (PlatformVersion.isAtLeastS()) {
+            StrictMode.setVmPolicy(zzc.zza(new StrictMode.VmPolicy.Builder(vmPolicy)).build());
+        }
+        return vmPolicy;
     }
 }

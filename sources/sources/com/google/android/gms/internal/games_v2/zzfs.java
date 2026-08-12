@@ -1,5 +1,14 @@
 package com.google.android.gms.internal.games_v2;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+
+import com.google.android.gms.common.api.Status;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
-class zzfs {
+public class zzfs extends zzah {
+    public void zzb(zzam zzamVar) {
+        throw null;
+    }
+
+    public void zzc(Status status) {
+        throw null;
+    }
 }

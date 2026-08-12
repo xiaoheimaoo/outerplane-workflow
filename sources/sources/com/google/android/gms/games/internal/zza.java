@@ -4,7 +4,7 @@ import com.google.android.gms.common.api.Status;
 import com.google.android.gms.common.data.DataHolder;
 import com.google.android.gms.drive.Contents;
 import java.util.List;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public class zza extends zzai {
     @Override // com.google.android.gms.games.internal.zzaj

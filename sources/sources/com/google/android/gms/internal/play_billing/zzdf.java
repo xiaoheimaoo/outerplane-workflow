@@ -1,11 +1,7 @@
 package com.google.android.gms.internal.play_billing;
-
-import java.util.Iterator;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public interface zzdf extends Iterator {
-    @Override // java.util.Iterator
-    Object next();
-
-    Object zza();
+public abstract class zzdf {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract Throwable zze();
 }

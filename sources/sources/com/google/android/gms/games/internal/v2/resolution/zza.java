@@ -4,16 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.ResultReceiver;
-import com.google.android.gms.internal.games_v2.zzfr;
+import com.google.android.gms.internal.games_v2.zzfy;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskCompletionSource;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 final class zza extends ResultReceiver {
     private final TaskCompletionSource zza;
 
     public zza() {
-        super(new zzfr(Looper.getMainLooper()));
+        super(new zzfy(Looper.getMainLooper()));
         this.zza = new TaskCompletionSource();
     }
 

@@ -1,26 +1,63 @@
 package com.android.billingclient.api;
 
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import android.app.Activity;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.os.ResultReceiver;
+import com.google.android.gms.internal.play_billing.zzie;
+import java.lang.ref.WeakReference;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
-public final class zzbk {
-    private final List zza;
-    private final BillingResult zzb;
+final class zzbk extends com.google.android.gms.internal.play_billing.zzae {
+    final WeakReference zza;
+    final ResultReceiver zzb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public zzbk(BillingResult billingResult, List list) {
-        this.zza = list;
-        this.zzb = billingResult;
+    public /* synthetic */ zzbk(WeakReference weakReference, ResultReceiver resultReceiver, zzbp zzbpVar) {
+        this.zza = weakReference;
+        this.zzb = resultReceiver;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final BillingResult zza() {
-        return this.zzb;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final List zzb() {
-        return this.zza;
+    @Override // com.google.android.gms.internal.play_billing.zzaf
+    public final void zza(Bundle bundle) throws RemoteException {
+        if (bundle == null) {
+            this.zzb.send(6, null);
+        } else if (!bundle.containsKey("RESPONSE_CODE")) {
+            com.google.android.gms.internal.play_billing.zzc.zzn("BillingClient", "Response bundle doesn't contain a response code");
+            this.zzb.send(6, bundle);
+        } else {
+            int zzb = com.google.android.gms.internal.play_billing.zzc.zzb(bundle, "BillingClient");
+            if (zzb != 0) {
+                com.google.android.gms.internal.play_billing.zzc.zzn("BillingClient", "Unable to launch intent for external offer dialog" + zzb);
+                this.zzb.send(zzb, bundle);
+                return;
+            }
+            PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable("EXTERNAL_PAYMENT_DIALOG_INTENT");
+            if (pendingIntent == null) {
+                com.google.android.gms.internal.play_billing.zzc.zzn("BillingClient", "The PendingIntent for the external offer dialog is null");
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("RESPONSE_CODE", 6);
+                bundle2.putString("DEBUG_MESSAGE", "An internal error occurred.");
+                this.zzb.send(6, bundle2);
+                return;
+            }
+            try {
+                Activity activity = (Activity) this.zza.get();
+                Intent intent = new Intent(activity, ProxyBillingActivityV2.class);
+                intent.putExtra("external_payment_dialog_result_receiver", this.zzb);
+                intent.putExtra("external_payment_dialog_pending_intent", pendingIntent);
+                activity.startActivity(intent);
+            } catch (RuntimeException e) {
+                com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Runtime error while launching intent for the external offer dialog.", e);
+                Bundle bundle3 = new Bundle();
+                bundle3.putInt("RESPONSE_CODE", 6);
+                bundle3.putString("DEBUG_MESSAGE", "An internal error occurred.");
+                bundle3.putInt("INTERNAL_LOG_ERROR_REASON", zzie.RUNTIME_EXCEPTION_ON_LAUNCHING_EXTERNAL_PAYMENT_DIALOG_INTENT.zza());
+                bundle3.putString("INTERNAL_LOG_ERROR_ADDITIONAL_DETAILS", String.format("%s: %s", e.getClass().getName(), com.google.android.gms.internal.play_billing.zzbj.zzb(e.getMessage())));
+                this.zzb.send(6, bundle3);
+            }
+        }
     }
 }

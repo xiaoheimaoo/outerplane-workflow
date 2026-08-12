@@ -104,7 +104,7 @@ public class SignInClientImpl extends GmsClient<zaf> implements com.google.andro
 
     @Override // com.google.android.gms.signin.zae
     public final void zab() {
-        connect(new BaseGmsClient.LegacyClientCallbackAdapter());
+        connect(new BaseGmsClient.LegacyClientCallbackAdapter(this));
     }
 
     @Override // com.google.android.gms.signin.zae

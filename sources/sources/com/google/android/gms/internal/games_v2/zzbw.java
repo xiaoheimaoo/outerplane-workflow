@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.google.android.gms.common.internal.Preconditions;
 import java.util.concurrent.atomic.AtomicReference;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 public final class zzbw {
     private static final AtomicReference zza = new AtomicReference();

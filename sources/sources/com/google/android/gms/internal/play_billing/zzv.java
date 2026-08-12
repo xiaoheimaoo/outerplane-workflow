@@ -1,17 +1,16 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public final class zzv {
-    public static zzeu zza(com.android.billingclient.api.zzbs zzbsVar) {
-        zzr zzrVar = new zzr();
-        zzu zzuVar = new zzu(zzrVar);
-        zzrVar.zzb = zzuVar;
-        zzrVar.zza = zzbsVar.getClass();
-        try {
-            zzrVar.zza = zzbsVar.zza(zzrVar);
-        } catch (Exception e) {
-            zzuVar.zzc(e);
-        }
-        return zzuVar;
+public final class zzv extends zzo {
+    private zzv() {
+    }
+
+    public static zzv zze() {
+        return new zzv();
+    }
+
+    @Override // com.google.android.gms.internal.play_billing.zzo
+    public final boolean zzd(Object obj) {
+        return super.zzd(null);
     }
 }

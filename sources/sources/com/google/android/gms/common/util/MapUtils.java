@@ -1,7 +1,7 @@
 package com.google.android.gms.common.util;
 
 import java.util.HashMap;
-/* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
+/* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
 /* loaded from: classes.dex */
 public class MapUtils {
     public static void writeStringMapToJson(StringBuilder sb, HashMap<String, String> hashMap) {

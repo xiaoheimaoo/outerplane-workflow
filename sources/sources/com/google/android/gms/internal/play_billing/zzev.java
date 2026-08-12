@@ -1,7 +1,7 @@
 package com.google.android.gms.internal.play_billing;
-
-import java.util.concurrent.ExecutorService;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public interface zzev extends ExecutorService {
+abstract class zzev {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public abstract void zza(Object obj);
 }

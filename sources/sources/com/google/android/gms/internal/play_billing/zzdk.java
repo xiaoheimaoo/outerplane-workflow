@@ -1,59 +1,50 @@
 package com.google.android.gms.internal.play_billing;
-
-import com.google.firebase.analytics.FirebaseAnalytics;
-import java.util.Objects;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public final class zzdk extends zzco {
-    static final zzco zza = new zzdk(new Object[0], 0);
-    final transient Object[] zzb;
-    private final transient int zzc;
+public final class zzdk extends zzfi implements zzgm {
+    private static final zzdk zzb;
+    private zzfn zzd = zzr();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public zzdk(Object[] objArr, int i) {
-        this.zzb = objArr;
-        this.zzc = i;
+    static {
+        zzdk zzdkVar = new zzdk();
+        zzb = zzdkVar;
+        zzfi.zzw(zzdk.class, zzdkVar);
     }
 
-    @Override // java.util.List
-    public final Object get(int i) {
-        zzbe.zza(i, this.zzc, FirebaseAnalytics.Param.INDEX);
-        return Objects.requireNonNull(this.zzb[i]);
+    private zzdk() {
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
-    public final int size() {
-        return this.zzc;
+    public static zzdj zza() {
+        return (zzdj) zzb.zzl();
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzco, com.google.android.gms.internal.play_billing.zzcj
-    final int zza(Object[] objArr, int i) {
-        System.arraycopy(this.zzb, 0, objArr, 0, this.zzc);
-        return this.zzc;
+    public static /* synthetic */ void zzd(zzdk zzdkVar, Iterable iterable) {
+        zzfn zzfnVar = zzdkVar.zzd;
+        if (!zzfnVar.zzc()) {
+            int size = zzfnVar.size();
+            zzdkVar.zzd = zzfnVar.zzd(size + size);
+        }
+        zzds.zzg(iterable, zzdkVar.zzd);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.google.android.gms.internal.play_billing.zzcj
-    public final int zzb() {
-        return this.zzc;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.google.android.gms.internal.play_billing.zzcj
-    public final int zzc() {
-        return 0;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.google.android.gms.internal.play_billing.zzcj
-    public final boolean zzf() {
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.google.android.gms.internal.play_billing.zzcj
-    public final Object[] zzg() {
-        return this.zzb;
+    @Override // com.google.android.gms.internal.play_billing.zzfi
+    public final Object zzb(int i, Object obj, Object obj2) {
+        int i2 = i - 1;
+        if (i2 != 0) {
+            if (i2 != 2) {
+                if (i2 != 3) {
+                    if (i2 != 4) {
+                        if (i2 == 5) {
+                            return zzb;
+                        }
+                        throw null;
+                    }
+                    return new zzdj(null);
+                }
+                return new zzdk();
+            }
+            return zzt(zzb, "\u0004\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0001\u0000\u0001\u001b", new Object[]{"zzd", zzdi.class});
+        }
+        return (byte) 1;
     }
 }

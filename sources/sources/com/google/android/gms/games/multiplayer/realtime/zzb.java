@@ -2,7 +2,7 @@ package com.google.android.gms.games.multiplayer.realtime;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 @Deprecated
 /* loaded from: classes.dex */
 public final class zzb implements Parcelable {

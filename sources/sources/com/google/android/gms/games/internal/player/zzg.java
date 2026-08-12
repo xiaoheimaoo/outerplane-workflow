@@ -4,17 +4,12 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class zzg implements Parcelable.Creator {
     @Override // android.os.Parcelable.Creator
     public final /* bridge */ /* synthetic */ Object createFromParcel(Parcel parcel) {
         int validateObjectHeader = SafeParcelReader.validateObjectHeader(parcel);
-        Status status = null;
-        String str = null;
-        StockProfileImageEntity stockProfileImageEntity = null;
-        zzh zzhVar = null;
-        Boolean bool = null;
         boolean z = false;
         boolean z2 = false;
         boolean z3 = false;
@@ -26,6 +21,13 @@ public final class zzg implements Parcelable.Creator {
         int i2 = 0;
         int i3 = 0;
         boolean z8 = false;
+        boolean z9 = false;
+        Status status = null;
+        String str = null;
+        StockProfileImageEntity stockProfileImageEntity = null;
+        zzh zzhVar = null;
+        Boolean bool = null;
+        Boolean bool2 = null;
         while (parcel.dataPosition() < validateObjectHeader) {
             int readHeader = SafeParcelReader.readHeader(parcel);
             switch (SafeParcelReader.getFieldId(readHeader)) {
@@ -77,13 +79,19 @@ public final class zzg implements Parcelable.Creator {
                 case 16:
                     bool = SafeParcelReader.readBooleanObject(parcel, readHeader);
                     break;
+                case 17:
+                    bool2 = SafeParcelReader.readBooleanObject(parcel, readHeader);
+                    break;
+                case 18:
+                    z9 = SafeParcelReader.readBoolean(parcel, readHeader);
+                    break;
                 default:
                     SafeParcelReader.skipUnknownField(parcel, readHeader);
                     break;
             }
         }
         SafeParcelReader.ensureAtEnd(parcel, validateObjectHeader);
-        return new ProfileSettingsEntity(status, str, z, z2, z3, stockProfileImageEntity, z4, z5, i, z6, z7, i2, i3, z8, zzhVar, bool);
+        return new ProfileSettingsEntity(status, str, z, z2, z3, stockProfileImageEntity, z4, z5, i, z6, z7, i2, i3, z8, zzhVar, bool, bool2, z9);
     }
 
     @Override // android.os.Parcelable.Creator

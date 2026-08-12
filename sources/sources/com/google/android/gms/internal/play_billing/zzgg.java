@@ -1,8 +1,16 @@
 package com.google.android.gms.internal.play_billing;
-
-import java.util.Iterator;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public interface zzgg extends Iterator {
-    byte zza();
+final class zzgg {
+    public static final Object zza(Object obj, Object obj2) {
+        zzgf zzgfVar = (zzgf) obj;
+        zzgf zzgfVar2 = (zzgf) obj2;
+        if (!zzgfVar2.isEmpty()) {
+            if (!zzgfVar.zze()) {
+                zzgfVar = zzgfVar.zzb();
+            }
+            zzgfVar.zzd(zzgfVar2);
+        }
+        return zzgfVar;
+    }
 }

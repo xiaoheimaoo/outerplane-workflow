@@ -1,39 +1,62 @@
 package com.google.android.gms.internal.play_billing;
 
-import java.io.Serializable;
-import java.util.Set;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public final class zzct extends zzbi implements Serializable {
-    private static final zzct zza;
-    private static final zzct zzb;
-    private final transient zzco zzc;
-
-    static {
-        int i = zzco.zzd;
-        zza = new zzct(zzdk.zza);
-        zzb = new zzct(zzco.zzm(zzdh.zza()));
-    }
+final class zzct implements Runnable {
+    final Future zza;
+    final zzcs zzb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public zzct(zzco zzcoVar) {
-        this.zzc = zzcoVar;
+    public zzct(Future future, zzcs zzcsVar) {
+        this.zza = future;
+        this.zzb = zzcsVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static zzct zza() {
-        return zzb;
-    }
-
-    public static zzct zzb() {
-        return zza;
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzdj
-    public final /* bridge */ /* synthetic */ Set zzc() {
-        if (this.zzc.isEmpty()) {
-            return zzdq.zza;
+    @Override // java.lang.Runnable
+    public final void run() {
+        Object obj;
+        Throwable zza;
+        Future future = this.zza;
+        if (!(future instanceof zzdf) || (zza = zzdg.zza((zzdf) future)) == null) {
+            try {
+                boolean z = false;
+                if (future.isDone()) {
+                    while (true) {
+                        try {
+                            obj = future.get();
+                            break;
+                        } catch (InterruptedException unused) {
+                            z = true;
+                        } catch (Throwable th) {
+                            if (z) {
+                                Thread.currentThread().interrupt();
+                            }
+                            throw th;
+                        }
+                    }
+                    if (z) {
+                        Thread.currentThread().interrupt();
+                    }
+                    this.zzb.zzb(obj);
+                    return;
+                }
+                throw new IllegalStateException(zzbj.zza("Future was expected to be done: %s", future));
+            } catch (ExecutionException e) {
+                this.zzb.zza(e.getCause());
+                return;
+            } catch (Throwable th2) {
+                this.zzb.zza(th2);
+                return;
+            }
         }
-        return new zzdr(this.zzc, zzdg.zza);
+        this.zzb.zza(zza);
+    }
+
+    public final String toString() {
+        zzbc zza = zzbe.zza(this);
+        zza.zza(this.zzb);
+        return zza.toString();
     }
 }

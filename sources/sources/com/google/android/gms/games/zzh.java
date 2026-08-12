@@ -3,7 +3,7 @@ package com.google.android.gms.games;
 import com.google.android.gms.common.internal.Preconditions;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class zzh {
     int zza = 4368;

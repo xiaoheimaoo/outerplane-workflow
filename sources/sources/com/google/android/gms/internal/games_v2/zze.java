@@ -7,7 +7,7 @@ import com.google.android.gms.common.api.Api;
 import com.google.android.gms.common.api.internal.ConnectionCallbacks;
 import com.google.android.gms.common.api.internal.OnConnectionFailedListener;
 import com.google.android.gms.common.internal.ClientSettings;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 class zze extends Api.AbstractClientBuilder {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,10 +20,10 @@ class zze extends Api.AbstractClientBuilder {
         if (zziVar == null) {
             zziVar = com.google.android.gms.games.zzi.zza().zzd();
         }
-        com.google.android.gms.games.internal.zzah zzahVar = new com.google.android.gms.games.internal.zzah(context, looper, clientSettings, zziVar, connectionCallbacks, onConnectionFailedListener, com.google.android.gms.games.internal.zzao.zza());
+        com.google.android.gms.games.internal.zzah zzahVar = new com.google.android.gms.games.internal.zzah(context, looper, clientSettings, zziVar, connectionCallbacks, onConnectionFailedListener, com.google.android.gms.games.internal.zzap.zza());
         if (zziVar.zzn.zza()) {
             int i = com.google.android.gms.games.internal.zzf.zza;
-            zzahVar.zzp(com.google.android.gms.games.internal.zzf.zza((Application) context.getApplicationContext()));
+            zzahVar.zzu(com.google.android.gms.games.internal.zzf.zza((Application) context.getApplicationContext()));
         }
         return zzahVar;
     }

@@ -3,7 +3,7 @@ package com.google.android.gms.games.leaderboard;
 import com.google.android.gms.common.data.Freezable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public interface LeaderboardVariant extends Freezable<LeaderboardVariant> {
     public static final int COLLECTION_FRIENDS = 3;
@@ -16,13 +16,13 @@ public interface LeaderboardVariant extends Freezable<LeaderboardVariant> {
     public static final int TIME_SPAN_DAILY = 0;
     public static final int TIME_SPAN_WEEKLY = 1;
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
     public @interface Collection {
     }
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
     public @interface TimeSpan {

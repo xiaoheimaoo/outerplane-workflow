@@ -1,36 +1,37 @@
 package com.google.android.gms.internal.play_billing;
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
+import android.os.BadParcelableException;
 import android.os.Parcel;
-import android.os.RemoteException;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import android.os.Parcelable;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public class zzar extends Binder implements IInterface {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public zzar(String str) {
-        attachInterface(this, str);
+public final class zzar {
+    public static final /* synthetic */ int zza = 0;
+
+    static {
+        zzar.class.getClassLoader();
     }
 
-    @Override // android.os.IInterface
-    public final IBinder asBinder() {
-        return this;
+    private zzar() {
     }
 
-    @Override // android.os.Binder
-    public final boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-        if (i > 16777215) {
-            if (super.onTransact(i, parcel, parcel2, i2)) {
-                return true;
-            }
-        } else {
-            parcel.enforceInterface(getInterfaceDescriptor());
+    public static Parcelable zza(Parcel parcel, Parcelable.Creator creator) {
+        if (parcel.readInt() == 0) {
+            return null;
         }
-        return zzb(i, parcel, parcel2, i2);
+        return (Parcelable) creator.createFromParcel(parcel);
     }
 
-    protected boolean zzb(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-        throw null;
+    public static void zzb(Parcel parcel) {
+        int dataAvail = parcel.dataAvail();
+        if (dataAvail <= 0) {
+            return;
+        }
+        throw new BadParcelableException("Parcel data not fully consumed, unread size: " + dataAvail);
+    }
+
+    public static void zzc(Parcel parcel, Parcelable parcelable) {
+        parcel.writeInt(1);
+        parcelable.writeToParcel(parcel, 0);
     }
 }

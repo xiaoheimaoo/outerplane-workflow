@@ -1,7 +1,7 @@
 package com.google.android.gms.games.internal.player;
 
 import android.text.TextUtils;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class zzd {
     public final String zzA;

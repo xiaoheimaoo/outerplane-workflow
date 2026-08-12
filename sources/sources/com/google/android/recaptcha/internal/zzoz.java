@@ -1,10 +1,9 @@
 package com.google.android.recaptcha.internal;
 
 import java.util.Map;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: com.google.android.recaptcha:recaptcha@@18.6.1 */
 /* loaded from: classes2.dex */
-public final class zzoz extends zzpe {
+final class zzoz extends zzpe {
     /* JADX INFO: Access modifiers changed from: package-private */
     public zzoz() {
         super(null);

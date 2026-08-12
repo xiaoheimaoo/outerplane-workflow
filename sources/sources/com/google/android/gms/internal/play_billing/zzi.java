@@ -1,17 +1,16 @@
 package com.google.android.gms.internal.play_billing;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+
+import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
+import kotlin.UByte$$ExternalSyntheticBackport0;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public final class zzi {
-    final Throwable zza;
-
-    static {
-        new zzi(new zzh("Failure occurred while trying to finish a future."));
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public zzi(Throwable th) {
-        int i = zzq.zzf;
-        this.zza = th;
+public final /* synthetic */ class zzi {
+    public static /* synthetic */ boolean zza(AtomicReferenceFieldUpdater atomicReferenceFieldUpdater, Object obj, Object obj2, Object obj3) {
+        while (!UByte$$ExternalSyntheticBackport0.m(atomicReferenceFieldUpdater, obj, obj2, obj3)) {
+            if (atomicReferenceFieldUpdater.get(obj) != obj2) {
+                return false;
+            }
+        }
+        return true;
     }
 }

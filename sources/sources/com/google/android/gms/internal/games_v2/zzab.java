@@ -5,7 +5,7 @@ import android.os.Looper;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 public abstract class zzab {
     private final Handler zza;
@@ -14,7 +14,7 @@ public abstract class zzab {
     private final HashMap zzd = new HashMap();
 
     public zzab(Looper looper, int i) {
-        this.zza = new zzfr(looper);
+        this.zza = new zzfy(looper);
     }
 
     protected abstract void zza(String str, int i);

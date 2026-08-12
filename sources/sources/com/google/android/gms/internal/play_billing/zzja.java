@@ -1,32 +1,19 @@
 package com.google.android.gms.internal.play_billing;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public final class zzja extends zzjf {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public zzja() {
-        super(null);
+public final class zzja extends zzfe implements zzgm {
+    private zzja() {
+        throw null;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzjf
-    public final void zza() {
-        if (!zzj()) {
-            for (int i = 0; i < zzc(); i++) {
-                Map.Entry zzg = zzg(i);
-                if (((zzha) ((zzjb) zzg).zza()).zze()) {
-                    zzg.setValue(Collections.unmodifiableList((List) zzg.getValue()));
-                }
-            }
-            for (Map.Entry entry : zzd()) {
-                if (((zzha) entry.getKey()).zze()) {
-                    entry.setValue(Collections.unmodifiableList((List) entry.getValue()));
-                }
-            }
-        }
-        super.zza();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ zzja(zzje zzjeVar) {
+        super(zzjf.zzc());
+    }
+
+    public final zzja zza(boolean z) {
+        zzi();
+        zzjf.zzA((zzjf) this.zza, z);
+        return this;
     }
 }

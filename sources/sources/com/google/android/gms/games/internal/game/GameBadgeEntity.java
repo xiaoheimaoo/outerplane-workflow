@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.games.internal.GamesDowngradeableSafeParcel;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class GameBadgeEntity extends GamesDowngradeableSafeParcel implements zza {
     public static final Parcelable.Creator<GameBadgeEntity> CREATOR = new zzb();

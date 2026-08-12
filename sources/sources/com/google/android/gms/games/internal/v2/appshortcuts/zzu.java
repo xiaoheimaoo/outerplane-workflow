@@ -9,7 +9,7 @@ import com.google.android.gms.common.api.internal.ConnectionCallbacks;
 import com.google.android.gms.common.api.internal.OnConnectionFailedListener;
 import com.google.android.gms.common.internal.ClientSettings;
 import com.google.android.gms.common.internal.GmsClient;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 final class zzu extends GmsClient {
     public zzu(Context context, Looper looper, ClientSettings clientSettings, ConnectionCallbacks connectionCallbacks, OnConnectionFailedListener onConnectionFailedListener) {

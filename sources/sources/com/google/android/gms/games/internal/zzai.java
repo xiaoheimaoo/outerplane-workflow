@@ -10,7 +10,7 @@ import com.google.android.gms.games.GamesActivityResultCodes;
 import com.google.android.gms.games.video.VideoCapabilities;
 import com.google.firebase.FirebaseError;
 import java.util.ArrayList;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public abstract class zzai extends com.google.android.gms.internal.games_v2.zzb implements zzaj {
     public zzai() {
@@ -345,6 +345,10 @@ public abstract class zzai extends com.google.android.gms.internal.games_v2.zzb 
                             ArrayList<String> createStringArrayList = parcel.createStringArrayList();
                             com.google.android.gms.internal.games_v2.zzc.zze(parcel);
                             zzs((Status) com.google.android.gms.internal.games_v2.zzc.zzb(parcel, Status.CREATOR), readString4, createStringArrayList);
+                            break;
+                        case 25008:
+                            parcel.readInt();
+                            com.google.android.gms.internal.games_v2.zzc.zze(parcel);
                             break;
                         default:
                             switch (i) {

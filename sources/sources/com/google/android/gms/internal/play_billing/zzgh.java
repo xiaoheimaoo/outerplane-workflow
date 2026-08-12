@@ -1,9 +1,16 @@
 package com.google.android.gms.internal.play_billing;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public abstract class zzgh extends zzgk {
+final class zzgh {
+    private static final zzgg zza;
+
+    static {
+        int i = zzgs.zza;
+        zza = new zzgg();
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ zzgh(zzgj zzgjVar) {
+    public static zzgg zza() {
+        return zza;
     }
 }

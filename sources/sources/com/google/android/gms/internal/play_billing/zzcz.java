@@ -1,28 +1,9 @@
 package com.google.android.gms.internal.play_billing;
 
-import java.util.NoSuchElementException;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import java.util.concurrent.Executor;
+import java.util.concurrent.Future;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-final class zzcz extends zzdw {
-    private final Object zza;
-    private boolean zzb;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public zzcz(Object obj) {
-        this.zza = obj;
-    }
-
-    @Override // java.util.Iterator
-    public final boolean hasNext() {
-        return !this.zzb;
-    }
-
-    @Override // java.util.Iterator
-    public final Object next() {
-        if (this.zzb) {
-            throw new NoSuchElementException();
-        }
-        this.zzb = true;
-        return this.zza;
-    }
+public interface zzcz<V> extends Future<V> {
+    void zzb(Runnable runnable, Executor executor);
 }

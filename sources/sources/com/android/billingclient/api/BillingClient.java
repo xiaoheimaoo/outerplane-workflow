@@ -2,15 +2,14 @@ package com.android.billingclient.api;
 
 import android.app.Activity;
 import android.content.Context;
-import com.android.billingclient.api.PendingPurchasesParams;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.concurrent.ExecutorService;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
 public abstract class BillingClient {
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
     public @interface BillingResponseCode {
@@ -30,117 +29,122 @@ public abstract class BillingClient {
         public static final int USER_CANCELED = 1;
     }
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     /* loaded from: classes.dex */
     public static final class Builder {
-        private volatile String zza;
-        private volatile PendingPurchasesParams zzb;
-        private final Context zzc;
-        private volatile PurchasesUpdatedListener zzd;
-        private volatile zzco zze;
-        private volatile zzch zzf;
-        private volatile zzb zzg;
-        private volatile UserChoiceBillingListener zzh;
-        private volatile ExecutorService zzi;
-        private volatile boolean zzj;
-        private volatile boolean zzk;
+        volatile boolean zza;
+        volatile com.google.android.gms.internal.play_billing.zzbl zzb;
+        private volatile String zzc;
+        private volatile PendingPurchasesParams zzd;
+        private final Context zze;
+        private volatile PurchasesUpdatedListener zzf;
+        private volatile zzco zzg;
+        private volatile zzch zzh;
+        private volatile zzb zzi;
+        private volatile UserChoiceBillingListener zzj;
+        private volatile ExecutorService zzk;
         private volatile boolean zzl;
+        private volatile boolean zzm;
+        private volatile boolean zzn;
 
-        /* synthetic */ Builder(Context context, zzo zzoVar) {
-            this.zzc = context;
+        /* synthetic */ Builder(Context context, zzt zztVar) {
+            this.zze = context;
         }
 
         private final boolean zza() {
             try {
-                return this.zzc.getPackageManager().getApplicationInfo(this.zzc.getPackageName(), 128).metaData.getBoolean("com.google.android.play.billingclient.enableBillingOverridesTesting", false);
+                Context context = this.zze;
+                return context.getPackageManager().getApplicationInfo(context.getPackageName(), 128).metaData.getBoolean("com.google.android.play.billingclient.enableBillingOverridesTesting", false);
             } catch (Exception e) {
-                com.google.android.gms.internal.play_billing.zze.zzm("BillingClient", "Unable to retrieve metadata value for enableBillingOverridesTesting.", e);
+                com.google.android.gms.internal.play_billing.zzc.zzo("BillingClient", "Unable to retrieve metadata value for enableBillingOverridesTesting.", e);
                 return false;
             }
         }
 
         public BillingClient build() {
-            if (this.zzc != null) {
-                if (this.zzd == null) {
-                    if (this.zzh == null) {
-                        if (this.zzj || this.zzk) {
-                            Context context = this.zzc;
+            BillingClient billingClientImpl;
+            BillingClient billingClientImpl2;
+            Context context = this.zze;
+            if (context != null) {
+                if (this.zzf == null) {
+                    if (this.zzj == null) {
+                        if (this.zzl || this.zzm) {
                             if (zza()) {
-                                return new zzcc(null, context, null, null);
+                                return new zzce(null, context, null, null, this);
                             }
-                            return new BillingClientImpl(null, context, null, null);
+                            return new BillingClientImpl(null, context, null, null, this);
                         }
                         throw new IllegalArgumentException("Please provide a valid listener for purchases updates.");
                     }
                     throw new IllegalArgumentException("Please provide a valid listener for Google Play Billing purchases updates when enabling User Choice Billing.");
-                } else if (this.zzb == null || !this.zzb.isEnabledForOneTimeProducts()) {
+                } else if (this.zzd == null || !this.zzd.isEnabledForOneTimeProducts()) {
                     throw new IllegalArgumentException("Pending purchases for one-time products must be supported.");
                 } else {
-                    if (this.zzd == null) {
-                        PendingPurchasesParams pendingPurchasesParams = this.zzb;
-                        Context context2 = this.zzc;
+                    if (this.zzf == null) {
+                        PendingPurchasesParams pendingPurchasesParams = this.zzd;
                         if (zza()) {
-                            return new zzcc(null, pendingPurchasesParams, context2, null, null, null);
+                            billingClientImpl = new zzce(null, pendingPurchasesParams, context, null, null, null, this);
+                        } else {
+                            billingClientImpl = new BillingClientImpl(null, pendingPurchasesParams, context, null, null, null, this);
                         }
-                        return new BillingClientImpl(null, pendingPurchasesParams, context2, null, null, null);
-                    } else if (this.zzh == null) {
-                        PendingPurchasesParams pendingPurchasesParams2 = this.zzb;
-                        Context context3 = this.zzc;
-                        PurchasesUpdatedListener purchasesUpdatedListener = this.zzd;
-                        if (zza()) {
-                            return new zzcc((String) null, pendingPurchasesParams2, context3, purchasesUpdatedListener, (zzb) null, (zzch) null, (ExecutorService) null);
-                        }
-                        return new BillingClientImpl((String) null, pendingPurchasesParams2, context3, purchasesUpdatedListener, (zzb) null, (zzch) null, (ExecutorService) null);
-                    } else {
-                        PendingPurchasesParams pendingPurchasesParams3 = this.zzb;
-                        Context context4 = this.zzc;
-                        PurchasesUpdatedListener purchasesUpdatedListener2 = this.zzd;
-                        UserChoiceBillingListener userChoiceBillingListener = this.zzh;
-                        if (zza()) {
-                            return new zzcc((String) null, pendingPurchasesParams3, context4, purchasesUpdatedListener2, userChoiceBillingListener, (zzch) null, (ExecutorService) null);
-                        }
-                        return new BillingClientImpl((String) null, pendingPurchasesParams3, context4, purchasesUpdatedListener2, userChoiceBillingListener, (zzch) null, (ExecutorService) null);
+                        return billingClientImpl;
                     }
+                    if (this.zzj == null) {
+                        PendingPurchasesParams pendingPurchasesParams2 = this.zzd;
+                        PurchasesUpdatedListener purchasesUpdatedListener = this.zzf;
+                        if (zza()) {
+                            billingClientImpl2 = new zzce((String) null, pendingPurchasesParams2, context, purchasesUpdatedListener, (zzb) null, (zzch) null, (ExecutorService) null, this);
+                        } else {
+                            billingClientImpl2 = new BillingClientImpl((String) null, pendingPurchasesParams2, context, purchasesUpdatedListener, (zzb) null, (zzch) null, (ExecutorService) null, this);
+                        }
+                    } else {
+                        PendingPurchasesParams pendingPurchasesParams3 = this.zzd;
+                        PurchasesUpdatedListener purchasesUpdatedListener2 = this.zzf;
+                        UserChoiceBillingListener userChoiceBillingListener = this.zzj;
+                        if (zza()) {
+                            billingClientImpl2 = new zzce((String) null, pendingPurchasesParams3, context, purchasesUpdatedListener2, userChoiceBillingListener, (zzch) null, (ExecutorService) null, this);
+                        } else {
+                            billingClientImpl2 = new BillingClientImpl((String) null, pendingPurchasesParams3, context, purchasesUpdatedListener2, userChoiceBillingListener, (zzch) null, (ExecutorService) null, this);
+                        }
+                    }
+                    return billingClientImpl2;
                 }
             }
             throw new IllegalArgumentException("Please provide a valid Context.");
         }
 
         public Builder enableAlternativeBillingOnly() {
-            this.zzj = true;
+            this.zzl = true;
+            return this;
+        }
+
+        public Builder enableAutoServiceReconnection() {
+            this.zza = true;
             return this;
         }
 
         public Builder enableExternalOffer() {
-            this.zzk = true;
-            return this;
-        }
-
-        @Deprecated
-        public Builder enablePendingPurchases() {
-            PendingPurchasesParams.Builder newBuilder = PendingPurchasesParams.newBuilder();
-            newBuilder.enableOneTimeProducts();
-            enablePendingPurchases(newBuilder.build());
+            this.zzm = true;
             return this;
         }
 
         public Builder enablePendingPurchases(PendingPurchasesParams pendingPurchasesParams) {
-            this.zzb = pendingPurchasesParams;
+            this.zzd = pendingPurchasesParams;
             return this;
         }
 
         public Builder enableUserChoiceBilling(UserChoiceBillingListener userChoiceBillingListener) {
-            this.zzh = userChoiceBillingListener;
+            this.zzj = userChoiceBillingListener;
             return this;
         }
 
         public Builder setListener(PurchasesUpdatedListener purchasesUpdatedListener) {
-            this.zzd = purchasesUpdatedListener;
+            this.zzf = purchasesUpdatedListener;
             return this;
         }
     }
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
     public @interface ConnectionState {
@@ -150,7 +154,7 @@ public abstract class BillingClient {
         public static final int DISCONNECTED = 0;
     }
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
     public @interface FeatureType {
@@ -164,7 +168,16 @@ public abstract class BillingClient {
         public static final String SUBSCRIPTIONS_UPDATE = "subscriptionsUpdate";
     }
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface OnPurchasesUpdatedSubResponseCode {
+        public static final int NO_APPLICABLE_SUB_RESPONSE_CODE = 0;
+        public static final int PAYMENT_DECLINED_DUE_TO_INSUFFICIENT_FUNDS = 1;
+        public static final int USER_INELIGIBLE = 2;
+    }
+
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
     public @interface ProductType {
@@ -172,7 +185,7 @@ public abstract class BillingClient {
         public static final String SUBS = "subs";
     }
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     @Retention(RetentionPolicy.SOURCE)
     @Deprecated
     /* loaded from: classes.dex */
@@ -211,19 +224,7 @@ public abstract class BillingClient {
 
     public abstract void queryProductDetailsAsync(QueryProductDetailsParams queryProductDetailsParams, ProductDetailsResponseListener productDetailsResponseListener);
 
-    @Deprecated
-    public abstract void queryPurchaseHistoryAsync(QueryPurchaseHistoryParams queryPurchaseHistoryParams, PurchaseHistoryResponseListener purchaseHistoryResponseListener);
-
-    @Deprecated
-    public abstract void queryPurchaseHistoryAsync(String str, PurchaseHistoryResponseListener purchaseHistoryResponseListener);
-
     public abstract void queryPurchasesAsync(QueryPurchasesParams queryPurchasesParams, PurchasesResponseListener purchasesResponseListener);
-
-    @Deprecated
-    public abstract void queryPurchasesAsync(String str, PurchasesResponseListener purchasesResponseListener);
-
-    @Deprecated
-    public abstract void querySkuDetailsAsync(SkuDetailsParams skuDetailsParams, SkuDetailsResponseListener skuDetailsResponseListener);
 
     public abstract BillingResult showAlternativeBillingOnlyInformationDialog(Activity activity, AlternativeBillingOnlyInformationDialogListener alternativeBillingOnlyInformationDialogListener);
 

@@ -1,44 +1,40 @@
 package com.google.android.gms.internal.games_v2;
 
-import com.google.android.gms.common.internal.GmsLogger;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+import com.google.android.gms.common.api.GoogleApi;
+import com.google.android.gms.common.api.internal.RemoteCall;
+import com.google.android.gms.common.api.internal.TaskApiCall;
+import com.google.android.gms.games.snapshot.SnapshotContents;
+import com.google.android.gms.games.snapshot.SnapshotMetadataChange;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.TaskCompletionSource;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
-public final class zzfn {
-    private static final GmsLogger zza = new GmsLogger("Games");
+final /* synthetic */ class zzfn implements zzap {
+    private final /* synthetic */ String zza;
+    private final /* synthetic */ String zzb;
+    private final /* synthetic */ SnapshotMetadataChange zzc;
+    private final /* synthetic */ SnapshotContents zzd;
 
-    public static void zza(String str, String str2) {
-        zza.d(zzi(str), str2);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ zzfn(String str, String str2, SnapshotMetadataChange snapshotMetadataChange, SnapshotContents snapshotContents) {
+        this.zza = str;
+        this.zzb = str2;
+        this.zzc = snapshotMetadataChange;
+        this.zzd = snapshotContents;
     }
 
-    public static void zzb(String str, String str2, Throwable th) {
-        zza.d(zzi("GamesApiManager"), "Authentication task failed", th);
-    }
-
-    public static void zzc(String str, String str2) {
-        zza.v(zzi(str), str2);
-    }
-
-    public static void zzd(String str, String str2, Throwable th) {
-        zza.i(zzi("SnapshotContentsEntity"), "Failed to write snapshot data", th);
-    }
-
-    public static void zze(String str, String str2) {
-        zza.w(zzi(str), str2);
-    }
-
-    public static void zzf(String str, String str2, Throwable th) {
-        zza.w(zzi(str), str2, th);
-    }
-
-    public static void zzg(String str, String str2) {
-        zza.e(zzi(str), str2);
-    }
-
-    public static void zzh(String str, String str2, Throwable th) {
-        zza.e(zzi(str), str2, th);
-    }
-
-    private static String zzi(String str) {
-        return String.format("%s[%s]", "PlayGamesServices", str);
+    @Override // com.google.android.gms.internal.games_v2.zzap
+    public final /* synthetic */ Task zza(GoogleApi googleApi) {
+        TaskApiCall.Builder builder = TaskApiCall.builder();
+        final String str = this.zza;
+        final String str2 = this.zzb;
+        final SnapshotMetadataChange snapshotMetadataChange = this.zzc;
+        final SnapshotContents snapshotContents = this.zzd;
+        return googleApi.doWrite(builder.run(new RemoteCall() { // from class: com.google.android.gms.internal.games_v2.zzfo
+            @Override // com.google.android.gms.common.api.internal.RemoteCall
+            public final /* synthetic */ void accept(Object obj, Object obj2) {
+                ((com.google.android.gms.games.internal.zzah) obj).zzT((TaskCompletionSource) obj2, str, str2, snapshotMetadataChange, snapshotContents);
+            }
+        }).setMethodKey(6725).build());
     }
 }

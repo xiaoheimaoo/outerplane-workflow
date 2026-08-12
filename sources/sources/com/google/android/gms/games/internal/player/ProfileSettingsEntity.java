@@ -6,7 +6,7 @@ import com.google.android.gms.common.api.Status;
 import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.games.zzr;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public class ProfileSettingsEntity extends com.google.android.gms.games.internal.zzg implements zzr {
     public static final Parcelable.Creator<ProfileSettingsEntity> CREATOR = new zzg();
@@ -26,8 +26,10 @@ public class ProfileSettingsEntity extends com.google.android.gms.games.internal
     private final boolean zzn;
     private final zzh zzo;
     private final Boolean zzp;
+    private final Boolean zzq;
+    private final boolean zzr;
 
-    public ProfileSettingsEntity(Status status, String str, boolean z, boolean z2, boolean z3, StockProfileImageEntity stockProfileImageEntity, boolean z4, boolean z5, int i, boolean z6, boolean z7, int i2, int i3, boolean z8, zzh zzhVar, Boolean bool) {
+    public ProfileSettingsEntity(Status status, String str, boolean z, boolean z2, boolean z3, StockProfileImageEntity stockProfileImageEntity, boolean z4, boolean z5, int i, boolean z6, boolean z7, int i2, int i3, boolean z8, zzh zzhVar, Boolean bool, Boolean bool2, boolean z9) {
         this.zza = status;
         this.zzb = str;
         this.zzc = z;
@@ -44,6 +46,8 @@ public class ProfileSettingsEntity extends com.google.android.gms.games.internal
         this.zzn = z8;
         this.zzo = zzhVar;
         this.zzp = bool;
+        this.zzq = bool2;
+        this.zzr = z9;
     }
 
     public final boolean equals(Object obj) {
@@ -52,7 +56,7 @@ public class ProfileSettingsEntity extends com.google.android.gms.games.internal
                 return true;
             }
             zzr zzrVar = (zzr) obj;
-            return Objects.equal(this.zzb, zzrVar.zzc()) && Objects.equal(Boolean.valueOf(this.zzc), Boolean.valueOf(zzrVar.zze())) && Objects.equal(Boolean.valueOf(this.zzd), Boolean.valueOf(zzrVar.zza())) && Objects.equal(Boolean.valueOf(this.zze), Boolean.valueOf(zzrVar.zzb())) && Objects.equal(this.zza, zzrVar.getStatus()) && Objects.equal(this.zzf, zzrVar.zzd()) && Objects.equal(Boolean.valueOf(this.zzg), Boolean.valueOf(zzrVar.zzf())) && Objects.equal(Boolean.valueOf(this.zzh), Boolean.valueOf(zzrVar.zzg())) && this.zzi == zzrVar.zzj() && this.zzj == zzrVar.zzh() && this.zzk == zzrVar.zzi() && this.zzl == zzrVar.zzk() && this.zzm == zzrVar.zzl() && this.zzn == zzrVar.zzm() && Objects.equal(this.zzp, zzrVar.zzo()) && Objects.equal(this.zzo, zzrVar.zzn());
+            return Objects.equal(this.zzb, zzrVar.zzc()) && Objects.equal(Boolean.valueOf(this.zzc), Boolean.valueOf(zzrVar.zze())) && Objects.equal(Boolean.valueOf(this.zzd), Boolean.valueOf(zzrVar.zza())) && Objects.equal(Boolean.valueOf(this.zze), Boolean.valueOf(zzrVar.zzb())) && Objects.equal(this.zza, zzrVar.getStatus()) && Objects.equal(this.zzf, zzrVar.zzd()) && Objects.equal(Boolean.valueOf(this.zzg), Boolean.valueOf(zzrVar.zzf())) && Objects.equal(Boolean.valueOf(this.zzh), Boolean.valueOf(zzrVar.zzg())) && this.zzi == zzrVar.zzj() && this.zzj == zzrVar.zzh() && this.zzk == zzrVar.zzi() && this.zzl == zzrVar.zzk() && this.zzm == zzrVar.zzl() && this.zzn == zzrVar.zzm() && Objects.equal(this.zzp, zzrVar.zzo()) && Objects.equal(this.zzo, zzrVar.zzn()) && Objects.equal(this.zzq, zzrVar.zzp()) && Objects.equal(Boolean.valueOf(this.zzr), Boolean.valueOf(zzrVar.zzq()));
         }
         return false;
     }
@@ -63,11 +67,11 @@ public class ProfileSettingsEntity extends com.google.android.gms.games.internal
     }
 
     public final int hashCode() {
-        return Objects.hashCode(this.zzb, Boolean.valueOf(this.zzc), Boolean.valueOf(this.zzd), Boolean.valueOf(this.zze), this.zza, this.zzf, Boolean.valueOf(this.zzg), Boolean.valueOf(this.zzh), Integer.valueOf(this.zzi), Boolean.valueOf(this.zzj), Boolean.valueOf(this.zzk), Integer.valueOf(this.zzl), Integer.valueOf(this.zzm), Boolean.valueOf(this.zzn), this.zzo, this.zzp);
+        return Objects.hashCode(this.zzb, Boolean.valueOf(this.zzc), Boolean.valueOf(this.zzd), Boolean.valueOf(this.zze), this.zza, this.zzf, Boolean.valueOf(this.zzg), Boolean.valueOf(this.zzh), Integer.valueOf(this.zzi), Boolean.valueOf(this.zzj), Boolean.valueOf(this.zzk), Integer.valueOf(this.zzl), Integer.valueOf(this.zzm), Boolean.valueOf(this.zzn), this.zzo, this.zzp, this.zzq);
     }
 
     public final String toString() {
-        return Objects.toStringHelper(this).add("GamerTag", this.zzb).add("IsGamerTagExplicitlySet", Boolean.valueOf(this.zzc)).add("IsProfileVisible", Boolean.valueOf(this.zzd)).add("IsVisibilityExplicitlySet", Boolean.valueOf(this.zze)).add("Status", this.zza).add("StockProfileImage", this.zzf).add("IsProfileDiscoverable", Boolean.valueOf(this.zzg)).add("AutoSignIn", Boolean.valueOf(this.zzh)).add("httpErrorCode", Integer.valueOf(this.zzi)).add("IsSettingsChangesProhibited", Boolean.valueOf(this.zzj)).add("AllowFriendInvites", Boolean.valueOf(this.zzk)).add("ProfileVisibility", Integer.valueOf(this.zzl)).add("global_friends_list_visibility", Integer.valueOf(this.zzm)).add("always_auto_sign_in", Boolean.valueOf(this.zzn)).add("profileless_recall_summary", this.zzo).add("games_streaks_enabled", this.zzp).toString();
+        return Objects.toStringHelper(this).add("GamerTag", this.zzb).add("IsGamerTagExplicitlySet", Boolean.valueOf(this.zzc)).add("IsProfileVisible", Boolean.valueOf(this.zzd)).add("IsVisibilityExplicitlySet", Boolean.valueOf(this.zze)).add("Status", this.zza).add("StockProfileImage", this.zzf).add("IsProfileDiscoverable", Boolean.valueOf(this.zzg)).add("AutoSignIn", Boolean.valueOf(this.zzh)).add("httpErrorCode", Integer.valueOf(this.zzi)).add("IsSettingsChangesProhibited", Boolean.valueOf(this.zzj)).add("AllowFriendInvites", Boolean.valueOf(this.zzk)).add("ProfileVisibility", Integer.valueOf(this.zzl)).add("global_friends_list_visibility", Integer.valueOf(this.zzm)).add("always_auto_sign_in", Boolean.valueOf(this.zzn)).add("profileless_recall_summary", this.zzo).add("games_streaks_enabled", this.zzp).add("public_gamer_profile_visibility", this.zzq).add("is_play_waa_separated", Boolean.valueOf(this.zzr)).toString();
     }
 
     @Override // android.os.Parcelable
@@ -89,6 +93,8 @@ public class ProfileSettingsEntity extends com.google.android.gms.games.internal
         SafeParcelWriter.writeBoolean(parcel, 14, this.zzn);
         SafeParcelWriter.writeParcelable(parcel, 15, this.zzo, i, false);
         SafeParcelWriter.writeBooleanObject(parcel, 16, this.zzp, false);
+        SafeParcelWriter.writeBooleanObject(parcel, 17, this.zzq, false);
+        SafeParcelWriter.writeBoolean(parcel, 18, this.zzr);
         SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
     }
 
@@ -165,5 +171,15 @@ public class ProfileSettingsEntity extends com.google.android.gms.games.internal
     @Override // com.google.android.gms.games.zzr
     public final Boolean zzo() {
         return this.zzp;
+    }
+
+    @Override // com.google.android.gms.games.zzr
+    public final Boolean zzp() {
+        return this.zzq;
+    }
+
+    @Override // com.google.android.gms.games.zzr
+    public final boolean zzq() {
+        return this.zzr;
     }
 }

@@ -1,7 +1,7 @@
 package com.google.android.gms.common.api;
 
 import com.google.android.gms.common.Feature;
-/* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
+/* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
 /* loaded from: classes.dex */
 public final class UnsupportedApiCallException extends UnsupportedOperationException {
     private final Feature zza;
@@ -12,6 +12,8 @@ public final class UnsupportedApiCallException extends UnsupportedOperationExcep
 
     @Override // java.lang.Throwable
     public String getMessage() {
-        return "Missing ".concat(String.valueOf(String.valueOf(this.zza)));
+        String valueOf = String.valueOf(this.zza);
+        String.valueOf(valueOf);
+        return "Missing ".concat(String.valueOf(valueOf));
     }
 }

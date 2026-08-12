@@ -2,7 +2,7 @@ package com.google.android.gms.games;
 
 import android.os.Parcel;
 import com.google.android.gms.common.data.DataHolder;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class zzc extends zzg implements CurrentPlayerInfo {
     private final com.google.android.gms.games.internal.player.zzd zza;
@@ -29,7 +29,7 @@ public final class zzc extends zzg implements CurrentPlayerInfo {
 
     @Override // com.google.android.gms.games.CurrentPlayerInfo
     public final int getFriendsListVisibilityStatus() {
-        return zzu(this.zza.zzL, 0);
+        return zzr(this.zza.zzL, 0);
     }
 
     @Override // com.google.android.gms.common.data.DataBufferRef

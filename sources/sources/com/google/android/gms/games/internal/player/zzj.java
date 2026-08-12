@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class zzj implements Parcelable.Creator {
     @Override // android.os.Parcelable.Creator

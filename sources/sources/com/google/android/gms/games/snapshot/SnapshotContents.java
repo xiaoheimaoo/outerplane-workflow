@@ -4,7 +4,7 @@ import android.os.ParcelFileDescriptor;
 import android.os.Parcelable;
 import com.google.android.gms.drive.Contents;
 import java.io.IOException;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public interface SnapshotContents extends Parcelable {
     ParcelFileDescriptor getParcelFileDescriptor();

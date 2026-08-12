@@ -1,17 +1,23 @@
 package com.google.android.gms.internal.games_v2;
-
-import java.util.function.Supplier;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
-final /* synthetic */ class zzgh implements Supplier {
-    static final /* synthetic */ zzgh zza = new zzgh();
-
-    private /* synthetic */ zzgh() {
-    }
-
-    @Override // java.util.function.Supplier
-    public final /* synthetic */ Object get() {
-        int i = zzhi.zza;
-        return new zzhh();
+public class zzgh {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static int zza(int i, int i2) {
+        if (i2 >= 0) {
+            if (i2 <= i) {
+                return i;
+            }
+            int i3 = i + (i >> 1) + 1;
+            if (i3 < i2) {
+                int highestOneBit = Integer.highestOneBit(i2 - 1);
+                i3 = highestOneBit + highestOneBit;
+            }
+            if (i3 < 0) {
+                return Integer.MAX_VALUE;
+            }
+            return i3;
+        }
+        throw new IllegalArgumentException("cannot store more than Integer.MAX_VALUE elements");
     }
 }

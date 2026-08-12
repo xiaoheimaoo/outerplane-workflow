@@ -6,7 +6,7 @@ import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.internal.ReflectedParcelable;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 @Deprecated
 /* loaded from: classes.dex */
 public class DriveId extends AbstractSafeParcelable implements ReflectedParcelable {

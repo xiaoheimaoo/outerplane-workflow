@@ -1,7 +1,7 @@
 package com.android.billingclient;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.android.billingclient";
-    public static final String VERSION_NAME = "7.1.1";
+    public static final String VERSION_NAME = "8.0.0";
 }

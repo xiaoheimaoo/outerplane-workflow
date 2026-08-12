@@ -2,7 +2,7 @@ package com.google.android.gms.games.leaderboard;
 
 import com.google.android.gms.common.data.DataHolder;
 import com.google.android.gms.common.data.EntityBuffer;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public class LeaderboardBuffer extends EntityBuffer<Leaderboard> {
     public LeaderboardBuffer(DataHolder dataHolder) {

@@ -1,7 +1,7 @@
 package com.google.android.gms.games.internal;
 
 import com.google.android.gms.common.api.internal.BaseImplementation;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 final class zzm extends zzae {
     /* JADX INFO: Access modifiers changed from: package-private */

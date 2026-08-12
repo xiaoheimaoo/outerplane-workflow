@@ -1,9 +1,9 @@
 package com.google.android.gms.games.internal;
 
 import android.os.RemoteException;
-import com.google.android.gms.internal.games_v2.zzfn;
+import com.google.android.gms.internal.games_v2.zzfu;
 import java.util.Objects;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 final class zzt extends com.google.android.gms.internal.games_v2.zzab {
     final /* synthetic */ zzah zza;
@@ -21,7 +21,7 @@ final class zzt extends com.google.android.gms.internal.games_v2.zzab {
         try {
             zzah zzahVar = this.zza;
             if (zzahVar.isConnected()) {
-                ((zzam) zzahVar.getService()).zzJ(str, i);
+                ((zzan) zzahVar.getService()).zzJ(str, i);
                 return;
             }
             StringBuilder sb = new StringBuilder(String.valueOf(str).length() + 30 + String.valueOf(i).length() + 48);
@@ -30,12 +30,11 @@ final class zzt extends com.google.android.gms.internal.games_v2.zzab {
             sb.append(" by ");
             sb.append(i);
             sb.append(" because the games client is no longer connected");
-            zzfn.zzg("GamesGmsClientImpl", sb.toString());
+            zzfu.zzg("GamesGmsClientImpl", sb.toString());
         } catch (RemoteException e) {
-            zzah.zzV(e);
+            zzah.zzae(e);
         } catch (SecurityException e2) {
-            int i2 = zzah.zze;
-            zzfn.zzh("GamesGmsClientImpl", "Is player signed out?", e2);
+            zzah.zzaf(e2);
         }
     }
 }

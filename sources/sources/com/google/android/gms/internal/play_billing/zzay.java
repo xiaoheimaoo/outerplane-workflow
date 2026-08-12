@@ -1,5 +1,11 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+
+import android.os.SystemClock;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-class zzay {
+final class zzay extends zzbl {
+    @Override // com.google.android.gms.internal.play_billing.zzbl
+    public final long zza() {
+        return SystemClock.elapsedRealtime() * 1000000;
+    }
 }

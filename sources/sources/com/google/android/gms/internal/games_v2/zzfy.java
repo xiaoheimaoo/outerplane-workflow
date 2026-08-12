@@ -1,59 +1,16 @@
 package com.google.android.gms.internal.games_v2;
 
-import com.google.firebase.analytics.FirebaseAnalytics;
-import java.util.NoSuchElementException;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+import android.os.Handler;
+import android.os.Looper;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
-abstract class zzfy extends zzim {
-    private final int zza;
-    private int zzb;
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public zzfy(int i, int i2) {
-        zzfu.zzc(i2, i, FirebaseAnalytics.Param.INDEX);
-        this.zza = i;
-        this.zzb = i2;
+public final class zzfy extends Handler {
+    public zzfy() {
+        Looper.getMainLooper();
     }
 
-    @Override // java.util.Iterator, java.util.ListIterator
-    public final boolean hasNext() {
-        return this.zzb < this.zza;
+    public zzfy(Looper looper) {
+        super(looper);
+        Looper.getMainLooper();
     }
-
-    @Override // java.util.ListIterator
-    public final boolean hasPrevious() {
-        return this.zzb > 0;
-    }
-
-    @Override // java.util.Iterator, java.util.ListIterator
-    public final Object next() {
-        if (!hasNext()) {
-            throw new NoSuchElementException();
-        }
-        int i = this.zzb;
-        this.zzb = i + 1;
-        return zza(i);
-    }
-
-    @Override // java.util.ListIterator
-    public final int nextIndex() {
-        return this.zzb;
-    }
-
-    @Override // java.util.ListIterator
-    public final Object previous() {
-        if (!hasPrevious()) {
-            throw new NoSuchElementException();
-        }
-        int i = this.zzb - 1;
-        this.zzb = i;
-        return zza(i);
-    }
-
-    @Override // java.util.ListIterator
-    public final int previousIndex() {
-        return this.zzb - 1;
-    }
-
-    protected abstract Object zza(int i);
 }

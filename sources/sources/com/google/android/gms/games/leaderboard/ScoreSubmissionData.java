@@ -5,7 +5,7 @@ import com.google.android.gms.common.data.DataHolder;
 import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.internal.games_v2.zzz;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class ScoreSubmissionData {
     private String zza;
@@ -13,7 +13,7 @@ public final class ScoreSubmissionData {
     private int zzc;
     private SparseArray zzd = new SparseArray();
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
     /* loaded from: classes.dex */
     public static final class Result {
         public final String formattedScore;

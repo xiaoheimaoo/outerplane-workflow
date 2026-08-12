@@ -1,20 +1,19 @@
 package com.google.android.gms.internal.play_billing;
-
-import java.util.concurrent.Executor;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public final class zzel extends zzen {
-    public static zzeu zza(Object obj) {
-        return new zzeo(obj);
+public class zzel {
+    public static final /* synthetic */ int zza = 0;
+    private static volatile int zzb = 100;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ zzel(zzek zzekVar) {
     }
 
-    public static zzeu zzb(zzeu zzeuVar, long j, TimeUnit timeUnit, ScheduledExecutorService scheduledExecutorService) {
-        return zzeuVar.isDone() ? zzeuVar : zzff.zzs(zzeuVar, 28500L, timeUnit, scheduledExecutorService);
+    public static int zzb(int i) {
+        return (i >>> 1) ^ (-(i & 1));
     }
 
-    public static void zzc(zzeu zzeuVar, zzej zzejVar, Executor executor) {
-        zzeuVar.zzb(new zzek(zzeuVar, zzejVar), executor);
+    public static long zzc(long j) {
+        return (j >>> 1) ^ (-(1 & j));
     }
 }

@@ -1,25 +1,33 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
-/* loaded from: classes2.dex */
-final class zzfs implements zzhm {
-    static final zzhm zza = new zzfs();
 
-    private zzfs() {
+import java.util.Map;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
+/* loaded from: classes2.dex */
+final class zzfs implements Map.Entry {
+    private final Map.Entry zza;
+
+    @Override // java.util.Map.Entry
+    public final Object getKey() {
+        return this.zza.getKey();
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzhm
-    public final boolean zza(int i) {
-        switch (i) {
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-                return true;
-            default:
-                return false;
+    @Override // java.util.Map.Entry
+    public final Object getValue() {
+        if (((zzfv) this.zza.getValue()) == null) {
+            return null;
         }
+        throw null;
+    }
+
+    @Override // java.util.Map.Entry
+    public final Object setValue(Object obj) {
+        if (!(obj instanceof zzgl)) {
+            throw new IllegalArgumentException("LazyField now only used for MessageSet, and the value of MessageSet must be an instance of MessageLite");
+        }
+        return ((zzfv) this.zza.getValue()).zzc((zzgl) obj);
+    }
+
+    public final zzfv zza() {
+        return (zzfv) this.zza.getValue();
     }
 }

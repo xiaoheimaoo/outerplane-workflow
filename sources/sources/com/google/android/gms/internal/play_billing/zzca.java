@@ -1,20 +1,60 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+
+import com.google.firebase.analytics.FirebaseAnalytics;
+import java.util.Objects;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public abstract class zzca {
-    private static final zzca zza = new zzbx();
-    private static final zzca zzb = new zzby(-1);
-    private static final zzca zzc = new zzby(1);
+public final class zzca extends zzbt {
+    static final zzbt zza = new zzca(new Object[0], 0);
+    final transient Object[] zzb;
+    private final transient int zzc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ zzca(zzbz zzbzVar) {
+    public zzca(Object[] objArr, int i) {
+        this.zzb = objArr;
+        this.zzc = i;
     }
 
-    public static zzca zzf() {
-        return zza;
+    @Override // java.util.List
+    public final Object get(int i) {
+        zzbg.zza(i, this.zzc, FirebaseAnalytics.Param.INDEX);
+        return Objects.requireNonNull(this.zzb[i]);
     }
 
-    public abstract int zza();
+    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
+    public final int size() {
+        return this.zzc;
+    }
 
-    public abstract zzca zzb(Comparable comparable, Comparable comparable2);
+    @Override // com.google.android.gms.internal.play_billing.zzbt, com.google.android.gms.internal.play_billing.zzbq
+    final int zza(Object[] objArr, int i) {
+        Object[] objArr2 = this.zzb;
+        int i2 = this.zzc;
+        System.arraycopy(objArr2, 0, objArr, 0, i2);
+        return i2;
+    }
+
+    @Override // com.google.android.gms.internal.play_billing.zzbq
+    final int zzb() {
+        return this.zzc;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.google.android.gms.internal.play_billing.zzbq
+    public final int zzc() {
+        return 0;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.google.android.gms.internal.play_billing.zzbq
+    public final boolean zzf() {
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.google.android.gms.internal.play_billing.zzbq
+    public final Object[] zzg() {
+        return this.zzb;
+    }
 }

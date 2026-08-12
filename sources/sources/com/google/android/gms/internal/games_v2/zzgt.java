@@ -1,40 +1,29 @@
 package com.google.android.gms.internal.games_v2;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+
+import com.google.firebase.analytics.FirebaseAnalytics;
+import java.util.AbstractMap;
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
-public final class zzgt extends zzgu {
-    private static final zzgt zzb = new zzgt();
+final class zzgt extends zzgm {
+    final /* synthetic */ zzgu zza;
 
-    private zzgt() {
-        super("");
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public zzgt(zzgu zzguVar) {
+        Objects.requireNonNull(zzguVar);
+        this.zza = zzguVar;
     }
 
-    @Override // com.google.android.gms.internal.games_v2.zzgu, java.lang.Comparable
-    public final /* bridge */ /* synthetic */ int compareTo(Object obj) {
-        return zzc((zzgu) obj);
+    @Override // java.util.List
+    public final /* bridge */ /* synthetic */ Object get(int i) {
+        zzgu zzguVar = this.zza;
+        zzfz.zza(i, zzguVar.zzi(), FirebaseAnalytics.Param.INDEX);
+        int i2 = i + i;
+        return new AbstractMap.SimpleImmutableEntry(Objects.requireNonNull(zzguVar.zzh()[i2]), Objects.requireNonNull(zzguVar.zzh()[i2 + 1]));
     }
 
-    @Override // com.google.android.gms.internal.games_v2.zzgu
-    public final int hashCode() {
-        return System.identityHashCode(this);
-    }
-
-    public final String toString() {
-        return "-∞";
-    }
-
-    @Override // com.google.android.gms.internal.games_v2.zzgu
-    final void zza(StringBuilder sb) {
-        sb.append("(-∞");
-    }
-
-    @Override // com.google.android.gms.internal.games_v2.zzgu
-    final void zzb(StringBuilder sb) {
-        throw new AssertionError();
-    }
-
-    @Override // com.google.android.gms.internal.games_v2.zzgu
-    public final int zzc(zzgu zzguVar) {
-        return zzguVar == this ? 0 : -1;
+    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
+    public final int size() {
+        return this.zza.zzi();
     }
 }

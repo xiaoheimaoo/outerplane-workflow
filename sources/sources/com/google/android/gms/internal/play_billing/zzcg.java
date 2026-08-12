@@ -1,9 +1,18 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+
+import java.util.Iterator;
+import java.util.Set;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-final class zzcg {
+public final class zzcg {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int zza(int i) {
-        return (int) (Integer.rotateLeft((int) (i * (-862048943)), 15) * 461845907);
+    public static int zza(Set set) {
+        Iterator it = set.iterator();
+        int i = 0;
+        while (it.hasNext()) {
+            Object next = it.next();
+            i += next != null ? next.hashCode() : 0;
+        }
+        return i;
     }
 }

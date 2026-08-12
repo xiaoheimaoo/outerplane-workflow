@@ -7,14 +7,14 @@ import java.util.Objects;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
 public final class UserChoiceDetails {
     private final String mOriginalJson;
     private final JSONObject mParsedJson;
     private final List<Product> mProducts;
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     /* loaded from: classes.dex */
     public static class Product {
         private final String id;

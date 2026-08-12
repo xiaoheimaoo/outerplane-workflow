@@ -1,247 +1,147 @@
 package com.google.android.gms.internal.play_billing;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.RandomAccess;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-final class zzgt extends zzfx implements RandomAccess, zzho, zzit {
-    private static final double[] zza;
-    private double[] zzb;
-    private int zzc;
+final class zzgt extends zzdu implements RandomAccess {
+    private static final Object[] zza;
+    private static final zzgt zzb;
+    private Object[] zzc;
+    private int zzd;
 
     static {
-        double[] dArr = new double[0];
-        zza = dArr;
-        new zzgt(dArr, 0, false);
+        Object[] objArr = new Object[0];
+        zza = objArr;
+        zzb = new zzgt(objArr, 0, false);
     }
 
     zzgt() {
         this(zza, 0, true);
     }
 
-    private static int zzh(int i) {
+    public static zzgt zze() {
+        return zzb;
+    }
+
+    private static int zzg(int i) {
         return Math.max(((i * 3) / 2) + 1, 10);
     }
 
-    private final String zzi(int i) {
-        int i2 = this.zzc;
+    private final String zzh(int i) {
+        int i2 = this.zzd;
         return "Index:" + i + ", Size:" + i2;
     }
 
-    private final void zzj(int i) {
-        if (i < 0 || i >= this.zzc) {
-            throw new IndexOutOfBoundsException(zzi(i));
+    private final void zzi(int i) {
+        if (i < 0 || i >= this.zzd) {
+            throw new IndexOutOfBoundsException(zzh(i));
         }
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzfx, java.util.AbstractList, java.util.List
-    public final /* synthetic */ void add(int i, Object obj) {
+    @Override // com.google.android.gms.internal.play_billing.zzdu, java.util.AbstractList, java.util.List
+    public final void add(int i, Object obj) {
         int i2;
-        double doubleValue = ((Double) obj).doubleValue();
         zza();
-        if (i < 0 || i > (i2 = this.zzc)) {
-            throw new IndexOutOfBoundsException(zzi(i));
+        if (i < 0 || i > (i2 = this.zzd)) {
+            throw new IndexOutOfBoundsException(zzh(i));
         }
         int i3 = i + 1;
-        double[] dArr = this.zzb;
-        int length = dArr.length;
+        Object[] objArr = this.zzc;
+        int length = objArr.length;
         if (i2 < length) {
-            System.arraycopy(dArr, i, dArr, i3, i2 - i);
+            System.arraycopy(objArr, i, objArr, i3, i2 - i);
         } else {
-            double[] dArr2 = new double[zzh(length)];
-            System.arraycopy(this.zzb, 0, dArr2, 0, i);
-            System.arraycopy(this.zzb, i, dArr2, i3, this.zzc - i);
-            this.zzb = dArr2;
+            Object[] objArr2 = new Object[zzg(length)];
+            System.arraycopy(this.zzc, 0, objArr2, 0, i);
+            System.arraycopy(this.zzc, i, objArr2, i3, this.zzd - i);
+            this.zzc = objArr2;
         }
-        this.zzb[i] = doubleValue;
-        this.zzc++;
+        this.zzc[i] = obj;
+        this.zzd++;
         this.modCount++;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzfx, java.util.AbstractCollection, java.util.Collection, java.util.List
-    public final boolean addAll(Collection collection) {
-        zza();
-        byte[] bArr = zzhp.zzb;
-        collection.getClass();
-        if (!(collection instanceof zzgt)) {
-            return super.addAll(collection);
-        }
-        zzgt zzgtVar = (zzgt) collection;
-        int i = zzgtVar.zzc;
-        if (i == 0) {
-            return false;
-        }
-        int i2 = this.zzc;
-        if (Integer.MAX_VALUE - i2 >= i) {
-            int i3 = i2 + i;
-            double[] dArr = this.zzb;
-            if (i3 > dArr.length) {
-                this.zzb = Arrays.copyOf(dArr, i3);
-            }
-            System.arraycopy(zzgtVar.zzb, 0, this.zzb, this.zzc, zzgtVar.zzc);
-            this.zzc = i3;
-            this.modCount++;
-            return true;
-        }
-        throw new OutOfMemoryError();
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
-    public final boolean contains(Object obj) {
-        return indexOf(obj) != -1;
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzfx, java.util.AbstractList, java.util.Collection, java.util.List
-    public final boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj instanceof zzgt) {
-            zzgt zzgtVar = (zzgt) obj;
-            if (this.zzc != zzgtVar.zzc) {
-                return false;
-            }
-            double[] dArr = zzgtVar.zzb;
-            for (int i = 0; i < this.zzc; i++) {
-                if (Double.doubleToLongBits(this.zzb[i]) != Double.doubleToLongBits(dArr[i])) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return super.equals(obj);
-    }
-
     @Override // java.util.AbstractList, java.util.List
-    public final /* synthetic */ Object get(int i) {
-        zzj(i);
-        return Double.valueOf(this.zzb[i]);
+    public final Object get(int i) {
+        zzi(i);
+        return this.zzc[i];
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzfx, java.util.AbstractList, java.util.Collection, java.util.List
-    public final int hashCode() {
-        int i = 1;
-        for (int i2 = 0; i2 < this.zzc; i2++) {
-            long doubleToLongBits = Double.doubleToLongBits(this.zzb[i2]);
-            byte[] bArr = zzhp.zzb;
-            i = (i * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)));
-        }
-        return i;
-    }
-
-    @Override // java.util.AbstractList, java.util.List
-    public final int indexOf(Object obj) {
-        if (obj instanceof Double) {
-            double doubleValue = ((Double) obj).doubleValue();
-            int i = this.zzc;
-            for (int i2 = 0; i2 < i; i2++) {
-                if (this.zzb[i2] == doubleValue) {
-                    return i2;
-                }
-            }
-            return -1;
-        }
-        return -1;
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzfx, java.util.AbstractList, java.util.List
-    public final /* bridge */ /* synthetic */ Object remove(int i) {
+    @Override // com.google.android.gms.internal.play_billing.zzdu, java.util.AbstractList, java.util.List
+    public final Object remove(int i) {
         int i2;
         zza();
-        zzj(i);
-        double[] dArr = this.zzb;
-        double d = dArr[i];
-        if (i < this.zzc - 1) {
-            System.arraycopy(dArr, i + 1, dArr, i, (i2 - i) - 1);
+        zzi(i);
+        Object[] objArr = this.zzc;
+        Object obj = objArr[i];
+        if (i < this.zzd - 1) {
+            System.arraycopy(objArr, i + 1, objArr, i, (i2 - i) - 1);
         }
-        this.zzc--;
+        this.zzd--;
         this.modCount++;
-        return Double.valueOf(d);
+        return obj;
     }
 
-    @Override // java.util.AbstractList
-    protected final void removeRange(int i, int i2) {
+    @Override // com.google.android.gms.internal.play_billing.zzdu, java.util.AbstractList, java.util.List
+    public final Object set(int i, Object obj) {
         zza();
-        if (i2 >= i) {
-            double[] dArr = this.zzb;
-            System.arraycopy(dArr, i2, dArr, i, this.zzc - i2);
-            this.zzc -= i2 - i;
-            this.modCount++;
-            return;
-        }
-        throw new IndexOutOfBoundsException("toIndex < fromIndex");
-    }
-
-    @Override // com.google.android.gms.internal.play_billing.zzfx, java.util.AbstractList, java.util.List
-    public final /* bridge */ /* synthetic */ Object set(int i, Object obj) {
-        double doubleValue = ((Double) obj).doubleValue();
-        zza();
-        zzj(i);
-        double[] dArr = this.zzb;
-        double d = dArr[i];
-        dArr[i] = doubleValue;
-        return Double.valueOf(d);
+        zzi(i);
+        Object[] objArr = this.zzc;
+        Object obj2 = objArr[i];
+        objArr[i] = obj;
+        this.modCount++;
+        return obj2;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public final int size() {
-        return this.zzc;
+        return this.zzd;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzho
-    public final /* bridge */ /* synthetic */ zzho zzd(int i) {
-        if (i < this.zzc) {
+    @Override // com.google.android.gms.internal.play_billing.zzfn
+    public final /* bridge */ /* synthetic */ zzfn zzd(int i) {
+        if (i < this.zzd) {
             throw new IllegalArgumentException();
         }
-        return new zzgt(i == 0 ? zza : Arrays.copyOf(this.zzb, i), this.zzc, true);
-    }
-
-    public final double zze(int i) {
-        zzj(i);
-        return this.zzb[i];
-    }
-
-    public final void zzf(double d) {
-        zza();
-        int i = this.zzc;
-        int length = this.zzb.length;
-        if (i == length) {
-            double[] dArr = new double[zzh(length)];
-            System.arraycopy(this.zzb, 0, dArr, 0, this.zzc);
-            this.zzb = dArr;
-        }
-        double[] dArr2 = this.zzb;
-        int i2 = this.zzc;
-        this.zzc = i2 + 1;
-        dArr2[i2] = d;
+        return new zzgt(i == 0 ? zza : Arrays.copyOf(this.zzc, i), this.zzd, true);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void zzg(int i) {
-        int length = this.zzb.length;
+    public final void zzf(int i) {
+        int length = this.zzc.length;
         if (i <= length) {
             return;
         }
         if (length != 0) {
             while (length < i) {
-                length = zzh(length);
+                length = zzg(length);
             }
-            this.zzb = Arrays.copyOf(this.zzb, length);
+            this.zzc = Arrays.copyOf(this.zzc, length);
             return;
         }
-        this.zzb = new double[Math.max(i, 10)];
+        this.zzc = new Object[Math.max(i, 10)];
     }
 
-    private zzgt(double[] dArr, int i, boolean z) {
+    private zzgt(Object[] objArr, int i, boolean z) {
         super(z);
-        this.zzb = dArr;
-        this.zzc = i;
+        this.zzc = objArr;
+        this.zzd = i;
     }
 
-    @Override // com.google.android.gms.internal.play_billing.zzfx, java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List
-    public final /* bridge */ /* synthetic */ boolean add(Object obj) {
-        zzf(((Double) obj).doubleValue());
+    @Override // com.google.android.gms.internal.play_billing.zzdu, java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List
+    public final boolean add(Object obj) {
+        zza();
+        int i = this.zzd;
+        int length = this.zzc.length;
+        if (i == length) {
+            this.zzc = Arrays.copyOf(this.zzc, zzg(length));
+        }
+        Object[] objArr = this.zzc;
+        int i2 = this.zzd;
+        this.zzd = i2 + 1;
+        objArr[i2] = obj;
+        this.modCount++;
         return true;
     }
 }

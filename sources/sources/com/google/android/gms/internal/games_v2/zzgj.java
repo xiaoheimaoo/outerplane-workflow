@@ -1,29 +1,30 @@
 package com.google.android.gms.internal.games_v2;
 
-import java.util.Objects;
-import java.util.function.Function;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+import java.util.Arrays;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
-final /* synthetic */ class zzgj implements Function {
-    static final /* synthetic */ zzgj zza = new zzgj();
-
-    private /* synthetic */ zzgj() {
+public final class zzgj extends zzgg {
+    public zzgj() {
+        super(4);
     }
 
-    @Override // java.util.function.Function
-    public final /* synthetic */ Object apply(Object obj) {
-        zzhk zzk;
-        zzhj zzhjVar = (zzhj) obj;
-        int i = zzhjVar.zzb;
-        if (i != 0) {
-            if (i == 1) {
-                return new zzii(Objects.requireNonNull(zzhjVar.zza[0]));
-            }
-            zzk = zzhk.zzk(i, zzhjVar.zza);
-            zzhjVar.zzb = zzk.size();
-            zzhjVar.zzc = true;
-            return zzk;
+    public final zzgm zzc() {
+        this.zzc = true;
+        return zzgm.zzj(this.zza, this.zzb);
+    }
+
+    public final zzgj zzb(Object obj) {
+        obj.getClass();
+        int length = this.zza.length;
+        int zza = zzgg.zza(length, this.zzb + 1);
+        if (zza > length || this.zzc) {
+            this.zza = Arrays.copyOf(this.zza, zza);
+            this.zzc = false;
         }
-        return zzif.zza;
+        Object[] objArr = this.zza;
+        int i = this.zzb;
+        this.zzb = i + 1;
+        objArr[i] = obj;
+        return this;
     }
 }

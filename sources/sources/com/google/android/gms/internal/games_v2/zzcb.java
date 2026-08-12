@@ -5,7 +5,7 @@ import com.google.android.gms.common.api.internal.RemoteCall;
 import com.google.android.gms.common.api.internal.TaskApiCall;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskCompletionSource;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 final /* synthetic */ class zzcb implements zzap {
     private final /* synthetic */ String zza;
@@ -25,7 +25,7 @@ final /* synthetic */ class zzcb implements zzap {
         return googleApi.doWrite(builder.run(new RemoteCall() { // from class: com.google.android.gms.internal.games_v2.zzcc
             @Override // com.google.android.gms.common.api.internal.RemoteCall
             public final /* synthetic */ void accept(Object obj, Object obj2) {
-                ((com.google.android.gms.games.internal.zzah) obj).zzF((TaskCompletionSource) obj2, str, i);
+                ((com.google.android.gms.games.internal.zzah) obj).zzK((TaskCompletionSource) obj2, str, i);
             }
         }).setMethodKey(6697).build());
     }

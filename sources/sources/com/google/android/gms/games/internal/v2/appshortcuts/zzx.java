@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.IInterface;
 import android.os.RemoteException;
 import com.google.android.gms.common.api.Status;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public interface zzx extends IInterface {
     void zzb(zzg zzgVar) throws RemoteException;

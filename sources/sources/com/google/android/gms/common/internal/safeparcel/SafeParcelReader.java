@@ -14,11 +14,11 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-/* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
+/* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
 /* loaded from: classes.dex */
 public class SafeParcelReader {
 
-    /* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
+    /* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
     /* loaded from: classes.dex */
     public static class ParseException extends RuntimeException {
         /* JADX WARN: Illegal instructions before constructor call */
@@ -26,22 +26,32 @@ public class SafeParcelReader {
             Code decompiled incorrectly, please refer to instructions dump.
             To view partially-correct add '--show-bad-code' argument
         */
-        public ParseException(java.lang.String r3, android.os.Parcel r4) {
+        public ParseException(java.lang.String r5, android.os.Parcel r6) {
             /*
-                r2 = this;
-                int r0 = r4.dataPosition()
-                int r4 = r4.dataSize()
-                java.lang.StringBuilder r1 = new java.lang.StringBuilder
-                r1.<init>()
-                r1.append(r3)
-                java.lang.String r3 = " Parcel: pos="
-                r1.append(r3)
-                r1.append(r0)
-                java.lang.String r3 = " size="
-                r1.append(r3)
-                r1.append(r4)
-                java.lang.String r3 = r1.toString()
-                r2.<init>(r3)
+                r4 = this;
+                int r0 = r6.dataPosition()
+                int r6 = r6.dataSize()
+                java.lang.String r1 = java.lang.String.valueOf(r5)
+                int r1 = r1.length()
+                java.lang.String r2 = java.lang.String.valueOf(r0)
+                int r2 = r2.length()
+                java.lang.String r3 = java.lang.String.valueOf(r6)
+                int r3 = r3.length()
+                int r1 = r1 + 13
+                int r1 = r1 + r2
+                java.lang.StringBuilder r2 = new java.lang.StringBuilder
+                int r1 = r1 + 6
+                int r1 = r1 + r3
+                r2.<init>(r1)
+                r2.append(r5)
+                java.lang.String r5 = " Parcel: pos="
+                r2.append(r5)
+                r2.append(r0)
+                java.lang.String r5 = " size="
+                r2.append(r5)
+                r2.append(r6)
+                java.lang.String r5 = r2.toString()
+                r4.<init>(r5)
                 return
             */
             throw new UnsupportedOperationException("Method not decompiled: com.google.android.gms.common.internal.safeparcel.SafeParcelReader.ParseException.<init>(java.lang.String, android.os.Parcel):void");
@@ -591,7 +601,10 @@ public class SafeParcelReader {
         if (parcel.dataPosition() == i) {
             return;
         }
-        throw new ParseException("Overread allowed size end=" + i, parcel);
+        StringBuilder sb = new StringBuilder(String.valueOf(i).length() + 26);
+        sb.append("Overread allowed size end=");
+        sb.append(i);
+        throw new ParseException(sb.toString(), parcel);
     }
 
     public static int getFieldId(int i) {
@@ -599,7 +612,7 @@ public class SafeParcelReader {
     }
 
     public static boolean readBoolean(Parcel parcel, int i) {
-        zzb(parcel, i, 4);
+        zza(parcel, i, 4);
         return parcel.readInt() != 0;
     }
 
@@ -608,22 +621,22 @@ public class SafeParcelReader {
         if (readSize == 0) {
             return null;
         }
-        zza(parcel, i, readSize, 4);
+        zzb(parcel, i, readSize, 4);
         return Boolean.valueOf(parcel.readInt() != 0);
     }
 
     public static byte readByte(Parcel parcel, int i) {
-        zzb(parcel, i, 4);
+        zza(parcel, i, 4);
         return (byte) parcel.readInt();
     }
 
     public static char readChar(Parcel parcel, int i) {
-        zzb(parcel, i, 4);
+        zza(parcel, i, 4);
         return (char) parcel.readInt();
     }
 
     public static double readDouble(Parcel parcel, int i) {
-        zzb(parcel, i, 8);
+        zza(parcel, i, 8);
         return parcel.readDouble();
     }
 
@@ -632,12 +645,12 @@ public class SafeParcelReader {
         if (readSize == 0) {
             return null;
         }
-        zza(parcel, i, readSize, 8);
+        zzb(parcel, i, readSize, 8);
         return Double.valueOf(parcel.readDouble());
     }
 
     public static float readFloat(Parcel parcel, int i) {
-        zzb(parcel, i, 4);
+        zza(parcel, i, 4);
         return parcel.readFloat();
     }
 
@@ -646,7 +659,7 @@ public class SafeParcelReader {
         if (readSize == 0) {
             return null;
         }
-        zza(parcel, i, readSize, 4);
+        zzb(parcel, i, readSize, 4);
         return Float.valueOf(parcel.readFloat());
     }
 
@@ -666,7 +679,7 @@ public class SafeParcelReader {
     }
 
     public static int readInt(Parcel parcel, int i) {
-        zzb(parcel, i, 4);
+        zza(parcel, i, 4);
         return parcel.readInt();
     }
 
@@ -675,7 +688,7 @@ public class SafeParcelReader {
         if (readSize == 0) {
             return null;
         }
-        zza(parcel, i, readSize, 4);
+        zzb(parcel, i, readSize, 4);
         return Integer.valueOf(parcel.readInt());
     }
 
@@ -690,7 +703,7 @@ public class SafeParcelReader {
     }
 
     public static long readLong(Parcel parcel, int i) {
-        zzb(parcel, i, 8);
+        zza(parcel, i, 8);
         return parcel.readLong();
     }
 
@@ -699,7 +712,7 @@ public class SafeParcelReader {
         if (readSize == 0) {
             return null;
         }
-        zza(parcel, i, readSize, 8);
+        zzb(parcel, i, readSize, 8);
         return Long.valueOf(parcel.readLong());
     }
 
@@ -715,7 +728,7 @@ public class SafeParcelReader {
     }
 
     public static short readShort(Parcel parcel, int i) {
-        zzb(parcel, i, 4);
+        zza(parcel, i, 4);
         return (short) parcel.readInt();
     }
 
@@ -733,29 +746,54 @@ public class SafeParcelReader {
         int fieldId = getFieldId(readHeader);
         int dataPosition = parcel.dataPosition();
         if (fieldId != 20293) {
-            throw new ParseException("Expected object header. Got 0x".concat(String.valueOf(Integer.toHexString(readHeader))), parcel);
+            String hexString = Integer.toHexString(readHeader);
+            String.valueOf(hexString);
+            throw new ParseException("Expected object header. Got 0x".concat(String.valueOf(hexString)), parcel);
         }
         int i = readSize + dataPosition;
         if (i < dataPosition || i > parcel.dataSize()) {
-            throw new ParseException("Size read is invalid start=" + dataPosition + " end=" + i, parcel);
+            StringBuilder sb = new StringBuilder(String.valueOf(dataPosition).length() + 32 + String.valueOf(i).length());
+            sb.append("Size read is invalid start=");
+            sb.append(dataPosition);
+            sb.append(" end=");
+            sb.append(i);
+            throw new ParseException(sb.toString(), parcel);
         }
         return i;
     }
 
-    private static void zza(Parcel parcel, int i, int i2, int i3) {
-        if (i2 == i3) {
-            return;
-        }
-        String hexString = Integer.toHexString(i2);
-        throw new ParseException("Expected size " + i3 + " got " + i2 + " (0x" + hexString + ")", parcel);
-    }
-
-    private static void zzb(Parcel parcel, int i, int i2) {
+    private static void zza(Parcel parcel, int i, int i2) {
         int readSize = readSize(parcel, i);
         if (readSize == i2) {
             return;
         }
         String hexString = Integer.toHexString(readSize);
-        throw new ParseException("Expected size " + i2 + " got " + readSize + " (0x" + hexString + ")", parcel);
+        int length = String.valueOf(i2).length();
+        StringBuilder sb = new StringBuilder(length + 19 + String.valueOf(readSize).length() + 4 + String.valueOf(hexString).length() + 1);
+        sb.append("Expected size ");
+        sb.append(i2);
+        sb.append(" got ");
+        sb.append(readSize);
+        sb.append(" (0x");
+        sb.append(hexString);
+        sb.append(")");
+        throw new ParseException(sb.toString(), parcel);
+    }
+
+    private static void zzb(Parcel parcel, int i, int i2, int i3) {
+        if (i2 == i3) {
+            return;
+        }
+        String hexString = Integer.toHexString(i2);
+        int length = String.valueOf(i3).length();
+        StringBuilder sb = new StringBuilder(length + 19 + String.valueOf(i2).length() + 4 + String.valueOf(hexString).length() + 1);
+        sb.append("Expected size ");
+        sb.append(i3);
+        sb.append(" got ");
+        sb.append(i2);
+        sb.append(" (0x");
+        sb.append(hexString);
+        sb.append(")");
+        throw new ParseException(sb.toString(), parcel);
     }
 }

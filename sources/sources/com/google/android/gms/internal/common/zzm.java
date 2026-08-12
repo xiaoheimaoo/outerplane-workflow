@@ -1,64 +1,31 @@
 package com.google.android.gms.internal.common;
-
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import javax.annotation.CheckForNull;
-import org.jspecify.annotations.NullMarked;
-/* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
-@NullMarked
+/* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
 /* loaded from: classes2.dex */
-abstract class zzm implements Iterator {
-    @CheckForNull
-    private Object zza;
-    private int zzb = 2;
+final class zzm extends zzl {
+    private final char zza;
 
-    @Override // java.util.Iterator
-    public final Object next() {
-        if (hasNext()) {
-            this.zzb = 2;
-            Object obj = this.zza;
-            this.zza = null;
-            return obj;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public zzm(char c) {
+        this.zza = c;
+    }
+
+    public final String toString() {
+        char[] cArr = {'\\', 'u', 0, 0, 0, 0};
+        int i = this.zza;
+        for (int i2 = 0; i2 < 4; i2++) {
+            cArr[5 - i2] = "0123456789ABCDEF".charAt(i & 15);
+            i >>= 4;
         }
-        throw new NoSuchElementException();
+        String copyValueOf = String.copyValueOf(cArr);
+        StringBuilder sb = new StringBuilder(String.valueOf(copyValueOf).length() + 18);
+        sb.append("CharMatcher.is('");
+        sb.append(copyValueOf);
+        sb.append("')");
+        return sb.toString();
     }
 
-    @Override // java.util.Iterator
-    public final void remove() {
-        throw new UnsupportedOperationException();
-    }
-
-    @CheckForNull
-    protected abstract Object zza();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @CheckForNull
-    public final Object zzb() {
-        this.zzb = 3;
-        return null;
-    }
-
-    @Override // java.util.Iterator
-    public final boolean hasNext() {
-        int i = this.zzb;
-        if (i != 4) {
-            int i2 = i - 1;
-            if (i != 0) {
-                if (i2 != 0) {
-                    if (i2 != 2) {
-                        this.zzb = 4;
-                        this.zza = zza();
-                        if (this.zzb != 3) {
-                            this.zzb = 1;
-                            return true;
-                        }
-                    }
-                    return false;
-                }
-                return true;
-            }
-            throw null;
-        }
-        throw new IllegalStateException();
+    @Override // com.google.android.gms.internal.common.zzp
+    public final boolean zza(char c) {
+        return c == this.zza;
     }
 }

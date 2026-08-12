@@ -3,7 +3,7 @@ package com.google.android.gms.common.internal;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-/* compiled from: com.google.android.gms:play-services-basement@@18.5.0 */
+/* compiled from: com.google.android.gms:play-services-basement@@18.9.0 */
 /* loaded from: classes.dex */
 public final class Preconditions {
     private Preconditions() {
@@ -26,12 +26,25 @@ public final class Preconditions {
         throw new IllegalArgumentException(zza("%s is out of range of [%f, %f] (too low)", str, Double.valueOf(d2), Double.valueOf(d3)));
     }
 
+    public static int checkArgumentNonnegative(int i) {
+        if (i >= 0) {
+            return i;
+        }
+        throw new IllegalArgumentException("Given value is negative");
+    }
+
     public static void checkHandlerThread(Handler handler) {
         Looper myLooper = Looper.myLooper();
         if (myLooper != handler.getLooper()) {
             String name = myLooper != null ? myLooper.getThread().getName() : "null current looper";
             String name2 = handler.getLooper().getThread().getName();
-            throw new IllegalStateException("Must be called on " + name2 + " thread, but got " + name + ".");
+            StringBuilder sb = new StringBuilder(String.valueOf(name2).length() + 35 + String.valueOf(name).length() + 1);
+            sb.append("Must be called on ");
+            sb.append(name2);
+            sb.append(" thread, but got ");
+            sb.append(name);
+            sb.append(".");
+            throw new IllegalStateException(sb.toString());
         }
     }
 
@@ -104,8 +117,15 @@ public final class Preconditions {
         }
     }
 
+    public static int checkArgumentNonnegative(int i, String str) {
+        if (i >= 0) {
+            return i;
+        }
+        throw new IllegalArgumentException(str);
+    }
+
     public static void checkMainThread(String str) {
-        if (!com.google.android.gms.common.util.zzd.zza()) {
+        if (!com.google.android.gms.common.util.zze.zza()) {
             throw new IllegalStateException(str);
         }
     }
@@ -118,7 +138,7 @@ public final class Preconditions {
     }
 
     public static void checkNotMainThread(String str) {
-        if (com.google.android.gms.common.util.zzd.zza()) {
+        if (com.google.android.gms.common.util.zze.zza()) {
             throw new IllegalStateException(str);
         }
     }
@@ -159,6 +179,13 @@ public final class Preconditions {
         throw new IllegalArgumentException(zza("%s is out of range of [%f, %f] (too low)", str, Float.valueOf(f2), Float.valueOf(f3)));
     }
 
+    public static long checkArgumentNonnegative(long j) {
+        if (j >= 0) {
+            return j;
+        }
+        throw new IllegalArgumentException("Given value is negative");
+    }
+
     public static String checkNotEmpty(String str, Object obj) {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException(String.valueOf(obj));
@@ -177,6 +204,13 @@ public final class Preconditions {
         if (!z) {
             throw new IllegalStateException(String.format(str, objArr));
         }
+    }
+
+    public static long checkArgumentNonnegative(long j, String str) {
+        if (j >= 0) {
+            return j;
+        }
+        throw new IllegalArgumentException(str);
     }
 
     public static long checkNotZero(long j, Object obj) {

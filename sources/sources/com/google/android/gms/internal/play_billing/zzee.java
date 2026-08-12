@@ -1,8 +1,9 @@
 package com.google.android.gms.internal.play_billing;
-
-import com.google.android.gms.internal.play_billing.zzdy;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public class zzee extends zzef implements zzdy.zzh {
+final class zzee {
+    public static final zzei zza(zzep zzepVar, byte[] bArr) {
+        zzepVar.zzE();
+        return new zzeg(bArr);
+    }
 }

@@ -1,8 +1,9 @@
 package com.google.android.gms.internal.play_billing;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public final class zzhq extends zzhr {
-    public zzhq(String str) {
-        super("Protocol message tag had invalid wire type.");
+final class zzhq extends IllegalArgumentException {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public zzhq(int i, int i2) {
+        super("Unpaired surrogate at index " + i + " of " + i2);
     }
 }

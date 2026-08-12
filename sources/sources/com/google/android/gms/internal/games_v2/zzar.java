@@ -5,7 +5,7 @@ import android.app.Application;
 import android.os.Bundle;
 import java.util.Objects;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 public final class zzar implements Application.ActivityLifecycleCallbacks {
     final /* synthetic */ zzas zza;
@@ -35,7 +35,7 @@ public final class zzar implements Application.ActivityLifecycleCallbacks {
         this.zzb.unregisterActivityLifecycleCallbacks(this);
         if (this.zzc) {
             this.zzc = false;
-            zzfn.zza("AutomaticGamesAuthenticator", "Automatic connection attempt triggered");
+            zzfu.zza("AutomaticGamesAuthenticator", "Automatic connection attempt triggered");
             this.zza.zzc().zzd();
         }
     }

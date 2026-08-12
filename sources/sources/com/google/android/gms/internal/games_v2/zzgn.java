@@ -1,33 +1,38 @@
 package com.google.android.gms.internal.games_v2;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes2.dex */
 final class zzgn {
+    private final Object zza;
+    private final Object zzb;
+    private final Object zzc;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void zza(Object obj, Object obj2) {
-        if (obj == null) {
-            String valueOf = String.valueOf(obj2);
-            String.valueOf(valueOf);
-            throw new NullPointerException("null key in entry: null=".concat(String.valueOf(valueOf)));
-        } else if (obj2 != null) {
-        } else {
-            String obj3 = obj.toString();
-            StringBuilder sb = new StringBuilder(obj3.length() + 26);
-            sb.append("null value in entry: ");
-            sb.append(obj3);
-            sb.append("=null");
-            throw new NullPointerException(sb.toString());
-        }
+    public zzgn(Object obj, Object obj2, Object obj3) {
+        this.zza = obj;
+        this.zzb = obj2;
+        this.zzc = obj3;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int zzb(int i, String str) {
-        if (i >= 0) {
-            return i;
-        }
-        StringBuilder sb = new StringBuilder(str.length() + 29 + String.valueOf(i).length());
-        sb.append(str);
-        sb.append(" cannot be negative but was: ");
-        sb.append(i);
-        throw new IllegalArgumentException(sb.toString());
+    public final IllegalArgumentException zza() {
+        Object obj = this.zzc;
+        Object obj2 = this.zzb;
+        Object obj3 = this.zza;
+        String valueOf = String.valueOf(obj3);
+        String valueOf2 = String.valueOf(obj2);
+        String valueOf3 = String.valueOf(obj3);
+        String valueOf4 = String.valueOf(obj);
+        int length = String.valueOf(valueOf).length();
+        int length2 = String.valueOf(valueOf2).length();
+        StringBuilder sb = new StringBuilder(length + 33 + length2 + 5 + String.valueOf(valueOf3).length() + 1 + String.valueOf(valueOf4).length());
+        sb.append("Multiple entries with same key: ");
+        sb.append(valueOf);
+        sb.append("=");
+        sb.append(valueOf2);
+        sb.append(" and ");
+        sb.append(valueOf3);
+        sb.append("=");
+        sb.append(valueOf4);
+        return new IllegalArgumentException(sb.toString());
     }
 }

@@ -4,7 +4,7 @@ import android.database.CharArrayBuffer;
 import android.net.Uri;
 import android.os.Parcelable;
 import com.google.android.gms.common.data.Freezable;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public interface Game extends Freezable<Game>, Parcelable {
     boolean areSnapshotsEnabled();

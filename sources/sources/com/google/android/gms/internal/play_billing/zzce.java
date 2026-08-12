@@ -1,53 +1,35 @@
 package com.google.android.gms.internal.play_billing;
 
-import java.io.Serializable;
-import javax.annotation.CheckForNull;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+import com.google.firebase.analytics.FirebaseAnalytics;
+import java.util.Objects;
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public abstract class zzce implements Comparable, Serializable {
-    final Comparable zza = "";
+final class zzce extends zzbt {
+    private final transient Object[] zza;
+    private final transient int zzb;
+    private final transient int zzc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public zzce(Comparable comparable) {
+    public zzce(Object[] objArr, int i, int i2) {
+        this.zza = objArr;
+        this.zzb = i;
+        this.zzc = i2;
     }
 
-    public final boolean equals(@CheckForNull Object obj) {
-        if (obj instanceof zzce) {
-            try {
-                if (compareTo((zzce) obj) == 0) {
-                    return true;
-                }
-            } catch (ClassCastException unused) {
-            }
-        }
-        return false;
+    @Override // java.util.List
+    public final Object get(int i) {
+        zzbg.zza(i, this.zzc, FirebaseAnalytics.Param.INDEX);
+        return Objects.requireNonNull(this.zza[i + i + this.zzb]);
     }
 
-    public abstract int hashCode();
-
-    @Override // java.lang.Comparable
-    /* renamed from: zza */
-    public int compareTo(zzce zzceVar) {
-        zzcd zzcdVar;
-        zzcb zzcbVar;
-        zzcdVar = zzcd.zzb;
-        if (zzceVar != zzcdVar) {
-            zzcbVar = zzcb.zzb;
-            if (zzceVar == zzcbVar) {
-                return -1;
-            }
-            Comparable comparable = zzceVar.zza;
-            int i = zzdh.zzc;
-            int compareTo = "".compareTo("");
-            return compareTo != 0 ? compareTo : Boolean.compare(this instanceof zzcc, zzceVar instanceof zzcc);
-        }
-        return 1;
+    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
+    public final int size() {
+        return this.zzc;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void zzc(StringBuilder sb);
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void zzd(StringBuilder sb);
+    @Override // com.google.android.gms.internal.play_billing.zzbq
+    public final boolean zzf() {
+        return true;
+    }
 }

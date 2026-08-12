@@ -7,7 +7,7 @@ import com.google.android.gms.common.util.DataUtils;
 import com.google.android.gms.games.Game;
 import com.google.android.gms.games.GameEntity;
 import java.util.ArrayList;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
 /* loaded from: classes.dex */
 public final class LeaderboardEntity implements Leaderboard {
     private final String zza;

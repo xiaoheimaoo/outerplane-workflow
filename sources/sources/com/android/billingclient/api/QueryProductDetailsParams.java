@@ -2,21 +2,21 @@ package com.android.billingclient.api;
 
 import java.util.HashSet;
 import java.util.List;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes.dex */
 public final class QueryProductDetailsParams {
-    private final com.google.android.gms.internal.play_billing.zzco zza;
+    private final com.google.android.gms.internal.play_billing.zzbt zza;
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     /* loaded from: classes.dex */
     public static class Builder {
-        private com.google.android.gms.internal.play_billing.zzco zza;
+        private com.google.android.gms.internal.play_billing.zzbt zza;
 
         private Builder() {
             throw null;
         }
 
-        /* synthetic */ Builder(zzcz zzczVar) {
+        /* synthetic */ Builder(zzcy zzcyVar) {
         }
 
         public QueryProductDetailsParams build() {
@@ -39,18 +39,18 @@ public final class QueryProductDetailsParams {
             if (hashSet.size() > 1) {
                 throw new IllegalArgumentException("All products should be of the same product type.");
             }
-            this.zza = com.google.android.gms.internal.play_billing.zzco.zzk(list);
+            this.zza = com.google.android.gms.internal.play_billing.zzbt.zzj(list);
             return this;
         }
     }
 
-    /* compiled from: com.android.billingclient:billing@@7.1.1 */
+    /* compiled from: com.android.billingclient:billing@@8.0.0 */
     /* loaded from: classes.dex */
     public static class Product {
         private final String zza;
         private final String zzb;
 
-        /* compiled from: com.android.billingclient:billing@@7.1.1 */
+        /* compiled from: com.android.billingclient:billing@@8.0.0 */
         /* loaded from: classes.dex */
         public static class Builder {
             private String zza;
@@ -60,7 +60,7 @@ public final class QueryProductDetailsParams {
                 throw null;
             }
 
-            /* synthetic */ Builder(zzcz zzczVar) {
+            /* synthetic */ Builder(zzcy zzcyVar) {
             }
 
             public Product build() {
@@ -87,7 +87,7 @@ public final class QueryProductDetailsParams {
             }
         }
 
-        /* synthetic */ Product(Builder builder, zzcz zzczVar) {
+        /* synthetic */ Product(Builder builder, zzcy zzcyVar) {
             this.zza = builder.zza;
             this.zzb = builder.zzb;
         }
@@ -105,7 +105,7 @@ public final class QueryProductDetailsParams {
         }
     }
 
-    /* synthetic */ QueryProductDetailsParams(Builder builder, zzcz zzczVar) {
+    /* synthetic */ QueryProductDetailsParams(Builder builder, zzcy zzcyVar) {
         this.zza = builder.zza;
     }
 
@@ -113,7 +113,7 @@ public final class QueryProductDetailsParams {
         return new Builder(null);
     }
 
-    public final com.google.android.gms.internal.play_billing.zzco zza() {
+    public final com.google.android.gms.internal.play_billing.zzbt zza() {
         return this.zza;
     }
 

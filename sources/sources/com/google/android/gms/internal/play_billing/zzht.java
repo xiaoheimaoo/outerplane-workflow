@@ -1,33 +1,17 @@
 package com.google.android.gms.internal.play_billing;
-
-import java.util.Map;
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-final class zzht implements Map.Entry {
-    private final Map.Entry zza;
+public enum zzht {
+    INT(0),
+    LONG(0L),
+    FLOAT(Float.valueOf(0.0f)),
+    DOUBLE(Double.valueOf(0.0d)),
+    BOOLEAN(false),
+    STRING(""),
+    BYTE_STRING(zzei.zzb),
+    ENUM(null),
+    MESSAGE(null);
 
-    @Override // java.util.Map.Entry
-    public final Object getKey() {
-        return this.zza.getKey();
-    }
-
-    @Override // java.util.Map.Entry
-    public final Object getValue() {
-        if (((zzhw) this.zza.getValue()) == null) {
-            return null;
-        }
-        throw null;
-    }
-
-    @Override // java.util.Map.Entry
-    public final Object setValue(Object obj) {
-        if (!(obj instanceof zzim)) {
-            throw new IllegalArgumentException("LazyField now only used for MessageSet, and the value of MessageSet must be an instance of MessageLite");
-        }
-        return ((zzhw) this.zza.getValue()).zzc((zzim) obj);
-    }
-
-    public final zzhw zza() {
-        return (zzhw) this.zza.getValue();
+    zzht(Object obj) {
     }
 }

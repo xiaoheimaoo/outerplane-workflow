@@ -1,24 +1,14 @@
 package com.google.android.gms.internal.play_billing;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.android.billingclient:billing@@7.1.1 */
+/* compiled from: com.android.billingclient:billing@@8.0.0 */
 /* loaded from: classes2.dex */
-public abstract class zzf {
+final class zzf extends Throwable {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ zzf(zzp zzpVar) {
+    public zzf(String str) {
+        super("Failure occurred while trying to finish a future.");
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void zza(zzo zzoVar, zzo zzoVar2);
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void zzb(zzo zzoVar, Thread thread);
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract boolean zzc(zzq zzqVar, zzj zzjVar, zzj zzjVar2);
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract boolean zzd(zzq zzqVar, Object obj, Object obj2);
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract boolean zze(zzq zzqVar, zzo zzoVar, zzo zzoVar2);
+    @Override // java.lang.Throwable
+    public final synchronized Throwable fillInStackTrace() {
+        return this;
+    }
 }
