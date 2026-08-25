@@ -37,6 +37,7 @@ import com.appsflyer.internal.components.network.http.ResponseNetwork;
 import com.appsflyer.internal.connector.purcahse.AFPurchaseConnectorA1l;
 import com.appsflyer.internal.platform_extension.PluginInfo;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.smilegate.outerplane.stove.google.BuildConfig;
 import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -87,7 +88,7 @@ public final class AFa1uSDK extends AppsFlyerLib {
         int i4 = (i * (-1335)) + (i2 * (-667));
         int i5 = ~i2;
         int i6 = i | i3;
-        switch (i4 + (((~i6) | i5) * (-668)) + ((i | (~(i3 | i5))) * 1336) + ((i6 | i5) * 668)) {
+        switch (i4 + (((~i6) | i5) * (-668)) + ((i | (~(i3 | i5))) * 1336) + ((i6 | i5) * BuildConfig.VERSION_CODE)) {
             case 1:
                 return getCurrencyIso4217Code(objArr);
             case 2:
