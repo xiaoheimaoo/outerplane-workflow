@@ -1,7 +1,8 @@
 package com.google.android.play.integrity.internal;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: com.google.android.play:integrity@@1.3.0 */
 /* loaded from: classes2.dex */
-final class e extends f {
+public final class e extends f {
     private final int a;
     private final long b;
 

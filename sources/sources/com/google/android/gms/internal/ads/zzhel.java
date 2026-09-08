@@ -18,10 +18,6 @@ public final class zzhel extends zzgzu implements zzhbf {
     private zzhel() {
     }
 
-    public static /* synthetic */ zzhel zza() {
-        return zzb;
-    }
-
     @Override // com.google.android.gms.internal.ads.zzgzu
     public final Object zzb(int i, Object obj, Object obj2) {
         int i2 = i - 1;
