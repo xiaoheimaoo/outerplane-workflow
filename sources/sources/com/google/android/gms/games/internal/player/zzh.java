@@ -2,9 +2,9 @@ package com.google.android.gms.games.internal.player;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class zzh extends com.google.android.gms.games.internal.zzg {
     public static final Parcelable.Creator<zzh> CREATOR = new zzi();
@@ -19,13 +19,13 @@ public final class zzh extends com.google.android.gms.games.internal.zzg {
             if (obj == this) {
                 return true;
             }
-            return Objects.equal(this.zza, ((zzh) obj).zza);
+            return Objects.equals(this.zza, ((zzh) obj).zza);
         }
         return false;
     }
 
     public final int hashCode() {
-        return Objects.hashCode(this.zza);
+        return Objects.hash(this.zza);
     }
 
     @Override // android.os.Parcelable

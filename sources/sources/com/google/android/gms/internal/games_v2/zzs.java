@@ -2,10 +2,10 @@ package com.google.android.gms.internal.games_v2;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes2.dex */
 public final class zzs extends AbstractSafeParcelable {
     public static final Parcelable.Creator<zzs> CREATOR = new zzt();
@@ -21,17 +21,17 @@ public final class zzs extends AbstractSafeParcelable {
             return true;
         }
         if (obj instanceof zzs) {
-            return Objects.equal(this.zza, ((zzs) obj).zza);
+            return Objects.equals(this.zza, ((zzs) obj).zza);
         }
         return false;
     }
 
     public final int hashCode() {
-        return Objects.hashCode(this.zza);
+        return Objects.hash(this.zza);
     }
 
     public final String toString() {
-        return Objects.toStringHelper(this).add("gameRunToken", this.zza).toString();
+        return com.google.android.gms.common.internal.Objects.toStringHelper(this).add("gameRunToken", this.zza).toString();
     }
 
     @Override // android.os.Parcelable

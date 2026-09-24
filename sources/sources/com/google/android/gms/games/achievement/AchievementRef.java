@@ -11,7 +11,7 @@ import com.google.android.gms.games.Player;
 import com.google.android.gms.games.PlayerRef;
 import com.helpshift.HelpshiftEvent;
 import com.unity3d.services.core.request.metrics.AdOperationMetric;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class AchievementRef extends DataBufferRef implements Achievement {
     /* JADX INFO: Access modifiers changed from: package-private */

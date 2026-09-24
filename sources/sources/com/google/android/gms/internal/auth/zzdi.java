@@ -1,9 +1,10 @@
 package com.google.android.gms.internal.auth;
 
 import javax.annotation.CheckForNull;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: com.google.android.gms:play-services-auth-base@@18.0.4 */
 /* loaded from: classes2.dex */
-final class zzdi extends zzdh {
+public final class zzdi extends zzdh {
     private final Object zza;
 
     /* JADX INFO: Access modifiers changed from: package-private */

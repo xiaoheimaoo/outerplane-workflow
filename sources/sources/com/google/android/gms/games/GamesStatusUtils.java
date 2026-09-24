@@ -8,7 +8,7 @@ import com.google.android.gms.common.api.Status;
 import com.google.android.gms.common.internal.ApiExceptionUtil;
 import com.google.android.gms.location.GeofenceStatusCodes;
 import com.google.android.gms.tasks.TaskCompletionSource;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class GamesStatusUtils {
     private GamesStatusUtils() {
@@ -307,6 +307,6 @@ public final class GamesStatusUtils {
                 }
             }
         }
-        taskCompletionSource.setException(ApiExceptionUtil.fromStatus(zza));
+        taskCompletionSource.trySetException(ApiExceptionUtil.fromStatus(zza));
     }
 }

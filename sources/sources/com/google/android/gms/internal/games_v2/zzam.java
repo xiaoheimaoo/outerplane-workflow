@@ -2,10 +2,10 @@ package com.google.android.gms.internal.games_v2;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes2.dex */
 public final class zzam extends AbstractSafeParcelable {
     public static final Parcelable.Creator<zzam> CREATOR = new zzan();
@@ -25,17 +25,17 @@ public final class zzam extends AbstractSafeParcelable {
         }
         if (obj instanceof zzam) {
             zzam zzamVar = (zzam) obj;
-            return Objects.equal(this.zza, zzamVar.zza) && Objects.equal(this.zzb, zzamVar.zzb);
+            return Objects.equals(this.zza, zzamVar.zza) && Objects.equals(this.zzb, zzamVar.zzb);
         }
         return false;
     }
 
     public final int hashCode() {
-        return Objects.hashCode(this.zza, this.zzb);
+        return Objects.hash(this.zza, this.zzb);
     }
 
     public final String toString() {
-        return Objects.toStringHelper(this).add("serverAuthCode", this.zza).add("sessionId", this.zzb).toString();
+        return com.google.android.gms.common.internal.Objects.toStringHelper(this).add("serverAuthCode", this.zza).add("sessionId", this.zzb).toString();
     }
 
     @Override // android.os.Parcelable

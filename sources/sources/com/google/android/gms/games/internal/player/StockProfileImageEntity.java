@@ -3,9 +3,9 @@ package com.google.android.gms.games.internal.player;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class StockProfileImageEntity extends com.google.android.gms.games.internal.zzg implements StockProfileImage {
     public static final Parcelable.Creator<StockProfileImageEntity> CREATOR = new zzj();
@@ -25,7 +25,7 @@ public final class StockProfileImageEntity extends com.google.android.gms.games.
                 return true;
             }
             StockProfileImage stockProfileImage = (StockProfileImage) obj;
-            return Objects.equal(this.zza, stockProfileImage.getImageUrl()) && Objects.equal(this.zzb, stockProfileImage.zza()) && Objects.equal(this.zzc, stockProfileImage.zzb());
+            return Objects.equals(this.zza, stockProfileImage.getImageUrl()) && Objects.equals(this.zzb, stockProfileImage.zza()) && Objects.equals(this.zzc, stockProfileImage.zzb());
         }
         return false;
     }
@@ -41,7 +41,7 @@ public final class StockProfileImageEntity extends com.google.android.gms.games.
     }
 
     public final int hashCode() {
-        return Objects.hashCode(this.zza, this.zzb);
+        return Objects.hash(this.zza, this.zzb);
     }
 
     @Override // com.google.android.gms.common.data.Freezable
@@ -50,7 +50,7 @@ public final class StockProfileImageEntity extends com.google.android.gms.games.
     }
 
     public final String toString() {
-        return Objects.toStringHelper(this).add("ImageId", this.zza).add("ImageUri", this.zzb).add("A11yLabel", this.zzc).toString();
+        return com.google.android.gms.common.internal.Objects.toStringHelper(this).add("ImageId", this.zza).add("ImageUri", this.zzb).add("A11yLabel", this.zzc).toString();
     }
 
     @Override // android.os.Parcelable

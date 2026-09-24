@@ -3,7 +3,8 @@ package com.google.android.gms.games;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.gms.common.internal.Objects;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class zza extends com.google.android.gms.games.internal.zzg implements CurrentPlayerInfo {
     public static final Parcelable.Creator<zza> CREATOR = new zzb();
@@ -15,7 +16,7 @@ public final class zza extends com.google.android.gms.games.internal.zzg impleme
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int zza(CurrentPlayerInfo currentPlayerInfo) {
-        return Objects.hashCode(Integer.valueOf(currentPlayerInfo.getFriendsListVisibilityStatus()));
+        return Objects.hash(Integer.valueOf(currentPlayerInfo.getFriendsListVisibilityStatus()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,7 +29,7 @@ public final class zza extends com.google.android.gms.games.internal.zzg impleme
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String zzc(CurrentPlayerInfo currentPlayerInfo) {
-        Objects.ToStringHelper stringHelper = Objects.toStringHelper(currentPlayerInfo);
+        Objects.ToStringHelper stringHelper = com.google.android.gms.common.internal.Objects.toStringHelper(currentPlayerInfo);
         stringHelper.add("FriendsListVisibilityStatus", Integer.valueOf(currentPlayerInfo.getFriendsListVisibilityStatus()));
         return stringHelper.toString();
     }

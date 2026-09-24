@@ -3,8 +3,8 @@ package com.google.android.gms.games.internal.player;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.google.android.gms.common.internal.Objects;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class MostRecentGameInfoEntity extends com.google.android.gms.games.internal.zzg implements zza {
     public static final Parcelable.Creator<MostRecentGameInfoEntity> CREATOR = new zzb();
@@ -26,7 +26,7 @@ public final class MostRecentGameInfoEntity extends com.google.android.gms.games
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int zzg(zza zzaVar) {
-        return Objects.hashCode(zzaVar.zza(), zzaVar.zzb(), Long.valueOf(zzaVar.zzc()), zzaVar.zzd(), zzaVar.zze(), zzaVar.zzf());
+        return Objects.hash(zzaVar.zza(), zzaVar.zzb(), Long.valueOf(zzaVar.zzc()), zzaVar.zzd(), zzaVar.zze(), zzaVar.zzf());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,14 +36,14 @@ public final class MostRecentGameInfoEntity extends com.google.android.gms.games
                 return true;
             }
             zza zzaVar2 = (zza) obj;
-            return Objects.equal(zzaVar2.zza(), zzaVar.zza()) && Objects.equal(zzaVar2.zzb(), zzaVar.zzb()) && Objects.equal(Long.valueOf(zzaVar2.zzc()), Long.valueOf(zzaVar.zzc())) && Objects.equal(zzaVar2.zzd(), zzaVar.zzd()) && Objects.equal(zzaVar2.zze(), zzaVar.zze()) && Objects.equal(zzaVar2.zzf(), zzaVar.zzf());
+            return Objects.equals(zzaVar2.zza(), zzaVar.zza()) && Objects.equals(zzaVar2.zzb(), zzaVar.zzb()) && Objects.equals(Long.valueOf(zzaVar2.zzc()), Long.valueOf(zzaVar.zzc())) && Objects.equals(zzaVar2.zzd(), zzaVar.zzd()) && Objects.equals(zzaVar2.zze(), zzaVar.zze()) && Objects.equals(zzaVar2.zzf(), zzaVar.zzf());
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String zzi(zza zzaVar) {
-        return Objects.toStringHelper(zzaVar).add("GameId", zzaVar.zza()).add("GameName", zzaVar.zzb()).add("ActivityTimestampMillis", Long.valueOf(zzaVar.zzc())).add("GameIconUri", zzaVar.zzd()).add("GameHiResUri", zzaVar.zze()).add("GameFeaturedUri", zzaVar.zzf()).toString();
+        return com.google.android.gms.common.internal.Objects.toStringHelper(zzaVar).add("GameId", zzaVar.zza()).add("GameName", zzaVar.zzb()).add("ActivityTimestampMillis", Long.valueOf(zzaVar.zzc())).add("GameIconUri", zzaVar.zzd()).add("GameHiResUri", zzaVar.zze()).add("GameFeaturedUri", zzaVar.zzf()).toString();
     }
 
     public final boolean equals(Object obj) {

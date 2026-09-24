@@ -1,107 +1,61 @@
 package com.google.android.gms.internal.games_v2;
 
-import java.io.Serializable;
-import java.util.Map;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import com.google.firebase.analytics.FirebaseAnalytics;
+import java.util.List;
+import java.util.Objects;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes2.dex */
-public abstract class zzgp implements Map, Serializable {
-    @Override // java.util.Map
-    @Deprecated
-    public final void clear() {
-        throw new UnsupportedOperationException();
+public final class zzgp extends zzgq {
+    final transient int zza;
+    final transient int zzb;
+    final /* synthetic */ zzgq zzc;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public zzgp(zzgq zzgqVar, int i, int i2) {
+        Objects.requireNonNull(zzgqVar);
+        this.zzc = zzgqVar;
+        this.zza = i;
+        this.zzb = i2;
     }
 
-    @Override // java.util.Map
-    public final boolean containsKey(Object obj) {
-        return get(obj) != null;
+    @Override // java.util.List
+    public final Object get(int i) {
+        zzgd.zza(i, this.zzb, FirebaseAnalytics.Param.INDEX);
+        return this.zzc.get(i + this.zza);
     }
 
-    @Override // java.util.Map
-    public final boolean containsValue(Object obj) {
-        return values().contains(obj);
+    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
+    public final int size() {
+        return this.zzb;
     }
 
-    @Override // java.util.Map
-    public final boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj instanceof Map) {
-            return entrySet().equals(((Map) obj).entrySet());
-        }
-        return false;
+    @Override // com.google.android.gms.internal.games_v2.zzgq, java.util.List
+    public final /* bridge */ /* synthetic */ List subList(int i, int i2) {
+        return subList(i, i2);
     }
 
-    @Override // java.util.Map
-    public abstract Object get(Object obj);
-
-    @Override // java.util.Map
-    public final Object getOrDefault(Object obj, Object obj2) {
-        Object obj3 = get(obj);
-        return obj3 != null ? obj3 : obj2;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.google.android.gms.internal.games_v2.zzgm
+    public final Object[] zzb() {
+        return this.zzc.zzb();
     }
 
-    @Override // java.util.Map
-    public final int hashCode() {
-        return zzgy.zza(entrySet());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.google.android.gms.internal.games_v2.zzgm
+    public final int zzc() {
+        return this.zzc.zzc() + this.zza;
     }
 
-    @Override // java.util.Map
-    public final boolean isEmpty() {
-        return size() == 0;
+    @Override // com.google.android.gms.internal.games_v2.zzgm
+    final int zzd() {
+        return this.zzc.zzc() + this.zza + this.zzb;
     }
 
-    @Override // java.util.Map
-    @Deprecated
-    public final Object put(Object obj, Object obj2) {
-        throw new UnsupportedOperationException();
+    @Override // com.google.android.gms.internal.games_v2.zzgq
+    public final zzgq zzf(int i, int i2) {
+        zzgd.zzc(i, i2, this.zzb);
+        int i3 = this.zza;
+        return this.zzc.subList(i + i3, i2 + i3);
     }
-
-    @Override // java.util.Map
-    @Deprecated
-    public final void putAll(Map map) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // java.util.Map
-    @Deprecated
-    public final Object remove(Object obj) {
-        throw new UnsupportedOperationException();
-    }
-
-    public final String toString() {
-        int size = size();
-        if (size >= 0) {
-            StringBuilder sb = new StringBuilder((int) Math.min(size * 8, 1073741824L));
-            sb.append('{');
-            boolean z = true;
-            for (Map.Entry entry : entrySet()) {
-                if (!z) {
-                    sb.append(", ");
-                }
-                sb.append(entry.getKey());
-                sb.append('=');
-                sb.append(entry.getValue());
-                z = false;
-            }
-            sb.append('}');
-            return sb.toString();
-        }
-        StringBuilder sb2 = new StringBuilder(String.valueOf(size).length() + 33);
-        sb2.append("size cannot be negative but was: ");
-        sb2.append(size);
-        throw new IllegalArgumentException(sb2.toString());
-    }
-
-    @Override // java.util.Map
-    /* renamed from: zza */
-    public abstract zzgq entrySet();
-
-    @Override // java.util.Map
-    /* renamed from: zzb */
-    public abstract zzgq keySet();
-
-    @Override // java.util.Map
-    /* renamed from: zzc */
-    public abstract zzgi values();
 }

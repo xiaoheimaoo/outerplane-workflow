@@ -2,12 +2,12 @@ package com.google.android.gms.games.leaderboard;
 
 import android.database.CharArrayBuffer;
 import android.net.Uri;
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.util.DataUtils;
 import com.google.android.gms.games.Game;
 import com.google.android.gms.games.GameEntity;
 import java.util.ArrayList;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class LeaderboardEntity implements Leaderboard {
     private final String zza;
@@ -37,7 +37,7 @@ public final class LeaderboardEntity implements Leaderboard {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int zzb(Leaderboard leaderboard) {
-        return Objects.hashCode(leaderboard.getLeaderboardId(), leaderboard.getDisplayName(), leaderboard.getIconImageUri(), Integer.valueOf(leaderboard.getScoreOrder()), leaderboard.getVariants());
+        return Objects.hash(leaderboard.getLeaderboardId(), leaderboard.getDisplayName(), leaderboard.getIconImageUri(), Integer.valueOf(leaderboard.getScoreOrder()), leaderboard.getVariants());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -47,14 +47,14 @@ public final class LeaderboardEntity implements Leaderboard {
                 return true;
             }
             Leaderboard leaderboard2 = (Leaderboard) obj;
-            return Objects.equal(leaderboard2.getLeaderboardId(), leaderboard.getLeaderboardId()) && Objects.equal(leaderboard2.getDisplayName(), leaderboard.getDisplayName()) && Objects.equal(leaderboard2.getIconImageUri(), leaderboard.getIconImageUri()) && Objects.equal(Integer.valueOf(leaderboard2.getScoreOrder()), Integer.valueOf(leaderboard.getScoreOrder())) && Objects.equal(leaderboard2.getVariants(), leaderboard.getVariants());
+            return Objects.equals(leaderboard2.getLeaderboardId(), leaderboard.getLeaderboardId()) && Objects.equals(leaderboard2.getDisplayName(), leaderboard.getDisplayName()) && Objects.equals(leaderboard2.getIconImageUri(), leaderboard.getIconImageUri()) && Objects.equals(Integer.valueOf(leaderboard2.getScoreOrder()), Integer.valueOf(leaderboard.getScoreOrder())) && Objects.equals(leaderboard2.getVariants(), leaderboard.getVariants());
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String zzd(Leaderboard leaderboard) {
-        return Objects.toStringHelper(leaderboard).add("LeaderboardId", leaderboard.getLeaderboardId()).add("DisplayName", leaderboard.getDisplayName()).add("IconImageUri", leaderboard.getIconImageUri()).add("IconImageUrl", leaderboard.getIconImageUrl()).add("ScoreOrder", Integer.valueOf(leaderboard.getScoreOrder())).add("Variants", leaderboard.getVariants()).toString();
+        return com.google.android.gms.common.internal.Objects.toStringHelper(leaderboard).add("LeaderboardId", leaderboard.getLeaderboardId()).add("DisplayName", leaderboard.getDisplayName()).add("IconImageUri", leaderboard.getIconImageUri()).add("IconImageUrl", leaderboard.getIconImageUrl()).add("ScoreOrder", Integer.valueOf(leaderboard.getScoreOrder())).add("Variants", leaderboard.getVariants()).toString();
     }
 
     public final boolean equals(Object obj) {

@@ -2,7 +2,7 @@ package com.google.android.gms.games;
 
 import android.os.Parcel;
 import com.google.android.gms.common.data.DataHolder;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class zzq extends zzg implements PlayerRelationshipInfo {
     private final com.google.android.gms.games.internal.player.zzd zza;

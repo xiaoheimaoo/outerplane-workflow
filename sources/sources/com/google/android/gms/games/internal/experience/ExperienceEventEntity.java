@@ -3,12 +3,12 @@ package com.google.android.gms.games.internal.experience;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.games.Game;
 import com.google.android.gms.games.GameEntity;
 import com.google.android.gms.games.internal.zzg;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class ExperienceEventEntity extends zzg implements ExperienceEvent {
     public static final Parcelable.Creator<ExperienceEventEntity> CREATOR = new zza();
@@ -45,7 +45,7 @@ public final class ExperienceEventEntity extends zzg implements ExperienceEvent 
                 return true;
             }
             ExperienceEvent experienceEvent = (ExperienceEvent) obj;
-            return Objects.equal(experienceEvent.zza(), this.zza) && Objects.equal(experienceEvent.zzb(), this.zzb) && Objects.equal(experienceEvent.zzc(), this.zzc) && Objects.equal(experienceEvent.zzd(), this.zzd) && Objects.equal(experienceEvent.getIconImageUrl(), getIconImageUrl()) && Objects.equal(experienceEvent.zze(), this.zzf) && Objects.equal(Long.valueOf(experienceEvent.zzf()), Long.valueOf(this.zzg)) && Objects.equal(Long.valueOf(experienceEvent.zzg()), Long.valueOf(this.zzh)) && Objects.equal(Long.valueOf(experienceEvent.zzh()), Long.valueOf(this.zzi)) && Objects.equal(Integer.valueOf(experienceEvent.zzi()), Integer.valueOf(this.zzj)) && Objects.equal(Integer.valueOf(experienceEvent.zzj()), Integer.valueOf(this.zzk));
+            return Objects.equals(experienceEvent.zza(), this.zza) && Objects.equals(experienceEvent.zzb(), this.zzb) && Objects.equals(experienceEvent.zzc(), this.zzc) && Objects.equals(experienceEvent.zzd(), this.zzd) && Objects.equals(experienceEvent.getIconImageUrl(), getIconImageUrl()) && Objects.equals(experienceEvent.zze(), this.zzf) && Objects.equals(Long.valueOf(experienceEvent.zzf()), Long.valueOf(this.zzg)) && Objects.equals(Long.valueOf(experienceEvent.zzg()), Long.valueOf(this.zzh)) && Objects.equals(Long.valueOf(experienceEvent.zzh()), Long.valueOf(this.zzi)) && Objects.equals(Integer.valueOf(experienceEvent.zzi()), Integer.valueOf(this.zzj)) && Objects.equals(Integer.valueOf(experienceEvent.zzj()), Integer.valueOf(this.zzk));
         }
         return false;
     }
@@ -61,7 +61,7 @@ public final class ExperienceEventEntity extends zzg implements ExperienceEvent 
     }
 
     public final int hashCode() {
-        return Objects.hashCode(this.zza, this.zzb, this.zzc, this.zzd, getIconImageUrl(), this.zzf, Long.valueOf(this.zzg), Long.valueOf(this.zzh), Long.valueOf(this.zzi), Integer.valueOf(this.zzj), Integer.valueOf(this.zzk));
+        return Objects.hash(this.zza, this.zzb, this.zzc, this.zzd, getIconImageUrl(), this.zzf, Long.valueOf(this.zzg), Long.valueOf(this.zzh), Long.valueOf(this.zzi), Integer.valueOf(this.zzj), Integer.valueOf(this.zzk));
     }
 
     @Override // com.google.android.gms.common.data.Freezable
@@ -70,7 +70,7 @@ public final class ExperienceEventEntity extends zzg implements ExperienceEvent 
     }
 
     public final String toString() {
-        return Objects.toStringHelper(this).add("ExperienceId", this.zza).add("Game", this.zzb).add("DisplayTitle", this.zzc).add("DisplayDescription", this.zzd).add("IconImageUrl", getIconImageUrl()).add("IconImageUri", this.zzf).add("CreatedTimestamp", Long.valueOf(this.zzg)).add("XpEarned", Long.valueOf(this.zzh)).add("CurrentXp", Long.valueOf(this.zzi)).add("Type", Integer.valueOf(this.zzj)).add("NewLevel", Integer.valueOf(this.zzk)).toString();
+        return com.google.android.gms.common.internal.Objects.toStringHelper(this).add("ExperienceId", this.zza).add("Game", this.zzb).add("DisplayTitle", this.zzc).add("DisplayDescription", this.zzd).add("IconImageUrl", getIconImageUrl()).add("IconImageUri", this.zzf).add("CreatedTimestamp", Long.valueOf(this.zzg)).add("XpEarned", Long.valueOf(this.zzh)).add("CurrentXp", Long.valueOf(this.zzi)).add("Type", Integer.valueOf(this.zzj)).add("NewLevel", Integer.valueOf(this.zzk)).toString();
     }
 
     @Override // android.os.Parcelable

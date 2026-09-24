@@ -1,12 +1,14 @@
 package com.google.android.gms.internal.games_v2;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+
+import com.google.android.gms.common.api.Status;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes2.dex */
-final class zzfw implements zzfv {
-    private zzfw() {
+public class zzfw extends zzah {
+    public void zzb(zzam zzamVar) {
         throw null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ zzfw(byte[] bArr) {
+    public void zzc(Status status) {
+        throw null;
     }
 }

@@ -2,10 +2,10 @@ package com.google.android.gms.games;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class PlayerLevelInfo extends com.google.android.gms.games.internal.zzg {
     public static final Parcelable.Creator<PlayerLevelInfo> CREATOR = new zzn();
@@ -30,7 +30,7 @@ public final class PlayerLevelInfo extends com.google.android.gms.games.internal
                 return true;
             }
             PlayerLevelInfo playerLevelInfo = (PlayerLevelInfo) obj;
-            return Objects.equal(Long.valueOf(this.zza), Long.valueOf(playerLevelInfo.zza)) && Objects.equal(Long.valueOf(this.zzb), Long.valueOf(playerLevelInfo.zzb)) && Objects.equal(this.zzc, playerLevelInfo.zzc) && Objects.equal(this.zzd, playerLevelInfo.zzd);
+            return Objects.equals(Long.valueOf(this.zza), Long.valueOf(playerLevelInfo.zza)) && Objects.equals(Long.valueOf(this.zzb), Long.valueOf(playerLevelInfo.zzb)) && Objects.equals(this.zzc, playerLevelInfo.zzc) && Objects.equals(this.zzd, playerLevelInfo.zzd);
         }
         return false;
     }
@@ -52,7 +52,7 @@ public final class PlayerLevelInfo extends com.google.android.gms.games.internal
     }
 
     public int hashCode() {
-        return Objects.hashCode(Long.valueOf(this.zza), Long.valueOf(this.zzb), this.zzc, this.zzd);
+        return Objects.hash(Long.valueOf(this.zza), Long.valueOf(this.zzb), this.zzc, this.zzd);
     }
 
     public boolean isMaxLevel() {

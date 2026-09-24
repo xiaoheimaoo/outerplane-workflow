@@ -1,18 +1,29 @@
 package com.google.android.gms.internal.games_v2;
 
-import java.util.ListIterator;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import com.google.firebase.analytics.FirebaseAnalytics;
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes2.dex */
-public abstract class zzha extends zzgz implements ListIterator {
-    @Override // java.util.ListIterator
-    @Deprecated
-    public final void add(Object obj) {
-        throw new UnsupportedOperationException();
+final class zzha extends zzgq {
+    private final transient Object[] zza;
+    private final transient int zzb;
+    private final transient int zzc;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public zzha(Object[] objArr, int i, int i2) {
+        this.zza = objArr;
+        this.zzb = i;
+        this.zzc = i2;
     }
 
-    @Override // java.util.ListIterator
-    @Deprecated
-    public final void set(Object obj) {
-        throw new UnsupportedOperationException();
+    @Override // java.util.List
+    public final Object get(int i) {
+        zzgd.zza(i, this.zzc, FirebaseAnalytics.Param.INDEX);
+        return Objects.requireNonNull(this.zza[i + i + this.zzb]);
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
+    public final int size() {
+        return this.zzc;
     }
 }

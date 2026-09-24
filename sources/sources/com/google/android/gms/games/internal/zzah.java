@@ -1,542 +1,74 @@
 package com.google.android.gms.games.internal;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Looper;
-import android.os.RemoteException;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.Feature;
-import com.google.android.gms.common.GooglePlayServicesUtilLight;
-import com.google.android.gms.common.api.internal.ConnectionCallbacks;
-import com.google.android.gms.common.api.internal.OnConnectionFailedListener;
-import com.google.android.gms.common.data.BitmapTeleporter;
-import com.google.android.gms.common.internal.BaseGmsClient;
-import com.google.android.gms.common.internal.BinderWrapper;
-import com.google.android.gms.common.internal.ClientSettings;
-import com.google.android.gms.common.internal.GmsClient;
-import com.google.android.gms.common.internal.Preconditions;
-import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
+import com.google.android.gms.common.data.DataHolder;
 import com.google.android.gms.drive.Contents;
-import com.google.android.gms.games.FriendsResolutionRequiredException;
-import com.google.android.gms.games.GameEntity;
-import com.google.android.gms.games.GamesClientStatusCodes;
 import com.google.android.gms.games.GamesStatusUtils;
-import com.google.android.gms.games.Player;
-import com.google.android.gms.games.PlayerBuffer;
-import com.google.android.gms.games.PlayerEntity;
-import com.google.android.gms.games.leaderboard.LeaderboardScoreBuffer;
-import com.google.android.gms.games.playergameevent.PlayerGameEvent;
-import com.google.android.gms.games.snapshot.Snapshot;
-import com.google.android.gms.games.snapshot.SnapshotContents;
-import com.google.android.gms.games.snapshot.SnapshotMetadataChange;
-import com.google.android.gms.games.snapshot.SnapshotMetadataChangeEntity;
-import com.google.android.gms.internal.games_v2.zzfu;
-import com.google.android.gms.signin.internal.SignInClientImpl;
+import com.google.android.gms.games.SnapshotsClient;
+import com.google.android.gms.games.snapshot.SnapshotContentsEntity;
+import com.google.android.gms.games.snapshot.SnapshotEntity;
+import com.google.android.gms.games.snapshot.SnapshotMetadataBuffer;
+import com.google.android.gms.games.snapshot.SnapshotMetadataEntity;
 import com.google.android.gms.tasks.TaskCompletionSource;
-import java.util.List;
-import java.util.Set;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* JADX INFO: Access modifiers changed from: package-private */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
-public final class zzah extends GmsClient {
-    public static final /* synthetic */ int zze = 0;
-    private final com.google.android.gms.internal.games_v2.zzac zzf;
-    private final String zzg;
-    private PlayerEntity zzh;
-    private final zzao zzi;
-    private boolean zzj;
-    private final long zzk;
-    private final zzap zzl;
-    private final com.google.android.gms.games.zzi zzm;
-
-    public zzah(Context context, Looper looper, ClientSettings clientSettings, com.google.android.gms.games.zzi zziVar, ConnectionCallbacks connectionCallbacks, OnConnectionFailedListener onConnectionFailedListener, zzap zzapVar) {
-        super(context, looper, 1, clientSettings, connectionCallbacks, onConnectionFailedListener);
-        this.zzf = new zzj(this);
-        this.zzj = false;
-        this.zzg = clientSettings.getRealClientPackageName();
-        this.zzl = (zzap) Preconditions.checkNotNull(zzapVar);
-        zzao zzb = zzao.zzb(this, clientSettings.getGravityForPopups());
-        this.zzi = zzb;
-        this.zzk = hashCode();
-        this.zzm = zziVar;
-        if (clientSettings.getViewForPopups() != null || (context instanceof Activity)) {
-            zzb.zzf(clientSettings.getViewForPopups());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void zzae(RemoteException remoteException) {
-        zzfu.zzf("GamesGmsClientImpl", "service died", remoteException);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void zzaf(SecurityException securityException) {
-        zzfu.zzh("GamesGmsClientImpl", "Is player signed out?", securityException);
-    }
-
-    @Override // com.google.android.gms.common.internal.BaseGmsClient, com.google.android.gms.common.api.Api.Client
-    public final void connect(BaseGmsClient.ConnectionProgressReportCallbacks connectionProgressReportCallbacks) {
-        this.zzh = null;
-        super.connect(connectionProgressReportCallbacks);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.google.android.gms.common.internal.BaseGmsClient
-    public final /* synthetic */ IInterface createServiceInterface(IBinder iBinder) {
-        if (iBinder == null) {
-            return null;
-        }
-        IInterface queryLocalInterface = iBinder.queryLocalInterface("com.google.android.gms.games.internal.IGamesService");
-        return queryLocalInterface instanceof zzan ? (zzan) queryLocalInterface : new zzam(iBinder);
-    }
-
-    @Override // com.google.android.gms.common.internal.BaseGmsClient, com.google.android.gms.common.api.Api.Client
-    public final void disconnect() {
-        this.zzj = false;
-        if (isConnected()) {
-            try {
-                this.zzf.zzb();
-                ((zzan) getService()).zzd(this.zzk);
-            } catch (RemoteException unused) {
-                zzfu.zze("GamesGmsClientImpl", "Failed to notify client disconnect.");
-            }
-        }
-        super.disconnect();
-    }
-
-    @Override // com.google.android.gms.common.internal.BaseGmsClient
-    public final Feature[] getApiFeatures() {
-        return com.google.android.gms.games.zzd.zzm;
-    }
-
-    @Override // com.google.android.gms.common.internal.BaseGmsClient
-    public final Bundle getConnectionHint() {
-        return null;
-    }
-
-    @Override // com.google.android.gms.common.internal.BaseGmsClient
-    protected final Bundle getGetServiceRequestExtraArgs() {
-        String locale = getContext().getResources().getConfiguration().locale.toString();
-        Bundle bundle = new Bundle();
-        bundle.putBoolean("com.google.android.gms.games.key.isHeadless", false);
-        com.google.android.gms.games.zzi zziVar = this.zzm;
-        boolean z = zziVar.zzb;
-        bundle.putBoolean("com.google.android.gms.games.key.showConnectingPopup", true);
-        int i = zziVar.zzc;
-        bundle.putInt("com.google.android.gms.games.key.connectingPopupGravity", 17);
-        bundle.putBoolean("com.google.android.gms.games.key.retryingSignIn", false);
-        bundle.putInt("com.google.android.gms.games.key.sdkVariant", zziVar.zze);
-        bundle.putString("com.google.android.gms.games.key.forceResolveAccountKey", null);
-        bundle.putStringArrayList("com.google.android.gms.games.key.proxyApis", zziVar.zzg);
-        bundle.putBoolean("com.google.android.gms.games.key.unauthenticated", false);
-        bundle.putBoolean("com.google.android.gms.games.key.skipPgaCheck", false);
-        bundle.putBoolean("com.google.android.gms.games.key.skipWelcomePopup", false);
-        bundle.putString("com.google.android.gms.games.key.realClientPackageName", null);
-        int i2 = zziVar.zzl;
-        bundle.putInt("com.google.android.gms.games.key.API_VERSION", 9);
-        bundle.putString("com.google.android.gms.games.key.gameRunToken", zziVar.zzm);
-        bundle.putBoolean("com.google.android.gms.games.key.isGmsCoreUiInitiatedRequest", false);
-        bundle.putString(ServiceSpecificExtraArgs.GamesExtraArgs.GAME_PACKAGE_NAME, this.zzg);
-        bundle.putString(ServiceSpecificExtraArgs.GamesExtraArgs.DESIRED_LOCALE, locale);
-        bundle.putParcelable(ServiceSpecificExtraArgs.GamesExtraArgs.WINDOW_TOKEN, new BinderWrapper(this.zzi.zzd()));
-        if (!bundle.containsKey("com.google.android.gms.games.key.API_VERSION")) {
-            bundle.putInt("com.google.android.gms.games.key.API_VERSION", 9);
-        }
-        bundle.putBundle(ServiceSpecificExtraArgs.GamesExtraArgs.SIGNIN_OPTIONS, SignInClientImpl.createBundleFromClientSettings(getClientSettings()));
-        return bundle;
-    }
-
-    @Override // com.google.android.gms.common.internal.BaseGmsClient, com.google.android.gms.common.api.Api.Client
-    public final int getMinApkVersion() {
-        return GooglePlayServicesUtilLight.GOOGLE_PLAY_SERVICES_VERSION_CODE;
-    }
-
-    @Override // com.google.android.gms.common.internal.GmsClient, com.google.android.gms.common.api.Api.Client
-    public final Set getScopesForConnectionlessNonSignIn() {
-        return getScopes();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.google.android.gms.common.internal.BaseGmsClient
-    public final String getServiceDescriptor() {
-        return "com.google.android.gms.games.internal.IGamesService";
-    }
-
-    @Override // com.google.android.gms.common.internal.BaseGmsClient
-    protected final String getStartServiceAction() {
-        return "com.google.android.gms.games.service.START";
-    }
-
-    @Override // com.google.android.gms.common.internal.BaseGmsClient
-    public final /* bridge */ /* synthetic */ void onConnectedLocked(IInterface iInterface) {
-        zzan zzanVar = (zzan) iInterface;
-        super.onConnectedLocked(zzanVar);
-        if (this.zzj) {
-            this.zzi.zzg();
-            this.zzj = false;
-        }
-        try {
-            zzanVar.zzM(new zzk(new com.google.android.gms.internal.games_v2.zzaf(this.zzi.zze())), this.zzk);
-        } catch (RemoteException e) {
-            zzae(e);
-        }
-    }
-
-    @Override // com.google.android.gms.common.internal.BaseGmsClient
-    public final void onConnectionFailed(ConnectionResult connectionResult) {
-        super.onConnectionFailed(connectionResult);
-        this.zzj = false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.google.android.gms.common.internal.BaseGmsClient
-    public final void onPostInitHandler(int i, IBinder iBinder, Bundle bundle, int i2) {
-        if (i == 0) {
-            i = 0;
-            if (bundle != null) {
-                bundle.setClassLoader(zzah.class.getClassLoader());
-                this.zzj = bundle.getBoolean("show_welcome_popup");
-                this.zzh = (PlayerEntity) bundle.getParcelable("com.google.android.gms.games.current_player");
-                GameEntity gameEntity = (GameEntity) bundle.getParcelable("com.google.android.gms.games.current_game");
-            }
-        }
-        super.onPostInitHandler(i, iBinder, bundle, i2);
-    }
-
-    @Override // com.google.android.gms.common.internal.BaseGmsClient, com.google.android.gms.common.api.Api.Client
-    public final void onUserSignOut(BaseGmsClient.SignOutCallbacks signOutCallbacks) {
-        try {
-            zzl zzlVar = new zzl(signOutCallbacks);
-            this.zzf.zzb();
-            try {
-                ((zzan) getService()).zze(new zzm(zzlVar));
-            } catch (SecurityException unused) {
-                zzlVar.setFailedResult(GamesClientStatusCodes.zza(4));
-            }
-        } catch (RemoteException unused2) {
-            signOutCallbacks.onSignOutComplete();
-        }
-    }
-
-    @Override // com.google.android.gms.common.internal.BaseGmsClient, com.google.android.gms.common.api.Api.Client
-    public final boolean requiresAccount() {
-        return true;
-    }
-
-    @Override // com.google.android.gms.common.internal.BaseGmsClient, com.google.android.gms.common.api.Api.Client
-    public final boolean requiresSignIn() {
-        return !this.zzm.zzn.zzc();
-    }
-
-    @Override // com.google.android.gms.common.internal.BaseGmsClient
-    public final boolean usesClientTelemetry() {
-        return true;
-    }
-
-    public final void zzA(TaskCompletionSource taskCompletionSource, String str, boolean z) throws RemoteException {
-        try {
-            ((zzan) getService()).zzr(new zzw(taskCompletionSource), str, z);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzB(TaskCompletionSource taskCompletionSource, String str, int i, int i2) throws RemoteException {
-        try {
-            ((zzan) getService()).zzu(new zzx(this, taskCompletionSource), null, str, i, i2);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzC(TaskCompletionSource taskCompletionSource, String str, int i, int i2, int i3, boolean z) throws RemoteException {
-        try {
-            ((zzan) getService()).zzj(new zzy(this, taskCompletionSource), str, i, i2, i3, z);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzD(TaskCompletionSource taskCompletionSource, String str, int i, int i2, int i3, boolean z) throws RemoteException {
-        try {
-            ((zzan) getService()).zzk(new zzy(this, taskCompletionSource), str, i, i2, i3, z);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzE(TaskCompletionSource taskCompletionSource, LeaderboardScoreBuffer leaderboardScoreBuffer, int i, int i2) throws RemoteException {
-        try {
-            ((zzan) getService()).zzl(new zzy(this, taskCompletionSource), leaderboardScoreBuffer.zza().zza(), i, i2);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzF(TaskCompletionSource taskCompletionSource, String str, long j, String str2) throws RemoteException {
-        try {
-            ((zzan) getService()).zzs(new zzaf(taskCompletionSource), str, j, str2);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzG(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
-        try {
-            ((zzan) getService()).zzp(new zzp(taskCompletionSource), z);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzL(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
-        this.zzf.zzb();
-        try {
-            ((zzan) getService()).zzH(new zzs(taskCompletionSource), z);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzM(TaskCompletionSource taskCompletionSource, boolean z, String... strArr) throws RemoteException {
-        this.zzf.zzb();
-        try {
-            ((zzan) getService()).zzI(new zzs(taskCompletionSource), z, strArr);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzN(String str, int i) {
-        this.zzf.zzc(str, i);
-    }
-
-    public final void zzO(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
-        try {
-            ((zzan) getService()).zzO(new zzab(taskCompletionSource), z);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzP(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
-        try {
-            ((zzan) getService()).zzA(new zzaa(taskCompletionSource), z);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzQ(TaskCompletionSource taskCompletionSource, String str, boolean z, int i) throws RemoteException {
-        try {
-            ((zzan) getService()).zzL(new zzag(taskCompletionSource), str, z, i);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzR(TaskCompletionSource taskCompletionSource, Snapshot snapshot, SnapshotMetadataChange snapshotMetadataChange) throws RemoteException {
-        SnapshotContents snapshotContents = snapshot.getSnapshotContents();
-        Preconditions.checkState(!snapshotContents.isClosed(), "Snapshot already closed");
-        BitmapTeleporter zza = snapshotMetadataChange.zza();
-        if (zza != null) {
-            zza.setTempDir(getContext().getCacheDir());
-        }
-        Contents zza2 = snapshotContents.zza();
-        snapshotContents.zzb();
-        try {
-            ((zzan) getService()).zzB(new zzq(taskCompletionSource), snapshot.getMetadata().getSnapshotId(), (SnapshotMetadataChangeEntity) snapshotMetadataChange, zza2);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzS(TaskCompletionSource taskCompletionSource, String str) throws RemoteException {
-        try {
-            ((zzan) getService()).zzD(new zzr(taskCompletionSource), str);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzT(TaskCompletionSource taskCompletionSource, String str, String str2, SnapshotMetadataChange snapshotMetadataChange, SnapshotContents snapshotContents) throws RemoteException {
-        Preconditions.checkState(!snapshotContents.isClosed(), "SnapshotContents already closed");
-        BitmapTeleporter zza = snapshotMetadataChange.zza();
-        if (zza != null) {
-            zza.setTempDir(getContext().getCacheDir());
-        }
-        Contents zza2 = snapshotContents.zza();
-        snapshotContents.zzb();
-        try {
-            ((zzan) getService()).zzE(new zzag(taskCompletionSource), str, str2, (SnapshotMetadataChangeEntity) snapshotMetadataChange, zza2);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
+public final class zzah extends zza {
+    private final TaskCompletionSource zza;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void zzU(IBinder iBinder, Bundle bundle) {
-        if (isConnected()) {
-            if (this.zzm.zzn.zzb() && this.zzl.zzb()) {
+    public zzah(TaskCompletionSource taskCompletionSource) {
+        this.zza = taskCompletionSource;
+    }
+
+    @Override // com.google.android.gms.games.internal.zza, com.google.android.gms.games.internal.zzak
+    public final void zzm(DataHolder dataHolder, Contents contents) {
+        int statusCode = dataHolder.getStatusCode();
+        SnapshotMetadataBuffer snapshotMetadataBuffer = new SnapshotMetadataBuffer(dataHolder);
+        try {
+            SnapshotEntity snapshotEntity = snapshotMetadataBuffer.getCount() > 0 ? new SnapshotEntity(new SnapshotMetadataEntity(snapshotMetadataBuffer.get(0)), new SnapshotContentsEntity(contents)) : null;
+            snapshotMetadataBuffer.close();
+            if (statusCode == 0) {
+                this.zza.trySetResult(new SnapshotsClient.DataOrConflict(snapshotEntity, null));
                 return;
             }
-            try {
-                ((zzan) getService()).zzf(iBinder, bundle);
-                this.zzl.zzc();
-            } catch (RemoteException e) {
-                zzae(e);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void zzV() {
-        if (isConnected()) {
-            try {
-                ((zzan) getService()).zzg();
-            } catch (RemoteException e) {
-                zzae(e);
-            }
-        }
-    }
-
-    public final void zzW(TaskCompletionSource taskCompletionSource, String str, boolean z) throws RemoteException {
-        ((zzan) getService()).zzS(new zzu(taskCompletionSource), str, z);
-    }
-
-    public final void zzX(TaskCompletionSource taskCompletionSource, String str, boolean z, List list) throws RemoteException {
-        ((zzan) getService()).zzT(new zzv(taskCompletionSource), str, z, list);
-    }
-
-    public final void zzY(PlayerGameEvent playerGameEvent) throws RemoteException {
-        try {
-            ((zzan) getService()).zzU(playerGameEvent);
-        } catch (SecurityException e) {
-            zzaf(e);
-        }
-    }
-
-    public final void zzZ(List list) throws RemoteException {
-        try {
-            ((zzan) getService()).zzV(list);
-        } catch (SecurityException e) {
-            zzaf(e);
-        }
-    }
-
-    public final void zzaa() throws RemoteException {
-        try {
-            ((zzan) getService()).zzW();
-        } catch (SecurityException e) {
-            zzaf(e);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final /* synthetic */ void zzab(TaskCompletionSource taskCompletionSource) {
-        try {
-            taskCompletionSource.setException(FriendsResolutionRequiredException.zza(GamesClientStatusCodes.zzb(GamesClientStatusCodes.CONSENT_REQUIRED, ((zzan) getService()).zzQ())));
-        } catch (RemoteException e) {
-            taskCompletionSource.setException(e);
-        }
-    }
-
-    public final void zzu(zzf zzfVar) {
-        zzfVar.zzc(this.zzi);
-    }
-
-    public final Player zzv() throws RemoteException {
-        checkConnected();
-        synchronized (this) {
-            if (this.zzh == null) {
-                PlayerBuffer playerBuffer = new PlayerBuffer(((zzan) getService()).zzi());
-                if (playerBuffer.getCount() > 0) {
-                    PlayerEntity playerEntity = new PlayerEntity(playerBuffer.get(0));
-                    PlayerEntity playerEntity2 = playerEntity;
-                    this.zzh = playerEntity;
+            if (statusCode == 4002) {
+                if (snapshotEntity != null && snapshotEntity.getMetadata() != null) {
+                    this.zza.trySetException(new SnapshotsClient.SnapshotContentUnavailableApiException(com.google.android.gms.games.zzj.zza(4002), snapshotEntity.getMetadata()));
+                    return;
                 }
-                playerBuffer.release();
+                statusCode = 4002;
             }
-        }
-        return this.zzh;
-    }
-
-    public final void zzw(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
-        try {
-            ((zzan) getService()).zzK(new zzad(taskCompletionSource), null, z);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzx(TaskCompletionSource taskCompletionSource, String str, boolean z) throws RemoteException {
-        try {
-            ((zzan) getService()).zzK(new zzad(taskCompletionSource), str, z);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
+            GamesStatusUtils.zzb(this.zza, statusCode);
+        } catch (Throwable th) {
+            try {
+                snapshotMetadataBuffer.close();
+            } catch (Throwable th2) {
+                th.addSuppressed(th2);
+            }
+            throw th;
         }
     }
 
-    public final void zzy(TaskCompletionSource taskCompletionSource, String str, int i, boolean z, boolean z2) throws RemoteException {
-        if (!str.equals("played_with") && !str.equals("friends_all")) {
-            throw new IllegalArgumentException("Invalid player collection: ".concat(str));
-        }
+    @Override // com.google.android.gms.games.internal.zza, com.google.android.gms.games.internal.zzak
+    public final void zzn(DataHolder dataHolder, String str, Contents contents, Contents contents2, Contents contents3) {
+        SnapshotMetadataBuffer snapshotMetadataBuffer = new SnapshotMetadataBuffer(dataHolder);
         try {
-            ((zzan) getService()).zzy(new zzac(this, taskCompletionSource), str, i, z, z2);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzz(TaskCompletionSource taskCompletionSource, boolean z) throws RemoteException {
-        try {
-            ((zzan) getService()).zzq(new zzz(taskCompletionSource), z);
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzH(TaskCompletionSource taskCompletionSource, String str) throws RemoteException {
-        zzo zzoVar = taskCompletionSource == null ? null : new zzo(taskCompletionSource);
-        try {
-            zzao zzaoVar = this.zzi;
-            ((zzan) getService()).zzm(zzoVar, str, zzaoVar.zzd(), zzaoVar.zzc());
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzI(TaskCompletionSource taskCompletionSource, String str) throws RemoteException {
-        zzo zzoVar = taskCompletionSource == null ? null : new zzo(taskCompletionSource);
-        try {
-            zzao zzaoVar = this.zzi;
-            ((zzan) getService()).zzn(zzoVar, str, zzaoVar.zzd(), zzaoVar.zzc());
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzJ(TaskCompletionSource taskCompletionSource, String str, int i) throws RemoteException {
-        zzn zznVar = taskCompletionSource == null ? null : new zzn(taskCompletionSource);
-        try {
-            zzan zzanVar = (zzan) getService();
-            zzao zzaoVar = this.zzi;
-            zzanVar.zzo(zznVar, str, i, zzaoVar.zzd(), zzaoVar.zzc());
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
-        }
-    }
-
-    public final void zzK(TaskCompletionSource taskCompletionSource, String str, int i) throws RemoteException {
-        zzn zznVar = taskCompletionSource == null ? null : new zzn(taskCompletionSource);
-        try {
-            zzan zzanVar = (zzan) getService();
-            zzao zzaoVar = this.zzi;
-            zzanVar.zzt(zznVar, str, i, zzaoVar.zzd(), zzaoVar.zzc());
-        } catch (SecurityException e) {
-            GamesStatusUtils.zza(taskCompletionSource, e);
+            if (snapshotMetadataBuffer.getCount() >= 2 && str != null && contents3 != null) {
+                SnapshotEntity snapshotEntity = new SnapshotEntity(new SnapshotMetadataEntity(snapshotMetadataBuffer.get(0)), new SnapshotContentsEntity(contents));
+                SnapshotEntity snapshotEntity2 = new SnapshotEntity(new SnapshotMetadataEntity(snapshotMetadataBuffer.get(1)), new SnapshotContentsEntity(contents2));
+                snapshotMetadataBuffer.close();
+                this.zza.trySetResult(new SnapshotsClient.DataOrConflict(null, new SnapshotsClient.SnapshotConflict(snapshotEntity, str, snapshotEntity2, new SnapshotContentsEntity(contents3))));
+                return;
+            }
+            this.zza.trySetResult(null);
+            snapshotMetadataBuffer.close();
+        } catch (Throwable th) {
+            try {
+                snapshotMetadataBuffer.close();
+            } catch (Throwable th2) {
+                th.addSuppressed(th2);
+            }
+            throw th;
         }
     }
 }

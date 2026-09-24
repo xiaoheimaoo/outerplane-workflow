@@ -1,19 +1,35 @@
 package com.google.android.gms.games.internal;
 
-import com.google.android.gms.common.api.internal.BaseImplementation;
-import com.google.android.gms.common.internal.Preconditions;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import com.google.android.gms.common.data.DataHolder;
+import com.google.android.gms.games.AnnotatedData;
+import com.google.android.gms.games.GamesStatusUtils;
+import com.google.android.gms.games.PlayerBuffer;
+import com.google.android.gms.games.PlayerEntity;
+import com.google.android.gms.tasks.TaskCompletionSource;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
-class zzae extends zza {
-    private final BaseImplementation.ResultHolder zza;
+public final class zzae extends zza {
+    private final TaskCompletionSource zza;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public zzae(BaseImplementation.ResultHolder resultHolder) {
-        this.zza = (BaseImplementation.ResultHolder) Preconditions.checkNotNull(resultHolder, "Holder must not be null");
+    public zzae(TaskCompletionSource taskCompletionSource) {
+        this.zza = taskCompletionSource;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void zzt(Object obj) {
-        this.zza.setResult(obj);
+    @Override // com.google.android.gms.games.internal.zza, com.google.android.gms.games.internal.zzak
+    public final void zzh(DataHolder dataHolder) {
+        int statusCode = dataHolder.getStatusCode();
+        if (statusCode == 0 || statusCode == 3) {
+            PlayerBuffer playerBuffer = new PlayerBuffer(dataHolder);
+            try {
+                this.zza.trySetResult(new AnnotatedData(playerBuffer.getCount() > 0 ? new PlayerEntity(playerBuffer.get(0)) : null, statusCode == 3));
+                return;
+            } finally {
+                playerBuffer.release();
+            }
+        }
+        GamesStatusUtils.zzb(this.zza, statusCode);
+        dataHolder.close();
     }
 }

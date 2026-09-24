@@ -1,7 +1,7 @@
 package com.google.android.gms.games;
 
 import com.google.android.gms.common.Feature;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class zzd {
     public static final Feature zza;
@@ -39,7 +39,7 @@ public final class zzd {
         zzi = feature9;
         Feature feature10 = new Feature("games_player_game_events", 1L, true);
         zzj = feature10;
-        Feature feature11 = new Feature("games_player_game_events_immediate", 1L, false);
+        Feature feature11 = new Feature("games_player_game_events_immediate", 1L, true);
         zzk = feature11;
         Feature feature12 = new Feature("games_rewards_internal", 1L, false);
         zzl = feature12;

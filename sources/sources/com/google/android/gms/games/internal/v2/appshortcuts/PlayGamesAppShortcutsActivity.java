@@ -12,14 +12,14 @@ import android.os.PersistableBundle;
 import android.util.Log;
 import com.google.android.gms.common.api.internal.RemoteCall;
 import com.google.android.gms.common.api.internal.TaskApiCall;
-import com.google.android.gms.internal.games_v2.zzfy;
-import com.google.android.gms.internal.games_v2.zzgj;
-import com.google.android.gms.internal.games_v2.zzgm;
+import com.google.android.gms.internal.games_v2.zzgc;
+import com.google.android.gms.internal.games_v2.zzgn;
+import com.google.android.gms.internal.games_v2.zzgq;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskCompletionSource;
 import java.util.List;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class PlayGamesAppShortcutsActivity extends Activity {
     private Intent zza;
@@ -31,7 +31,7 @@ public final class PlayGamesAppShortcutsActivity extends Activity {
             return;
         }
         if (i2 == -1) {
-            new zzfy(Looper.getMainLooper()).postDelayed(new Runnable() { // from class: com.google.android.gms.games.internal.v2.appshortcuts.zzy
+            new zzgc(Looper.getMainLooper()).postDelayed(new Runnable() { // from class: com.google.android.gms.games.internal.v2.appshortcuts.zzy
                 @Override // java.lang.Runnable
                 public final /* synthetic */ void run() {
                     PlayGamesAppShortcutsActivity.this.zza();
@@ -59,24 +59,23 @@ public final class PlayGamesAppShortcutsActivity extends Activity {
         String zzb = zza.zzb();
         if (zzb == null || zzb.isEmpty()) {
             List<ResolveInfo> queryIntentActivities = getPackageManager().queryIntentActivities(new Intent("android.intent.action.MAIN").addCategory("android.intent.category.LAUNCHER").setPackage(getPackageName()), 795136);
-            int i = zzgm.zzd;
-            zzgj zzgjVar = new zzgj();
+            zzgn zzgnVar = new zzgn();
             for (ResolveInfo resolveInfo : queryIntentActivities) {
                 ActivityInfo activityInfo = resolveInfo.activityInfo;
                 if ((activityInfo != null && ((componentEnabledSetting = getPackageManager().getComponentEnabledSetting(new ComponentName(activityInfo.packageName, activityInfo.name))) != 0 ? componentEnabledSetting == 1 : activityInfo.enabled)) && resolveInfo.activityInfo.exported) {
-                    zzgjVar.zzb(resolveInfo);
+                    zzgnVar.zzb(resolveInfo);
                 }
             }
-            zzgm zzc = zzgjVar.zzc();
+            zzgq zzc = zzgnVar.zzc();
             int size = zzc.size();
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                if (i2 >= size) {
+                if (i >= size) {
                     zzb = null;
                     break;
                 }
-                ActivityInfo activityInfo2 = ((ResolveInfo) zzc.get(i2)).activityInfo;
-                i2++;
+                ActivityInfo activityInfo2 = ((ResolveInfo) zzc.get(i)).activityInfo;
+                i++;
                 if (activityInfo2 != null) {
                     zzb = activityInfo2.name;
                     break;

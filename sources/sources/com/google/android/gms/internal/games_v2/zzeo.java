@@ -1,28 +1,32 @@
 package com.google.android.gms.internal.games_v2;
 
-import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.games.RecallAccess;
+import com.google.android.gms.common.api.GoogleApi;
+import com.google.android.gms.common.api.internal.RemoteCall;
+import com.google.android.gms.common.api.internal.TaskApiCall;
+import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskCompletionSource;
-import java.util.Objects;
-/* compiled from: com.google.android.gms:play-services-games-v2@@21.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes2.dex */
-final class zzeo extends zzfl {
-    final /* synthetic */ TaskCompletionSource zza;
+final /* synthetic */ class zzeo implements zzap {
+    private final /* synthetic */ String zza;
+    private final /* synthetic */ boolean zzb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public zzeo(zzer zzerVar, TaskCompletionSource taskCompletionSource) {
-        this.zza = taskCompletionSource;
-        Objects.requireNonNull(zzerVar);
+    public /* synthetic */ zzeo(String str, boolean z) {
+        this.zza = str;
+        this.zzb = z;
     }
 
-    @Override // com.google.android.gms.internal.games_v2.zzfl, com.google.android.gms.internal.games_v2.zzai
-    public final void zzb(zzam zzamVar) {
-        this.zza.setResult(RecallAccess.zza(zzamVar));
-    }
-
-    @Override // com.google.android.gms.internal.games_v2.zzfl, com.google.android.gms.internal.games_v2.zzai
-    public final void zzc(Status status) {
-        this.zza.setException(new ApiException(status));
+    @Override // com.google.android.gms.internal.games_v2.zzap
+    public final /* synthetic */ Task zza(GoogleApi googleApi) {
+        TaskApiCall.Builder builder = TaskApiCall.builder();
+        final String str = this.zza;
+        final boolean z = this.zzb;
+        return googleApi.doRead(builder.run(new RemoteCall() { // from class: com.google.android.gms.internal.games_v2.zzej
+            @Override // com.google.android.gms.common.api.internal.RemoteCall
+            public final /* synthetic */ void accept(Object obj, Object obj2) {
+                ((com.google.android.gms.games.internal.zzai) obj).zzt((TaskCompletionSource) obj2, str, z);
+            }
+        }).setMethodKey(6711).build());
     }
 }

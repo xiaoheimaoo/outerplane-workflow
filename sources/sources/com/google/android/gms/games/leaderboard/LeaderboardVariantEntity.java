@@ -3,7 +3,8 @@ package com.google.android.gms.games.leaderboard;
 import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.fido.fido2.api.common.DevicePublicKeyStringDef;
 import com.google.android.gms.internal.games_v2.zzz;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class LeaderboardVariantEntity implements LeaderboardVariant {
     private final int zza;
@@ -36,7 +37,7 @@ public final class LeaderboardVariantEntity implements LeaderboardVariant {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int zzd(LeaderboardVariant leaderboardVariant) {
-        return Objects.hashCode(Integer.valueOf(leaderboardVariant.getTimeSpan()), Integer.valueOf(leaderboardVariant.getCollection()), Boolean.valueOf(leaderboardVariant.hasPlayerInfo()), Long.valueOf(leaderboardVariant.getRawPlayerScore()), leaderboardVariant.getDisplayPlayerScore(), Long.valueOf(leaderboardVariant.getPlayerRank()), leaderboardVariant.getDisplayPlayerRank(), Long.valueOf(leaderboardVariant.getNumScores()), leaderboardVariant.zza(), leaderboardVariant.zzc(), leaderboardVariant.zzb());
+        return Objects.hash(Integer.valueOf(leaderboardVariant.getTimeSpan()), Integer.valueOf(leaderboardVariant.getCollection()), Boolean.valueOf(leaderboardVariant.hasPlayerInfo()), Long.valueOf(leaderboardVariant.getRawPlayerScore()), leaderboardVariant.getDisplayPlayerScore(), Long.valueOf(leaderboardVariant.getPlayerRank()), leaderboardVariant.getDisplayPlayerRank(), Long.valueOf(leaderboardVariant.getNumScores()), leaderboardVariant.zza(), leaderboardVariant.zzc(), leaderboardVariant.zzb());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -46,7 +47,7 @@ public final class LeaderboardVariantEntity implements LeaderboardVariant {
                 return true;
             }
             LeaderboardVariant leaderboardVariant2 = (LeaderboardVariant) obj;
-            return Objects.equal(Integer.valueOf(leaderboardVariant2.getTimeSpan()), Integer.valueOf(leaderboardVariant.getTimeSpan())) && Objects.equal(Integer.valueOf(leaderboardVariant2.getCollection()), Integer.valueOf(leaderboardVariant.getCollection())) && Objects.equal(Boolean.valueOf(leaderboardVariant2.hasPlayerInfo()), Boolean.valueOf(leaderboardVariant.hasPlayerInfo())) && Objects.equal(Long.valueOf(leaderboardVariant2.getRawPlayerScore()), Long.valueOf(leaderboardVariant.getRawPlayerScore())) && Objects.equal(leaderboardVariant2.getDisplayPlayerScore(), leaderboardVariant.getDisplayPlayerScore()) && Objects.equal(Long.valueOf(leaderboardVariant2.getPlayerRank()), Long.valueOf(leaderboardVariant.getPlayerRank())) && Objects.equal(leaderboardVariant2.getDisplayPlayerRank(), leaderboardVariant.getDisplayPlayerRank()) && Objects.equal(Long.valueOf(leaderboardVariant2.getNumScores()), Long.valueOf(leaderboardVariant.getNumScores())) && Objects.equal(leaderboardVariant2.zza(), leaderboardVariant.zza()) && Objects.equal(leaderboardVariant2.zzc(), leaderboardVariant.zzc()) && Objects.equal(leaderboardVariant2.zzb(), leaderboardVariant.zzb());
+            return Objects.equals(Integer.valueOf(leaderboardVariant2.getTimeSpan()), Integer.valueOf(leaderboardVariant.getTimeSpan())) && Objects.equals(Integer.valueOf(leaderboardVariant2.getCollection()), Integer.valueOf(leaderboardVariant.getCollection())) && Objects.equals(Boolean.valueOf(leaderboardVariant2.hasPlayerInfo()), Boolean.valueOf(leaderboardVariant.hasPlayerInfo())) && Objects.equals(Long.valueOf(leaderboardVariant2.getRawPlayerScore()), Long.valueOf(leaderboardVariant.getRawPlayerScore())) && Objects.equals(leaderboardVariant2.getDisplayPlayerScore(), leaderboardVariant.getDisplayPlayerScore()) && Objects.equals(Long.valueOf(leaderboardVariant2.getPlayerRank()), Long.valueOf(leaderboardVariant.getPlayerRank())) && Objects.equals(leaderboardVariant2.getDisplayPlayerRank(), leaderboardVariant.getDisplayPlayerRank()) && Objects.equals(Long.valueOf(leaderboardVariant2.getNumScores()), Long.valueOf(leaderboardVariant.getNumScores())) && Objects.equals(leaderboardVariant2.zza(), leaderboardVariant.zza()) && Objects.equals(leaderboardVariant2.zzc(), leaderboardVariant.zzc()) && Objects.equals(leaderboardVariant2.zzb(), leaderboardVariant.zzb());
         }
         return false;
     }
@@ -54,7 +55,7 @@ public final class LeaderboardVariantEntity implements LeaderboardVariant {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String zzf(LeaderboardVariant leaderboardVariant) {
         String str;
-        Objects.ToStringHelper add = Objects.toStringHelper(leaderboardVariant).add("TimeSpan", zzz.zza(leaderboardVariant.getTimeSpan()));
+        Objects.ToStringHelper add = com.google.android.gms.common.internal.Objects.toStringHelper(leaderboardVariant).add("TimeSpan", zzz.zza(leaderboardVariant.getTimeSpan()));
         int collection = leaderboardVariant.getCollection();
         if (collection == -1) {
             str = "UNKNOWN";

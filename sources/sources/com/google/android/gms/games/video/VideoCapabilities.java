@@ -2,11 +2,12 @@ package com.google.android.gms.games.video;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.games.internal.zzg;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Arrays;
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class VideoCapabilities extends zzg {
     public static final Parcelable.Creator<VideoCapabilities> CREATOR = new zza();
@@ -30,7 +31,7 @@ public final class VideoCapabilities extends zzg {
                 return true;
             }
             VideoCapabilities videoCapabilities = (VideoCapabilities) obj;
-            return Objects.equal(videoCapabilities.getSupportedCaptureModes(), getSupportedCaptureModes()) && Objects.equal(videoCapabilities.getSupportedQualityLevels(), getSupportedQualityLevels()) && Objects.equal(Boolean.valueOf(videoCapabilities.isCameraSupported()), Boolean.valueOf(isCameraSupported())) && Objects.equal(Boolean.valueOf(videoCapabilities.isMicSupported()), Boolean.valueOf(isMicSupported())) && Objects.equal(Boolean.valueOf(videoCapabilities.isWriteStorageSupported()), Boolean.valueOf(isWriteStorageSupported()));
+            return Arrays.equals(videoCapabilities.getSupportedCaptureModes(), getSupportedCaptureModes()) && Arrays.equals(videoCapabilities.getSupportedQualityLevels(), getSupportedQualityLevels()) && videoCapabilities.isCameraSupported() == isCameraSupported() && videoCapabilities.isMicSupported() == isMicSupported() && videoCapabilities.isWriteStorageSupported() == isWriteStorageSupported();
         }
         return false;
     }
@@ -44,7 +45,7 @@ public final class VideoCapabilities extends zzg {
     }
 
     public int hashCode() {
-        return Objects.hashCode(getSupportedCaptureModes(), getSupportedQualityLevels(), Boolean.valueOf(isCameraSupported()), Boolean.valueOf(isMicSupported()), Boolean.valueOf(isWriteStorageSupported()));
+        return Objects.hash(Integer.valueOf(Arrays.hashCode(getSupportedCaptureModes())), Integer.valueOf(Arrays.hashCode(getSupportedQualityLevels())), Boolean.valueOf(isCameraSupported()), Boolean.valueOf(isMicSupported()), Boolean.valueOf(isWriteStorageSupported()));
     }
 
     public boolean isCameraSupported() {
@@ -74,7 +75,7 @@ public final class VideoCapabilities extends zzg {
     }
 
     public String toString() {
-        return Objects.toStringHelper(this).add("SupportedCaptureModes", getSupportedCaptureModes()).add("SupportedQualityLevels", getSupportedQualityLevels()).add("CameraSupported", Boolean.valueOf(isCameraSupported())).add("MicSupported", Boolean.valueOf(isMicSupported())).add("StorageWriteSupported", Boolean.valueOf(isWriteStorageSupported())).toString();
+        return com.google.android.gms.common.internal.Objects.toStringHelper(this).add("SupportedCaptureModes", getSupportedCaptureModes()).add("SupportedQualityLevels", getSupportedQualityLevels()).add("CameraSupported", Boolean.valueOf(isCameraSupported())).add("MicSupported", Boolean.valueOf(isMicSupported())).add("StorageWriteSupported", Boolean.valueOf(isWriteStorageSupported())).toString();
     }
 
     @Override // android.os.Parcelable

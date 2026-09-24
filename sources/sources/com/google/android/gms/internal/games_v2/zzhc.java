@@ -1,10 +1,18 @@
 package com.google.android.gms.internal.games_v2;
 
-import java.util.concurrent.Executor;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Iterator;
+import java.util.Set;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes2.dex */
 public final class zzhc {
-    public static Executor zza() {
-        return zzhb.INSTANCE;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static int zza(Set set) {
+        Iterator it = set.iterator();
+        int i = 0;
+        while (it.hasNext()) {
+            Object next = it.next();
+            i += next != null ? next.hashCode() : 0;
+        }
+        return i;
     }
 }

@@ -1,24 +1,49 @@
 package com.google.android.gms.games.internal;
 
-import android.os.Parcel;
+import android.os.IInterface;
 import android.os.RemoteException;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.common.data.DataHolder;
+import com.google.android.gms.drive.Contents;
+import java.util.List;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
-public abstract class zzak extends com.google.android.gms.internal.games_v2.zzb implements zzal {
-    public zzak() {
-        super("com.google.android.gms.games.internal.IGamesClient");
-    }
+public interface zzak extends IInterface {
+    void zzb(DataHolder dataHolder) throws RemoteException;
 
-    @Override // com.google.android.gms.internal.games_v2.zzb
-    protected final boolean zza(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-        if (i == 1001) {
-            com.google.android.gms.internal.games_v2.zzaf zzb = zzb();
-            parcel2.writeNoException();
-            int i3 = com.google.android.gms.internal.games_v2.zzc.zza;
-            parcel2.writeInt(1);
-            zzb.writeToParcel(parcel2, 1);
-            return true;
-        }
-        return false;
-    }
+    void zzc(DataHolder dataHolder) throws RemoteException;
+
+    void zzd(int i, String str) throws RemoteException;
+
+    void zze(DataHolder dataHolder) throws RemoteException;
+
+    void zzf(DataHolder dataHolder, DataHolder dataHolder2) throws RemoteException;
+
+    void zzg(DataHolder dataHolder) throws RemoteException;
+
+    void zzh(DataHolder dataHolder) throws RemoteException;
+
+    void zzi(DataHolder dataHolder) throws RemoteException;
+
+    void zzj() throws RemoteException;
+
+    void zzk(DataHolder dataHolder) throws RemoteException;
+
+    void zzl(DataHolder dataHolder) throws RemoteException;
+
+    void zzm(DataHolder dataHolder, Contents contents) throws RemoteException;
+
+    void zzn(DataHolder dataHolder, String str, Contents contents, Contents contents2, Contents contents3) throws RemoteException;
+
+    void zzo(DataHolder dataHolder) throws RemoteException;
+
+    void zzp(int i, String str) throws RemoteException;
+
+    void zzq(DataHolder dataHolder) throws RemoteException;
+
+    void zzr(Status status, String str) throws RemoteException;
+
+    void zzs(Status status, String str, List list) throws RemoteException;
+
+    void zzt(int i) throws RemoteException;
 }

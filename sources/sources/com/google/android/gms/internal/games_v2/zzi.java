@@ -1,8 +1,8 @@
 package com.google.android.gms.internal.games_v2;
 
 import com.google.android.gms.common.api.Api;
-import com.google.android.gms.common.internal.Objects;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes2.dex */
 public final class zzi implements Api.ApiOptions.Optional {
     public final int zza;
@@ -27,12 +27,12 @@ public final class zzi implements Api.ApiOptions.Optional {
         }
         if (obj instanceof zzi) {
             zzi zziVar = (zzi) obj;
-            return this.zza == zziVar.zza && Objects.equal(this.zzb, zziVar.zzb);
+            return this.zza == zziVar.zza && Objects.equals(this.zzb, zziVar.zzb);
         }
         return false;
     }
 
     public final int hashCode() {
-        return Objects.hashCode(Integer.valueOf(this.zza), this.zzb);
+        return Objects.hash(Integer.valueOf(this.zza), this.zzb);
     }
 }

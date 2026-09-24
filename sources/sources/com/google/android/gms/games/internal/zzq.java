@@ -6,7 +6,7 @@ import com.google.android.gms.games.snapshot.SnapshotMetadataBuffer;
 import com.google.android.gms.games.snapshot.SnapshotMetadataEntity;
 import com.google.android.gms.tasks.TaskCompletionSource;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class zzq extends zza {
     private final TaskCompletionSource zza;
@@ -16,7 +16,7 @@ public final class zzq extends zza {
         this.zza = taskCompletionSource;
     }
 
-    @Override // com.google.android.gms.games.internal.zza, com.google.android.gms.games.internal.zzaj
+    @Override // com.google.android.gms.games.internal.zza, com.google.android.gms.games.internal.zzak
     public final void zzo(DataHolder dataHolder) {
         int statusCode = dataHolder.getStatusCode();
         if (statusCode != 0) {
@@ -28,7 +28,7 @@ public final class zzq extends zza {
         try {
             SnapshotMetadataEntity snapshotMetadataEntity = snapshotMetadataBuffer.getCount() > 0 ? new SnapshotMetadataEntity(snapshotMetadataBuffer.get(0)) : null;
             snapshotMetadataBuffer.close();
-            this.zza.setResult(snapshotMetadataEntity);
+            this.zza.trySetResult(snapshotMetadataEntity);
         } catch (Throwable th) {
             try {
                 snapshotMetadataBuffer.close();

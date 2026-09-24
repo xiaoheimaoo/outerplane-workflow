@@ -4,14 +4,14 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.gms.common.data.Freezable;
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.games.internal.zzg;
 import com.google.common.net.HttpHeaders;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class ScreenshotEntity extends zzg implements Freezable, Parcelable {
-    public static final Parcelable.Creator<ScreenshotEntity> CREATOR = new zzd();
+    public static final Parcelable.Creator<ScreenshotEntity> CREATOR = new zzc();
     private final Uri zza;
     private final int zzb;
     private final int zzc;
@@ -28,7 +28,7 @@ public final class ScreenshotEntity extends zzg implements Freezable, Parcelable
                 return true;
             }
             ScreenshotEntity screenshotEntity = (ScreenshotEntity) obj;
-            return Objects.equal(screenshotEntity.zza, this.zza) && Objects.equal(Integer.valueOf(screenshotEntity.zzb), Integer.valueOf(this.zzb)) && Objects.equal(Integer.valueOf(screenshotEntity.zzc), Integer.valueOf(this.zzc));
+            return Objects.equals(screenshotEntity.zza, this.zza) && Objects.equals(Integer.valueOf(screenshotEntity.zzb), Integer.valueOf(this.zzb)) && Objects.equals(Integer.valueOf(screenshotEntity.zzc), Integer.valueOf(this.zzc));
         }
         return false;
     }
@@ -39,7 +39,7 @@ public final class ScreenshotEntity extends zzg implements Freezable, Parcelable
     }
 
     public final int hashCode() {
-        return Objects.hashCode(this.zza, Integer.valueOf(this.zzb), Integer.valueOf(this.zzc));
+        return Objects.hash(this.zza, Integer.valueOf(this.zzb), Integer.valueOf(this.zzc));
     }
 
     @Override // com.google.android.gms.common.data.Freezable
@@ -48,7 +48,7 @@ public final class ScreenshotEntity extends zzg implements Freezable, Parcelable
     }
 
     public final String toString() {
-        return Objects.toStringHelper(this).add("Uri", this.zza).add(HttpHeaders.WIDTH, Integer.valueOf(this.zzb)).add("Height", Integer.valueOf(this.zzc)).toString();
+        return com.google.android.gms.common.internal.Objects.toStringHelper(this).add("Uri", this.zza).add(HttpHeaders.WIDTH, Integer.valueOf(this.zzb)).add("Height", Integer.valueOf(this.zzc)).toString();
     }
 
     @Override // android.os.Parcelable

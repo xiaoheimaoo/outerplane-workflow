@@ -6,11 +6,12 @@ import android.os.Parcelable;
 import android.os.SystemClock;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelableSerializer;
 import com.google.android.gms.games.internal.zzg;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class PlayerGameEvent extends zzg {
-    public static final Parcelable.Creator<PlayerGameEvent> CREATOR = new zza();
+    public static final Parcelable.Creator<PlayerGameEvent> CREATOR = new zzb();
     private final long zza;
     private final String zzb;
     private final Bundle zzc;
@@ -40,7 +41,7 @@ public final class PlayerGameEvent extends zzg {
         SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
     }
 
-    /* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+    /* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
     /* loaded from: classes.dex */
     public static class Builder {
         private final String zza;
@@ -74,6 +75,13 @@ public final class PlayerGameEvent extends zzg {
         public Builder addProperty(String str, long j) {
             zza(str);
             this.zzb.putLong(str, j);
+            return this;
+        }
+
+        public Builder addProperty(String str, PlayDuration playDuration) {
+            zza(str);
+            Preconditions.checkNotNull(playDuration, "value cannot be null");
+            this.zzb.putByteArray(str, SafeParcelableSerializer.serializeToBytes(playDuration));
             return this;
         }
 

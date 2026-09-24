@@ -1,9 +1,24 @@
 package com.google.android.gms.games.internal;
 
-import android.os.IInterface;
+import android.os.Parcel;
 import android.os.RemoteException;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
-public interface zzal extends IInterface {
-    com.google.android.gms.internal.games_v2.zzaf zzb() throws RemoteException;
+public abstract class zzal extends com.google.android.gms.internal.games_v2.zzb implements zzam {
+    public zzal() {
+        super("com.google.android.gms.games.internal.IGamesClient");
+    }
+
+    @Override // com.google.android.gms.internal.games_v2.zzb
+    protected final boolean zza(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+        if (i == 1001) {
+            com.google.android.gms.internal.games_v2.zzaf zzb = zzb();
+            parcel2.writeNoException();
+            int i3 = com.google.android.gms.internal.games_v2.zzc.zza;
+            parcel2.writeInt(1);
+            zzb.writeToParcel(parcel2, 1);
+            return true;
+        }
+        return false;
+    }
 }

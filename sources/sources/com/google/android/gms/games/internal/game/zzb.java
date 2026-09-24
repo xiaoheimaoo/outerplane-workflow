@@ -2,31 +2,40 @@ package com.google.android.gms.games.internal.game;
 
 import android.net.Uri;
 import android.os.Parcel;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import android.os.Parcelable;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
-final class zzb extends zzc {
-    @Override // com.google.android.gms.games.internal.game.zzc, android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ Object createFromParcel(Parcel parcel) {
-        return createFromParcel(parcel);
+public class zzb implements Parcelable.Creator {
+    @Override // android.os.Parcelable.Creator
+    public final /* synthetic */ Object[] newArray(int i) {
+        return new GameBadgeEntity[i];
     }
 
-    @Override // com.google.android.gms.games.internal.game.zzc
-    public final GameBadgeEntity zza(Parcel parcel) {
-        Integer unparcelClientVersion;
-        boolean zzp;
-        boolean canUnparcelSafely;
-        unparcelClientVersion = GameBadgeEntity.getUnparcelClientVersion();
-        zzp = GameBadgeEntity.zzp(unparcelClientVersion);
-        if (!zzp) {
-            canUnparcelSafely = GameBadgeEntity.canUnparcelSafely(GameBadgeEntity.class.getCanonicalName());
-            if (!canUnparcelSafely) {
-                int readInt = parcel.readInt();
-                String readString = parcel.readString();
-                String readString2 = parcel.readString();
-                String readString3 = parcel.readString();
-                return new GameBadgeEntity(readInt, readString, readString2, readString3 == null ? null : Uri.parse(readString3));
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: zza */
+    public GameBadgeEntity createFromParcel(Parcel parcel) {
+        int validateObjectHeader = SafeParcelReader.validateObjectHeader(parcel);
+        String str = null;
+        Uri uri = null;
+        int i = 0;
+        String str2 = null;
+        while (parcel.dataPosition() < validateObjectHeader) {
+            int readHeader = SafeParcelReader.readHeader(parcel);
+            int fieldId = SafeParcelReader.getFieldId(readHeader);
+            if (fieldId == 1) {
+                i = SafeParcelReader.readInt(parcel, readHeader);
+            } else if (fieldId == 2) {
+                str = SafeParcelReader.createString(parcel, readHeader);
+            } else if (fieldId == 3) {
+                str2 = SafeParcelReader.createString(parcel, readHeader);
+            } else if (fieldId == 4) {
+                uri = (Uri) SafeParcelReader.createParcelable(parcel, readHeader, Uri.CREATOR);
+            } else {
+                SafeParcelReader.skipUnknownField(parcel, readHeader);
             }
         }
-        return super.createFromParcel(parcel);
+        SafeParcelReader.ensureAtEnd(parcel, validateObjectHeader);
+        return new GameBadgeEntity(i, str, str2, uri);
     }
 }

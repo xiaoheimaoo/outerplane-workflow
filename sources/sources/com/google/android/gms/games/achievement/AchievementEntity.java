@@ -12,7 +12,8 @@ import com.google.android.gms.common.util.DataUtils;
 import com.google.android.gms.games.Player;
 import com.google.android.gms.games.PlayerEntity;
 import com.google.android.gms.games.internal.zzg;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class AchievementEntity extends zzg implements Achievement {
     public static final Parcelable.Creator<AchievementEntity> CREATOR = new zza();
@@ -83,7 +84,7 @@ public final class AchievementEntity extends zzg implements Achievement {
             i = 0;
             i2 = 0;
         }
-        return Objects.hashCode(achievement.getAchievementId(), achievement.zza(), achievement.getName(), Integer.valueOf(achievement.getType()), achievement.getDescription(), Long.valueOf(achievement.getXpValue()), Integer.valueOf(achievement.getState()), Long.valueOf(achievement.getLastUpdatedTimestamp()), achievement.zzb(), Integer.valueOf(i), Integer.valueOf(i2));
+        return Objects.hash(achievement.getAchievementId(), achievement.zza(), achievement.getName(), Integer.valueOf(achievement.getType()), achievement.getDescription(), Long.valueOf(achievement.getXpValue()), Integer.valueOf(achievement.getState()), Long.valueOf(achievement.getLastUpdatedTimestamp()), achievement.zzb(), Integer.valueOf(i), Integer.valueOf(i2));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -96,14 +97,14 @@ public final class AchievementEntity extends zzg implements Achievement {
             if (achievement2.getType() != achievement.getType()) {
                 return false;
             }
-            return (achievement.getType() != 1 || (achievement2.getCurrentSteps() == achievement.getCurrentSteps() && achievement2.getTotalSteps() == achievement.getTotalSteps())) && achievement2.getXpValue() == achievement.getXpValue() && achievement2.getState() == achievement.getState() && achievement2.getLastUpdatedTimestamp() == achievement.getLastUpdatedTimestamp() && Objects.equal(achievement2.getAchievementId(), achievement.getAchievementId()) && Objects.equal(achievement2.zza(), achievement.zza()) && Objects.equal(achievement2.getName(), achievement.getName()) && Objects.equal(achievement2.getDescription(), achievement.getDescription()) && Objects.equal(achievement2.zzb(), achievement.zzb()) && achievement2.zzc() == achievement.zzc();
+            return (achievement.getType() != 1 || (achievement2.getCurrentSteps() == achievement.getCurrentSteps() && achievement2.getTotalSteps() == achievement.getTotalSteps())) && achievement2.getXpValue() == achievement.getXpValue() && achievement2.getState() == achievement.getState() && achievement2.getLastUpdatedTimestamp() == achievement.getLastUpdatedTimestamp() && Objects.equals(achievement2.getAchievementId(), achievement.getAchievementId()) && Objects.equals(achievement2.zza(), achievement.zza()) && Objects.equals(achievement2.getName(), achievement.getName()) && Objects.equals(achievement2.getDescription(), achievement.getDescription()) && Objects.equals(achievement2.zzb(), achievement.zzb()) && achievement2.zzc() == achievement.zzc();
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String zzf(Achievement achievement) {
-        Objects.ToStringHelper add = Objects.toStringHelper(achievement).add("Id", achievement.getAchievementId()).add("Game Id", achievement.zza()).add("Type", Integer.valueOf(achievement.getType())).add("Name", achievement.getName()).add("Description", achievement.getDescription()).add("Player", achievement.zzb()).add("State", Integer.valueOf(achievement.getState())).add("Rarity Percent", Float.valueOf(achievement.zzc()));
+        Objects.ToStringHelper add = com.google.android.gms.common.internal.Objects.toStringHelper(achievement).add("Id", achievement.getAchievementId()).add("Game Id", achievement.zza()).add("Type", Integer.valueOf(achievement.getType())).add("Name", achievement.getName()).add("Description", achievement.getDescription()).add("Player", achievement.zzb()).add("State", Integer.valueOf(achievement.getState())).add("Rarity Percent", Float.valueOf(achievement.zzc()));
         if (achievement.getType() == 1) {
             add.add("CurrentSteps", Integer.valueOf(achievement.getCurrentSteps()));
             add.add("TotalSteps", Integer.valueOf(achievement.getTotalSteps()));

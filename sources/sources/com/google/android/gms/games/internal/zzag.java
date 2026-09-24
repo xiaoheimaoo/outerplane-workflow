@@ -1,16 +1,11 @@
 package com.google.android.gms.games.internal;
 
 import com.google.android.gms.common.data.DataHolder;
-import com.google.android.gms.drive.Contents;
 import com.google.android.gms.games.GamesStatusUtils;
-import com.google.android.gms.games.SnapshotsClient;
-import com.google.android.gms.games.snapshot.SnapshotContentsEntity;
-import com.google.android.gms.games.snapshot.SnapshotEntity;
-import com.google.android.gms.games.snapshot.SnapshotMetadataBuffer;
-import com.google.android.gms.games.snapshot.SnapshotMetadataEntity;
+import com.google.android.gms.games.leaderboard.ScoreSubmissionData;
 import com.google.android.gms.tasks.TaskCompletionSource;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class zzag extends zza {
     private final TaskCompletionSource zza;
@@ -20,55 +15,17 @@ public final class zzag extends zza {
         this.zza = taskCompletionSource;
     }
 
-    @Override // com.google.android.gms.games.internal.zza, com.google.android.gms.games.internal.zzaj
-    public final void zzm(DataHolder dataHolder, Contents contents) {
+    @Override // com.google.android.gms.games.internal.zza, com.google.android.gms.games.internal.zzak
+    public final void zzg(DataHolder dataHolder) {
         int statusCode = dataHolder.getStatusCode();
-        SnapshotMetadataBuffer snapshotMetadataBuffer = new SnapshotMetadataBuffer(dataHolder);
-        try {
-            SnapshotEntity snapshotEntity = snapshotMetadataBuffer.getCount() > 0 ? new SnapshotEntity(new SnapshotMetadataEntity(snapshotMetadataBuffer.get(0)), new SnapshotContentsEntity(contents)) : null;
-            snapshotMetadataBuffer.close();
-            if (statusCode == 0) {
-                this.zza.setResult(new SnapshotsClient.DataOrConflict(snapshotEntity, null));
-                return;
-            }
-            if (statusCode == 4002) {
-                if (snapshotEntity != null && snapshotEntity.getMetadata() != null) {
-                    this.zza.setException(new SnapshotsClient.SnapshotContentUnavailableApiException(com.google.android.gms.games.zzj.zza(4002), snapshotEntity.getMetadata()));
-                    return;
-                }
-                statusCode = 4002;
-            }
-            GamesStatusUtils.zzb(this.zza, statusCode);
-        } catch (Throwable th) {
+        if (statusCode == 0 || statusCode == 5) {
             try {
-                snapshotMetadataBuffer.close();
-            } catch (Throwable th2) {
-                th.addSuppressed(th2);
-            }
-            throw th;
-        }
-    }
-
-    @Override // com.google.android.gms.games.internal.zza, com.google.android.gms.games.internal.zzaj
-    public final void zzn(DataHolder dataHolder, String str, Contents contents, Contents contents2, Contents contents3) {
-        SnapshotMetadataBuffer snapshotMetadataBuffer = new SnapshotMetadataBuffer(dataHolder);
-        try {
-            if (snapshotMetadataBuffer.getCount() >= 2 && str != null && contents3 != null) {
-                SnapshotEntity snapshotEntity = new SnapshotEntity(new SnapshotMetadataEntity(snapshotMetadataBuffer.get(0)), new SnapshotContentsEntity(contents));
-                SnapshotEntity snapshotEntity2 = new SnapshotEntity(new SnapshotMetadataEntity(snapshotMetadataBuffer.get(1)), new SnapshotContentsEntity(contents2));
-                snapshotMetadataBuffer.close();
-                this.zza.setResult(new SnapshotsClient.DataOrConflict(null, new SnapshotsClient.SnapshotConflict(snapshotEntity, str, snapshotEntity2, new SnapshotContentsEntity(contents3))));
+                this.zza.trySetResult(new ScoreSubmissionData(dataHolder));
                 return;
+            } finally {
+                dataHolder.close();
             }
-            this.zza.setResult(null);
-            snapshotMetadataBuffer.close();
-        } catch (Throwable th) {
-            try {
-                snapshotMetadataBuffer.close();
-            } catch (Throwable th2) {
-                th.addSuppressed(th2);
-            }
-            throw th;
         }
+        GamesStatusUtils.zzb(this.zza, statusCode);
     }
 }

@@ -2,10 +2,10 @@ package com.google.android.gms.internal.games_v2;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes2.dex */
 public final class zzq extends AbstractSafeParcelable {
     public static final Parcelable.Creator<zzq> CREATOR = new zzr();
@@ -32,17 +32,17 @@ public final class zzq extends AbstractSafeParcelable {
         }
         if (obj instanceof zzq) {
             zzq zzqVar = (zzq) obj;
-            return this.zza == zzqVar.zza && Objects.equal(this.zzb, zzqVar.zzb);
+            return this.zza == zzqVar.zza && Objects.equals(this.zzb, zzqVar.zzb);
         }
         return false;
     }
 
     public final int hashCode() {
-        return Objects.hashCode(Integer.valueOf(this.zza), this.zzb);
+        return Objects.hash(Integer.valueOf(this.zza), this.zzb);
     }
 
     public final String toString() {
-        return Objects.toStringHelper(this).add("signInType", Integer.valueOf(this.zza)).add("previousStepResolutionResult", this.zzb).toString();
+        return com.google.android.gms.common.internal.Objects.toStringHelper(this).add("signInType", Integer.valueOf(this.zza)).add("previousStepResolutionResult", this.zzb).toString();
     }
 
     @Override // android.os.Parcelable

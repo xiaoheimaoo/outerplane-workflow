@@ -2,10 +2,10 @@ package com.google.android.gms.games.snapshot;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.games.internal.zzg;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class SnapshotEntity extends zzg implements Snapshot {
     public static final Parcelable.Creator<SnapshotEntity> CREATOR = new zzb();
@@ -23,7 +23,7 @@ public final class SnapshotEntity extends zzg implements Snapshot {
                 return true;
             }
             Snapshot snapshot = (Snapshot) obj;
-            return Objects.equal(snapshot.getMetadata(), getMetadata()) && Objects.equal(snapshot.getSnapshotContents(), getSnapshotContents());
+            return Objects.equals(snapshot.getMetadata(), getMetadata()) && Objects.equals(snapshot.getSnapshotContents(), getSnapshotContents());
         }
         return false;
     }
@@ -54,7 +54,7 @@ public final class SnapshotEntity extends zzg implements Snapshot {
     }
 
     public int hashCode() {
-        return Objects.hashCode(getMetadata(), getSnapshotContents());
+        return Objects.hash(getMetadata(), getSnapshotContents());
     }
 
     @Override // com.google.android.gms.common.data.Freezable
@@ -63,7 +63,7 @@ public final class SnapshotEntity extends zzg implements Snapshot {
     }
 
     public String toString() {
-        return Objects.toStringHelper(this).add("Metadata", getMetadata()).add("HasContents", Boolean.valueOf(getSnapshotContents() != null)).toString();
+        return com.google.android.gms.common.internal.Objects.toStringHelper(this).add("Metadata", getMetadata()).add("HasContents", Boolean.valueOf(getSnapshotContents() != null)).toString();
     }
 
     @Override // android.os.Parcelable

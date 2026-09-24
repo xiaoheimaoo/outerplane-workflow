@@ -4,7 +4,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.os.IInterface;
+import android.os.Parcel;
 import android.os.RemoteException;
 import com.google.android.gms.common.data.DataHolder;
 import com.google.android.gms.drive.Contents;
@@ -12,98 +12,489 @@ import com.google.android.gms.games.PlayerEntity;
 import com.google.android.gms.games.playergameevent.PlayerGameEvent;
 import com.google.android.gms.games.snapshot.SnapshotMetadataChangeEntity;
 import java.util.List;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
-public interface zzan extends IInterface {
-    void zzA(zzaj zzajVar, boolean z) throws RemoteException;
+public final class zzan extends com.google.android.gms.internal.games_v2.zza implements zzao {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public zzan(IBinder iBinder) {
+        super(iBinder, "com.google.android.gms.games.internal.IGamesService");
+    }
 
-    void zzB(zzaj zzajVar, String str, SnapshotMetadataChangeEntity snapshotMetadataChangeEntity, Contents contents) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzA(zzak zzakVar, boolean z) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeInt(z ? 1 : 0);
+        zzc(12002, zza);
+    }
 
-    void zzC(Contents contents) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzB(zzak zzakVar, String str, SnapshotMetadataChangeEntity snapshotMetadataChangeEntity, Contents contents) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeString(str);
+        com.google.android.gms.internal.games_v2.zzc.zzc(zza, snapshotMetadataChangeEntity);
+        com.google.android.gms.internal.games_v2.zzc.zzc(zza, contents);
+        zzc(12007, zza);
+    }
 
-    void zzD(zzaj zzajVar, String str) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzC(Contents contents) throws RemoteException {
+        Parcel zza = zza();
+        com.google.android.gms.internal.games_v2.zzc.zzc(zza, contents);
+        zzc(12019, zza);
+    }
 
-    void zzE(zzaj zzajVar, String str, String str2, SnapshotMetadataChangeEntity snapshotMetadataChangeEntity, Contents contents) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzD(zzak zzakVar, String str) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeString(str);
+        zzc(12020, zza);
+    }
 
-    int zzF() throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzE(zzak zzakVar, String str, String str2, SnapshotMetadataChangeEntity snapshotMetadataChangeEntity, Contents contents) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeString(str);
+        zza.writeString(str2);
+        com.google.android.gms.internal.games_v2.zzc.zzc(zza, snapshotMetadataChangeEntity);
+        com.google.android.gms.internal.games_v2.zzc.zzc(zza, contents);
+        zzc(12033, zza);
+    }
 
-    int zzG() throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final int zzF() throws RemoteException {
+        Parcel zzb = zzb(12035, zza());
+        int readInt = zzb.readInt();
+        zzb.recycle();
+        return readInt;
+    }
 
-    void zzH(zzaj zzajVar, boolean z) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final int zzG() throws RemoteException {
+        Parcel zzb = zzb(12036, zza());
+        int readInt = zzb.readInt();
+        zzb.recycle();
+        return readInt;
+    }
 
-    void zzI(zzaj zzajVar, boolean z, String[] strArr) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzH(zzak zzakVar, boolean z) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeInt(z ? 1 : 0);
+        zzc(12016, zza);
+    }
 
-    void zzJ(String str, int i) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzI(zzak zzakVar, boolean z, String[] strArr) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeInt(z ? 1 : 0);
+        zza.writeStringArray(strArr);
+        zzc(12031, zza);
+    }
 
-    void zzK(zzaj zzajVar, String str, boolean z) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzJ(String str, int i) throws RemoteException {
+        Parcel zza = zza();
+        zza.writeString(str);
+        zza.writeInt(i);
+        zzc(12017, zza);
+    }
 
-    void zzL(zzaj zzajVar, String str, boolean z, int i) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzK(zzak zzakVar, String str, boolean z) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeString(str);
+        zza.writeInt(z ? 1 : 0);
+        zzc(13006, zza);
+    }
 
-    void zzM(zzal zzalVar, long j) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzL(zzak zzakVar, String str, boolean z, int i) throws RemoteException {
+        Parcel zza = zza();
+        int i2 = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeString(str);
+        zza.writeInt(z ? 1 : 0);
+        zza.writeInt(i);
+        zzc(15001, zza);
+    }
 
-    Intent zzN(PlayerEntity playerEntity) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzM(zzam zzamVar, long j) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzamVar);
+        zza.writeLong(j);
+        zzc(15501, zza);
+    }
 
-    void zzO(zzaj zzajVar, boolean z) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final Intent zzN(PlayerEntity playerEntity) throws RemoteException {
+        Parcel zza = zza();
+        com.google.android.gms.internal.games_v2.zzc.zzc(zza, playerEntity);
+        Parcel zzb = zzb(15503, zza);
+        Intent intent = (Intent) com.google.android.gms.internal.games_v2.zzc.zzb(zzb, Intent.CREATOR);
+        zzb.recycle();
+        return intent;
+    }
 
-    Intent zzP(String str, int i, int i2) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzO(zzak zzakVar, boolean z) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeInt(z ? 1 : 0);
+        zzc(17001, zza);
+    }
 
-    PendingIntent zzQ() throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final Intent zzP(String str, int i, int i2) throws RemoteException {
+        Parcel zza = zza();
+        zza.writeString(str);
+        zza.writeInt(i);
+        zza.writeInt(i2);
+        Parcel zzb = zzb(18001, zza);
+        Intent intent = (Intent) com.google.android.gms.internal.games_v2.zzc.zzb(zzb, Intent.CREATOR);
+        zzb.recycle();
+        return intent;
+    }
 
-    Intent zzR(String str, String str2, String str3) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final PendingIntent zzQ() throws RemoteException {
+        Parcel zzb = zzb(25015, zza());
+        PendingIntent pendingIntent = (PendingIntent) com.google.android.gms.internal.games_v2.zzc.zzb(zzb, PendingIntent.CREATOR);
+        zzb.recycle();
+        return pendingIntent;
+    }
 
-    void zzS(zzaj zzajVar, String str, boolean z) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final Intent zzR(String str, String str2, String str3) throws RemoteException {
+        Parcel zza = zza();
+        zza.writeString(str);
+        zza.writeString(str2);
+        zza.writeString(str3);
+        Parcel zzb = zzb(25016, zza);
+        Intent intent = (Intent) com.google.android.gms.internal.games_v2.zzc.zzb(zzb, Intent.CREATOR);
+        zzb.recycle();
+        return intent;
+    }
 
-    void zzT(zzaj zzajVar, String str, boolean z, List list) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzS(zzak zzakVar, String str, boolean z) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeString(str);
+        zza.writeInt(z ? 1 : 0);
+        zzc(27003, zza);
+    }
 
-    void zzU(PlayerGameEvent playerGameEvent) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzT(zzak zzakVar, String str, boolean z, List list) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeString(str);
+        zza.writeInt(z ? 1 : 0);
+        zza.writeStringList(list);
+        zzc(27012, zza);
+    }
 
-    void zzV(List list) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzU(PlayerGameEvent playerGameEvent) throws RemoteException {
+        Parcel zza = zza();
+        com.google.android.gms.internal.games_v2.zzc.zzc(zza, playerGameEvent);
+        zzc(27014, zza);
+    }
 
-    void zzW() throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzV(List list) throws RemoteException {
+        Parcel zza = zza();
+        zza.writeTypedList(list);
+        zzc(27015, zza);
+    }
 
-    void zzd(long j) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzW() throws RemoteException {
+        zzc(27016, zza());
+    }
 
-    void zze(zzaj zzajVar) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzX(zzak zzakVar, PlayerGameEvent playerGameEvent) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        com.google.android.gms.internal.games_v2.zzc.zzc(zza, playerGameEvent);
+        zzc(27017, zza);
+    }
 
-    void zzf(IBinder iBinder, Bundle bundle) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzY(zzak zzakVar, List list) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeTypedList(list);
+        zzc(27018, zza);
+    }
 
-    void zzg() throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzd(long j) throws RemoteException {
+        Parcel zza = zza();
+        zza.writeLong(j);
+        zzc(5001, zza);
+    }
 
-    String zzh() throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zze(zzak zzakVar) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zzc(5002, zza);
+    }
 
-    DataHolder zzi() throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzf(IBinder iBinder, Bundle bundle) throws RemoteException {
+        Parcel zza = zza();
+        zza.writeStrongBinder(iBinder);
+        com.google.android.gms.internal.games_v2.zzc.zzc(zza, bundle);
+        zzc(5005, zza);
+    }
 
-    void zzj(zzaj zzajVar, String str, int i, int i2, int i3, boolean z) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzg() throws RemoteException {
+        zzc(5006, zza());
+    }
 
-    void zzk(zzaj zzajVar, String str, int i, int i2, int i3, boolean z) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final String zzh() throws RemoteException {
+        Parcel zzb = zzb(5012, zza());
+        String readString = zzb.readString();
+        zzb.recycle();
+        return readString;
+    }
 
-    void zzl(zzaj zzajVar, Bundle bundle, int i, int i2) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final DataHolder zzi() throws RemoteException {
+        Parcel zzb = zzb(5013, zza());
+        DataHolder dataHolder = (DataHolder) com.google.android.gms.internal.games_v2.zzc.zzb(zzb, DataHolder.CREATOR);
+        zzb.recycle();
+        return dataHolder;
+    }
 
-    void zzm(zzaj zzajVar, String str, IBinder iBinder, Bundle bundle) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzj(zzak zzakVar, String str, int i, int i2, int i3, boolean z) throws RemoteException {
+        Parcel zza = zza();
+        int i4 = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeString(str);
+        zza.writeInt(i);
+        zza.writeInt(i2);
+        zza.writeInt(i3);
+        zza.writeInt(z ? 1 : 0);
+        zzc(5019, zza);
+    }
 
-    void zzn(zzaj zzajVar, String str, IBinder iBinder, Bundle bundle) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzk(zzak zzakVar, String str, int i, int i2, int i3, boolean z) throws RemoteException {
+        Parcel zza = zza();
+        int i4 = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeString(str);
+        zza.writeInt(i);
+        zza.writeInt(i2);
+        zza.writeInt(i3);
+        zza.writeInt(z ? 1 : 0);
+        zzc(5020, zza);
+    }
 
-    void zzo(zzaj zzajVar, String str, int i, IBinder iBinder, Bundle bundle) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzl(zzak zzakVar, Bundle bundle, int i, int i2) throws RemoteException {
+        Parcel zza = zza();
+        int i3 = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        com.google.android.gms.internal.games_v2.zzc.zzc(zza, bundle);
+        zza.writeInt(i);
+        zza.writeInt(i2);
+        zzc(5021, zza);
+    }
 
-    void zzp(zzaj zzajVar, boolean z) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzm(zzak zzakVar, String str, IBinder iBinder, Bundle bundle) throws RemoteException {
+        Parcel zza = zza();
+        com.google.android.gms.internal.games_v2.zzc.zzd(zza, zzakVar);
+        zza.writeString(str);
+        zza.writeStrongBinder(iBinder);
+        com.google.android.gms.internal.games_v2.zzc.zzc(zza, bundle);
+        zzc(5023, zza);
+    }
 
-    void zzq(zzaj zzajVar, boolean z) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzn(zzak zzakVar, String str, IBinder iBinder, Bundle bundle) throws RemoteException {
+        Parcel zza = zza();
+        com.google.android.gms.internal.games_v2.zzc.zzd(zza, zzakVar);
+        zza.writeString(str);
+        zza.writeStrongBinder(iBinder);
+        com.google.android.gms.internal.games_v2.zzc.zzc(zza, bundle);
+        zzc(5024, zza);
+    }
 
-    void zzr(zzaj zzajVar, String str, boolean z) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzo(zzak zzakVar, String str, int i, IBinder iBinder, Bundle bundle) throws RemoteException {
+        Parcel zza = zza();
+        com.google.android.gms.internal.games_v2.zzc.zzd(zza, zzakVar);
+        zza.writeString(str);
+        zza.writeInt(i);
+        zza.writeStrongBinder(iBinder);
+        com.google.android.gms.internal.games_v2.zzc.zzc(zza, bundle);
+        zzc(5025, zza);
+    }
 
-    void zzs(zzaj zzajVar, String str, long j, String str2) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzp(zzak zzakVar, boolean z) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeInt(z ? 1 : 0);
+        zzc(6001, zza);
+    }
 
-    void zzt(zzaj zzajVar, String str, int i, IBinder iBinder, Bundle bundle) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzq(zzak zzakVar, boolean z) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeInt(z ? 1 : 0);
+        zzc(6503, zza);
+    }
 
-    void zzu(zzaj zzajVar, String str, String str2, int i, int i2) throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzr(zzak zzakVar, String str, boolean z) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeString(str);
+        zza.writeInt(z ? 1 : 0);
+        zzc(6504, zza);
+    }
 
-    Intent zzv() throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzs(zzak zzakVar, String str, long j, String str2) throws RemoteException {
+        Parcel zza = zza();
+        int i = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeString(str);
+        zza.writeLong(j);
+        zza.writeString(str2);
+        zzc(7002, zza);
+    }
 
-    Intent zzw() throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzt(zzak zzakVar, String str, int i, IBinder iBinder, Bundle bundle) throws RemoteException {
+        Parcel zza = zza();
+        com.google.android.gms.internal.games_v2.zzc.zzd(zza, zzakVar);
+        zza.writeString(str);
+        zza.writeInt(i);
+        zza.writeStrongBinder(iBinder);
+        com.google.android.gms.internal.games_v2.zzc.zzc(zza, bundle);
+        zzc(7003, zza);
+    }
 
-    Intent zzx() throws RemoteException;
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzu(zzak zzakVar, String str, String str2, int i, int i2) throws RemoteException {
+        Parcel zza = zza();
+        int i3 = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeString(null);
+        zza.writeString(str2);
+        zza.writeInt(i);
+        zza.writeInt(i2);
+        zzc(8001, zza);
+    }
 
-    void zzy(zzaj zzajVar, String str, int i, boolean z, boolean z2) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final Intent zzv() throws RemoteException {
+        Parcel zzb = zzb(9003, zza());
+        Intent intent = (Intent) com.google.android.gms.internal.games_v2.zzc.zzb(zzb, Intent.CREATOR);
+        zzb.recycle();
+        return intent;
+    }
 
-    Intent zzz(String str, boolean z, boolean z2, int i) throws RemoteException;
+    @Override // com.google.android.gms.games.internal.zzao
+    public final Intent zzw() throws RemoteException {
+        Parcel zzb = zzb(9005, zza());
+        Intent intent = (Intent) com.google.android.gms.internal.games_v2.zzc.zzb(zzb, Intent.CREATOR);
+        zzb.recycle();
+        return intent;
+    }
+
+    @Override // com.google.android.gms.games.internal.zzao
+    public final Intent zzx() throws RemoteException {
+        Parcel zzb = zzb(9010, zza());
+        Intent intent = (Intent) com.google.android.gms.internal.games_v2.zzc.zzb(zzb, Intent.CREATOR);
+        zzb.recycle();
+        return intent;
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.google.android.gms.games.internal.zzao
+    public final void zzy(zzak zzakVar, String str, int i, boolean z, boolean z2) throws RemoteException {
+        Parcel zza = zza();
+        int i2 = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeStrongBinder(zzakVar);
+        zza.writeString(str);
+        zza.writeInt(i);
+        zza.writeInt(z ? 1 : 0);
+        zza.writeInt(z2 ? 1 : 0);
+        zzc(9020, zza);
+    }
+
+    @Override // com.google.android.gms.games.internal.zzao
+    public final Intent zzz(String str, boolean z, boolean z2, int i) throws RemoteException {
+        Parcel zza = zza();
+        zza.writeString(str);
+        int i2 = com.google.android.gms.internal.games_v2.zzc.zza;
+        zza.writeInt(z ? 1 : 0);
+        zza.writeInt(z2 ? 1 : 0);
+        zza.writeInt(i);
+        Parcel zzb = zzb(12001, zza);
+        Intent intent = (Intent) com.google.android.gms.internal.games_v2.zzc.zzb(zzb, Intent.CREATOR);
+        zzb.recycle();
+        return intent;
+    }
 }

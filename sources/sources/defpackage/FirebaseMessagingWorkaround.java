@@ -4,7 +4,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
 /* renamed from: FirebaseMessagingWorkaround  reason: default package */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FirebaseMessagingWorkaround {
     public static void subscribeAsync(final String str) {
         FirebaseMessaging.getInstance().subscribeToTopic(str).addOnCompleteListener(new OnCompleteListener<Void>() { // from class: FirebaseMessagingWorkaround.1

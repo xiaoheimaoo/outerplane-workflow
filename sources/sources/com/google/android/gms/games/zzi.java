@@ -2,9 +2,9 @@ package com.google.android.gms.games;
 
 import android.text.TextUtils;
 import com.google.android.gms.common.api.Api;
-import com.google.android.gms.common.internal.Objects;
 import java.util.ArrayList;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class zzi implements Api.ApiOptions.Optional {
     public final int zze;
@@ -56,7 +56,7 @@ public final class zzi implements Api.ApiOptions.Optional {
                     if (TextUtils.equals(null, null)) {
                         int i2 = zziVar.zzp;
                         int i3 = zziVar.zzl;
-                        if (Objects.equal(this.zzm, zziVar.zzm)) {
+                        if (Objects.equals(this.zzm, zziVar.zzm)) {
                             boolean z7 = zziVar.zzo;
                             return true;
                         }

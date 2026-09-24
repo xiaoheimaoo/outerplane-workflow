@@ -3,7 +3,8 @@ package com.google.android.gms.games;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.gms.common.internal.Objects;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class zzo extends com.google.android.gms.games.internal.zzg implements PlayerRelationshipInfo {
     public static final Parcelable.Creator<zzo> CREATOR = new zzp();
@@ -21,7 +22,7 @@ public final class zzo extends com.google.android.gms.games.internal.zzg impleme
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int zzd(PlayerRelationshipInfo playerRelationshipInfo) {
-        return Objects.hashCode(Integer.valueOf(playerRelationshipInfo.getFriendStatus()), playerRelationshipInfo.zza(), playerRelationshipInfo.zzb(), playerRelationshipInfo.zzc());
+        return Objects.hash(Integer.valueOf(playerRelationshipInfo.getFriendStatus()), playerRelationshipInfo.zza(), playerRelationshipInfo.zzb(), playerRelationshipInfo.zzc());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,14 +32,14 @@ public final class zzo extends com.google.android.gms.games.internal.zzg impleme
                 return true;
             }
             PlayerRelationshipInfo playerRelationshipInfo2 = (PlayerRelationshipInfo) obj;
-            return playerRelationshipInfo2.getFriendStatus() == playerRelationshipInfo.getFriendStatus() && Objects.equal(playerRelationshipInfo2.zza(), playerRelationshipInfo.zza()) && Objects.equal(playerRelationshipInfo2.zzb(), playerRelationshipInfo.zzb()) && Objects.equal(playerRelationshipInfo2.zzc(), playerRelationshipInfo.zzc());
+            return playerRelationshipInfo2.getFriendStatus() == playerRelationshipInfo.getFriendStatus() && Objects.equals(playerRelationshipInfo2.zza(), playerRelationshipInfo.zza()) && Objects.equals(playerRelationshipInfo2.zzb(), playerRelationshipInfo.zzb()) && Objects.equals(playerRelationshipInfo2.zzc(), playerRelationshipInfo.zzc());
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String zzf(PlayerRelationshipInfo playerRelationshipInfo) {
-        Objects.ToStringHelper stringHelper = Objects.toStringHelper(playerRelationshipInfo);
+        Objects.ToStringHelper stringHelper = com.google.android.gms.common.internal.Objects.toStringHelper(playerRelationshipInfo);
         stringHelper.add("FriendStatus", Integer.valueOf(playerRelationshipInfo.getFriendStatus()));
         if (playerRelationshipInfo.zza() != null) {
             stringHelper.add("Nickname", playerRelationshipInfo.zza());

@@ -5,31 +5,37 @@ import com.google.android.gms.common.api.internal.RemoteCall;
 import com.google.android.gms.common.api.internal.TaskApiCall;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskCompletionSource;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes2.dex */
 final /* synthetic */ class zzdu implements zzap {
     private final /* synthetic */ String zza;
-    private final /* synthetic */ long zzb;
-    private final /* synthetic */ String zzc;
+    private final /* synthetic */ int zzb;
+    private final /* synthetic */ int zzc;
+    private final /* synthetic */ int zzd;
+    private final /* synthetic */ boolean zze;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ zzdu(String str, long j, String str2) {
+    public /* synthetic */ zzdu(String str, int i, int i2, int i3, boolean z) {
         this.zza = str;
-        this.zzb = j;
-        this.zzc = str2;
+        this.zzb = i;
+        this.zzc = i2;
+        this.zzd = i3;
+        this.zze = z;
     }
 
     @Override // com.google.android.gms.internal.games_v2.zzap
     public final /* synthetic */ Task zza(GoogleApi googleApi) {
         TaskApiCall.Builder builder = TaskApiCall.builder();
         final String str = this.zza;
-        final long j = this.zzb;
-        final String str2 = this.zzc;
-        return googleApi.doWrite(builder.run(new RemoteCall() { // from class: com.google.android.gms.internal.games_v2.zzdv
+        final int i = this.zzb;
+        final int i2 = this.zzc;
+        final int i3 = this.zzd;
+        final boolean z = this.zze;
+        return googleApi.doRead(builder.run(new RemoteCall() { // from class: com.google.android.gms.internal.games_v2.zzdl
             @Override // com.google.android.gms.common.api.internal.RemoteCall
             public final /* synthetic */ void accept(Object obj, Object obj2) {
-                ((com.google.android.gms.games.internal.zzah) obj).zzF((TaskCompletionSource) obj2, str, j, str2);
+                ((com.google.android.gms.games.internal.zzai) obj).zzy((TaskCompletionSource) obj2, str, i, i2, i3, z);
             }
-        }).setMethodKey(6707).build());
+        }).setMethodKey(6704).build());
     }
 }

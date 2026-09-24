@@ -3,50 +3,41 @@ package com.google.android.gms.games.internal;
 import com.google.android.gms.common.data.DataHolder;
 import com.google.android.gms.games.AnnotatedData;
 import com.google.android.gms.games.GamesStatusUtils;
-import com.google.android.gms.games.leaderboard.LeaderboardScoreBuffer;
-import com.google.android.gms.games.leaderboard.LeaderboardScoreEntity;
+import com.google.android.gms.games.leaderboard.Leaderboard;
+import com.google.android.gms.games.leaderboard.LeaderboardBuffer;
 import com.google.android.gms.tasks.TaskCompletionSource;
-import java.util.Objects;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class zzx extends zza {
-    final /* synthetic */ zzah zza;
-    private final TaskCompletionSource zzb;
+    private final TaskCompletionSource zza;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public zzx(zzah zzahVar, TaskCompletionSource taskCompletionSource) {
-        Objects.requireNonNull(zzahVar);
-        this.zza = zzahVar;
-        this.zzb = taskCompletionSource;
+    public zzx(TaskCompletionSource taskCompletionSource) {
+        this.zza = taskCompletionSource;
     }
 
-    @Override // com.google.android.gms.games.internal.zza, com.google.android.gms.games.internal.zzaj
-    public final void zzk(DataHolder dataHolder) {
+    @Override // com.google.android.gms.games.internal.zza, com.google.android.gms.games.internal.zzak
+    public final void zze(DataHolder dataHolder) {
         int statusCode = dataHolder.getStatusCode();
-        if (statusCode == 10003) {
-            this.zza.zzab(this.zzb);
-            dataHolder.close();
-            return;
-        }
         boolean z = statusCode == 3;
         if (statusCode == 0 || z) {
-            LeaderboardScoreBuffer leaderboardScoreBuffer = new LeaderboardScoreBuffer(dataHolder);
+            LeaderboardBuffer leaderboardBuffer = new LeaderboardBuffer(dataHolder);
             try {
-                LeaderboardScoreEntity leaderboardScoreEntity = leaderboardScoreBuffer.getCount() > 0 ? new LeaderboardScoreEntity(leaderboardScoreBuffer.get(0)) : null;
-                leaderboardScoreBuffer.close();
-                this.zzb.setResult(new AnnotatedData(leaderboardScoreEntity, z));
+                Leaderboard freeze = leaderboardBuffer.getCount() > 0 ? leaderboardBuffer.get(0).freeze() : null;
+                leaderboardBuffer.close();
+                this.zza.trySetResult(new AnnotatedData(freeze, z));
                 return;
             } catch (Throwable th) {
                 try {
-                    leaderboardScoreBuffer.close();
+                    leaderboardBuffer.close();
                 } catch (Throwable th2) {
                     th.addSuppressed(th2);
                 }
                 throw th;
             }
         }
-        GamesStatusUtils.zzb(this.zzb, statusCode);
+        GamesStatusUtils.zzb(this.zza, statusCode);
         dataHolder.close();
     }
 }

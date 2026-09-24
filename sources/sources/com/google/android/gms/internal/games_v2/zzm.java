@@ -4,7 +4,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.TaskCompletionSource;
 import java.util.Objects;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes2.dex */
 final class zzm extends zzg {
     final /* synthetic */ TaskCompletionSource zza;
@@ -18,9 +18,9 @@ final class zzm extends zzg {
     @Override // com.google.android.gms.internal.games_v2.zzg, com.google.android.gms.internal.games_v2.zzv
     public final void zzb(Status status, zzs zzsVar) {
         if (zzsVar == null) {
-            this.zza.setException(new ApiException(status));
+            this.zza.trySetException(new ApiException(status));
         } else {
-            this.zza.setResult(zzsVar);
+            this.zza.trySetResult(zzsVar);
         }
     }
 }

@@ -4,32 +4,41 @@ import com.google.android.gms.common.data.DataHolder;
 import com.google.android.gms.games.AnnotatedData;
 import com.google.android.gms.games.GamesStatusUtils;
 import com.google.android.gms.games.PlayerBuffer;
-import com.google.android.gms.games.PlayerEntity;
 import com.google.android.gms.tasks.TaskCompletionSource;
+import java.util.Objects;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class zzad extends zza {
-    private final TaskCompletionSource zza;
+    final /* synthetic */ zzai zza;
+    private final TaskCompletionSource zzb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public zzad(TaskCompletionSource taskCompletionSource) {
-        this.zza = taskCompletionSource;
+    public zzad(zzai zzaiVar, TaskCompletionSource taskCompletionSource) {
+        Objects.requireNonNull(zzaiVar);
+        this.zza = zzaiVar;
+        this.zzb = taskCompletionSource;
     }
 
-    @Override // com.google.android.gms.games.internal.zza, com.google.android.gms.games.internal.zzaj
+    @Override // com.google.android.gms.games.internal.zza, com.google.android.gms.games.internal.zzak
     public final void zzh(DataHolder dataHolder) {
         int statusCode = dataHolder.getStatusCode();
-        if (statusCode == 0 || statusCode == 3) {
-            PlayerBuffer playerBuffer = new PlayerBuffer(dataHolder);
-            try {
-                this.zza.setResult(new AnnotatedData(playerBuffer.getCount() > 0 ? new PlayerEntity(playerBuffer.get(0)) : null, statusCode == 3));
-                return;
-            } finally {
-                playerBuffer.release();
-            }
+        if (statusCode == 10003) {
+            this.zza.zzZ(this.zzb);
+            dataHolder.close();
+            return;
         }
-        GamesStatusUtils.zzb(this.zza, statusCode);
+        boolean z = statusCode == 3;
+        if (statusCode == 0 || z) {
+            this.zzb.trySetResult(new AnnotatedData(new PlayerBuffer(dataHolder), z));
+            return;
+        }
+        GamesStatusUtils.zzb(this.zzb, statusCode);
         dataHolder.close();
+    }
+
+    @Override // com.google.android.gms.games.internal.zza, com.google.android.gms.games.internal.zzak
+    public final void zzi(DataHolder dataHolder) {
+        zzh(dataHolder);
     }
 }

@@ -10,7 +10,8 @@ import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.common.util.DataUtils;
 import com.google.android.gms.games.internal.GamesDowngradeableSafeParcel;
 import com.google.android.gms.games.internal.player.MostRecentGameInfoEntity;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class PlayerEntity extends GamesDowngradeableSafeParcel implements Player {
     public static final Parcelable.Creator<PlayerEntity> CREATOR = new zzk();
@@ -79,7 +80,7 @@ public final class PlayerEntity extends GamesDowngradeableSafeParcel implements 
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int zzj(Player player) {
-        return Objects.hashCode(player.getPlayerId(), player.getDisplayName(), Boolean.valueOf(player.zzd()), player.getIconImageUri(), player.getHiResImageUri(), Long.valueOf(player.getRetrievedTimestamp()), player.getTitle(), player.getLevelInfo(), player.zzb(), player.zzc(), player.getBannerImageLandscapeUri(), player.getBannerImagePortraitUri(), Long.valueOf(player.zzi()), player.getRelationshipInfo(), player.getCurrentPlayerInfo(), Boolean.valueOf(player.zzg()), player.zza());
+        return Objects.hash(player.getPlayerId(), player.getDisplayName(), Boolean.valueOf(player.zzd()), player.getIconImageUri(), player.getHiResImageUri(), Long.valueOf(player.getRetrievedTimestamp()), player.getTitle(), player.getLevelInfo(), player.zzb(), player.zzc(), player.getBannerImageLandscapeUri(), player.getBannerImagePortraitUri(), Long.valueOf(player.zzi()), player.getRelationshipInfo(), player.getCurrentPlayerInfo(), Boolean.valueOf(player.zzg()), player.zza());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -89,14 +90,14 @@ public final class PlayerEntity extends GamesDowngradeableSafeParcel implements 
                 return true;
             }
             Player player2 = (Player) obj;
-            return Objects.equal(player2.getPlayerId(), player.getPlayerId()) && Objects.equal(player2.getDisplayName(), player.getDisplayName()) && Objects.equal(Boolean.valueOf(player2.zzd()), Boolean.valueOf(player.zzd())) && Objects.equal(player2.getIconImageUri(), player.getIconImageUri()) && Objects.equal(player2.getHiResImageUri(), player.getHiResImageUri()) && Objects.equal(Long.valueOf(player2.getRetrievedTimestamp()), Long.valueOf(player.getRetrievedTimestamp())) && Objects.equal(player2.getTitle(), player.getTitle()) && Objects.equal(player2.getLevelInfo(), player.getLevelInfo()) && Objects.equal(player2.zzb(), player.zzb()) && Objects.equal(player2.zzc(), player.zzc()) && Objects.equal(player2.getBannerImageLandscapeUri(), player.getBannerImageLandscapeUri()) && Objects.equal(player2.getBannerImagePortraitUri(), player.getBannerImagePortraitUri()) && Objects.equal(Long.valueOf(player2.zzi()), Long.valueOf(player.zzi())) && Objects.equal(player2.getCurrentPlayerInfo(), player.getCurrentPlayerInfo()) && Objects.equal(player2.getRelationshipInfo(), player.getRelationshipInfo()) && Objects.equal(Boolean.valueOf(player2.zzg()), Boolean.valueOf(player.zzg())) && Objects.equal(player2.zza(), player.zza());
+            return Objects.equals(player2.getPlayerId(), player.getPlayerId()) && Objects.equals(player2.getDisplayName(), player.getDisplayName()) && Objects.equals(Boolean.valueOf(player2.zzd()), Boolean.valueOf(player.zzd())) && Objects.equals(player2.getIconImageUri(), player.getIconImageUri()) && Objects.equals(player2.getHiResImageUri(), player.getHiResImageUri()) && Objects.equals(Long.valueOf(player2.getRetrievedTimestamp()), Long.valueOf(player.getRetrievedTimestamp())) && Objects.equals(player2.getTitle(), player.getTitle()) && Objects.equals(player2.getLevelInfo(), player.getLevelInfo()) && Objects.equals(player2.zzb(), player.zzb()) && Objects.equals(player2.zzc(), player.zzc()) && Objects.equals(player2.getBannerImageLandscapeUri(), player.getBannerImageLandscapeUri()) && Objects.equals(player2.getBannerImagePortraitUri(), player.getBannerImagePortraitUri()) && Objects.equals(Long.valueOf(player2.zzi()), Long.valueOf(player.zzi())) && Objects.equals(player2.getCurrentPlayerInfo(), player.getCurrentPlayerInfo()) && Objects.equals(player2.getRelationshipInfo(), player.getRelationshipInfo()) && Objects.equals(Boolean.valueOf(player2.zzg()), Boolean.valueOf(player.zzg())) && Objects.equals(player2.zza(), player.zza());
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String zzl(Player player) {
-        Objects.ToStringHelper add = Objects.toStringHelper(player).add("PlayerId", player.getPlayerId()).add("DisplayName", player.getDisplayName()).add("HasDebugAccess", Boolean.valueOf(player.zzd())).add("IconImageUri", player.getIconImageUri()).add("IconImageUrl", player.getIconImageUrl()).add("HiResImageUri", player.getHiResImageUri()).add("HiResImageUrl", player.getHiResImageUrl()).add("RetrievedTimestamp", Long.valueOf(player.getRetrievedTimestamp())).add("Title", player.getTitle()).add("LevelInfo", player.getLevelInfo()).add("GamerTag", player.zzb()).add("Name", player.zzc()).add("BannerImageLandscapeUri", player.getBannerImageLandscapeUri()).add("BannerImageLandscapeUrl", player.getBannerImageLandscapeUrl()).add("BannerImagePortraitUri", player.getBannerImagePortraitUri()).add("BannerImagePortraitUrl", player.getBannerImagePortraitUrl()).add("CurrentPlayerInfo", player.getCurrentPlayerInfo()).add("TotalUnlockedAchievement", Long.valueOf(player.zzi()));
+        Objects.ToStringHelper add = com.google.android.gms.common.internal.Objects.toStringHelper(player).add("PlayerId", player.getPlayerId()).add("DisplayName", player.getDisplayName()).add("HasDebugAccess", Boolean.valueOf(player.zzd())).add("IconImageUri", player.getIconImageUri()).add("IconImageUrl", player.getIconImageUrl()).add("HiResImageUri", player.getHiResImageUri()).add("HiResImageUrl", player.getHiResImageUrl()).add("RetrievedTimestamp", Long.valueOf(player.getRetrievedTimestamp())).add("Title", player.getTitle()).add("LevelInfo", player.getLevelInfo()).add("GamerTag", player.zzb()).add("Name", player.zzc()).add("BannerImageLandscapeUri", player.getBannerImageLandscapeUri()).add("BannerImageLandscapeUrl", player.getBannerImageLandscapeUrl()).add("BannerImagePortraitUri", player.getBannerImagePortraitUri()).add("BannerImagePortraitUrl", player.getBannerImagePortraitUrl()).add("CurrentPlayerInfo", player.getCurrentPlayerInfo()).add("TotalUnlockedAchievement", Long.valueOf(player.zzi()));
         if (player.zzg()) {
             add.add("AlwaysAutoSignIn", Boolean.valueOf(player.zzg()));
         }

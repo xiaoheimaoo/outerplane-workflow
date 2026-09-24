@@ -4,13 +4,13 @@ import android.database.CharArrayBuffer;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.common.util.DataUtils;
 import com.google.android.gms.games.Player;
 import com.google.android.gms.games.PlayerEntity;
 import com.google.android.gms.games.internal.zzg;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class EventEntity extends zzg implements Event {
     public static final Parcelable.Creator<EventEntity> CREATOR = new zza();
@@ -38,7 +38,7 @@ public final class EventEntity extends zzg implements Event {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int zza(Event event) {
-        return Objects.hashCode(event.getEventId(), event.getName(), event.getDescription(), event.getIconImageUri(), event.getIconImageUrl(), event.getPlayer(), Long.valueOf(event.getValue()), event.getFormattedValue(), Boolean.valueOf(event.isVisible()));
+        return Objects.hash(event.getEventId(), event.getName(), event.getDescription(), event.getIconImageUri(), event.getIconImageUrl(), event.getPlayer(), Long.valueOf(event.getValue()), event.getFormattedValue(), Boolean.valueOf(event.isVisible()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -48,14 +48,14 @@ public final class EventEntity extends zzg implements Event {
                 return true;
             }
             Event event2 = (Event) obj;
-            return Objects.equal(event2.getEventId(), event.getEventId()) && Objects.equal(event2.getName(), event.getName()) && Objects.equal(event2.getDescription(), event.getDescription()) && Objects.equal(event2.getIconImageUri(), event.getIconImageUri()) && Objects.equal(event2.getIconImageUrl(), event.getIconImageUrl()) && Objects.equal(event2.getPlayer(), event.getPlayer()) && Objects.equal(Long.valueOf(event2.getValue()), Long.valueOf(event.getValue())) && Objects.equal(event2.getFormattedValue(), event.getFormattedValue()) && Objects.equal(Boolean.valueOf(event2.isVisible()), Boolean.valueOf(event.isVisible()));
+            return Objects.equals(event2.getEventId(), event.getEventId()) && Objects.equals(event2.getName(), event.getName()) && Objects.equals(event2.getDescription(), event.getDescription()) && Objects.equals(event2.getIconImageUri(), event.getIconImageUri()) && Objects.equals(event2.getIconImageUrl(), event.getIconImageUrl()) && Objects.equals(event2.getPlayer(), event.getPlayer()) && Objects.equals(Long.valueOf(event2.getValue()), Long.valueOf(event.getValue())) && Objects.equals(event2.getFormattedValue(), event.getFormattedValue()) && Objects.equals(Boolean.valueOf(event2.isVisible()), Boolean.valueOf(event.isVisible()));
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String zzc(Event event) {
-        return Objects.toStringHelper(event).add("Id", event.getEventId()).add("Name", event.getName()).add("Description", event.getDescription()).add("IconImageUri", event.getIconImageUri()).add("IconImageUrl", event.getIconImageUrl()).add("Player", event.getPlayer()).add("Value", Long.valueOf(event.getValue())).add("FormattedValue", event.getFormattedValue()).add("isVisible", Boolean.valueOf(event.isVisible())).toString();
+        return com.google.android.gms.common.internal.Objects.toStringHelper(event).add("Id", event.getEventId()).add("Name", event.getName()).add("Description", event.getDescription()).add("IconImageUri", event.getIconImageUri()).add("IconImageUrl", event.getIconImageUrl()).add("Player", event.getPlayer()).add("Value", Long.valueOf(event.getValue())).add("FormattedValue", event.getFormattedValue()).add("isVisible", Boolean.valueOf(event.isVisible())).toString();
     }
 
     public boolean equals(Object obj) {

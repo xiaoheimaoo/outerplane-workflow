@@ -1,59 +1,56 @@
 package com.google.android.gms.internal.games_v2;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
-import java.util.NoSuchElementException;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes2.dex */
-abstract class zzgd extends zzha {
-    private final int zza;
-    private int zzb;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public zzgd(int i, int i2) {
-        zzfz.zzb(i2, i, FirebaseAnalytics.Param.INDEX);
-        this.zza = i;
-        this.zzb = i2;
-    }
-
-    @Override // java.util.Iterator, java.util.ListIterator
-    public final boolean hasNext() {
-        return this.zzb < this.zza;
-    }
-
-    @Override // java.util.ListIterator
-    public final boolean hasPrevious() {
-        return this.zzb > 0;
-    }
-
-    @Override // java.util.Iterator, java.util.ListIterator
-    public final Object next() {
-        if (!hasNext()) {
-            throw new NoSuchElementException();
+public final class zzgd {
+    public static int zza(int i, int i2, String str) {
+        String zza;
+        if (i < 0 || i >= i2) {
+            if (i < 0) {
+                zza = zzge.zza("%s (%s) must not be negative", FirebaseAnalytics.Param.INDEX, Integer.valueOf(i));
+            } else if (i2 < 0) {
+                StringBuilder sb = new StringBuilder(String.valueOf(i2).length() + 15);
+                sb.append("negative size: ");
+                sb.append(i2);
+                throw new IllegalArgumentException(sb.toString());
+            } else {
+                zza = zzge.zza("%s (%s) must be less than size (%s)", FirebaseAnalytics.Param.INDEX, Integer.valueOf(i), Integer.valueOf(i2));
+            }
+            throw new IndexOutOfBoundsException(zza);
         }
-        int i = this.zzb;
-        this.zzb = i + 1;
-        return zza(i);
+        return i;
     }
 
-    @Override // java.util.ListIterator
-    public final int nextIndex() {
-        return this.zzb;
-    }
-
-    @Override // java.util.ListIterator
-    public final Object previous() {
-        if (!hasPrevious()) {
-            throw new NoSuchElementException();
+    public static int zzb(int i, int i2, String str) {
+        if (i < 0 || i > i2) {
+            throw new IndexOutOfBoundsException(zzd(i, i2, FirebaseAnalytics.Param.INDEX));
         }
-        int i = this.zzb - 1;
-        this.zzb = i;
-        return zza(i);
+        return i;
     }
 
-    @Override // java.util.ListIterator
-    public final int previousIndex() {
-        return this.zzb - 1;
+    public static void zzc(int i, int i2, int i3) {
+        String zzd;
+        if (i < 0 || i2 < i || i2 > i3) {
+            if (i < 0 || i > i3) {
+                zzd = zzd(i, i3, "start index");
+            } else {
+                zzd = (i2 < 0 || i2 > i3) ? zzd(i2, i3, "end index") : zzge.zza("end index (%s) must not be less than start index (%s)", Integer.valueOf(i2), Integer.valueOf(i));
+            }
+            throw new IndexOutOfBoundsException(zzd);
+        }
     }
 
-    abstract Object zza(int i);
+    private static String zzd(int i, int i2, String str) {
+        if (i < 0) {
+            return zzge.zza("%s (%s) must not be negative", str, Integer.valueOf(i));
+        }
+        if (i2 >= 0) {
+            return zzge.zza("%s (%s) must not be greater than size (%s)", str, Integer.valueOf(i), Integer.valueOf(i2));
+        }
+        StringBuilder sb = new StringBuilder(String.valueOf(i2).length() + 15);
+        sb.append("negative size: ");
+        sb.append(i2);
+        throw new IllegalArgumentException(sb.toString());
+    }
 }

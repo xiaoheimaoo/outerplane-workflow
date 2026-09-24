@@ -5,7 +5,7 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import java.util.List;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class zzv extends com.google.android.gms.internal.games_v2.zza implements IInterface {
     /* JADX INFO: Access modifiers changed from: package-private */

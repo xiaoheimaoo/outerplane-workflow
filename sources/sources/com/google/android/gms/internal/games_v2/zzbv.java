@@ -3,9 +3,9 @@ package com.google.android.gms.internal.games_v2;
 import android.app.PendingIntent;
 import androidx.core.app.NotificationCompat;
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.Preconditions;
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+import java.util.Objects;
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes2.dex */
 final class zzbv {
     private final String zza;
@@ -31,17 +31,17 @@ final class zzbv {
         }
         if (obj instanceof zzbv) {
             zzbv zzbvVar = (zzbv) obj;
-            return Objects.equal(this.zzb, zzbvVar.zzb) && Objects.equal(this.zza, zzbvVar.zza);
+            return Objects.equals(this.zzb, zzbvVar.zzb) && Objects.equals(this.zza, zzbvVar.zza);
         }
         return false;
     }
 
     public final int hashCode() {
-        return Objects.hashCode(this.zzb, this.zza);
+        return Objects.hash(this.zzb, this.zza);
     }
 
     public final String toString() {
-        return Objects.toStringHelper(this).add(NotificationCompat.CATEGORY_STATUS, this.zzb).add("gameRunToken", this.zza).toString();
+        return com.google.android.gms.common.internal.Objects.toStringHelper(this).add(NotificationCompat.CATEGORY_STATUS, this.zzb).add("gameRunToken", this.zza).toString();
     }
 
     public final boolean zzc() {

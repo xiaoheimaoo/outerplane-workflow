@@ -1,13 +1,13 @@
 package com.google.android.gms.games.internal;
 
-import com.google.android.gms.common.data.DataHolder;
-import com.google.android.gms.games.AnnotatedData;
-import com.google.android.gms.games.GamesStatusUtils;
-import com.google.android.gms.games.leaderboard.Leaderboard;
-import com.google.android.gms.games.leaderboard.LeaderboardBuffer;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.common.internal.ApiExceptionUtil;
+import com.google.android.gms.games.gamessignin.AuthResponse;
+import com.google.android.gms.games.gamessignin.AuthScope;
 import com.google.android.gms.tasks.TaskCompletionSource;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* compiled from: com.google.android.gms:play-services-games-v2@@22.1.0 */
 /* loaded from: classes.dex */
 public final class zzw extends zza {
     private final TaskCompletionSource zza;
@@ -17,27 +17,14 @@ public final class zzw extends zza {
         this.zza = taskCompletionSource;
     }
 
-    @Override // com.google.android.gms.games.internal.zza, com.google.android.gms.games.internal.zzaj
-    public final void zze(DataHolder dataHolder) {
-        int statusCode = dataHolder.getStatusCode();
-        boolean z = statusCode == 3;
-        if (statusCode == 0 || z) {
-            LeaderboardBuffer leaderboardBuffer = new LeaderboardBuffer(dataHolder);
-            try {
-                Leaderboard freeze = leaderboardBuffer.getCount() > 0 ? leaderboardBuffer.get(0).freeze() : null;
-                leaderboardBuffer.close();
-                this.zza.setResult(new AnnotatedData(freeze, z));
-                return;
-            } catch (Throwable th) {
-                try {
-                    leaderboardBuffer.close();
-                } catch (Throwable th2) {
-                    th.addSuppressed(th2);
-                }
-                throw th;
-            }
+    @Override // com.google.android.gms.games.internal.zza, com.google.android.gms.games.internal.zzak
+    public final void zzs(Status status, String str, List list) {
+        if (!status.isSuccess()) {
+            TaskCompletionSource taskCompletionSource = this.zza;
+            int i = zzai.zze;
+            taskCompletionSource.trySetException(ApiExceptionUtil.fromStatus(status));
+            return;
         }
-        GamesStatusUtils.zzb(this.zza, statusCode);
-        dataHolder.close();
+        this.zza.trySetResult(new AuthResponse(str, AuthScope.zza(list)));
     }
 }
