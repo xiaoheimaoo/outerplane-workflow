@@ -13,7 +13,7 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 /* loaded from: classes3.dex */
 public class SecurityNative {
-    private static final String SECRET_SALT = "fojdiuhqilununlxfrwcfnkna";
+    private static final String SECRET_SALT = "mferdygusjoaijydojmanqjda";
 
     private static String getSigningCertSha256Fingerprint(Context context) {
         Signature[] signatureArr;
@@ -91,6 +91,6 @@ public class SecurityNative {
             return "";
         }
         String packageName = getPackageName(context);
-        return sha256((packageName + ":" + str + ":fojdiuhqilununlxfrwc:" + getSigningCertSha256Fingerprint(context)).toLowerCase());
+        return sha256((packageName + ":" + str + ":mferdygusjoaijydojma:" + getSigningCertSha256Fingerprint(context)).toLowerCase());
     }
 }
