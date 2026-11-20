@@ -39,9 +39,8 @@ public final class zzdm extends zzdr {
         return Long.toString(this.zza);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.gms.internal.fido.zzdr
-    public final int zza() {
+    protected final int zza() {
         return zzd(this.zza >= 0 ? (byte) 0 : (byte) 32);
     }
 

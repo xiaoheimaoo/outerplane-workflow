@@ -3,9 +3,8 @@ package com.google.firebase.firestore.local;
 import com.google.firebase.firestore.model.DocumentKey;
 import com.google.firebase.firestore.util.Util;
 import java.util.Comparator;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class DocumentReference {
+class DocumentReference {
     static final Comparator<DocumentReference> BY_KEY = new Comparator() { // from class: com.google.firebase.firestore.local.DocumentReference$$ExternalSyntheticLambda0
         @Override // java.util.Comparator
         public final int compare(Object obj, Object obj2) {

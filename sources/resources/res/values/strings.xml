@@ -43,7 +43,7 @@
     <string name="call_notification_incoming_text">Incoming call</string>
     <string name="call_notification_ongoing_text">Ongoing call</string>
     <string name="call_notification_screening_text">Screening an incoming call</string>
-    <string name="res_0x7f0d002b_com_crashlytics_android_build_id">f8260a82-ae84-4b85-a565-cc9e8d0124a8</string>
+    <string name="res_0x7f0d002b_com_crashlytics_android_build_id">04f4ed88-0cb7-4cb8-94dd-6e1cfae5f795</string>
     <string name="res_0x7f0d002c_com_google_firebase_crashlytics_unity_version">2022.3.62f2</string>
     <string name="common_google_play_services_enable_button">Enable</string>
     <string name="common_google_play_services_enable_text">%1$s won\'t work unless you enable Google Play services.</string>
@@ -65,7 +65,7 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="copy_toast_msg">Link copied to clipboard</string>
     <string name="default_android_client_id">787715078943-sthlcrqn6pr1meqs4pes5ugafu7rae29.apps.googleusercontent.com</string>
-    <string name="default_web_client_id">787715078943-netvknookp2oar7n67789otunigc9229.apps.googleusercontent.com</string>
+    <string name="default_web_client_id">787715078943-8h50dvuppl5pfub40agcnm57hli9d5et.apps.googleusercontent.com</string>
     <string name="fallback_menu_item_copy_link">Copy link</string>
     <string name="fallback_menu_item_open_in_browser">Open in browser</string>
     <string name="fallback_menu_item_share_link">Share link</string>
@@ -75,7 +75,7 @@
     <string name="google_api_key">AIzaSyCKdfNfGSY74sIv5FNKFJfoy2QtsRnORgE</string>
     <string name="google_app_id">1:787715078943:android:7c7b3c3a910246683cce2a</string>
     <string name="google_crash_reporting_api_key">AIzaSyCKdfNfGSY74sIv5FNKFJfoy2QtsRnORgE</string>
-    <string name="google_storage_bucket">outerplane.firebasestorage.app</string>
+    <string name="google_storage_bucket">outerplane.appspot.com</string>
     <string name="native_body">Body</string>
     <string name="native_headline">Headline</string>
     <string name="native_media_view">Media View</string>

@@ -102,15 +102,13 @@ public final class zzdo extends zzdr {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.gms.internal.fido.zzdr
-    public final int zza() {
+    protected final int zza() {
         return zzd((byte) -96);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.gms.internal.fido.zzdr
-    public final int zzb() {
+    protected final int zzb() {
         return this.zza;
     }
 

@@ -3,10 +3,9 @@ package com.google.android.gms.internal.fido;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.TreeMap;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: com.google.android.gms:play-services-fido@@20.1.0 */
 /* loaded from: classes2.dex */
-public final class zzds {
+final class zzds {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static final zzdr zza(InputStream inputStream, zzdu zzduVar) throws zzdl {
         try {
